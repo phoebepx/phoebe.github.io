@@ -1,0 +1,779 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="LeetCode,CommonAlgorithms," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="技忆" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="&amp;nbsp;&amp;nbsp;起因：从网页中爬取的数据，需要判断是否包含预设的关键词，并返回所有匹配到的关键词。&amp;nbsp;&amp;nbsp;文字匹配（过滤）是很多文字类网站必不可少的功能，采用一个高效的文字过滤算法至关重要。其本质需求就是判断集合A中哪些子集属于集合B。
+可行思路：
+
+暴力解决，说说而已，实际不会这么做；
+正则表达式
+DFA
+
+&amp;nbsp;&amp;nbsp;接下来主要介绍下DFA算法。DFA是一个">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关键词匹配经典算法——DFA">
+<meta property="og:url" content="http://phoebepan.cn/2017/03/15/DFA/index.html">
+<meta property="og:site_name" content="技忆">
+<meta property="og:description" content="&amp;nbsp;&amp;nbsp;起因：从网页中爬取的数据，需要判断是否包含预设的关键词，并返回所有匹配到的关键词。&amp;nbsp;&amp;nbsp;文字匹配（过滤）是很多文字类网站必不可少的功能，采用一个高效的文字过滤算法至关重要。其本质需求就是判断集合A中哪些子集属于集合B。
+可行思路：
+
+暴力解决，说说而已，实际不会这么做；
+正则表达式
+DFA
+
+&amp;nbsp;&amp;nbsp;接下来主要介绍下DFA算法。DFA是一个">
+<meta property="og:image" content="http://phoebepan.cn/images/dfastate.png">
+<meta property="og:updated_time" content="2017-03-16T00:45:05.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="关键词匹配经典算法——DFA">
+<meta name="twitter:description" content="&amp;nbsp;&amp;nbsp;起因：从网页中爬取的数据，需要判断是否包含预设的关键词，并返回所有匹配到的关键词。&amp;nbsp;&amp;nbsp;文字匹配（过滤）是很多文字类网站必不可少的功能，采用一个高效的文字过滤算法至关重要。其本质需求就是判断集合A中哪些子集属于集合B。
+可行思路：
+
+暴力解决，说说而已，实际不会这么做；
+正则表达式
+DFA
+
+&amp;nbsp;&amp;nbsp;接下来主要介绍下DFA算法。DFA是一个">
+<meta name="twitter:image" content="http://phoebepan.cn/images/dfastate.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://phoebepan.cn/2017/03/15/DFA/"/>
+
+
+
+
+
+  <title> 关键词匹配经典算法——DFA | 技忆 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?9c579837e278589db96fbd819280ab1e";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">技忆</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Phoebe's little progress</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'ce1Ta1UesTAgFvqLzL17','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://phoebepan.cn/2017/03/15/DFA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Phoebe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="技忆">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                关键词匹配经典算法——DFA
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-15T15:30:16+08:00">
+                2017-03-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/03/15/DFA/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/15/DFA/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>&nbsp;&nbsp;<strong>起因</strong>：从网页中爬取的数据，需要判断是否包含预设的关键词，并返回所有匹配到的关键词。<br>&nbsp;&nbsp;<em>文字匹配（过滤）</em>是很多文字类网站必不可少的功能，采用一个高效的文字过滤算法至关重要。其本质需求就是判断集合A中哪些子集属于集合B。</p>
+<p><strong>可行思路：</strong></p>
+<ul>
+<li>暴力解决，说说而已，实际不会这么做；</li>
+<li>正则表达式</li>
+<li>DFA</li>
+</ul>
+<p>&nbsp;&nbsp;接下来主要介绍下DFA算法。DFA是一个实现状态转移的自动机，基本功能是通过event和当前state得到下一个state。其算法核心就是构建一棵一棵的树，这样我们就可以确定需要检索的那棵树，然后再在这棵树中进行检索。算法详细内容参见<a href="https://zh.wikipedia.org/wiki/%E7%A1%AE%E5%AE%9A%E6%9C%89%E9%99%90%E7%8A%B6%E6%80%81%E8%87%AA%E5%8A%A8%E6%9C%BA" target="_blank" rel="external">维基百科</a>。<br>&nbsp;&nbsp;下面贴出用Python写的一<strong>DFA类</strong>：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">DFA</span>:</span></div><div class="line">    current_state = <span class="keyword">None</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, states, alphabet, transition_function, start_state, accept_states)</span>:</span></div><div class="line">        self.states = states</div><div class="line">        self.alphabet = alphabet</div><div class="line">        self.transition_function = transition_function</div><div class="line">        self.start_state = start_state</div><div class="line">        self.accept_states = accept_states</div><div class="line">        self.current_state = start_state</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">transition_to_state_with_input</span><span class="params">(self, input_value)</span>:</span></div><div class="line">        <span class="keyword">if</span> ((self.current_state, input_value) <span class="keyword">not</span> <span class="keyword">in</span> self.transition_function.keys()):</div><div class="line">            self.current_state = <span class="keyword">None</span></div><div class="line">        self.current_state = self.transition_function[(self.current_state, input_value)]</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">in_accept_state</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">return</span> self.current_state <span class="keyword">in</span> accept_states</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">go_to_initial_state</span><span class="params">(self)</span>:</span></div><div class="line">        self.current_state = self.start_state</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">run_with_input_list</span><span class="params">(self, input_list)</span>:</span></div><div class="line">        self.go_to_initial_state()</div><div class="line">        <span class="keyword">for</span> inp <span class="keyword">in</span> input_list:</div><div class="line">            self.transition_to_state_with_input(inp)</div><div class="line">            <span class="keyword">continue</span></div><div class="line">        <span class="keyword">return</span> self.in_accept_state()</div><div class="line">    <span class="keyword">pass</span></div></pre></td></tr></table></figure>
+<p> &nbsp;&nbsp;给出一个测试用例：states：状态集，alphabet：字母表，tf：转移函数，start_state：开始状态，accept_states：可接受状态集.当输入‘bcda’时，由于(0,’b’)-&gt;(2,’c’)-&gt;(3,’d’)-&gt;(0,’a’)-&gt;final_state=1，不可接受的状态，所以返回False。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">states = &#123;<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;</div><div class="line">alphabet = &#123;<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>&#125;</div><div class="line"></div><div class="line">tf = dict()</div><div class="line">tf[(<span class="number">0</span>, <span class="string">'a'</span>)] = <span class="number">1</span>;tf[(<span class="number">0</span>, <span class="string">'b'</span>)] = <span class="number">2</span>;tf[(<span class="number">0</span>, <span class="string">'c'</span>)] = <span class="number">3</span>;tf[(<span class="number">0</span>, <span class="string">'d'</span>)] = <span class="number">0</span></div><div class="line">tf[(<span class="number">1</span>, <span class="string">'a'</span>)] = <span class="number">1</span>;tf[(<span class="number">1</span>, <span class="string">'b'</span>)] = <span class="number">2</span>;tf[(<span class="number">1</span>, <span class="string">'c'</span>)] = <span class="number">3</span>;tf[(<span class="number">1</span>, <span class="string">'d'</span>)] = <span class="number">0</span></div><div class="line">tf[(<span class="number">2</span>, <span class="string">'a'</span>)] = <span class="number">1</span>;tf[(<span class="number">2</span>, <span class="string">'b'</span>)] = <span class="number">2</span>;tf[(<span class="number">2</span>, <span class="string">'c'</span>)] = <span class="number">3</span>;tf[(<span class="number">2</span>, <span class="string">'d'</span>)] = <span class="number">0</span></div><div class="line">tf[(<span class="number">3</span>, <span class="string">'a'</span>)] = <span class="number">1</span>;tf[(<span class="number">3</span>, <span class="string">'b'</span>)] = <span class="number">2</span>;tf[(<span class="number">3</span>, <span class="string">'c'</span>)] = <span class="number">3</span>;tf[(<span class="number">3</span>, <span class="string">'d'</span>)] = <span class="number">0</span></div><div class="line">start_state = <span class="number">0</span></div><div class="line">accept_states = &#123;<span class="number">2</span>, <span class="number">3</span>&#125;</div><div class="line">d = DFA(states, alphabet, tf, start_state, accept_states)</div><div class="line">inp_program = list(<span class="string">'bcda'</span>)</div><div class="line">print(d.run_with_input_list(inp_program))   <span class="comment">#False</span></div></pre></td></tr></table></figure></p>
+<p><strong>DFA的神奇魔力</strong><br>运用DFA解决 <em>Valid Number</em> 问题(<a href="https://leetcode.com/problems/valid-number/#/description" target="_blank" rel="external">LeetCode</a>)：<br><strong>Description:</strong> Validate if a given string is numeric.<br><strong>Some examples:</strong><br>“0” =&gt; true<br>“ 0.1 “ =&gt; true<br>“abc” =&gt; false<br>“1 a” =&gt; false<br>“2e10” =&gt; true<br><strong>思考</strong> <img src="/images/dfastate.png" width="50%" height="50%" align="center/"><br><strong>简单实现</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isNumber</span><span class="params">(self, s)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        :type s: str</div><div class="line">        :rtype: bool</div><div class="line">        """</div><div class="line">        <span class="comment">#define DFA</span></div><div class="line">        state = [&#123;&#125;,</div><div class="line">              &#123;<span class="string">'blank'</span>: <span class="number">1</span>, <span class="string">'sign'</span>: <span class="number">2</span>, <span class="string">'digit'</span>:<span class="number">3</span>, <span class="string">'.'</span>:<span class="number">4</span>&#125;,</div><div class="line">              &#123;<span class="string">'digit'</span>:<span class="number">3</span>, <span class="string">'.'</span>:<span class="number">4</span>&#125;,</div><div class="line">              &#123;<span class="string">'digit'</span>:<span class="number">3</span>, <span class="string">'.'</span>:<span class="number">5</span>, <span class="string">'e'</span>:<span class="number">6</span>, <span class="string">'blank'</span>:<span class="number">9</span>&#125;,</div><div class="line">              &#123;<span class="string">'digit'</span>:<span class="number">5</span>&#125;,</div><div class="line">              &#123;<span class="string">'digit'</span>:<span class="number">5</span>, <span class="string">'e'</span>:<span class="number">6</span>, <span class="string">'blank'</span>:<span class="number">9</span>&#125;,</div><div class="line">              &#123;<span class="string">'sign'</span>:<span class="number">7</span>, <span class="string">'digit'</span>:<span class="number">8</span>&#125;,</div><div class="line">              &#123;<span class="string">'digit'</span>:<span class="number">8</span>&#125;,</div><div class="line">              &#123;<span class="string">'digit'</span>:<span class="number">8</span>, <span class="string">'blank'</span>:<span class="number">9</span>&#125;,</div><div class="line">              &#123;<span class="string">'blank'</span>:<span class="number">9</span>&#125;]</div><div class="line">        currentState = <span class="number">1</span></div><div class="line"></div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> s:</div><div class="line">            <span class="keyword">if</span> i &gt;=<span class="string">'0'</span> <span class="keyword">and</span> i&lt;=<span class="string">'9'</span>:</div><div class="line">                i = <span class="string">'digit'</span></div><div class="line">            <span class="keyword">if</span> i <span class="keyword">in</span> [<span class="string">'+'</span>,<span class="string">'-'</span>]:</div><div class="line">                i = <span class="string">'sign'</span></div><div class="line">            <span class="keyword">if</span> i ==<span class="string">' '</span> :</div><div class="line">                i = <span class="string">'blank'</span></div><div class="line">            <span class="keyword">if</span> i <span class="keyword">not</span> <span class="keyword">in</span> state[currentState].keys():</div><div class="line">                <span class="keyword">return</span> <span class="keyword">False</span></div><div class="line">            currentState = state[currentState][i]</div><div class="line">            <span class="keyword">if</span> currentState <span class="keyword">not</span> <span class="keyword">in</span> [<span class="number">3</span>,<span class="number">5</span>,<span class="number">8</span>,<span class="number">9</span>]:</div><div class="line">                <span class="keyword">return</span> <span class="keyword">False</span></div><div class="line">            <span class="keyword">return</span> <span class="keyword">True</span></div><div class="line"></div><div class="line"><span class="comment">#test</span></div><div class="line">a = Solution()</div><div class="line">print(a.isNumber(<span class="string">'.e-1'</span>))   <span class="comment">#False</span></div><div class="line">print(a.isNumber(<span class="string">'e2'</span>))     <span class="comment">#False</span></div><div class="line">print(a.isNumber(<span class="string">'2e10'</span>))   <span class="comment">#True</span></div></pre></td></tr></table></figure></p>
+<p> So easy 吧！是不是比正则高级多了：)</p>
+<center>Do things don’t scale !</center>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/LeetCode/" rel="tag"># LeetCode</a>
+          
+            <a href="/tags/CommonAlgorithms/" rel="tag"># CommonAlgorithms</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/03/15/read_block_data/" rel="prev" title="读《块数据》">
+                读《块数据》 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/03/15/DFA/"
+           data-title="关键词匹配经典算法——DFA" data-url="http://phoebepan.cn/2017/03/15/DFA/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Phoebe" />
+          <p class="site-author-name" itemprop="name">Phoebe</p>
+           
+              <p class="site-description motion-element" itemprop="description">Do things don't scale, just do it!</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/phoebepx" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.linkedin.com/in/%E9%9C%9E-%E6%BD%98-94362b113/" target="_blank" title="Linkedln">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Linkedln
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Phoebe</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"phoebepan"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>
