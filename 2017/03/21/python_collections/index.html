@@ -1,0 +1,818 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Python," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="技忆" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="collections是Python内建的一个集合模块，提供了许多有用的集合类。namedtupletuple可表示不变集合，例如，一个点的二维坐标就可以表示成：
+
+A = (2,3)
+
+但是，看到(2,3)这样的tuple很难联想到一个点坐标，定义一个class，又很鸡肋，大材小用，此时，namedtuple就派上用场了。12345from collections import namedtup">
+<meta property="og:type" content="article">
+<meta property="og:title" content="魔力Python——collections">
+<meta property="og:url" content="http://phoebepan.cn/2017/03/21/python_collections/index.html">
+<meta property="og:site_name" content="技忆">
+<meta property="og:description" content="collections是Python内建的一个集合模块，提供了许多有用的集合类。namedtupletuple可表示不变集合，例如，一个点的二维坐标就可以表示成：
+
+A = (2,3)
+
+但是，看到(2,3)这样的tuple很难联想到一个点坐标，定义一个class，又很鸡肋，大材小用，此时，namedtuple就派上用场了。12345from collections import namedtup">
+<meta property="og:updated_time" content="2017-03-21T06:47:52.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="魔力Python——collections">
+<meta name="twitter:description" content="collections是Python内建的一个集合模块，提供了许多有用的集合类。namedtupletuple可表示不变集合，例如，一个点的二维坐标就可以表示成：
+
+A = (2,3)
+
+但是，看到(2,3)这样的tuple很难联想到一个点坐标，定义一个class，又很鸡肋，大材小用，此时，namedtuple就派上用场了。12345from collections import namedtup">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://phoebepan.cn/2017/03/21/python_collections/"/>
+
+
+
+
+
+  <title> 魔力Python——collections | 技忆 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?9c579837e278589db96fbd819280ab1e";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">技忆</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Phoebe's little progress</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            站点地图
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'ce1Ta1UesTAgFvqLzL17','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://phoebepan.cn/2017/03/21/python_collections/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Phoebe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="技忆">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                魔力Python——collections
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-21T15:30:16+08:00">
+                2017-03-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/03/21/python_collections/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/21/python_collections/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="collections是Python内建的一个集合模块，提供了许多有用的集合类。"><a href="#collections是Python内建的一个集合模块，提供了许多有用的集合类。" class="headerlink" title="collections是Python内建的一个集合模块，提供了许多有用的集合类。"></a><font color="red"><strong>collections</strong></font>是Python内建的一个集合模块，提供了许多有用的集合类。</h3><h4 id="namedtuple"><a href="#namedtuple" class="headerlink" title="namedtuple"></a><strong>namedtuple</strong></h4><p>tuple可表示不变集合，例如，一个点的二维坐标就可以表示成：</p>
+<blockquote>
+<p>A = (2,3)</p>
+</blockquote>
+<p>但是，看到(2,3)这样的tuple很难联想到一个点坐标，定义一个class，又很鸡肋，大材小用，此时，<font color="red">namedtuple</font>就派上用场了。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> namedtuple</div><div class="line">Point = namedtuple(<span class="string">'Point'</span>,(<span class="string">'x'</span>,<span class="string">'y'</span>))</div><div class="line">A = Point(<span class="number">2</span>,<span class="number">3</span>)</div><div class="line">print(A.x,A.y)   </div><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="number">2</span> <span class="number">3</span></div></pre></td></tr></table></figure></p>
+<h4 id="deque"><a href="#deque" class="headerlink" title="deque"></a><strong>deque</strong></h4><p>由于<font color="red">list</font>是线性存储，按索引访问元素很快，但数据量大时，插入和删除效率较低。deque是为实现高效插入和删除的双向列表，适用于栈和队列。</p>
+<p><font color="red">deque</font>除了list的<font color="red">append()</font>和<font color="red">pop()</font>，还支持<font color="red">appenleft()</font>和<font color="red">popleft()</font>，这就可以高效的往头部插入或删除元素。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#用deque查找图中start-&gt;goal两结点的路径</span></div><div class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> deque</div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">bfs_paths</span><span class="params">(graph, start, goal)</span>:</span></div><div class="line">    queue = deque([(start,[start])])</div><div class="line">    <span class="keyword">while</span> queue:</div><div class="line">        vertex,path= queue.popleft()</div><div class="line">        <span class="keyword">if</span> vertex==goal:</div><div class="line">            <span class="keyword">yield</span> path</div><div class="line">        <span class="keyword">for</span> next <span class="keyword">in</span> graph[vertex]-set(path):</div><div class="line">            queue.extend([(next,path+[next])])</div></pre></td></tr></table></figure></p>
+<h4 id="defaultdict"><a href="#defaultdict" class="headerlink" title="defaultdict"></a><strong>defaultdict</strong></h4><p>使用<font color="red">dict</font>时，常常会遇到引用的key不存在，而报错，如果希望可以不存在时，返回一个默认值，可以用<font color="red">defaultdict</font>：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> defaultdict</div><div class="line">d = defaultdict(<span class="keyword">lambda</span>: <span class="string">'Error'</span>)</div><div class="line">d[<span class="string">'1'</span>] = <span class="string">'a'</span></div><div class="line">print(d[<span class="string">'1'</span>])</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>a       <span class="comment">#key存在</span></div><div class="line">print(d[<span class="string">'2'</span>])</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>Error   <span class="comment">#key不存在</span></div></pre></td></tr></table></figure></p>
+<h4 id="Counter"><a href="#Counter" class="headerlink" title="Counter"></a><strong>Counter</strong></h4><p><font color="red">Counter</font>是一个简单的计数器，可统计字符出现的个数：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> Counter</div><div class="line">A = Counter()</div><div class="line">str1=<span class="string">'hello word'</span></div><div class="line"><span class="keyword">for</span> s <span class="keyword">in</span> str1:</div><div class="line">    A[s]+=<span class="number">1</span></div><div class="line">print(A)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>Counter(&#123;<span class="string">'l'</span>: <span class="number">2</span>, <span class="string">'o'</span>: <span class="number">2</span>, <span class="string">' '</span>: <span class="number">1</span>, <span class="string">'h'</span>: <span class="number">1</span>, <span class="string">'r'</span>: <span class="number">1</span>, <span class="string">'w'</span>: <span class="number">1</span>, <span class="string">'d'</span>: <span class="number">1</span>, <span class="string">'e'</span>: <span class="number">1</span>&#125;)</div></pre></td></tr></table></figure></p>
+<h4 id="OrderedDict"><a href="#OrderedDict" class="headerlink" title="OrderedDict"></a><strong>OrderedDict</strong></h4><p>使用<font color="red">dict</font>时，key是无序的，若要使key保持有序，可使用<font color="red">OrderedDict</font>，它可以实现一个先进先出(FIFO)的dict，当超出容量，删除最先进入的key。<br>实例：<br>LeetCode——<a href="https://leetcode.com/problems/lru-cache/#/description" target="_blank" rel="external">LRU Cache</a><br>题目大意，就是实现一个近期最少使用(LRU)缓存的数据结构，支持put和get操作。<br>get(key)-取值(key恒为正)，不存在返回-1；<br>put(key,value)-插入或替换(缓存容量达到上限，移除近期最少使用的元素)。</p>
+<p>运用OrderedDict解题代码：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> OrderedDict</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">LRUCache</span><span class="params">(object)</span>:</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, capacity)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        :type capacity: int</div><div class="line">        """</div><div class="line">        self.capacity=capacity</div><div class="line">        self.cache = OrderedDict()</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get</span><span class="params">(self, key)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        :type key: int</div><div class="line">        :rtype: int</div><div class="line">        """</div><div class="line">        <span class="keyword">if</span> <span class="keyword">not</span> key <span class="keyword">in</span> self.cache.keys():</div><div class="line">            <span class="keyword">return</span> <span class="number">-1</span></div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            <span class="comment">#一定要弹出再重新插入，不然体现不了最近最少使用</span></div><div class="line">            value = self.cache.pop(key)</div><div class="line">            self.cache[key] = value</div><div class="line">            <span class="keyword">return</span> value</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">put</span><span class="params">(self, key, value)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        :type key: int</div><div class="line">        :type value: int</div><div class="line">        :rtype: void</div><div class="line">        """</div><div class="line">        <span class="comment">#2种特殊情况，key在缓存中，弹出再插；容量达到上限，弹出最近最少使用的</span></div><div class="line">        <span class="keyword">if</span> key <span class="keyword">in</span> self.cache.keys():</div><div class="line">            self.cache.pop(key)</div><div class="line">        <span class="keyword">elif</span> self.capacity==len(self.cache):</div><div class="line">            self.cache.popitem(last = <span class="keyword">False</span>)</div><div class="line">        self.cache[key]=value</div></pre></td></tr></table></figure></p>
+<p>此题，虽然用OrderedDict可以很简洁的解决，但是不够高效，更快速的方法，可采用双链表实现，双链表实现细节参见我的<a href="https://github.com/phoebepx/Algorithm/blob/master/LeetCode/LRU%20Cache.py" target="_blank" rel="external">Github</a>(method2)。</p>
+<center><strong>Talk is cheap. Show me the code.</strong></center>
+
+
+
+      
+    </div>
+<div align="center">
+  
+    <div class="copyright">
+    <p><span>
+    <b>本文地址：</b><a href="/2017/03/21/python_collections/" title="魔力Python——collections">http://phoebepan.cn/2017/03/21/python_collections/</a><br /><b>转载请注明出处，谢谢！</b>
+    </span></p>
+    </div>
+  
+</div>
+	
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Python/" rel="tag"># Python</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/20/reader/" rel="next" title="朗读者「百合花开」">
+                <i class="fa fa-chevron-left"></i> 朗读者「百合花开」
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/03/21/python_collections/"
+           data-title="魔力Python——collections" data-url="http://phoebepan.cn/2017/03/21/python_collections/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Phoebe" />
+          <p class="site-author-name" itemprop="name">Phoebe</p>
+           
+              <p class="site-description motion-element" itemprop="description">Do things don't scale, just do it!</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/phoebepx" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.linkedin.com/in/%E9%9C%9E-%E6%BD%98-94362b113/" target="_blank" title="Linkedln">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Linkedln
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#collections是Python内建的一个集合模块，提供了许多有用的集合类。"><span class="nav-number">1.</span> <span class="nav-text">collections是Python内建的一个集合模块，提供了许多有用的集合类。</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#namedtuple"><span class="nav-number">1.1.</span> <span class="nav-text">namedtuple</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#deque"><span class="nav-number">1.2.</span> <span class="nav-text">deque</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#defaultdict"><span class="nav-number">1.3.</span> <span class="nav-text">defaultdict</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Counter"><span class="nav-number">1.4.</span> <span class="nav-text">Counter</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#OrderedDict"><span class="nav-number">1.5.</span> <span class="nav-text">OrderedDict</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Phoebe</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"phoebepan"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+  <a href="https://github.com/phoebepx"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png"></a>
+  <!-- 小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+
+  
+</body>
+</html>

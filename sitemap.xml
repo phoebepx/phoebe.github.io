@@ -2,23 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://phoebepan.cn/2017/03/17/python_yield/</loc>
+    <loc>http://phoebepan.cn/2017/03/15/read_block_data/</loc>
     
-    <lastmod>2017-03-17T14:59:53.000Z</lastmod>
+    <lastmod>2017-03-21T12:18:14.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://phoebepan.cn/2017/03/15/DFA/</loc>
     
-    <lastmod>2017-03-16T00:52:02.000Z</lastmod>
+    <lastmod>2017-03-21T12:17:27.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://phoebepan.cn/2017/03/15/read_block_data/</loc>
+    <loc>http://phoebepan.cn/2017/03/17/python_yield/</loc>
     
-    <lastmod>2017-03-16T00:40:27.000Z</lastmod>
+    <lastmod>2017-03-21T12:16:12.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://phoebepan.cn/2017/03/20/reader/</loc>
+    
+    <lastmod>2017-03-21T12:13:29.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://phoebepan.cn/2017/03/21/python_collections/</loc>
+    
+    <lastmod>2017-03-21T06:47:52.000Z</lastmod>
     
   </url>
   
