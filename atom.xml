@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://phoebepan.cn/"/>
-  <updated>2017-03-21T14:32:02.000Z</updated>
+  <updated>2017-03-21T14:56:39.000Z</updated>
   <id>http://phoebepan.cn/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://phoebepan.cn/2017/03/21/python_collections/"/>
     <id>http://phoebepan.cn/2017/03/21/python_collections/</id>
     <published>2017-03-21T07:30:16.000Z</published>
-    <updated>2017-03-21T14:32:02.000Z</updated>
+    <updated>2017-03-21T14:56:39.000Z</updated>
     
     <content type="html"><![CDATA[<h3 id="collections是Python内建的一个集合模块，提供了许多有用的集合类。"><a href="#collections是Python内建的一个集合模块，提供了许多有用的集合类。" class="headerlink" title="collections是Python内建的一个集合模块，提供了许多有用的集合类。"></a><font color="red"><strong>collections</strong></font>是Python内建的一个集合模块，提供了许多有用的集合类。</h3><h3 id="namedtuple"><a href="#namedtuple" class="headerlink" title="namedtuple"></a><strong>namedtuple</strong></h3><p>tuple可表示不变集合，例如，一个点的二维坐标就可以表示成：</p>
 <blockquote>
@@ -45,6 +45,8 @@
     
     </summary>
     
+      <category term="Python" scheme="http://phoebepan.cn/categories/Python/"/>
+    
     
       <category term="Python" scheme="http://phoebepan.cn/tags/Python/"/>
     
@@ -55,7 +57,7 @@
     <link href="http://phoebepan.cn/2017/03/20/reader/"/>
     <id>http://phoebepan.cn/2017/03/20/reader/</id>
     <published>2017-03-20T07:30:16.000Z</published>
-    <updated>2017-03-21T14:36:48.000Z</updated>
+    <updated>2017-03-21T14:56:48.000Z</updated>
     
     <content type="html"><![CDATA[<h4 id="1"><a href="#1" class="headerlink" title="1"></a><center>1</center></h4><p>　　总有一段文字，那时那刻有着非常特别的意义，早上在跑步机上听到蒋雯丽朗读的百合花开，一方面被她流露出的情感打动，另一方面超级喜爱这段文字，百合我爱，但更爱它这股傲劲。</p>
 <h4 id="2"><a href="#2" class="headerlink" title="2"></a><center>2</center></h4><p>　　最近迷上了算法，特别当自己没想到，而别人超级concise的方法，这种醍醐灌顶的感觉，真的蛮爽的！</p>
@@ -82,6 +84,8 @@
     
     </summary>
     
+      <category term="Thinking" scheme="http://phoebepan.cn/categories/Thinking/"/>
+    
     
       <category term="Thinking" scheme="http://phoebepan.cn/tags/Thinking/"/>
     
@@ -94,7 +98,7 @@
     <link href="http://phoebepan.cn/2017/03/17/python_yield/"/>
     <id>http://phoebepan.cn/2017/03/17/python_yield/</id>
     <published>2017-03-17T07:30:16.000Z</published>
-    <updated>2017-03-21T14:31:47.000Z</updated>
+    <updated>2017-03-21T14:56:34.000Z</updated>
     
     <content type="html"><![CDATA[<p><strong>起因：</strong>在图论中，实现广度搜索两顶点所有路径时，被好用的 yield 和 yield from 惊呆啦~</p>
 <p><em>题外话：</em> 想真正搞明白这两者，先学习两个名词，<strong>迭代器</strong> 、<strong>生成器</strong>。</p>
@@ -116,6 +120,8 @@
     
     </summary>
     
+      <category term="Python" scheme="http://phoebepan.cn/categories/Python/"/>
+    
     
       <category term="Python" scheme="http://phoebepan.cn/tags/Python/"/>
     
@@ -126,7 +132,7 @@
     <link href="http://phoebepan.cn/2017/03/15/DFA/"/>
     <id>http://phoebepan.cn/2017/03/15/DFA/</id>
     <published>2017-03-15T07:30:16.000Z</published>
-    <updated>2017-03-21T14:37:03.000Z</updated>
+    <updated>2017-03-21T14:56:44.000Z</updated>
     
     <content type="html"><![CDATA[<p><strong>起因</strong>：从网页中爬取的数据，需要判断是否包含预设的关键词，并返回所有匹配到的关键词。<br><em>文字匹配（过滤）</em>是很多文字类网站必不可少的功能，采用一个高效的文字过滤算法至关重要。其本质需求就是判断集合A中哪些子集属于集合B。</p>
 <p><strong>可行思路：</strong></p>
@@ -148,6 +154,8 @@
     
     </summary>
     
+      <category term="Algorithms" scheme="http://phoebepan.cn/categories/Algorithms/"/>
+    
     
       <category term="LeetCode" scheme="http://phoebepan.cn/tags/LeetCode/"/>
     
@@ -160,7 +168,7 @@
     <link href="http://phoebepan.cn/2017/03/15/read_block_data/"/>
     <id>http://phoebepan.cn/2017/03/15/read_block_data/</id>
     <published>2017-03-15T07:30:16.000Z</published>
-    <updated>2017-03-21T14:37:14.000Z</updated>
+    <updated>2017-03-21T14:56:29.000Z</updated>
     
     <content type="html"><![CDATA[<p><strong>作者简介：</strong>本书是大数据战略重点实验室编写，是实验室集中一批大数据领域专家学者、实践者和郑策制定者的力量，在调研大量大数据企业、相关政府职能部门、各类社会组织后集中撰写的。</p>
 <p>　　我呢，是在周末逛校图书馆的时候，被“块数据”三个字和书的封面吸引，而读了这本书，给了我对数据产业链的新认识，开卷有益，下面是自己的读书笔记与小思考。</p>
@@ -206,6 +214,8 @@
 &lt;p&gt;　　我呢，是在周末逛校图书馆的时候，被“块数据”三个字
     
     </summary>
+    
+      <category term="Thinking" scheme="http://phoebepan.cn/categories/Thinking/"/>
     
     
       <category term="Reading" scheme="http://phoebepan.cn/tags/Reading/"/>
