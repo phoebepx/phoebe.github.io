@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>技忆</title>
+  <subtitle>Phoebe&#39;s little progress</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://phoebepan.cn/"/>
+  <updated>2017-03-21T14:32:02.000Z</updated>
+  <id>http://phoebepan.cn/</id>
+  
+  <author>
+    <name>Phoebe</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>魔力Python——collections</title>
+    <link href="http://phoebepan.cn/2017/03/21/python_collections/"/>
+    <id>http://phoebepan.cn/2017/03/21/python_collections/</id>
+    <published>2017-03-21T07:30:16.000Z</published>
+    <updated>2017-03-21T14:32:02.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="collections是Python内建的一个集合模块，提供了许多有用的集合类。"><a href="#collections是Python内建的一个集合模块，提供了许多有用的集合类。" class="headerlink" title="collections是Python内建的一个集合模块，提供了许多有用的集合类。"></a><font color="red"><strong>collections</strong></font>是Python内建的一个集合模块，提供了许多有用的集合类。</h3><h3 id="namedtuple"><a href="#namedtuple" class="headerlink" title="namedtuple"></a><strong>namedtuple</strong></h3><p>tuple可表示不变集合，例如，一个点的二维坐标就可以表示成：</p>
+<blockquote>
+<p>A = (2,3)</p>
+</blockquote>
+<p>但是，看到(2,3)这样的tuple很难联想到一个点坐标，定义一个class，又很鸡肋，大材小用，此时，<font color="red">namedtuple</font>就派上用场了。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> namedtuple</div><div class="line">Point = namedtuple(<span class="string">'Point'</span>,(<span class="string">'x'</span>,<span class="string">'y'</span>))</div><div class="line">A = Point(<span class="number">2</span>,<span class="number">3</span>)</div><div class="line">print(A.x,A.y)   </div><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="number">2</span> <span class="number">3</span></div></pre></td></tr></table></figure></p>
+<h3 id="deque"><a href="#deque" class="headerlink" title="deque"></a><strong>deque</strong></h3><p>由于<font color="red">list</font>是线性存储，按索引访问元素很快，但数据量大时，插入和删除效率较低。deque是为实现高效插入和删除的双向列表，适用于栈和队列。</p>
+<p><font color="red">deque</font>除了list的<font color="red">append()</font>和<font color="red">pop()</font>，还支持<font color="red">appenleft()</font>和<font color="red">popleft()</font>，这就可以高效的往头部插入或删除元素。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#用deque查找图中start-&gt;goal两结点的路径</span></div><div class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> deque</div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">bfs_paths</span><span class="params">(graph, start, goal)</span>:</span></div><div class="line">    queue = deque([(start,[start])])</div><div class="line">    <span class="keyword">while</span> queue:</div><div class="line">        vertex,path= queue.popleft()</div><div class="line">        <span class="keyword">if</span> vertex==goal:</div><div class="line">            <span class="keyword">yield</span> path</div><div class="line">        <span class="keyword">for</span> next <span class="keyword">in</span> graph[vertex]-set(path):</div><div class="line">            queue.extend([(next,path+[next])])</div></pre></td></tr></table></figure></p>
+<h3 id="defaultdict"><a href="#defaultdict" class="headerlink" title="defaultdict"></a><strong>defaultdict</strong></h3><p>使用<font color="red">dict</font>时，常常会遇到引用的key不存在，而报错，如果希望可以不存在时，返回一个默认值，可以用<font color="red">defaultdict</font>：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> defaultdict</div><div class="line">d = defaultdict(<span class="keyword">lambda</span>: <span class="string">'Error'</span>)</div><div class="line">d[<span class="string">'1'</span>] = <span class="string">'a'</span></div><div class="line">print(d[<span class="string">'1'</span>])</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>a       <span class="comment">#key存在</span></div><div class="line">print(d[<span class="string">'2'</span>])</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>Error   <span class="comment">#key不存在</span></div></pre></td></tr></table></figure></p>
+<h3 id="Counter"><a href="#Counter" class="headerlink" title="Counter"></a><strong>Counter</strong></h3><p><font color="red">Counter</font>是一个简单的计数器，可统计字符出现的个数：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> Counter</div><div class="line">A = Counter()</div><div class="line">str1=<span class="string">'hello word'</span></div><div class="line"><span class="keyword">for</span> s <span class="keyword">in</span> str1:</div><div class="line">    A[s]+=<span class="number">1</span></div><div class="line">print(A)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>Counter(&#123;<span class="string">'l'</span>: <span class="number">2</span>, <span class="string">'o'</span>: <span class="number">2</span>, <span class="string">' '</span>: <span class="number">1</span>, <span class="string">'h'</span>: <span class="number">1</span>, <span class="string">'r'</span>: <span class="number">1</span>, <span class="string">'w'</span>: <span class="number">1</span>, <span class="string">'d'</span>: <span class="number">1</span>, <span class="string">'e'</span>: <span class="number">1</span>&#125;)</div></pre></td></tr></table></figure></p>
+<h3 id="OrderedDict"><a href="#OrderedDict" class="headerlink" title="OrderedDict"></a><strong>OrderedDict</strong></h3><p>使用<font color="red">dict</font>时，key是无序的，若要使key保持有序，可使用<font color="red">OrderedDict</font>，它可以实现一个先进先出(FIFO)的dict，当超出容量，删除最先进入的key。<br>实例：<br>LeetCode——<a href="https://leetcode.com/problems/lru-cache/#/description" target="_blank" rel="external">LRU Cache</a><br>题目大意，就是实现一个近期最少使用(LRU)缓存的数据结构，支持put和get操作。<br>get(key)-取值(key恒为正)，不存在返回-1；<br>put(key,value)-插入或替换(缓存容量达到上限，移除近期最少使用的元素)。</p>
+<p>运用OrderedDict解题代码：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> OrderedDict</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">LRUCache</span><span class="params">(object)</span>:</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, capacity)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        :type capacity: int</div><div class="line">        """</div><div class="line">        self.capacity=capacity</div><div class="line">        self.cache = OrderedDict()</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get</span><span class="params">(self, key)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        :type key: int</div><div class="line">        :rtype: int</div><div class="line">        """</div><div class="line">        <span class="keyword">if</span> <span class="keyword">not</span> key <span class="keyword">in</span> self.cache.keys():</div><div class="line">            <span class="keyword">return</span> <span class="number">-1</span></div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            <span class="comment">#一定要弹出再重新插入，不然体现不了最近最少使用</span></div><div class="line">            value = self.cache.pop(key)</div><div class="line">            self.cache[key] = value</div><div class="line">            <span class="keyword">return</span> value</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">put</span><span class="params">(self, key, value)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        :type key: int</div><div class="line">        :type value: int</div><div class="line">        :rtype: void</div><div class="line">        """</div><div class="line">        <span class="comment">#2种特殊情况，key在缓存中，弹出再插；容量达到上限，弹出最近最少使用的</span></div><div class="line">        <span class="keyword">if</span> key <span class="keyword">in</span> self.cache.keys():</div><div class="line">            self.cache.pop(key)</div><div class="line">        <span class="keyword">elif</span> self.capacity==len(self.cache):</div><div class="line">            self.cache.popitem(last = <span class="keyword">False</span>)</div><div class="line">        self.cache[key]=value</div></pre></td></tr></table></figure></p>
+<p>此题，虽然用OrderedDict可以很简洁的解决，但是不够高效，更快速的方法，可采用双链表实现，双链表实现细节参见我的<a href="https://github.com/phoebepx/Algorithm/blob/master/LeetCode/LRU%20Cache.py" target="_blank" rel="external">Github</a>(method2)。</p>
+<center><strong>Talk is cheap. Show me the code.</strong></center>
+
+
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;collections是Python内建的一个集合模块，提供了许多有用的集合类。&quot;&gt;&lt;a href=&quot;#collections是Python内建的一个集合模块，提供了许多有用的集合类。&quot; class=&quot;headerlink&quot; title=&quot;collections是
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="http://phoebepan.cn/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>朗读者「百合花开」</title>
+    <link href="http://phoebepan.cn/2017/03/20/reader/"/>
+    <id>http://phoebepan.cn/2017/03/20/reader/</id>
+    <published>2017-03-20T07:30:16.000Z</published>
+    <updated>2017-03-21T14:36:48.000Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="1"><a href="#1" class="headerlink" title="1"></a><center>1</center></h4><p>　　总有一段文字，那时那刻有着非常特别的意义，早上在跑步机上听到蒋雯丽朗读的百合花开，一方面被她流露出的情感打动，另一方面超级喜爱这段文字，百合我爱，但更爱它这股傲劲。</p>
+<h4 id="2"><a href="#2" class="headerlink" title="2"></a><center>2</center></h4><p>　　最近迷上了算法，特别当自己没想到，而别人超级concise的方法，这种醍醐灌顶的感觉，真的蛮爽的！</p>
+<h4 id="附：原文"><a href="#附：原文" class="headerlink" title="附：原文"></a>附：原文</h4><p>　　在一个偏僻遥远的山谷里，有一处数千尺高的断崖。不知道什么时候，断崖边上长出了一株小小的百合。</p>
+<p>　　起初，百合长得和野草一模一样。但是，它心里知道自己不是一株野草。它的内心深处有这样一个念头：“我是一株百合，不是野草。唯一能证明我是百合的方法，就是开出美丽的花朵。”</p>
+<p>　　有了这个念头，百合努力地吸收水分和阳光，深深地扎根，直直地挺着胸膛。</p>
+<p>　　终于，在一个春天的清晨，百合的顶部结出了第一个花苞。</p>
+<p>　　百合的心里很高兴，附近的野草却很不屑，它们在私底下嘲笑百合：“这家伙明明是一株草，却偏偏说自己是一株花，我看它顶上结的根本不是花苞，而是长了一个疙瘩……”</p>
+<p>　　在公开场合，它们也嘲笑百合：“你不要做梦了！即使你真的会开花，在这荒郊野外，你的价值还不是跟我们一样。”</p>
+<p>　　偶尔有飞过的蜂蝶鸟雀，它们也会劝百合不用那么努力地开花：“在这断崖边上，纵然开出世界上最美的花，也不会有人来欣赏啊！”</p>
+<p>　　百合说：“我要开花，是因为我知道自己有美丽的花；我要开花，是为了完成作为一株花的庄严生命；我要开花，是由于自己喜欢以花来证明自己的存在。不管有没有人欣赏，不管你们怎么看我，我都要开花！”</p>
+<p>　　在野草和蜂蝶的鄙夷嘲笑下，百合努力地生长着。终于有一天，它开花了。</p>
+<p>　　百合花一朵一朵地盛开着，花朵上每天都有晶莹的水珠，野草们以为那是昨夜的露水；只有百合自己知道，那是极深沉的欢喜所结出的泪滴。它那透着灵性的洁白和秀挺的风姿，成了断崖上最美丽的一道景色。</p>
+<p>　　这时候，野草和蜂蝶再也不嘲笑它了。</p>
+<p>　　此后，年年春天，百合都努力地开花，结籽。它的种子随着风落在山谷、草地和悬崖边上，让那些地方到处都开满洁白的百合。</p>
+<p>　　几十年后，人们从城市，从乡村，千里迢迢赶来欣赏百合开花。孩子们跪下来，快乐地嗅着百合花的芬芳；情侣们手拉着手，许下“百年好合”的誓言……无数的人看到这从未见过的美丽，感动得直落泪。</p>
+<p>　　那里，被人称为“百合谷”。</p>
+<p>　　不管别人怎么欣赏，满山的百合花都谨记着第一株百合的教导：“我们要全心全意默默地开花，用花来证明自己的存在。”</p>
+<center><strong>默默开花，用花来证明自己的存在！</strong></center>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;1&quot;&gt;&lt;a href=&quot;#1&quot; class=&quot;headerlink&quot; title=&quot;1&quot;&gt;&lt;/a&gt;&lt;center&gt;1&lt;/center&gt;&lt;/h4&gt;&lt;p&gt;　　总有一段文字，那时那刻有着非常特别的意义，早上在跑步机上听到蒋雯丽朗读的百合花开，一方面被她流露出的情感打动，
+    
+    </summary>
+    
+    
+      <category term="Thinking" scheme="http://phoebepan.cn/tags/Thinking/"/>
+    
+      <category term="Life" scheme="http://phoebepan.cn/tags/Life/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>魔力Python——yield &amp; yield from</title>
+    <link href="http://phoebepan.cn/2017/03/17/python_yield/"/>
+    <id>http://phoebepan.cn/2017/03/17/python_yield/</id>
+    <published>2017-03-17T07:30:16.000Z</published>
+    <updated>2017-03-21T14:31:47.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>起因：</strong>在图论中，实现广度搜索两顶点所有路径时，被好用的 yield 和 yield from 惊呆啦~</p>
+<p><em>题外话：</em> 想真正搞明白这两者，先学习两个名词，<strong>迭代器</strong> 、<strong>生成器</strong>。</p>
+<p>　　先说迭代器，对于<font color="red">string、list、dict、tuple</font>等容器对象，用<font color="red">for</font>循环遍历是很方便的，在后台<font color="red">for</font>语句对容器对象调用<font color="red">iter()</font>函数，<font color="red">iter()</font>会返回一个定义了<font color="red">next()</font>方法的迭代器对象，从而在容器中逐个访问容器内元素，直到最后抛出<font color="red">StopIteration</font>异常，for循环结束。</p>
+<p>　　生成器是创建迭代器的简单而强大的工具，能做到迭代器能做的所有事，自动创建<font color="red">iter()和next()</font>方法，自动抛出<font color="red">StopIteration</font>异常。一个带<font color="red">yield</font>的函数就是一个生成器。</p>
+<p>　　好，了解了迭代器与生成器，看看yield的用法：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">generator</span><span class="params">()</span>:</span></div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>):</div><div class="line">        <span class="keyword">yield</span> i</div></pre></td></tr></table></figure></p>
+<p>　　上面的<font color="red">generator()</font>函数就是一个带<font color="red">yield</font>的生成器，执行<font color="red">print(list(generator()))</font>，就会输出[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]这样的列表。</p>
+<p>　　Python3.3版本的PEP 380中添加了yield from语法，允许一个生成器将其部分操作委派给另一个生成器。其产生的动力在于使生成器能够容易分为多个拥有send和throw方法的子生成器。进一步了解可参考Stack Overflow上的经典解释<a href="http://stackoverflow.com/questions/9708902/in-practice-what-are-the-main-uses-for-the-new-yield-from-syntax-in-python-3" target="_blank" rel="external">yield from主要有什么用?</a></p>
+<p>　　知道了，yield 和 yield from，下面这段代码是我结合这两者，求图中两个顶点之间广度搜索路径：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#def a undirected graph</span></div><div class="line">graph = &#123;<span class="string">'A'</span>: set([<span class="string">'B'</span>, <span class="string">'C'</span>]),</div><div class="line">         <span class="string">'B'</span>: set([<span class="string">'A'</span>, <span class="string">'D'</span>, <span class="string">'E'</span>]),</div><div class="line">         <span class="string">'C'</span>: set([<span class="string">'A'</span>, <span class="string">'F'</span>]),</div><div class="line">         <span class="string">'D'</span>: set([<span class="string">'B'</span>]),</div><div class="line">         <span class="string">'E'</span>: set([<span class="string">'B'</span>, <span class="string">'F'</span>]),</div><div class="line">         <span class="string">'F'</span>: set([<span class="string">'C'</span>, <span class="string">'E'</span>])&#125;</div><div class="line"></div><div class="line"><span class="comment">#dfs </span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">dfs_paths</span><span class="params">(graph,start,goal,path=None)</span>:</span></div><div class="line">    <span class="keyword">if</span> path <span class="keyword">is</span> <span class="keyword">None</span>:</div><div class="line">        path = [start]</div><div class="line">    <span class="keyword">if</span> start == goal:</div><div class="line">        <span class="keyword">yield</span> path</div><div class="line">    <span class="keyword">for</span> next <span class="keyword">in</span> graph[start] - set(path):</div><div class="line">        <span class="keyword">yield</span> <span class="keyword">from</span> dfs_paths_recursion(graph, next, goal, path + [next])</div><div class="line"></div><div class="line"><span class="comment"># test</span></div><div class="line">print(list(dfs_paths(graph,<span class="string">'A'</span>,<span class="string">'F'</span>,path=<span class="keyword">None</span>)))</div><div class="line">[[<span class="string">'A'</span>, <span class="string">'C'</span>, <span class="string">'F'</span>], [<span class="string">'A'</span>, <span class="string">'B'</span>, <span class="string">'E'</span>, <span class="string">'F'</span>]]</div></pre></td></tr></table></figure></p>
+<p>　　总之，这是一个魔法语句，简洁明了，nice，i love Python！</p>
+<center><strong>Talk is cheap. Show me the code.</strong></center>
+
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;起因：&lt;/strong&gt;在图论中，实现广度搜索两顶点所有路径时，被好用的 yield 和 yield from 惊呆啦~&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;题外话：&lt;/em&gt; 想真正搞明白这两者，先学习两个名词，&lt;strong&gt;迭代器&lt;/strong&gt; 、&lt;strong
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="http://phoebepan.cn/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>关键词匹配经典算法——DFA</title>
+    <link href="http://phoebepan.cn/2017/03/15/DFA/"/>
+    <id>http://phoebepan.cn/2017/03/15/DFA/</id>
+    <published>2017-03-15T07:30:16.000Z</published>
+    <updated>2017-03-21T14:37:03.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>起因</strong>：从网页中爬取的数据，需要判断是否包含预设的关键词，并返回所有匹配到的关键词。<br><em>文字匹配（过滤）</em>是很多文字类网站必不可少的功能，采用一个高效的文字过滤算法至关重要。其本质需求就是判断集合A中哪些子集属于集合B。</p>
+<p><strong>可行思路：</strong></p>
+<ul>
+<li>暴力解决，说说而已，实际不会这么做；</li>
+<li>正则表达式</li>
+<li>DFA</li>
+</ul>
+<p>　　接下来主要介绍下DFA算法。DFA是一个实现状态转移的自动机，基本功能是通过event和当前state得到下一个state。其算法核心就是构建一棵一棵的树，这样我们就可以确定需要检索的那棵树，然后再在这棵树中进行检索。算法详细内容参见<a href="https://zh.wikipedia.org/wiki/%E7%A1%AE%E5%AE%9A%E6%9C%89%E9%99%90%E7%8A%B6%E6%80%81%E8%87%AA%E5%8A%A8%E6%9C%BA" target="_blank" rel="external">维基百科</a>。<br>　　下面贴出用Python写的一<strong>DFA类</strong>：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">DFA</span>:</span></div><div class="line">    current_state = <span class="keyword">None</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, states, alphabet, transition_function, start_state, accept_states)</span>:</span></div><div class="line">        self.states = states</div><div class="line">        self.alphabet = alphabet</div><div class="line">        self.transition_function = transition_function</div><div class="line">        self.start_state = start_state</div><div class="line">        self.accept_states = accept_states</div><div class="line">        self.current_state = start_state</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">transition_to_state_with_input</span><span class="params">(self, input_value)</span>:</span></div><div class="line">        <span class="keyword">if</span> ((self.current_state, input_value) <span class="keyword">not</span> <span class="keyword">in</span> self.transition_function.keys()):</div><div class="line">            self.current_state = <span class="keyword">None</span></div><div class="line">        self.current_state = self.transition_function[(self.current_state, input_value)]</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">in_accept_state</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">return</span> self.current_state <span class="keyword">in</span> accept_states</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">go_to_initial_state</span><span class="params">(self)</span>:</span></div><div class="line">        self.current_state = self.start_state</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">run_with_input_list</span><span class="params">(self, input_list)</span>:</span></div><div class="line">        self.go_to_initial_state()</div><div class="line">        <span class="keyword">for</span> inp <span class="keyword">in</span> input_list:</div><div class="line">            self.transition_to_state_with_input(inp)</div><div class="line">            <span class="keyword">continue</span></div><div class="line">        <span class="keyword">return</span> self.in_accept_state()</div><div class="line">    <span class="keyword">pass</span></div></pre></td></tr></table></figure>
+<p>　　给出一个测试用例：states：状态集，alphabet：字母表，tf：转移函数，start_state：开始状态，accept_states：可接受状态集.当输入‘bcda’时，由于(0,’b’)-&gt;(2,’c’)-&gt;(3,’d’)-&gt;(0,’a’)-&gt;final_state=1，不可接受的状态，所以返回False。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">states = &#123;<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;</div><div class="line">alphabet = &#123;<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>&#125;</div><div class="line"></div><div class="line">tf = dict()</div><div class="line">tf[(<span class="number">0</span>, <span class="string">'a'</span>)] = <span class="number">1</span>;tf[(<span class="number">0</span>, <span class="string">'b'</span>)] = <span class="number">2</span>;tf[(<span class="number">0</span>, <span class="string">'c'</span>)] = <span class="number">3</span>;tf[(<span class="number">0</span>, <span class="string">'d'</span>)] = <span class="number">0</span></div><div class="line">tf[(<span class="number">1</span>, <span class="string">'a'</span>)] = <span class="number">1</span>;tf[(<span class="number">1</span>, <span class="string">'b'</span>)] = <span class="number">2</span>;tf[(<span class="number">1</span>, <span class="string">'c'</span>)] = <span class="number">3</span>;tf[(<span class="number">1</span>, <span class="string">'d'</span>)] = <span class="number">0</span></div><div class="line">tf[(<span class="number">2</span>, <span class="string">'a'</span>)] = <span class="number">1</span>;tf[(<span class="number">2</span>, <span class="string">'b'</span>)] = <span class="number">2</span>;tf[(<span class="number">2</span>, <span class="string">'c'</span>)] = <span class="number">3</span>;tf[(<span class="number">2</span>, <span class="string">'d'</span>)] = <span class="number">0</span></div><div class="line">tf[(<span class="number">3</span>, <span class="string">'a'</span>)] = <span class="number">1</span>;tf[(<span class="number">3</span>, <span class="string">'b'</span>)] = <span class="number">2</span>;tf[(<span class="number">3</span>, <span class="string">'c'</span>)] = <span class="number">3</span>;tf[(<span class="number">3</span>, <span class="string">'d'</span>)] = <span class="number">0</span></div><div class="line">start_state = <span class="number">0</span></div><div class="line">accept_states = &#123;<span class="number">2</span>, <span class="number">3</span>&#125;</div><div class="line">d = DFA(states, alphabet, tf, start_state, accept_states)</div><div class="line">inp_program = list(<span class="string">'bcda'</span>)</div><div class="line">print(d.run_with_input_list(inp_program))   <span class="comment">#False</span></div></pre></td></tr></table></figure></p>
+<p><strong>DFA的神奇魔力</strong><br>运用DFA解决 <em>Valid Number</em> 问题(<a href="https://leetcode.com/problems/valid-number/#/description" target="_blank" rel="external">LeetCode</a>)：<br><strong>Description:</strong> Validate if a given string is numeric.<br><strong>Some examples:</strong><br>“0” =&gt; true<br>“ 0.1 “ =&gt; true<br>“abc” =&gt; false<br>“1 a” =&gt; false<br>“2e10” =&gt; true<br><strong>思考</strong> <img src="/images/dfastate.png" width="150%" height="70%" align="center/"><br><strong>简单实现</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isNumber</span><span class="params">(self, s)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        :type s: str</div><div class="line">        :rtype: bool</div><div class="line">        """</div><div class="line">        <span class="comment">#define DFA</span></div><div class="line">        state = [&#123;&#125;,</div><div class="line">              &#123;<span class="string">'blank'</span>: <span class="number">1</span>, <span class="string">'sign'</span>: <span class="number">2</span>, <span class="string">'digit'</span>:<span class="number">3</span>, <span class="string">'.'</span>:<span class="number">4</span>&#125;,</div><div class="line">              &#123;<span class="string">'digit'</span>:<span class="number">3</span>, <span class="string">'.'</span>:<span class="number">4</span>&#125;,</div><div class="line">              &#123;<span class="string">'digit'</span>:<span class="number">3</span>, <span class="string">'.'</span>:<span class="number">5</span>, <span class="string">'e'</span>:<span class="number">6</span>, <span class="string">'blank'</span>:<span class="number">9</span>&#125;,</div><div class="line">              &#123;<span class="string">'digit'</span>:<span class="number">5</span>&#125;,</div><div class="line">              &#123;<span class="string">'digit'</span>:<span class="number">5</span>, <span class="string">'e'</span>:<span class="number">6</span>, <span class="string">'blank'</span>:<span class="number">9</span>&#125;,</div><div class="line">              &#123;<span class="string">'sign'</span>:<span class="number">7</span>, <span class="string">'digit'</span>:<span class="number">8</span>&#125;,</div><div class="line">              &#123;<span class="string">'digit'</span>:<span class="number">8</span>&#125;,</div><div class="line">              &#123;<span class="string">'digit'</span>:<span class="number">8</span>, <span class="string">'blank'</span>:<span class="number">9</span>&#125;,</div><div class="line">              &#123;<span class="string">'blank'</span>:<span class="number">9</span>&#125;]</div><div class="line">        currentState = <span class="number">1</span></div><div class="line"></div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> s:</div><div class="line">            <span class="keyword">if</span> i &gt;=<span class="string">'0'</span> <span class="keyword">and</span> i&lt;=<span class="string">'9'</span>:</div><div class="line">                i = <span class="string">'digit'</span></div><div class="line">            <span class="keyword">if</span> i <span class="keyword">in</span> [<span class="string">'+'</span>,<span class="string">'-'</span>]:</div><div class="line">                i = <span class="string">'sign'</span></div><div class="line">            <span class="keyword">if</span> i ==<span class="string">' '</span> :</div><div class="line">                i = <span class="string">'blank'</span></div><div class="line">            <span class="keyword">if</span> i <span class="keyword">not</span> <span class="keyword">in</span> state[currentState].keys():</div><div class="line">                <span class="keyword">return</span> <span class="keyword">False</span></div><div class="line">            currentState = state[currentState][i]</div><div class="line">            <span class="keyword">if</span> currentState <span class="keyword">not</span> <span class="keyword">in</span> [<span class="number">3</span>,<span class="number">5</span>,<span class="number">8</span>,<span class="number">9</span>]:</div><div class="line">                <span class="keyword">return</span> <span class="keyword">False</span></div><div class="line">            <span class="keyword">return</span> <span class="keyword">True</span></div><div class="line"></div><div class="line"><span class="comment">#test</span></div><div class="line">a = Solution()</div><div class="line">print(a.isNumber(<span class="string">'.e-1'</span>))   <span class="comment">#False</span></div><div class="line">print(a.isNumber(<span class="string">'e2'</span>))     <span class="comment">#False</span></div><div class="line">print(a.isNumber(<span class="string">'2e10'</span>))   <span class="comment">#True</span></div></pre></td></tr></table></figure></p>
+<p>　　So easy 吧！是不是比正则高级多了：)</p>
+<center><strong>Do things don’t scale !</strong></center>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;起因&lt;/strong&gt;：从网页中爬取的数据，需要判断是否包含预设的关键词，并返回所有匹配到的关键词。&lt;br&gt;&lt;em&gt;文字匹配（过滤）&lt;/em&gt;是很多文字类网站必不可少的功能，采用一个高效的文字过滤算法至关重要。其本质需求就是判断集合A中哪些子集属于集合B。&lt;
+    
+    </summary>
+    
+    
+      <category term="LeetCode" scheme="http://phoebepan.cn/tags/LeetCode/"/>
+    
+      <category term="CommonAlgorithms" scheme="http://phoebepan.cn/tags/CommonAlgorithms/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>读《块数据》</title>
+    <link href="http://phoebepan.cn/2017/03/15/read_block_data/"/>
+    <id>http://phoebepan.cn/2017/03/15/read_block_data/</id>
+    <published>2017-03-15T07:30:16.000Z</published>
+    <updated>2017-03-21T14:37:14.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>作者简介：</strong>本书是大数据战略重点实验室编写，是实验室集中一批大数据领域专家学者、实践者和郑策制定者的力量，在调研大量大数据企业、相关政府职能部门、各类社会组织后集中撰写的。</p>
+<p>　　我呢，是在周末逛校图书馆的时候，被“块数据”三个字和书的封面吸引，而读了这本书，给了我对数据产业链的新认识，开卷有益，下面是自己的读书笔记与小思考。</p>
+<p>　　呃，问题来了，标题党肯定要问了，块数据是神(Ni)马(Kuai)东(Shuo)东(Shuo)?</p>
+<blockquote>
+<p><strong>我：</strong>要了解块数据，首先得知道什么是条数据，条数据是一个领域或行业内纵深数据的集合，可反映该领域或行业的规律。相对的，块数据就是一个物理区域或行政区块内众多条数据的集合。</p>
+</blockquote>
+<p>块数据提出的缘由？</p>
+<blockquote>
+<p><strong>我：</strong>书中提到这个时代是大数据和小数据并驾齐驱的时代，是数据的融合成为数据价值提升关键的时代，条数据成长面临的烦恼：数据孤岛，数据资产垄断（单维度性和封闭性，被少数企业垄断，不开放不流通），数据预测失真（以偏概全）。于似乎坐拥天时地利的宠儿块数据诞生啦。</p>
+</blockquote>
+<p>条块数据的关系？</p>
+<blockquote>
+<p><strong>我：</strong>打个比方，块数据就像一个计算机的主板，它建立起了一个开放、共享连接的数据基地，而各个行业和部门的条数据就像一个个可插可拔的板卡，它们只有融合和集成到主板上，才能发挥数据资产真正的价值。</p>
+</blockquote>
+<p>块数据孕育出哪些商业模式呢？</p>
+<ul>
+<li>数据产业：围绕数据的采集、处理、分析和应用所形成的的商业模式；</li>
+<li>数据革命：颠覆或再造传统商业模式（应用服务、咨询服务）；</li>
+<li>数据资产：围绕数据交易所形成的商业模式（数据现货、期货交易等）；</li>
+</ul>
+<p>块数据处理流程？</p>
+<ul>
+<li><em>采集与传输</em>：<strong>采集</strong>，POS、GPS、智能终端、监控设备、RFID设备、传感设备等；<strong>传输</strong>，有线与无线传输、光传输等。 </li>
+<li><em>存储与管理</em>：分布式DB、NoSQL、DAS、NAS、SAN、磁芯库；分布式文件系统(Hadoop)、分布式计算系统(MapReduce)等。</li>
+<li><em>挖掘与分析</em>：数据挖掘、深度学习等；数据分析：专家系统、大数据一体机、关联分析、逻辑分析等。</li>
+<li><em>解读与可视化</em>：可视化计算、立体可视化、信息可视化等；</li>
+</ul>
+<p>把数据变成一门生意？</p>
+<blockquote>
+<p><strong>我：</strong>块数据能够给个人带来更好地体验，给企业带来更高利润，这决定了它必然会成为市场十分受欢迎的商品。<strong>数据商品化</strong>，必然催生出<strong>数据交易市场</strong>，那么自然而然有了<strong>数据金融</strong>，这一循行路径是：数据价值化——价值资产化——资产资本化——资本证券化，在这个“块”内，数据确权、数据定价、数据保险、以及数据的登记、交割等一系列新的产业链产生，所以我觉得数据期货、数据信托、数据银行、数据结算等的出现都只是时间问题。</p>
+</blockquote>
+<p><strong>小结</strong><br>　　这本书给我最深记忆的部分就是上面一小问（数据变成一门生意），一直以来，我看书形成的癖好就是太多的关注于技术层面的东西，觉得商业离我很远，眼界不够开阔，最近每天来回实验室路上听听<strong>得到</strong>，越发觉得自己的无知，这些商业模式，企业故事啊，真的超有意思，个人觉得，这个时代，你的格局，idea是最重要的，在学校听讲座多了对教授，专家形成了些许偏见，总觉得他们说的假大空，只会纸上谈兵，那些来自一线的技术人员才干货满满，但这本书让我对他们有些改观，方向性指导还是很重要的，只有方向对了，技术实现只是时间早晚的问题。</p>
+<center><strong>Every little helps a mickle.</strong></center>
+
+
+
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;作者简介：&lt;/strong&gt;本书是大数据战略重点实验室编写，是实验室集中一批大数据领域专家学者、实践者和郑策制定者的力量，在调研大量大数据企业、相关政府职能部门、各类社会组织后集中撰写的。&lt;/p&gt;
+&lt;p&gt;　　我呢，是在周末逛校图书馆的时候，被“块数据”三个字
+    
+    </summary>
+    
+    
+      <category term="Reading" scheme="http://phoebepan.cn/tags/Reading/"/>
+    
+      <category term="Thinking" scheme="http://phoebepan.cn/tags/Thinking/"/>
+    
+  </entry>
+  
+</feed>
