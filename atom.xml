@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://phoebepan.cn/"/>
-  <updated>2017-03-21T14:56:39.000Z</updated>
+  <updated>2017-03-22T00:59:13.000Z</updated>
   <id>http://phoebepan.cn/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://phoebepan.cn/2017/03/21/python_collections/"/>
     <id>http://phoebepan.cn/2017/03/21/python_collections/</id>
     <published>2017-03-21T07:30:16.000Z</published>
-    <updated>2017-03-21T14:56:39.000Z</updated>
+    <updated>2017-03-22T00:59:13.000Z</updated>
     
     <content type="html"><![CDATA[<h3 id="collections是Python内建的一个集合模块，提供了许多有用的集合类。"><a href="#collections是Python内建的一个集合模块，提供了许多有用的集合类。" class="headerlink" title="collections是Python内建的一个集合模块，提供了许多有用的集合类。"></a><font color="red"><strong>collections</strong></font>是Python内建的一个集合模块，提供了许多有用的集合类。</h3><h3 id="namedtuple"><a href="#namedtuple" class="headerlink" title="namedtuple"></a><strong>namedtuple</strong></h3><p>tuple可表示不变集合，例如，一个点的二维坐标就可以表示成：</p>
 <blockquote>
@@ -34,10 +34,7 @@
 <h3 id="OrderedDict"><a href="#OrderedDict" class="headerlink" title="OrderedDict"></a><strong>OrderedDict</strong></h3><p>使用<font color="red">dict</font>时，key是无序的，若要使key保持有序，可使用<font color="red">OrderedDict</font>，它可以实现一个先进先出(FIFO)的dict，当超出容量，删除最先进入的key。<br>实例：<br>LeetCode——<a href="https://leetcode.com/problems/lru-cache/#/description" target="_blank" rel="external">LRU Cache</a><br>题目大意，就是实现一个近期最少使用(LRU)缓存的数据结构，支持put和get操作。<br>get(key)-取值(key恒为正)，不存在返回-1；<br>put(key,value)-插入或替换(缓存容量达到上限，移除近期最少使用的元素)。</p>
 <p>运用OrderedDict解题代码：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> OrderedDict</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">LRUCache</span><span class="params">(object)</span>:</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, capacity)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        :type capacity: int</div><div class="line">        """</div><div class="line">        self.capacity=capacity</div><div class="line">        self.cache = OrderedDict()</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get</span><span class="params">(self, key)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        :type key: int</div><div class="line">        :rtype: int</div><div class="line">        """</div><div class="line">        <span class="keyword">if</span> <span class="keyword">not</span> key <span class="keyword">in</span> self.cache.keys():</div><div class="line">            <span class="keyword">return</span> <span class="number">-1</span></div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            <span class="comment">#一定要弹出再重新插入，不然体现不了最近最少使用</span></div><div class="line">            value = self.cache.pop(key)</div><div class="line">            self.cache[key] = value</div><div class="line">            <span class="keyword">return</span> value</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">put</span><span class="params">(self, key, value)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        :type key: int</div><div class="line">        :type value: int</div><div class="line">        :rtype: void</div><div class="line">        """</div><div class="line">        <span class="comment">#2种特殊情况，key在缓存中，弹出再插；容量达到上限，弹出最近最少使用的</span></div><div class="line">        <span class="keyword">if</span> key <span class="keyword">in</span> self.cache.keys():</div><div class="line">            self.cache.pop(key)</div><div class="line">        <span class="keyword">elif</span> self.capacity==len(self.cache):</div><div class="line">            self.cache.popitem(last = <span class="keyword">False</span>)</div><div class="line">        self.cache[key]=value</div></pre></td></tr></table></figure></p>
 <p>此题，虽然用OrderedDict可以很简洁的解决，但是不够高效，更快速的方法，可采用双链表实现，双链表实现细节参见我的<a href="https://github.com/phoebepx/Algorithm/blob/master/LeetCode/LRU%20Cache.py" target="_blank" rel="external">Github</a>(method2)。</p>
-<center><strong>Talk is cheap. Show me the code.</strong></center>
-
-
-]]></content>
+<center><strong>Talk is cheap. Show me the code.</strong></center>]]></content>
     
     <summary type="html">
     
@@ -57,7 +54,7 @@
     <link href="http://phoebepan.cn/2017/03/20/reader/"/>
     <id>http://phoebepan.cn/2017/03/20/reader/</id>
     <published>2017-03-20T07:30:16.000Z</published>
-    <updated>2017-03-21T14:56:48.000Z</updated>
+    <updated>2017-03-22T00:59:30.000Z</updated>
     
     <content type="html"><![CDATA[<h4 id="1"><a href="#1" class="headerlink" title="1"></a><center>1</center></h4><p>　　总有一段文字，那时那刻有着非常特别的意义，早上在跑步机上听到蒋雯丽朗读的百合花开，一方面被她流露出的情感打动，另一方面超级喜爱这段文字，百合我爱，但更爱它这股傲劲。</p>
 <h4 id="2"><a href="#2" class="headerlink" title="2"></a><center>2</center></h4><p>　　最近迷上了算法，特别当自己没想到，而别人超级concise的方法，这种醍醐灌顶的感觉，真的蛮爽的！</p>
@@ -98,7 +95,7 @@
     <link href="http://phoebepan.cn/2017/03/17/python_yield/"/>
     <id>http://phoebepan.cn/2017/03/17/python_yield/</id>
     <published>2017-03-17T07:30:16.000Z</published>
-    <updated>2017-03-21T14:56:34.000Z</updated>
+    <updated>2017-03-22T00:58:49.000Z</updated>
     
     <content type="html"><![CDATA[<p><strong>起因：</strong>在图论中，实现广度搜索两顶点所有路径时，被好用的 yield 和 yield from 惊呆啦~</p>
 <p><em>题外话：</em> 想真正搞明白这两者，先学习两个名词，<strong>迭代器</strong> 、<strong>生成器</strong>。</p>
@@ -109,9 +106,7 @@
 <p>　　Python3.3版本的PEP 380中添加了yield from语法，允许一个生成器将其部分操作委派给另一个生成器。其产生的动力在于使生成器能够容易分为多个拥有send和throw方法的子生成器。进一步了解可参考Stack Overflow上的经典解释<a href="http://stackoverflow.com/questions/9708902/in-practice-what-are-the-main-uses-for-the-new-yield-from-syntax-in-python-3" target="_blank" rel="external">yield from主要有什么用?</a></p>
 <p>　　知道了，yield 和 yield from，下面这段代码是我结合这两者，求图中两个顶点之间广度搜索路径：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#def a undirected graph</span></div><div class="line">graph = &#123;<span class="string">'A'</span>: set([<span class="string">'B'</span>, <span class="string">'C'</span>]),</div><div class="line">         <span class="string">'B'</span>: set([<span class="string">'A'</span>, <span class="string">'D'</span>, <span class="string">'E'</span>]),</div><div class="line">         <span class="string">'C'</span>: set([<span class="string">'A'</span>, <span class="string">'F'</span>]),</div><div class="line">         <span class="string">'D'</span>: set([<span class="string">'B'</span>]),</div><div class="line">         <span class="string">'E'</span>: set([<span class="string">'B'</span>, <span class="string">'F'</span>]),</div><div class="line">         <span class="string">'F'</span>: set([<span class="string">'C'</span>, <span class="string">'E'</span>])&#125;</div><div class="line"></div><div class="line"><span class="comment">#dfs </span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">dfs_paths</span><span class="params">(graph,start,goal,path=None)</span>:</span></div><div class="line">    <span class="keyword">if</span> path <span class="keyword">is</span> <span class="keyword">None</span>:</div><div class="line">        path = [start]</div><div class="line">    <span class="keyword">if</span> start == goal:</div><div class="line">        <span class="keyword">yield</span> path</div><div class="line">    <span class="keyword">for</span> next <span class="keyword">in</span> graph[start] - set(path):</div><div class="line">        <span class="keyword">yield</span> <span class="keyword">from</span> dfs_paths_recursion(graph, next, goal, path + [next])</div><div class="line"></div><div class="line"><span class="comment"># test</span></div><div class="line">print(list(dfs_paths(graph,<span class="string">'A'</span>,<span class="string">'F'</span>,path=<span class="keyword">None</span>)))</div><div class="line">[[<span class="string">'A'</span>, <span class="string">'C'</span>, <span class="string">'F'</span>], [<span class="string">'A'</span>, <span class="string">'B'</span>, <span class="string">'E'</span>, <span class="string">'F'</span>]]</div></pre></td></tr></table></figure></p>
 <p>　　总之，这是一个魔法语句，简洁明了，nice，i love Python！</p>
-<center><strong>Talk is cheap. Show me the code.</strong></center>
-
-]]></content>
+<center><strong>Talk is cheap. Show me the code.</strong></center>]]></content>
     
     <summary type="html">
     
@@ -132,7 +127,7 @@
     <link href="http://phoebepan.cn/2017/03/15/DFA/"/>
     <id>http://phoebepan.cn/2017/03/15/DFA/</id>
     <published>2017-03-15T07:30:16.000Z</published>
-    <updated>2017-03-21T14:56:44.000Z</updated>
+    <updated>2017-03-22T00:59:24.000Z</updated>
     
     <content type="html"><![CDATA[<p><strong>起因</strong>：从网页中爬取的数据，需要判断是否包含预设的关键词，并返回所有匹配到的关键词。<br><em>文字匹配（过滤）</em>是很多文字类网站必不可少的功能，采用一个高效的文字过滤算法至关重要。其本质需求就是判断集合A中哪些子集属于集合B。</p>
 <p><strong>可行思路：</strong></p>
@@ -168,7 +163,7 @@
     <link href="http://phoebepan.cn/2017/03/15/read_block_data/"/>
     <id>http://phoebepan.cn/2017/03/15/read_block_data/</id>
     <published>2017-03-15T07:30:16.000Z</published>
-    <updated>2017-03-21T14:56:29.000Z</updated>
+    <updated>2017-03-22T00:59:01.000Z</updated>
     
     <content type="html"><![CDATA[<p><strong>作者简介：</strong>本书是大数据战略重点实验室编写，是实验室集中一批大数据领域专家学者、实践者和郑策制定者的力量，在调研大量大数据企业、相关政府职能部门、各类社会组织后集中撰写的。</p>
 <p>　　我呢，是在周末逛校图书馆的时候，被“块数据”三个字和书的封面吸引，而读了这本书，给了我对数据产业链的新认识，开卷有益，下面是自己的读书笔记与小思考。</p>
@@ -202,11 +197,7 @@
 <p><strong>我：</strong>块数据能够给个人带来更好地体验，给企业带来更高利润，这决定了它必然会成为市场十分受欢迎的商品。<strong>数据商品化</strong>，必然催生出<strong>数据交易市场</strong>，那么自然而然有了<strong>数据金融</strong>，这一循行路径是：数据价值化——价值资产化——资产资本化——资本证券化，在这个“块”内，数据确权、数据定价、数据保险、以及数据的登记、交割等一系列新的产业链产生，所以我觉得数据期货、数据信托、数据银行、数据结算等的出现都只是时间问题。</p>
 </blockquote>
 <p><strong>小结</strong><br>　　这本书给我最深记忆的部分就是上面一小问（数据变成一门生意），一直以来，我看书形成的癖好就是太多的关注于技术层面的东西，觉得商业离我很远，眼界不够开阔，最近每天来回实验室路上听听<strong>得到</strong>，越发觉得自己的无知，这些商业模式，企业故事啊，真的超有意思，个人觉得，这个时代，你的格局，idea是最重要的，在学校听讲座多了对教授，专家形成了些许偏见，总觉得他们说的假大空，只会纸上谈兵，那些来自一线的技术人员才干货满满，但这本书让我对他们有些改观，方向性指导还是很重要的，只有方向对了，技术实现只是时间早晚的问题。</p>
-<center><strong>Every little helps a mickle.</strong></center>
-
-
-
-]]></content>
+<center><strong>Every little helps a mickle.</strong></center>]]></content>
     
     <summary type="html">
     
