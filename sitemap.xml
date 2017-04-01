@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://phoebepan.cn/2017/03/25/python_genefromtxt/</loc>
+    
+    <lastmod>2017-04-01T14:36:30.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://phoebepan.cn/about/index.html</loc>
+    
+    <lastmod>2017-04-01T14:02:35.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://phoebepan.cn/2017/03/21/python_collections/</loc>
+    
+    <lastmod>2017-04-01T13:55:50.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://phoebepan.cn/2017/03/23/fileinput_bisect_/</loc>
     
     <lastmod>2017-03-24T12:48:38.000Z</lastmod>
@@ -26,13 +47,6 @@
     <loc>http://phoebepan.cn/2017/03/15/DFA/</loc>
     
     <lastmod>2017-03-22T00:59:24.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://phoebepan.cn/2017/03/21/python_collections/</loc>
-    
-    <lastmod>2017-03-22T00:59:13.000Z</lastmod>
     
   </url>
   
@@ -75,13 +89,6 @@
     <loc>http://phoebepan.cn/categories/index.html</loc>
     
     <lastmod>2017-03-21T15:17:31.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://phoebepan.cn/about/index.html</loc>
-    
-    <lastmod>2017-03-21T14:53:27.000Z</lastmod>
     
   </url>
   
