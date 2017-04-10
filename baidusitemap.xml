@@ -4,8 +4,30 @@
 
     
   <url>
+    <loc>http://phoebepan.cn/2017/04/09/goodstudy/</loc>
+    <lastmod>2017-04-10T06:53:07.000Z</lastmod>
+    <data>
+        <display>
+        <title>读《好好学习》</title>
+        <pubTime>2017-04-09T07:30:16.000Z</pubTime>
+        
+        <tag>Reading</tag>
+         
+        <tag>Thinking</tag>
+         
+         
+           
+             
+              <breadCrumb title="Thinking" url="http://phoebepan.cn/categories/Thinking/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://phoebepan.cn/2017/03/25/python_genefromtxt/</loc>
-    <lastmod>2017-04-01T14:36:30.000Z</lastmod>
+    <lastmod>2017-04-01T15:11:09.000Z</lastmod>
     <data>
         <display>
         <title>魔力Python—— 查找列表项与np.genefromtxt()</title>
