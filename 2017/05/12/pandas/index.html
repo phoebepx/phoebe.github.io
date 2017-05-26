@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="LeetCode,Algorithms," />
+  <meta name="keywords" content="python,pandas," />
 
 
 
@@ -89,31 +89,19 @@
 
 
 
-<meta name="description" content="基本思想动态规划（Dynamic programming，DP），通过把原问题分解为相对简单的子问题的方式分解复杂问题的方法。
-使用的情况能采用动态规划求解的问题一般具有3个性质：
-
-最优化原理：如果问题的最优解所包含的子问题的解也是最优的，就称该问题具有最优子结构；
-无后效性：某状态以后的过程不会影响以前的状态，只与当前状态有关；
-有重叠子问题：子问题之间不独立，一个字问题在下一阶段中可能被多次">
+<meta name="description" content="读写csv文件到DataFramedf=pd.read_csv(&amp;#39;filename&amp;#39;,encoding=&amp;#39;utf-8&amp;#39;)读入csv文本，编码为utf-8df.to_csv(&amp;#39;filename&amp;#39;,sep=&amp;#39;\t&amp;#39;,index=False)‘\t’切分df，写入csv，不包含行索引
+格式转换、值填充、删除 df.to_dict(outty">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Dynamic programming">
-<meta property="og:url" content="http://phoebepan.cn/2017/04/13/Dynamic programming/index.html">
+<meta property="og:title" content="Pandas杂碎">
+<meta property="og:url" content="http://phoebepan.cn/2017/05/12/pandas/index.html">
 <meta property="og:site_name" content="技忆">
-<meta property="og:description" content="基本思想动态规划（Dynamic programming，DP），通过把原问题分解为相对简单的子问题的方式分解复杂问题的方法。
-使用的情况能采用动态规划求解的问题一般具有3个性质：
-
-最优化原理：如果问题的最优解所包含的子问题的解也是最优的，就称该问题具有最优子结构；
-无后效性：某状态以后的过程不会影响以前的状态，只与当前状态有关；
-有重叠子问题：子问题之间不独立，一个字问题在下一阶段中可能被多次">
-<meta property="og:updated_time" content="2017-04-17T12:49:04.000Z">
+<meta property="og:description" content="读写csv文件到DataFramedf=pd.read_csv(&amp;#39;filename&amp;#39;,encoding=&amp;#39;utf-8&amp;#39;)读入csv文本，编码为utf-8df.to_csv(&amp;#39;filename&amp;#39;,sep=&amp;#39;\t&amp;#39;,index=False)‘\t’切分df，写入csv，不包含行索引
+格式转换、值填充、删除 df.to_dict(outty">
+<meta property="og:updated_time" content="2017-05-26T13:12:59.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Dynamic programming">
-<meta name="twitter:description" content="基本思想动态规划（Dynamic programming，DP），通过把原问题分解为相对简单的子问题的方式分解复杂问题的方法。
-使用的情况能采用动态规划求解的问题一般具有3个性质：
-
-最优化原理：如果问题的最优解所包含的子问题的解也是最优的，就称该问题具有最优子结构；
-无后效性：某状态以后的过程不会影响以前的状态，只与当前状态有关；
-有重叠子问题：子问题之间不独立，一个字问题在下一阶段中可能被多次">
+<meta name="twitter:title" content="Pandas杂碎">
+<meta name="twitter:description" content="读写csv文件到DataFramedf=pd.read_csv(&amp;#39;filename&amp;#39;,encoding=&amp;#39;utf-8&amp;#39;)读入csv文本，编码为utf-8df.to_csv(&amp;#39;filename&amp;#39;,sep=&amp;#39;\t&amp;#39;,index=False)‘\t’切分df，写入csv，不包含行索引
+格式转换、值填充、删除 df.to_dict(outty">
 
 
 
@@ -141,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="http://phoebepan.cn/2017/04/13/Dynamic programming/"/>
+  <link rel="canonical" href="http://phoebepan.cn/2017/05/12/pandas/"/>
 
 
 
 
 
-  <title> Dynamic programming | 技忆 </title>
+  <title> Pandas杂碎 | 技忆 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -326,7 +314,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://phoebepan.cn/2017/04/13/Dynamic programming/">
+    <link itemprop="mainEntityOfPage" href="http://phoebepan.cn/2017/05/12/pandas/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Phoebe">
@@ -347,7 +335,7 @@
             
             
               
-                Dynamic programming
+                Pandas杂碎
               
             
           </h1>
@@ -362,8 +350,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-13T15:30:16+08:00">
-                2017-04-13
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-12T15:30:16+08:00">
+                2017-05-12
               </time>
             
 
@@ -385,8 +373,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Algorithms/" itemprop="url" rel="index">
-                    <span itemprop="name">Algorithms</span>
+                  <a href="/categories/Daily-Accumulation/" itemprop="url" rel="index">
+                    <span itemprop="name">Daily Accumulation</span>
                   </a>
                 </span>
 
@@ -425,14 +413,17 @@
       
 
       
-        <h3 id="基本思想"><a href="#基本思想" class="headerlink" title="基本思想"></a>基本思想</h3><p>动态规划（Dynamic programming，DP），通过把原问题分解为相对简单的子问题的方式分解复杂问题的方法。</p>
-<h3 id="使用的情况"><a href="#使用的情况" class="headerlink" title="使用的情况"></a>使用的情况</h3><p>能采用动态规划求解的问题一般具有3个性质：</p>
-<ul>
-<li>最优化原理：如果问题的最优解所包含的子问题的解也是最优的，就称该问题具有最优子结构；</li>
-<li>无后效性：某状态以后的过程不会影响以前的状态，只与当前状态有关；</li>
-<li>有重叠子问题：子问题之间不独立，一个字问题在下一阶段中可能被多次使用。（这一性质是动态规划与其他算法相比所具备的优势）</li>
-</ul>
-<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><p>LeetCode: <a href="https://leetcode.com/problems/wildcard-matching/#/description" target="_blank" rel="external">Wildcard Matching</a><br>这道题其实就是Regular Expression Matching的简化版，下面主要说一下动态规划的解法。<br>输入两个字符串s,p，用一个布尔数组dp，dp[n]值表示字符串s前n个字符是否符合模式p。这就将原问题拆分成很多子问题，要想知道s是否匹配p，只需要知道之前匹配结果及当前位匹配情况就可以ok了。<br>具体代码如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">isMatch</span><span class="params">(self, s, p)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        :type s: str</div><div class="line">        :type p: str</div><div class="line">        :rtype: bool</div><div class="line">        """</div><div class="line">        length = len(s)</div><div class="line">        <span class="keyword">if</span> len(p)-p.count(<span class="string">'*'</span>) &gt; length:</div><div class="line">            <span class="keyword">return</span> <span class="keyword">False</span></div><div class="line">        dp = [<span class="keyword">True</span>]+[<span class="keyword">False</span>]*length</div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> p:</div><div class="line">            <span class="keyword">if</span> i != <span class="string">'*'</span>:</div><div class="line">                <span class="keyword">for</span> n <span class="keyword">in</span> reversed(range(length)):</div><div class="line">                    dp[n+<span class="number">1</span>]=dp[n] <span class="keyword">and</span> (i==s[n] <span class="keyword">or</span> i == <span class="string">'?'</span>)</div><div class="line">            <span class="keyword">else</span>:</div><div class="line">                <span class="keyword">for</span> n <span class="keyword">in</span> range(<span class="number">1</span>,length+<span class="number">1</span>):</div><div class="line">                    dp[n]=dp[n<span class="number">-1</span>] <span class="keyword">or</span> dp[n]</div><div class="line">            dp[<span class="number">0</span>]=dp[<span class="number">0</span>] <span class="keyword">and</span> i==<span class="string">'*'</span></div><div class="line">        <span class="keyword">return</span> dp[<span class="number">-1</span>]</div><div class="line"><span class="comment">#test</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>isMatch(<span class="string">'aa'</span>,<span class="string">'*'</span>)</div><div class="line"><span class="keyword">True</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>isMatch(<span class="string">"ab"</span>, <span class="string">"?*"</span>)</div><div class="line"><span class="keyword">True</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>isMatch(<span class="string">"aab"</span>, <span class="string">"c*a*b"</span>)</div><div class="line"><span class="keyword">False</span></div></pre></td></tr></table></figure></p>
+        <h3 id="读写csv文件到DataFrame"><a href="#读写csv文件到DataFrame" class="headerlink" title="读写csv文件到DataFrame"></a>读写csv文件到DataFrame</h3><p><code>df=pd.read_csv(&#39;filename&#39;,encoding=&#39;utf-8&#39;)</code><br>读入csv文本，编码为utf-8<br><code>df.to_csv(&#39;filename&#39;,sep=&#39;\t&#39;,index=False)</code><br>‘\t’切分df，写入csv，不包含行索引</p>
+<h3 id="格式转换、值填充、删除"><a href="#格式转换、值填充、删除" class="headerlink" title="格式转换、值填充、删除"></a>格式转换、值填充、删除</h3><p> <code>df.to_dict(outtype=&#39;dict&#39;)</code><br>将DataFrame转换成其他结构类型，outtype的参数为‘dict’、‘list’、‘series’和‘records’<br> <code>df[&#39;A&#39;].astype(float)</code><br>将DataFrame的A列类型更改成float<br><code>df.rename(columns={&#39;oldname&#39;: &#39;newname&#39;}, inplace=True)</code>   #修改列名<br><code>df.fillna(0)</code>  #NaN用0填充，处理缺失值<br><code>df.drop_duplicates(subset=[&#39;A&#39;]，keep=&#39;first&#39;)</code><br>按A列去重，保留第一行，keep（’first’,’last’,False）</p>
+<h3 id="查看DataFrame概要"><a href="#查看DataFrame概要" class="headerlink" title="查看DataFrame概要"></a>查看DataFrame概要</h3><p><code>df.head()</code>     #前几行<br><code>df.tail()</code>     #末几行<br><code>df.index</code>      #行标签<br><code>df.columns</code>    #列标签<br><code>df.dtypes</code>     #每一列数据类型<br><code>df[&#39;column&#39;].count()</code>    #column列非空条数<br><code>df[&#39;column&#39;].isnull()</code>   #column列是否有NaN的数据<br><code>df[&#39;column&#39;].unique()</code>    #column列所有值</p>
+<h3 id="简单统计"><a href="#简单统计" class="headerlink" title="简单统计"></a>简单统计</h3><p><code>df.describe()</code>   #各列基本描述统计值<br><code>df[&#39;A&#39;].value_counts()</code>  #计算A列每个值的频率</p>
+<h3 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h3><p><code>df.sort_index(axis=1,ascending=False)</code><br>对DataFrame的axis=0(行)，1(列)索引排序（ascending=True(升)，False(降)）<br><code>df.sort_index(by=[&#39;A&#39;, &#39;B&#39;], ascending=[True, False])</code>&lt;==&gt;<code>df.sort_values(by=[&#39;A&#39;, &#39;B&#39;], ascending=[True, False])</code>&lt;==&gt;<code>df.sort(columns=[&#39;A&#39;,&#39;B&#39;],ascending=[1,0])</code><br>对DataFrame先按’A’升排序, 再按’B’降排序</p>
+<h3 id="分组"><a href="#分组" class="headerlink" title="分组"></a>分组</h3><p><code>df.groupby(subset=[&#39;A&#39;,&#39;B&#39;],as_index=True)</code>    #以列A，B对df进行分组，默认A，B作为分组索引<br><code>df.groupby(by=[&#39;A&#39;],as_index=True).get_group(&#39;a&#39;)</code> #按A列分组后获取’a’组<br><code>df.groupby([&#39;col1&#39;,&#39;col2&#39;]).size().to_frame(name =&#39;count&#39;)</code><br>&lt;==&gt;<code>df.groupby([&#39;col1&#39;,&#39;col2&#39;]).size().reset_index(name =&#39;count&#39;)</code><br>按col1,col2对df进行分组，<code>size()</code>统计每一分组成员个数(<code>count()</code>也可以，<a href="https://stackoverflow.com/documentation/pandas/1822/grouping-data/6874/aggregating-by-size-and-count#t=201607220906502658034" target="_blank" rel="external">区别</a>就是count()过滤了NaN，size()包含)，命名为’count’</p>
+<h3 id="选择DataFrame行列"><a href="#选择DataFrame行列" class="headerlink" title="选择DataFrame行列"></a>选择DataFrame行列</h3><p><a href="http://www.shanelynn.ie/select-pandas-dataframe-rows-and-columns-using-iloc-loc-and-ix/" target="_blank" rel="external">示例参考</a><br><code>df.iloc[&lt;row selection&gt;,&lt;col selection&gt;]</code>  #基于行列索引选择（Selecting rows by label/index）<br><code>df.loc[&lt;row selection&gt;,&lt;col selection&gt;]</code>   #基于条件选择（Selecting rows with a boolean / conditional lookup）<br><code>ix[]</code>  #索引，条件混合选择</p>
+<p><code>df[df[&#39;A&#39;].isin(li)]</code>  #选择A列值在列表li中的行<br><code>df.saple(n=3)</code> #随机抽取3行数据，</p>
+<h3 id="归一化处理"><a href="#归一化处理" class="headerlink" title="归一化处理"></a>归一化处理</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">from sklearn import preprocessing</div><div class="line">df=preprocessing.scale(df,axis=0)   #df每一个feature归一化(列)</div><div class="line">df=preprocessing.scale(df,axis=1)   #df每一个sample归一化(行)</div></pre></td></tr></table></figure>
+<h3 id="离散特征one-hot编码"><a href="#离散特征one-hot编码" class="headerlink" title="离散特征one-hot编码"></a>离散特征one-hot编码</h3><p><code>df = pd.get_dummies(df[&#39;A&#39;], prefix=&#39;A&#39;)</code>  #对A列重新编码，编码后的列前缀加上’A’<br><code>df = pd.get_dummies(df)</code>   #对df所有离散特征进行one-hot编码</p>
+<h3 id="合并——merge、concat、append"><a href="#合并——merge、concat、append" class="headerlink" title="合并——merge、concat、append"></a>合并——merge、concat、append</h3><p><code>df1.append(df2,ignore_index=True)</code> #在df1下面追加df2，行索引重排序<br><code>pd.concat([df1[&#39;A&#39;],df2],axis=1)</code>  #列方向合并<br><code>pd.merge(df1, df2, how=&#39;inner&#39;, on=None, left_on=None, right_on=None,left_index=False, right_index=False)</code><br>how=[‘inner’,’left’,’right’,’outer’]对应内，左，右，外连接,on指定连接key</p>
 
       
     </div>
@@ -440,7 +431,7 @@
   
     <div class="copyright">
     <p><span>
-    <b>本文地址：</b><a href="/2017/04/13/Dynamic programming/" title="Dynamic programming">http://phoebepan.cn/2017/04/13/Dynamic programming/</a><br /><b>转载请注明出处，谢谢！</b>
+    <b>本文地址：</b><a href="/2017/05/12/pandas/" title="Pandas杂碎">http://phoebepan.cn/2017/05/12/pandas/</a><br /><b>转载请注明出处，谢谢！</b>
     </span></p>
     </div>
   
@@ -465,9 +456,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/LeetCode/" rel="tag"># LeetCode</a>
+            <a href="/tags/python/" rel="tag"># python</a>
           
-            <a href="/tags/Algorithms/" rel="tag"># Algorithms</a>
+            <a href="/tags/pandas/" rel="tag"># pandas</a>
           
         </div>
       
@@ -480,8 +471,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/04/09/goodstudy/" rel="next" title="读《好好学习》">
-                <i class="fa fa-chevron-left"></i> 读《好好学习》
+              <a href="/2017/04/16/New Commercial civilization/" rel="next" title="《新商业文明》摘录">
+                <i class="fa fa-chevron-left"></i> 《新商业文明》摘录
               </a>
             
           </div>
@@ -489,10 +480,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/04/16/New Commercial civilization/" rel="prev" title="《新商业文明》摘录">
-                《新商业文明》摘录 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -650,7 +637,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本思想"><span class="nav-number">1.</span> <span class="nav-text">基本思想</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用的情况"><span class="nav-number">2.</span> <span class="nav-text">使用的情况</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实例"><span class="nav-number">3.</span> <span class="nav-text">实例</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#读写csv文件到DataFrame"><span class="nav-number">1.</span> <span class="nav-text">读写csv文件到DataFrame</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#格式转换、值填充、删除"><span class="nav-number">2.</span> <span class="nav-text">格式转换、值填充、删除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看DataFrame概要"><span class="nav-number">3.</span> <span class="nav-text">查看DataFrame概要</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#简单统计"><span class="nav-number">4.</span> <span class="nav-text">简单统计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#排序"><span class="nav-number">5.</span> <span class="nav-text">排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分组"><span class="nav-number">6.</span> <span class="nav-text">分组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选择DataFrame行列"><span class="nav-number">7.</span> <span class="nav-text">选择DataFrame行列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#归一化处理"><span class="nav-number">8.</span> <span class="nav-text">归一化处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#离散特征one-hot编码"><span class="nav-number">9.</span> <span class="nav-text">离散特征one-hot编码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#合并——merge、concat、append"><span class="nav-number">10.</span> <span class="nav-text">合并——merge、concat、append</span></a></li></ol></div>
             
 
           </div>
