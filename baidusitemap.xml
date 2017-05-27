@@ -4,21 +4,41 @@
 
     
   <url>
+    <loc>http://phoebepan.cn/2017/04/17/linux_backstage/</loc>
+    <lastmod>2017-05-27T05:01:38.000Z</lastmod>
+    <data>
+        <display>
+        <title>Linux——后台运行、查看和关闭</title>
+        <pubTime>2017-04-17T07:30:16.000Z</pubTime>
+        
+        <tag>linux</tag>
+         
+         
+           
+             
+              <breadCrumb title="Daily Accumulation" url="http://phoebepan.cn/categories/Daily-Accumulation/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://phoebepan.cn/2017/05/12/pandas/</loc>
-    <lastmod>2017-05-26T13:12:59.000Z</lastmod>
+    <lastmod>2017-05-27T04:55:48.000Z</lastmod>
     <data>
         <display>
         <title>Pandas杂碎</title>
         <pubTime>2017-05-12T07:30:16.000Z</pubTime>
         
-        <tag>python</tag>
+        <tag>Python</tag>
          
         <tag>pandas</tag>
          
          
            
              
-              <breadCrumb title="Daily Accumulation" url="http://phoebepan.cn/categories/Daily-Accumulation/"/>
+              <breadCrumb title="Python" url="http://phoebepan.cn/categories/Python/"/>
           
         </display>
     </data>

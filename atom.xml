@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://phoebepan.cn/"/>
-  <updated>2017-05-26T13:12:59.000Z</updated>
+  <updated>2017-05-27T04:55:48.000Z</updated>
   <id>http://phoebepan.cn/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://phoebepan.cn/2017/05/12/pandas/"/>
     <id>http://phoebepan.cn/2017/05/12/pandas/</id>
     <published>2017-05-12T07:30:16.000Z</published>
-    <updated>2017-05-26T13:12:59.000Z</updated>
+    <updated>2017-05-27T04:55:48.000Z</updated>
     
     <content type="html"><![CDATA[<h3 id="读写csv文件到DataFrame"><a href="#读写csv文件到DataFrame" class="headerlink" title="读写csv文件到DataFrame"></a>读写csv文件到DataFrame</h3><p><code>df=pd.read_csv(&#39;filename&#39;,encoding=&#39;utf-8&#39;)</code><br>读入csv文本，编码为utf-8<br><code>df.to_csv(&#39;filename&#39;,sep=&#39;\t&#39;,index=False)</code><br>‘\t’切分df，写入csv，不包含行索引</p>
 <h3 id="格式转换、值填充、删除"><a href="#格式转换、值填充、删除" class="headerlink" title="格式转换、值填充、删除"></a>格式转换、值填充、删除</h3><p> <code>df.to_dict(outtype=&#39;dict&#39;)</code><br>将DataFrame转换成其他结构类型，outtype的参数为‘dict’、‘list’、‘series’和‘records’<br> <code>df[&#39;A&#39;].astype(float)</code><br>将DataFrame的A列类型更改成float<br><code>df.rename(columns={&#39;oldname&#39;: &#39;newname&#39;}, inplace=True)</code>   #修改列名<br><code>df.fillna(0)</code>  #NaN用0填充，处理缺失值<br><code>df.drop_duplicates(subset=[&#39;A&#39;]，keep=&#39;first&#39;)</code><br>按A列去重，保留第一行，keep（’first’,’last’,False）</p>
@@ -41,12 +41,48 @@
     
     </summary>
     
+      <category term="Python" scheme="http://phoebepan.cn/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="http://phoebepan.cn/tags/Python/"/>
+    
+      <category term="pandas" scheme="http://phoebepan.cn/tags/pandas/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux——后台运行、查看和关闭</title>
+    <link href="http://phoebepan.cn/2017/04/17/linux_backstage/"/>
+    <id>http://phoebepan.cn/2017/04/17/linux_backstage/</id>
+    <published>2017-04-17T07:30:16.000Z</published>
+    <updated>2017-05-27T05:01:38.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>用Xshell/ssh登录了Linux服务器，运行一些耗时长的程序，结果不小心断网了，白白花了时间却没出结果。如何让命令提交不受本地关闭终端、断网等干扰呢？</p>
+<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>让进程在后台运行，相关命令：<code>&amp;、nohup、jobs、fg、ctrl+z、bg、ctrl+c、kill</code></p>
+<h3 id="amp"><a href="#amp" class="headerlink" title="&amp;"></a>&amp;</h3><p>命令末尾加上&amp;，相当于把这条命令放在后台执行，如：<code>python3.4 test.py &amp;</code></p>
+<h3 id="nohup"><a href="#nohup" class="headerlink" title="nohup"></a>nohup</h3><p>若想要终端关闭，程序依旧执行，nohup无疑是首选方式，用法：<code>nohup &lt;command&gt; &amp;</code></p>
+<h3 id="jobs"><a href="#jobs" class="headerlink" title="jobs"></a>jobs</h3><p>查看当前在后台运行的命令状态，<code>jobs -l</code>可显示所有任务得PID</p>
+<h3 id="fg"><a href="#fg" class="headerlink" title="fg"></a>fg</h3><p>后台命令调入前台运行。用法：<code>fg %jobnumber</code>（jobnumber通过<code>jobs</code>命令查看）</p>
+<h3 id="ctrl-z"><a href="#ctrl-z" class="headerlink" title="ctrl+z"></a>ctrl+z</h3><p>可以将一个正在前台运行的命令放入后台，并处于暂停状态</p>
+<h3 id="bg"><a href="#bg" class="headerlink" title="bg"></a>bg</h3><p>后台暂停的命令，变成在后台继续执行，用法：<code>bg %jobnumber</code></p>
+<h3 id="ctrl-c"><a href="#ctrl-c" class="headerlink" title="ctrl+c"></a>ctrl+c</h3><p>前台终止进程</p>
+<h3 id="kill"><a href="#kill" class="headerlink" title="kill"></a>kill</h3><p>终止后台进程继续运行，</p>
+<ul>
+<li>通过job号，执行：<code>kill %jobnumber</code></li>
+<li><code>ps xw</code>查看进程号(PID)，执行：<code>kill PID</code></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h2&gt;&lt;p&gt;用Xshell/ssh登录了Linux服务器，运行一些耗时长的程序，结果不小心断网了，白白花了时间却没出结果。如何让命令提交不受本地关闭终端
+    
+    </summary>
+    
       <category term="Daily Accumulation" scheme="http://phoebepan.cn/categories/Daily-Accumulation/"/>
     
     
-      <category term="python" scheme="http://phoebepan.cn/tags/python/"/>
-    
-      <category term="pandas" scheme="http://phoebepan.cn/tags/pandas/"/>
+      <category term="linux" scheme="http://phoebepan.cn/tags/linux/"/>
     
   </entry>
   
