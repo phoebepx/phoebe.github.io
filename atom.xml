@@ -55,11 +55,10 @@
     <link href="http://phoebepan.cn/2017/04/17/linux_backstage/"/>
     <id>http://phoebepan.cn/2017/04/17/linux_backstage/</id>
     <published>2017-04-17T07:30:16.000Z</published>
-    <updated>2017-05-28T02:00:49.000Z</updated>
+    <updated>2017-05-28T02:20:49.000Z</updated>
     
-    <content type="html"><![CDATA[<p><blockquote></blockquote></p>
-<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>用Xshell/ssh登录了Linux服务器，运行一些耗时长的程序，结果不小心断网了，白白花了时间却没出结果。如何让命令提交不受本地关闭终端、断网等干扰呢？</p>
-<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>让进程在后台运行，相关命令：<code>&amp;、nohup、jobs、fg、ctrl+z、bg、ctrl+c、kill</code><br></p>
+    <content type="html"><![CDATA[<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>用Xshell/ssh登录了Linux服务器，运行一些耗时长的程序，结果不小心断网了，白白花了时间却没出结果。如何让命令提交不受本地关闭终端、断网等干扰呢？</p>
+<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>让进程在后台运行，相关命令：<code>&amp;、nohup、jobs、fg、ctrl+z、bg、ctrl+c、kill</code></p>
 <h3 id="amp"><a href="#amp" class="headerlink" title="&amp;"></a>&amp;</h3><p>命令末尾加上&amp;，相当于把这条命令放在后台执行，如：<code>python3.4 test.py &amp;</code></p>
 <h3 id="nohup"><a href="#nohup" class="headerlink" title="nohup"></a>nohup</h3><p>若想要终端关闭，程序依旧执行，nohup无疑是首选方式，用法：<code>nohup &lt;command&gt; &amp;</code></p>
 <h3 id="jobs"><a href="#jobs" class="headerlink" title="jobs"></a>jobs</h3><p>查看当前在后台运行的命令状态，<code>jobs -l</code>可显示所有任务得PID</p>
@@ -76,8 +75,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;&lt;blockquote&gt;&lt;/blockquote&gt;&lt;/p&gt;
-&lt;h2 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h2&gt;&lt;p&gt;用Xshell/ssh登录了Linux服务器，运行一些耗时长的程序，结果不
+      &lt;h2 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h2&gt;&lt;p&gt;用Xshell/ssh登录了Linux服务器，运行一些耗时长的程序，结果不小心断网了，白白花了时间却没出结果。如何让命令提交不受本地关闭终端
     
     </summary>
     
