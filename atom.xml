@@ -55,10 +55,12 @@
     <link href="http://phoebepan.cn/2017/04/17/linux_backstage/"/>
     <id>http://phoebepan.cn/2017/04/17/linux_backstage/</id>
     <published>2017-04-17T07:30:16.000Z</published>
-    <updated>2017-05-28T02:20:49.000Z</updated>
+    <updated>2017-05-28T06:58:19.000Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>用Xshell/ssh登录了Linux服务器，运行一些耗时长的程序，结果不小心断网了，白白花了时间却没出结果。如何让命令提交不受本地关闭终端、断网等干扰呢？</p>
-<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>让进程在后台运行，相关命令：<code>&amp;、nohup、jobs、fg、ctrl+z、bg、ctrl+c、kill</code></p>
+    <content type="html"><![CDATA[<blockquote class="blockquote-center"><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>用Xshell/ssh登录了Linux服务器，运行一些耗时长的程序，结果不小心断网了，白白花了时间却没出结果。如何让命令提交不受本地关闭终端、断网等干扰呢？</p>
+</blockquote>
+<blockquote class="blockquote-center"><h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>让进程在后台运行，相关命令：<code>&amp;、nohup、jobs、fg、ctrl+z、bg、ctrl+c、kill</code></p>
+</blockquote>
 <h3 id="amp"><a href="#amp" class="headerlink" title="&amp;"></a>&amp;</h3><p>命令末尾加上&amp;，相当于把这条命令放在后台执行，如：<code>python3.4 test.py &amp;</code></p>
 <h3 id="nohup"><a href="#nohup" class="headerlink" title="nohup"></a>nohup</h3><p>若想要终端关闭，程序依旧执行，nohup无疑是首选方式，用法：<code>nohup &lt;command&gt; &amp;</code></p>
 <h3 id="jobs"><a href="#jobs" class="headerlink" title="jobs"></a>jobs</h3><p>查看当前在后台运行的命令状态，<code>jobs -l</code>可显示所有任务得PID</p>
@@ -75,7 +77,7 @@
     
     <summary type="html">
     
-      &lt;h2 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h2&gt;&lt;p&gt;用Xshell/ssh登录了Linux服务器，运行一些耗时长的程序，结果不小心断网了，白白花了时间却没出结果。如何让命令提交不受本地关闭终端
+      &lt;blockquote class=&quot;blockquote-center&quot;&gt;&lt;h2 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h2&gt;&lt;p&gt;用Xshell/ssh登录了Linux服务器，运行一些耗时长的程
     
     </summary>
     
@@ -156,7 +158,7 @@
     <link href="http://phoebepan.cn/2017/04/13/Dynamic%20programming/"/>
     <id>http://phoebepan.cn/2017/04/13/Dynamic programming/</id>
     <published>2017-04-13T07:30:16.000Z</published>
-    <updated>2017-04-17T12:49:04.000Z</updated>
+    <updated>2017-05-28T13:03:45.000Z</updated>
     
     <content type="html"><![CDATA[<h3 id="基本思想"><a href="#基本思想" class="headerlink" title="基本思想"></a>基本思想</h3><p>动态规划（Dynamic programming，DP），通过把原问题分解为相对简单的子问题的方式分解复杂问题的方法。</p>
 <h3 id="使用的情况"><a href="#使用的情况" class="headerlink" title="使用的情况"></a>使用的情况</h3><p>能采用动态规划求解的问题一般具有3个性质：</p>
@@ -282,7 +284,7 @@
     <link href="http://phoebepan.cn/2017/03/23/fileinput_bisect_/"/>
     <id>http://phoebepan.cn/2017/03/23/fileinput_bisect_/</id>
     <published>2017-03-23T07:30:16.000Z</published>
-    <updated>2017-03-24T12:48:38.000Z</updated>
+    <updated>2017-05-28T13:03:23.000Z</updated>
     
     <content type="html"><![CDATA[<h3 id="fileinput"><a href="#fileinput" class="headerlink" title="fileinput"></a>fileinput</h3><p>　　<strong>起因：</strong>小伙伴Q我问，如何用python在一个txt每行末尾添加内容？</p>
 <p>　　我想了下，这不简单么，直接for循环读取每行再在末尾加新内容，然后重新写入新文档不就解决了么。想着这肯定不是小伙伴希望的，能不能直接在原文档添加，不写入新文档呢？</p>
@@ -317,7 +319,7 @@
     <link href="http://phoebepan.cn/2017/03/21/binary_indexed_tree/"/>
     <id>http://phoebepan.cn/2017/03/21/binary_indexed_tree/</id>
     <published>2017-03-21T07:30:16.000Z</published>
-    <updated>2017-05-28T01:57:36.000Z</updated>
+    <updated>2017-05-28T13:04:16.000Z</updated>
     
     <content type="html"><![CDATA[<p>　　本文主要介绍<font color="red">Binary indexed tree (Fenwick tree)</font>，也叫<strong>树状数组</strong>。</p>
 <h3 id="核心思想"><a href="#核心思想" class="headerlink" title="核心思想"></a><strong>核心思想</strong></h3><ul>
@@ -527,7 +529,7 @@
     <link href="http://phoebepan.cn/2017/03/15/DFA/"/>
     <id>http://phoebepan.cn/2017/03/15/DFA/</id>
     <published>2017-03-15T07:30:16.000Z</published>
-    <updated>2017-03-22T00:59:24.000Z</updated>
+    <updated>2017-05-28T13:04:05.000Z</updated>
     
     <content type="html"><![CDATA[<p><strong>起因</strong>：从网页中爬取的数据，需要判断是否包含预设的关键词，并返回所有匹配到的关键词。<br><em>文字匹配（过滤）</em>是很多文字类网站必不可少的功能，采用一个高效的文字过滤算法至关重要。其本质需求就是判断集合A中哪些子集属于集合B。</p>
 <p><strong>可行思路：</strong></p>
