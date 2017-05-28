@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://phoebepan.cn/about/index.html</loc>
+    
+    <lastmod>2017-05-28T15:04:43.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://phoebepan.cn/2017/03/21/binary_indexed_tree/</loc>
     
     <lastmod>2017-05-28T13:04:16.000Z</lastmod>
@@ -61,13 +68,6 @@
     <loc>http://phoebepan.cn/2017/03/25/python_genefromtxt/</loc>
     
     <lastmod>2017-04-01T15:11:09.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://phoebepan.cn/about/index.html</loc>
-    
-    <lastmod>2017-04-01T14:02:35.000Z</lastmod>
     
   </url>
   
