@@ -89,22 +89,16 @@
 
 
 
-<meta name="description" content="起因：在图论中，实现广度搜索两顶点所有路径时，被好用的 yield 和 yield from 惊呆啦~
-题外话： 想真正搞明白这两者，先学习两个名词，迭代器 、生成器。
-　　先说迭代器，对于string、list、dict、tuple等容器对象，用for循环遍历是很方便的，在后台for语句对容器对象调用iter()函数，iter()会返回一个定义了next()方法的迭代器对象，从而在容器中逐个访问">
+<meta name="description" content="起因：在图论中，实现广度搜索两顶点所有路径时，被好用的 yield 和 yield from 惊呆啦~">
 <meta property="og:type" content="article">
 <meta property="og:title" content="魔力Python——yield & yield from">
 <meta property="og:url" content="http://phoebepan.cn/2017/03/17/python_yield/index.html">
 <meta property="og:site_name" content="技忆">
-<meta property="og:description" content="起因：在图论中，实现广度搜索两顶点所有路径时，被好用的 yield 和 yield from 惊呆啦~
-题外话： 想真正搞明白这两者，先学习两个名词，迭代器 、生成器。
-　　先说迭代器，对于string、list、dict、tuple等容器对象，用for循环遍历是很方便的，在后台for语句对容器对象调用iter()函数，iter()会返回一个定义了next()方法的迭代器对象，从而在容器中逐个访问">
-<meta property="og:updated_time" content="2017-03-22T00:58:49.000Z">
+<meta property="og:description" content="起因：在图论中，实现广度搜索两顶点所有路径时，被好用的 yield 和 yield from 惊呆啦~">
+<meta property="og:updated_time" content="2017-05-29T05:10:35.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="魔力Python——yield & yield from">
-<meta name="twitter:description" content="起因：在图论中，实现广度搜索两顶点所有路径时，被好用的 yield 和 yield from 惊呆啦~
-题外话： 想真正搞明白这两者，先学习两个名词，迭代器 、生成器。
-　　先说迭代器，对于string、list、dict、tuple等容器对象，用for循环遍历是很方便的，在后台for语句对容器对象调用iter()函数，iter()会返回一个定义了next()方法的迭代器对象，从而在容器中逐个访问">
+<meta name="twitter:description" content="起因：在图论中，实现广度搜索两顶点所有路径时，被好用的 yield 和 yield from 惊呆啦~">
 
 
 
@@ -467,8 +461,7 @@
       
 
       
-        <p><strong>起因：</strong>在图论中，实现广度搜索两顶点所有路径时，被好用的 yield 和 yield from 惊呆啦~</p>
-<p><em>题外话：</em> 想真正搞明白这两者，先学习两个名词，<strong>迭代器</strong> 、<strong>生成器</strong>。</p>
+        <p><strong>起因：</strong>在图论中，实现广度搜索两顶点所有路径时，被好用的 yield 和 yield from 惊呆啦~<br><a id="more"></a><br><em>题外话：</em> 想真正搞明白这两者，先学习两个名词，<strong>迭代器</strong> 、<strong>生成器</strong>。</p>
 <p>　　先说迭代器，对于<font color="red">string、list、dict、tuple</font>等容器对象，用<font color="red">for</font>循环遍历是很方便的，在后台<font color="red">for</font>语句对容器对象调用<font color="red">iter()</font>函数，<font color="red">iter()</font>会返回一个定义了<font color="red">next()</font>方法的迭代器对象，从而在容器中逐个访问容器内元素，直到最后抛出<font color="red">StopIteration</font>异常，for循环结束。</p>
 <p>　　生成器是创建迭代器的简单而强大的工具，能做到迭代器能做的所有事，自动创建<font color="red">iter()和next()</font>方法，自动抛出<font color="red">StopIteration</font>异常。一个带<font color="red">yield</font>的函数就是一个生成器。</p>
 <p>　　好，了解了迭代器与生成器，看看yield的用法：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">generator</span><span class="params">()</span>:</span></div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>):</div><div class="line">        <span class="keyword">yield</span> i</div></pre></td></tr></table></figure></p>
@@ -521,8 +514,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/15/DFA/" rel="next" title="关键词匹配经典算法——DFA">
-                <i class="fa fa-chevron-left"></i> 关键词匹配经典算法——DFA
+              <a href="/2017/03/15/read_block_data/" rel="next" title="读《块数据》">
+                <i class="fa fa-chevron-left"></i> 读《块数据》
               </a>
             
           </div>

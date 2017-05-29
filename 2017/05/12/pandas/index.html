@@ -89,19 +89,16 @@
 
 
 
-<meta name="description" content="读写csv文件到DataFramedf=pd.read_csv(&amp;#39;filename&amp;#39;,encoding=&amp;#39;utf-8&amp;#39;)读入csv文本，编码为utf-8df.to_csv(&amp;#39;filename&amp;#39;,sep=&amp;#39;\t&amp;#39;,index=False)‘\t’切分df，写入csv，不包含行索引
-格式转换、值填充、删除 df.to_dict(outty">
+<meta name="description" content="本文主要是平时运用Pandas的小积累，涉及到读写文件，格式转换、缺失值填充，简单统计等多个方面。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Pandas杂碎">
 <meta property="og:url" content="http://phoebepan.cn/2017/05/12/pandas/index.html">
 <meta property="og:site_name" content="技忆">
-<meta property="og:description" content="读写csv文件到DataFramedf=pd.read_csv(&amp;#39;filename&amp;#39;,encoding=&amp;#39;utf-8&amp;#39;)读入csv文本，编码为utf-8df.to_csv(&amp;#39;filename&amp;#39;,sep=&amp;#39;\t&amp;#39;,index=False)‘\t’切分df，写入csv，不包含行索引
-格式转换、值填充、删除 df.to_dict(outty">
-<meta property="og:updated_time" content="2017-05-27T04:55:48.000Z">
+<meta property="og:description" content="本文主要是平时运用Pandas的小积累，涉及到读写文件，格式转换、缺失值填充，简单统计等多个方面。">
+<meta property="og:updated_time" content="2017-05-29T05:14:14.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Pandas杂碎">
-<meta name="twitter:description" content="读写csv文件到DataFramedf=pd.read_csv(&amp;#39;filename&amp;#39;,encoding=&amp;#39;utf-8&amp;#39;)读入csv文本，编码为utf-8df.to_csv(&amp;#39;filename&amp;#39;,sep=&amp;#39;\t&amp;#39;,index=False)‘\t’切分df，写入csv，不包含行索引
-格式转换、值填充、删除 df.to_dict(outty">
+<meta name="twitter:description" content="本文主要是平时运用Pandas的小积累，涉及到读写文件，格式转换、缺失值填充，简单统计等多个方面。">
 
 
 
@@ -429,7 +426,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  624
+                  663
                 </span>
               
 
@@ -464,7 +461,10 @@
       
 
       
-        <h3 id="读写csv文件到DataFrame"><a href="#读写csv文件到DataFrame" class="headerlink" title="读写csv文件到DataFrame"></a>读写csv文件到DataFrame</h3><p><code>df=pd.read_csv(&#39;filename&#39;,encoding=&#39;utf-8&#39;)</code><br>读入csv文本，编码为utf-8<br><code>df.to_csv(&#39;filename&#39;,sep=&#39;\t&#39;,index=False)</code><br>‘\t’切分df，写入csv，不包含行索引</p>
+        <blockquote class="blockquote-center"><p>本文主要是平时运用Pandas的小积累，涉及到读写文件，格式转换、缺失值填充，简单统计等多个方面。</p>
+</blockquote>
+<a id="more"></a>
+<h3 id="读写csv文件到DataFrame"><a href="#读写csv文件到DataFrame" class="headerlink" title="读写csv文件到DataFrame"></a>读写csv文件到DataFrame</h3><p><code>df=pd.read_csv(&#39;filename&#39;,encoding=&#39;utf-8&#39;)</code><br>读入csv文本，编码为utf-8<br><code>df.to_csv(&#39;filename&#39;,sep=&#39;\t&#39;,index=False)</code><br>‘\t’切分df，写入csv，不包含行索引</p>
 <h3 id="格式转换、值填充、删除"><a href="#格式转换、值填充、删除" class="headerlink" title="格式转换、值填充、删除"></a>格式转换、值填充、删除</h3><p> <code>df.to_dict(outtype=&#39;dict&#39;)</code><br>将DataFrame转换成其他结构类型，outtype的参数为‘dict’、‘list’、‘series’和‘records’<br> <code>df[&#39;A&#39;].astype(float)</code><br>将DataFrame的A列类型更改成float<br><code>df.rename(columns={&#39;oldname&#39;: &#39;newname&#39;}, inplace=True)</code>   #修改列名<br><code>df.fillna(0)</code>  #NaN用0填充，处理缺失值<br><code>df.drop_duplicates(subset=[&#39;A&#39;]，keep=&#39;first&#39;)</code><br>按A列去重，保留第一行，keep（’first’,’last’,False）</p>
 <h3 id="查看DataFrame概要"><a href="#查看DataFrame概要" class="headerlink" title="查看DataFrame概要"></a>查看DataFrame概要</h3><p><code>df.head()</code>     #前几行<br><code>df.tail()</code>     #末几行<br><code>df.index</code>      #行标签<br><code>df.columns</code>    #列标签<br><code>df.dtypes</code>     #每一列数据类型<br><code>df[&#39;column&#39;].count()</code>    #column列非空条数<br><code>df[&#39;column&#39;].isnull()</code>   #column列是否有NaN的数据<br><code>df[&#39;column&#39;].unique()</code>    #column列所有值</p>
 <h3 id="简单统计"><a href="#简单统计" class="headerlink" title="简单统计"></a>简单统计</h3><p><code>df.describe()</code>   #各列基本描述统计值<br><code>df[&#39;A&#39;].value_counts()</code>  #计算A列每个值的频率</p>

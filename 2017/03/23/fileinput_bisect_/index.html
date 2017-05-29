@@ -89,22 +89,16 @@
 
 
 
-<meta name="description" content="fileinput　　起因：小伙伴Q我问，如何用python在一个txt每行末尾添加内容？
-　　我想了下，这不简单么，直接for循环读取每行再在末尾加新内容，然后重新写入新文档不就解决了么。想着这肯定不是小伙伴希望的，能不能直接在原文档添加，不写入新文档呢？
-　　这就了解到了fileinput模块，那么它能帮我干什么嘞！如：有一个test.txt，里面的内容如下：|1|a||2|b||3|c|">
+<meta name="description" content="fileinput　　起因：小伙伴Q我问，如何用python在一个txt每行末尾添加内容？">
 <meta property="og:type" content="article">
 <meta property="og:title" content="魔力Python——fileinput & bisect模块">
 <meta property="og:url" content="http://phoebepan.cn/2017/03/23/fileinput_bisect_/index.html">
 <meta property="og:site_name" content="技忆">
-<meta property="og:description" content="fileinput　　起因：小伙伴Q我问，如何用python在一个txt每行末尾添加内容？
-　　我想了下，这不简单么，直接for循环读取每行再在末尾加新内容，然后重新写入新文档不就解决了么。想着这肯定不是小伙伴希望的，能不能直接在原文档添加，不写入新文档呢？
-　　这就了解到了fileinput模块，那么它能帮我干什么嘞！如：有一个test.txt，里面的内容如下：|1|a||2|b||3|c|">
-<meta property="og:updated_time" content="2017-05-28T13:03:23.000Z">
+<meta property="og:description" content="fileinput　　起因：小伙伴Q我问，如何用python在一个txt每行末尾添加内容？">
+<meta property="og:updated_time" content="2017-05-29T05:03:39.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="魔力Python——fileinput & bisect模块">
-<meta name="twitter:description" content="fileinput　　起因：小伙伴Q我问，如何用python在一个txt每行末尾添加内容？
-　　我想了下，这不简单么，直接for循环读取每行再在末尾加新内容，然后重新写入新文档不就解决了么。想着这肯定不是小伙伴希望的，能不能直接在原文档添加，不写入新文档呢？
-　　这就了解到了fileinput模块，那么它能帮我干什么嘞！如：有一个test.txt，里面的内容如下：|1|a||2|b||3|c|">
+<meta name="twitter:description" content="fileinput　　起因：小伙伴Q我问，如何用python在一个txt每行末尾添加内容？">
 
 
 
@@ -467,7 +461,9 @@
       
 
       
-        <h3 id="fileinput"><a href="#fileinput" class="headerlink" title="fileinput"></a>fileinput</h3><p>　　<strong>起因：</strong>小伙伴Q我问，如何用python在一个txt每行末尾添加内容？</p>
+        <blockquote class="blockquote-center"><h3 id="fileinput"><a href="#fileinput" class="headerlink" title="fileinput"></a>fileinput</h3><p>　　<strong>起因：</strong>小伙伴Q我问，如何用python在一个txt每行末尾添加内容？</p>
+</blockquote>
+<a id="more"></a>
 <p>　　我想了下，这不简单么，直接for循环读取每行再在末尾加新内容，然后重新写入新文档不就解决了么。想着这肯定不是小伙伴希望的，能不能直接在原文档添加，不写入新文档呢？</p>
 <p>　　这就了解到了fileinput模块，那么它能帮我干什么嘞！如：有一个test.txt，里面的内容如下：<br>|1|a|<br>|2|b|<br>|3|c|<br>　　那么，执行下面的代码，就能在test.txt文档每行末尾添加<font color="red">‘aaa’</font>。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> fileinput</div><div class="line"><span class="keyword">for</span> line <span class="keyword">in</span> fileinput.input(<span class="string">'test.txt'</span>, inplace=<span class="number">1</span>):</div><div class="line">    print(<span class="string">'&#123;0&#125;\t&#123;1&#125;'</span>.format(line.rstrip(<span class="string">'\n'</span>), <span class="string">'aaa'</span>))</div></pre></td></tr></table></figure></p>
 <h3 id="bisect"><a href="#bisect" class="headerlink" title="bisect"></a>bisect</h3><p>　　这是Lab小伙伴推荐的python排序模块，点<a href="http://www.cnblogs.com/skydesign/archive/2011/09/02/2163592.html" target="_blank" rel="external">这</a>学习模块具体内容。</p>
@@ -525,8 +521,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/21/binary_indexed_tree/" rel="next" title="Binary indexed tree (Fenwick tree)">
-                <i class="fa fa-chevron-left"></i> Binary indexed tree (Fenwick tree)
+              <a href="/2017/03/21/python_collections/" rel="next" title="魔力Python——collections">
+                <i class="fa fa-chevron-left"></i> 魔力Python——collections
               </a>
             
           </div>
