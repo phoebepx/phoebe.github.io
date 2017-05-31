@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>http://phoebepan.cn/2017/04/21/MapReduce/</loc>
+    <lastmod>2017-05-31T23:45:18.000Z</lastmod>
+    <data>
+        <display>
+        <title>初涉MapReduce</title>
+        <pubTime>2017-04-21T07:30:16.000Z</pubTime>
+        
+        <tag>MapReduce</tag>
+         
+         
+           
+             
+              <breadCrumb title="Architecture" url="http://phoebepan.cn/categories/Architecture/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://phoebepan.cn/2017/05/12/pandas/</loc>
     <lastmod>2017-05-29T05:14:14.000Z</lastmod>
     <data>
@@ -201,9 +221,9 @@
         <title>Dynamic programming</title>
         <pubTime>2017-04-13T07:30:16.000Z</pubTime>
         
-        <tag>LeetCode</tag>
-         
         <tag>Algorithms</tag>
+         
+        <tag>LeetCode</tag>
          
          
            
@@ -245,9 +265,9 @@
         <title>Binary indexed tree (Fenwick tree)</title>
         <pubTime>2017-03-21T07:30:16.000Z</pubTime>
         
-        <tag>Algorithms</tag>
-         
         <tag>Python</tag>
+         
+        <tag>Algorithms</tag>
          
          
            
