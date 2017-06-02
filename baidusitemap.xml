@@ -4,6 +4,28 @@
 
     
   <url>
+    <loc>http://phoebepan.cn/2017/04/19/multiprocessing/</loc>
+    <lastmod>2017-06-02T00:20:55.000Z</lastmod>
+    <data>
+        <display>
+        <title>并行化——multiprocessing</title>
+        <pubTime>2017-04-19T07:30:16.000Z</pubTime>
+        
+        <tag>Python</tag>
+         
+        <tag>Parallelization</tag>
+         
+         
+           
+             
+              <breadCrumb title="Python" url="http://phoebepan.cn/categories/Python/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://phoebepan.cn/2017/04/21/MapReduce/</loc>
     <lastmod>2017-05-31T23:45:18.000Z</lastmod>
     <data>
