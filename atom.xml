@@ -91,6 +91,35 @@
   </entry>
   
   <entry>
+    <title>魔力Python——pickle持久化对象</title>
+    <link href="http://phoebepan.cn/2017/04/22/pickle/"/>
+    <id>http://phoebepan.cn/2017/04/22/pickle/</id>
+    <published>2017-04-22T07:30:16.000Z</published>
+    <updated>2017-06-02T23:53:42.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote class="blockquote-center"><p><center><strong>简介</strong></center><br>本文主要介绍Python pickle模块的用法，实例分析<code>pickle</code>模块的功能与相关适用技巧。<code>pickle</code>提供了一个简单的<strong>持久化</strong>功能，可以将对象以文件的形式存放在磁盘上，方便多次读取与共享。</p>
+</blockquote>
+<a id="more"></a>
+<h3 id="具体用法"><a href="#具体用法" class="headerlink" title="具体用法"></a>具体用法</h3><h4 id="pickle-dump-obj-file-protocol"><a href="#pickle-dump-obj-file-protocol" class="headerlink" title="pickle.dump(obj,file[,protocol])"></a>pickle.dump(obj,file[,protocol])</h4><p>这条语句序列化对象obj，并将结果数据流写入到文件file中。可选参数protocol是序列化模式，默认为0，表示以文本形式序列化，如果设置为 1 或 True，则以高压缩的二进制格式保存序列化后的对象，否则以ASCII格式保存。</p>
+<h4 id="pickle-load-file"><a href="#pickle-load-file" class="headerlink" title="pickle.load(file)"></a>pickle.load(file)</h4><p>反序列化对象，将文件中的数据解析为一个python对象。</p>
+<h3 id="基本用例"><a href="#基本用例" class="headerlink" title="基本用例"></a>基本用例</h3><p>下面这段代码，实现将4维矩阵obj对象持久化：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> pickle</div><div class="line"><span class="keyword">import</span> os</div><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"><span class="keyword">if</span> os.path.exists(<span class="string">'./test.pkl'</span>):    <span class="comment">#当前路径下是否已经存在序列化的test.pkl</span></div><div class="line">    obj=pickle.load(open(<span class="string">'./test.pkl'</span>,<span class="string">'rb'</span>))    <span class="comment">#如果已经存在直接load</span></div><div class="line"><span class="keyword">else</span>:   <span class="comment">#否则，将4维矩阵序列化到存储到当前路径下的test.pkl中</span></div><div class="line">    obj = np.ones((<span class="number">4</span>,<span class="number">4</span>))    </div><div class="line">    pickle.dump(obj,open(<span class="string">'./test.pkl'</span>,<span class="string">'wb'</span>))</div><div class="line">print(obj)</div></pre></td></tr></table></figure></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote class=&quot;blockquote-center&quot;&gt;&lt;p&gt;&lt;center&gt;&lt;strong&gt;简介&lt;/strong&gt;&lt;/center&gt;&lt;br&gt;本文主要介绍Python pickle模块的用法，实例分析&lt;code&gt;pickle&lt;/code&gt;模块的功能与相关适用技巧。&lt;code&gt;pickle&lt;/code&gt;提供了一个简单的&lt;strong&gt;持久化&lt;/strong&gt;功能，可以将对象以文件的形式存放在磁盘上，方便多次读取与共享。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="Python" scheme="http://phoebepan.cn/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="http://phoebepan.cn/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
     <title>初涉MapReduce</title>
     <link href="http://phoebepan.cn/2017/04/21/MapReduce/"/>
     <id>http://phoebepan.cn/2017/04/21/MapReduce/</id>
