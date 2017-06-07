@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>http://phoebepan.cn/2017/06/06/learn_seaborn/</loc>
+    <lastmod>2017-06-07T12:28:26.000Z</lastmod>
+    <data>
+        <display>
+        <title>数据可视化——Seaborn</title>
+        <pubTime>2017-06-06T07:30:16.000Z</pubTime>
+        
+        <tag>ML，Visualization</tag>
+         
+         
+           
+             
+              <breadCrumb title="Data Visualization" url="http://phoebepan.cn/categories/Data-Visualization/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://phoebepan.cn/2017/06/05/Imbalanced_data/</loc>
     <lastmod>2017-06-05T14:17:18.000Z</lastmod>
     <data>
@@ -93,9 +113,9 @@
         <title>Modern Machine Learning Algorithms:Strengths and Weaknesses(阅读笔记)</title>
         <pubTime>2017-05-13T07:30:16.000Z</pubTime>
         
-        <tag>Reading</tag>
-         
         <tag>ML</tag>
+         
+        <tag>Reading</tag>
          
          
            
