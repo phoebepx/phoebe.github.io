@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>http://phoebepan.cn/2017/04/26/ML_EDA/</loc>
+    <lastmod>2017-06-08T23:51:47.000Z</lastmod>
+    <data>
+        <display>
+        <title>机器学习WorkFlow——EDA</title>
+        <pubTime>2017-04-26T07:30:16.000Z</pubTime>
+        
+        <tag>ML</tag>
+         
+         
+           
+             
+              <breadCrumb title="Machine Learning" url="http://phoebepan.cn/categories/Machine-Learning/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://phoebepan.cn/2017/06/06/learn_seaborn/</loc>
     <lastmod>2017-06-07T12:56:54.000Z</lastmod>
     <data>
@@ -411,9 +431,9 @@
         <title>Binary indexed tree (Fenwick tree)</title>
         <pubTime>2017-03-21T07:30:16.000Z</pubTime>
         
-        <tag>Algorithms</tag>
-         
         <tag>Python</tag>
+         
+        <tag>Algorithms</tag>
          
          
            
