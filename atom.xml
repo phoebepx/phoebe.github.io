@@ -220,12 +220,12 @@
     <link href="http://phoebepan.cn/2017/04/26/ML_EDA/"/>
     <id>http://phoebepan.cn/2017/04/26/ML_EDA/</id>
     <published>2017-04-26T07:30:16.000Z</published>
-    <updated>2017-06-08T23:51:47.000Z</updated>
+    <updated>2017-06-08T23:58:42.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote class="blockquote-center"><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>机器学习想要获得很好的效果，就像做菜一样，离不开3个基本要素：好的厨师(human guidance)、干净的食材(clean, relevant data)、适量(avoid overfitting)。围绕这3要素，机器学习有下图5个核心步骤。本文先谈谈EDA过程。<br><img src="/images/machine_pipeline.jpg" alt="machine_pipeline"></p>
 </blockquote>
 <a id="more"></a>
-<h3 id="Exploratory-Data-Analysis-EDA"><a href="#Exploratory-Data-Analysis-EDA" class="headerlink" title="Exploratory Data Analysis(EDA)"></a>Exploratory Data Analysis(EDA)</h3><p>探索性数据分析阶段，目的就是更好地了解你的数据，对你的数据有那么点 <strong>feel</strong>，这对下面的数据清洗、特征工程都是有帮助的。EDA对于ML来说， 要快速，高效，决定性的。<br>这一步中，首先需要回答出这些问题：</p>
+<h3 id="Exploratory-Data-Analysis-EDA"><a href="#Exploratory-Data-Analysis-EDA" class="headerlink" title="Exploratory Data Analysis(EDA)"></a>Exploratory Data Analysis(EDA)</h3><p>探索性数据分析阶段，目的就是更好地了解你的数据，对你的数据有那么点 <strong>feel</strong>，这对下面的数据清洗、特征工程都是有帮助的。EDA对于ML来说，要<strong>快速，高效，决定性的</strong>。<br>这一步中，首先需要回答出这些问题：</p>
 <ul>
 <li>观测数据、特征有多少？</li>
 <li>特征的数据类型？数值 or 类别？</li>
