@@ -5,7 +5,7 @@
     
   <url>
     <loc>http://phoebepan.cn/2017/04/26/ML_EDA/</loc>
-    <lastmod>2017-06-08T23:58:42.000Z</lastmod>
+    <lastmod>2017-06-09T00:02:52.000Z</lastmod>
     <data>
         <display>
         <title>机器学习WorkFlow——EDA</title>
@@ -431,9 +431,9 @@
         <title>Binary indexed tree (Fenwick tree)</title>
         <pubTime>2017-03-21T07:30:16.000Z</pubTime>
         
-        <tag>Python</tag>
-         
         <tag>Algorithms</tag>
+         
+        <tag>Python</tag>
          
          
            
