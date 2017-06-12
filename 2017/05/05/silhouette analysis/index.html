@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="LeetCode,Algorithms," />
+  <meta name="keywords" content="ML," />
 
 
 
@@ -89,16 +89,23 @@
 
 
 
-<meta name="description" content="基本思想动态规划（Dynamic programming，DP），通过把原问题分解为相对简单的子问题的方式分解复杂问题的方法。">
+<meta name="description" content="简介在K-Means聚类时，我们常常会纠结，K该取多大呢？今天无意当中查看Sklearn时，发现了silhouette analysis，翻译过来，就是轮廓分析，具体来说，就是通过结果簇之间的分隔距离来辅助决定K的取值。偷个懒，直接参照手册，学习下。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Dynamic programming">
-<meta property="og:url" content="http://phoebepan.cn/2017/04/13/Dynamic programming/index.html">
+<meta property="og:title" content="如何决定K-Means聚类个数——silhouette analysis">
+<meta property="og:url" content="http://phoebepan.cn/2017/05/05/silhouette analysis/index.html">
 <meta property="og:site_name" content="技忆">
-<meta property="og:description" content="基本思想动态规划（Dynamic programming，DP），通过把原问题分解为相对简单的子问题的方式分解复杂问题的方法。">
-<meta property="og:updated_time" content="2017-05-29T05:01:51.000Z">
+<meta property="og:description" content="简介在K-Means聚类时，我们常常会纠结，K该取多大呢？今天无意当中查看Sklearn时，发现了silhouette analysis，翻译过来，就是轮廓分析，具体来说，就是通过结果簇之间的分隔距离来辅助决定K的取值。偷个懒，直接参照手册，学习下。">
+<meta property="og:image" content="http://phoebepan.cn/images/scatter.png">
+<meta property="og:image" content="http://phoebepan.cn/images/figure_1.png">
+<meta property="og:image" content="http://phoebepan.cn/images/figure_2.png">
+<meta property="og:image" content="http://phoebepan.cn/images/figure_3.png">
+<meta property="og:image" content="http://phoebepan.cn/images/figure_4.png">
+<meta property="og:image" content="http://phoebepan.cn/images/figure_5.png">
+<meta property="og:updated_time" content="2017-06-12T23:44:18.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Dynamic programming">
-<meta name="twitter:description" content="基本思想动态规划（Dynamic programming，DP），通过把原问题分解为相对简单的子问题的方式分解复杂问题的方法。">
+<meta name="twitter:title" content="如何决定K-Means聚类个数——silhouette analysis">
+<meta name="twitter:description" content="简介在K-Means聚类时，我们常常会纠结，K该取多大呢？今天无意当中查看Sklearn时，发现了silhouette analysis，翻译过来，就是轮廓分析，具体来说，就是通过结果簇之间的分隔距离来辅助决定K的取值。偷个懒，直接参照手册，学习下。">
+<meta name="twitter:image" content="http://phoebepan.cn/images/scatter.png">
 
 
 
@@ -126,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="http://phoebepan.cn/2017/04/13/Dynamic programming/"/>
+  <link rel="canonical" href="http://phoebepan.cn/2017/05/05/silhouette analysis/"/>
 
 
 
 
 
-  <title> Dynamic programming | 技忆 </title>
+  <title> 如何决定K-Means聚类个数——silhouette analysis | 技忆 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -311,7 +318,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://phoebepan.cn/2017/04/13/Dynamic programming/">
+    <link itemprop="mainEntityOfPage" href="http://phoebepan.cn/2017/05/05/silhouette analysis/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Phoebe">
@@ -332,7 +339,7 @@
             
             
               
-                Dynamic programming
+                如何决定K-Means聚类个数——silhouette analysis
               
             
           </h1>
@@ -347,8 +354,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-13T15:30:16+08:00">
-                2017-04-13
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-05T15:30:16+08:00">
+                2017-05-05
               </time>
             
 
@@ -370,8 +377,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Algorithms/" itemprop="url" rel="index">
-                    <span itemprop="name">Algorithms</span>
+                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Machine Learning</span>
                   </a>
                 </span>
 
@@ -388,7 +395,7 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a class="cloud-tie-join-count" href="/2017/04/13/Dynamic programming/#comments" itemprop="discussionUrl">
+                <a class="cloud-tie-join-count" href="/2017/05/05/silhouette analysis/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count join-count" itemprop="commentCount"></span>
                 </a>
               </span>
@@ -397,7 +404,7 @@
 
           
           
-             <span id="/2017/04/13/Dynamic programming/" class="leancloud_visitors" data-flag-title="Dynamic programming">
+             <span id="/2017/05/05/silhouette analysis/" class="leancloud_visitors" data-flag-title="如何决定K-Means聚类个数——silhouette analysis">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -426,7 +433,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  399
+                  917
                 </span>
               
 
@@ -442,7 +449,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长" }}">
-                  2
+                  5
                 </span>
               
             </div>
@@ -461,24 +468,24 @@
       
 
       
-        <blockquote class="blockquote-center"><h3 id="基本思想"><a href="#基本思想" class="headerlink" title="基本思想"></a>基本思想</h3><p>动态规划（Dynamic programming，DP），通过把原问题分解为相对简单的子问题的方式分解复杂问题的方法。</p>
+        <blockquote class="blockquote-center"><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>在K-Means聚类时，我们常常会纠结，K该取多大呢？今天无意当中查看Sklearn时，发现了<code>silhouette analysis</code>，翻译过来，就是轮廓分析，具体来说，就是通过结果簇之间的分隔距离来辅助决定K的取值。偷个懒，直接参照手册，学习下。</p>
 </blockquote>
 <a id="more"></a>
-<h3 id="使用的情况"><a href="#使用的情况" class="headerlink" title="使用的情况"></a>使用的情况</h3><p>能采用动态规划求解的问题一般具有3个性质：</p>
-<ul>
-<li>最优化原理：如果问题的最优解所包含的子问题的解也是最优的，就称该问题具有最优子结构；</li>
-<li>无后效性：某状态以后的过程不会影响以前的状态，只与当前状态有关；</li>
-<li>有重叠子问题：子问题之间不独立，一个字问题在下一阶段中可能被多次使用。（这一性质是动态规划与其他算法相比所具备的优势）</li>
-</ul>
-<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><p>LeetCode: <a href="https://leetcode.com/problems/wildcard-matching/#/description" target="_blank" rel="external">Wildcard Matching</a><br>这道题其实就是Regular Expression Matching的简化版，下面主要说一下动态规划的解法。<br>输入两个字符串s,p，用一个布尔数组dp，dp[n]值表示字符串s前n个字符是否符合模式p。这就将原问题拆分成很多子问题，要想知道s是否匹配p，只需要知道之前匹配结果及当前位匹配情况就可以ok了。<br>具体代码如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">isMatch</span><span class="params">(self, s, p)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        :type s: str</div><div class="line">        :type p: str</div><div class="line">        :rtype: bool</div><div class="line">        """</div><div class="line">        length = len(s)</div><div class="line">        <span class="keyword">if</span> len(p)-p.count(<span class="string">'*'</span>) &gt; length:</div><div class="line">            <span class="keyword">return</span> <span class="keyword">False</span></div><div class="line">        dp = [<span class="keyword">True</span>]+[<span class="keyword">False</span>]*length</div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> p:</div><div class="line">            <span class="keyword">if</span> i != <span class="string">'*'</span>:</div><div class="line">                <span class="keyword">for</span> n <span class="keyword">in</span> reversed(range(length)):</div><div class="line">                    dp[n+<span class="number">1</span>]=dp[n] <span class="keyword">and</span> (i==s[n] <span class="keyword">or</span> i == <span class="string">'?'</span>)</div><div class="line">            <span class="keyword">else</span>:</div><div class="line">                <span class="keyword">for</span> n <span class="keyword">in</span> range(<span class="number">1</span>,length+<span class="number">1</span>):</div><div class="line">                    dp[n]=dp[n<span class="number">-1</span>] <span class="keyword">or</span> dp[n]</div><div class="line">            dp[<span class="number">0</span>]=dp[<span class="number">0</span>] <span class="keyword">and</span> i==<span class="string">'*'</span></div><div class="line">        <span class="keyword">return</span> dp[<span class="number">-1</span>]</div><div class="line"><span class="comment">#test</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>isMatch(<span class="string">'aa'</span>,<span class="string">'*'</span>)</div><div class="line"><span class="keyword">True</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>isMatch(<span class="string">"ab"</span>, <span class="string">"?*"</span>)</div><div class="line"><span class="keyword">True</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>isMatch(<span class="string">"aab"</span>, <span class="string">"c*a*b"</span>)</div><div class="line"><span class="keyword">False</span></div></pre></td></tr></table></figure></p>
-
+<h3 id="数据集分布"><a href="#数据集分布" class="headerlink" title="数据集分布"></a>数据集分布</h3><p>下图是500个样本含有2个feature的数据分布情况：<br><img src="/images/scatter.png" alt="scatter"></p>
+<h3 id="轮廓系数"><a href="#轮廓系数" class="headerlink" title="轮廓系数"></a>轮廓系数</h3><p>接下来看下，n_clusters 分别为 2，3，4，5，6时，平均的轮廓分值（结果簇之间平均的分隔距离）如下，这个轮廓分值是介于[-1,1]之间的度量指标。每次聚类后，每个样本都会得到一个轮廓系数，当它为1时，说明这个点与周围簇距离较远，结果非常好，当它为0，说明这个点可能处在两个簇的边界上，当值为负时，暗含该点可能被误分了。<br>从平均轮廓分值结果来看，K取3，5，6是不明智的。对于2,4的选择还是有点纠结的，因为它们值相差并不大。</p>
+<blockquote>
+<p>For n_clusters = 2 The average silhouette_score is : 0.704978749608<br>For n_clusters = 3 The average silhouette_score is : 0.588200401213<br>For n_clusters = 4 The average silhouette_score is : 0.650518663273<br>For n_clusters = 5 The average silhouette_score is : 0.563764690262<br>For n_clusters = 6 The average silhouette_score is : 0.450466629437</p>
+</blockquote>
+<h3 id="轮廓宽度"><a href="#轮廓宽度" class="headerlink" title="轮廓宽度"></a>轮廓宽度</h3><p>下面是簇为2,3,4,5,6相对应的轮廓图，左图可以看出，当n_clusters = 2时，第0簇的宽度远宽于第1簇，但n_clusters = 4时，所聚的簇宽度相差不大，这样分析下来，自然而然会选择K=4，作为最终聚类个数。<br><img src="/images/figure_1.png" alt="figure1"><br><img src="/images/figure_2.png" alt="figure2"><br><img src="/images/figure_3.png" alt="figure3"><br><img src="/images/figure_4.png" alt="figure4"><br><img src="/images/figure_5.png" alt="figure5"></p>
+<p>本例参考官方手册，<a href="http://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_silhouette_analysis.html#sphx-glr-auto-examples-cluster-plot-kmeans-silhouette-analysis-py" target="_blank" rel="external">详情戳这</a></p>
+<h3 id="附脚本"><a href="#附脚本" class="headerlink" title="附脚本"></a>附脚本</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> make_blobs</div><div class="line"><span class="keyword">from</span> sklearn.cluster <span class="keyword">import</span> KMeans</div><div class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> silhouette_samples, silhouette_score</div><div class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</div><div class="line"><span class="keyword">import</span> matplotlib.cm <span class="keyword">as</span> cm</div><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"><span class="comment"># Generating the sample data from make_blobs</span></div><div class="line"><span class="comment"># This particular setting has one distinct cluster and 3 clusters placed close</span></div><div class="line"><span class="comment"># together.</span></div><div class="line">X, y = make_blobs(n_samples=<span class="number">500</span>,</div><div class="line">                  n_features=<span class="number">2</span>,</div><div class="line">                  centers=<span class="number">4</span>,</div><div class="line">                  cluster_std=<span class="number">1</span>,</div><div class="line">                  center_box=(<span class="number">-10.0</span>, <span class="number">10.0</span>),</div><div class="line">                  shuffle=<span class="keyword">True</span>,</div><div class="line">                  random_state=<span class="number">1</span>)  <span class="comment"># For reproducibility</span></div><div class="line"></div><div class="line">range_n_clusters = [<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]</div><div class="line"></div><div class="line"><span class="keyword">for</span> n_clusters <span class="keyword">in</span> range_n_clusters:</div><div class="line">    <span class="comment"># Create a subplot with 1 row and 2 columns</span></div><div class="line">    fig, (ax1, ax2) = plt.subplots(<span class="number">1</span>, <span class="number">2</span>)</div><div class="line">    fig.set_size_inches(<span class="number">18</span>, <span class="number">7</span>)</div><div class="line"></div><div class="line">    <span class="comment"># The 1st subplot is the silhouette plot</span></div><div class="line">    <span class="comment"># The silhouette coefficient can range from -1, 1 but in this example all</span></div><div class="line">    <span class="comment"># lie within [-0.1, 1]</span></div><div class="line">    ax1.set_xlim([<span class="number">-0.1</span>, <span class="number">1</span>])</div><div class="line">    <span class="comment"># The (n_clusters+1)*10 is for inserting blank space between silhouette</span></div><div class="line">    <span class="comment"># plots of individual clusters, to demarcate them clearly.</span></div><div class="line">    ax1.set_ylim([<span class="number">0</span>, len(X) + (n_clusters + <span class="number">1</span>) * <span class="number">10</span>])</div><div class="line"></div><div class="line">    <span class="comment"># Initialize the clusterer with n_clusters value and a random generator</span></div><div class="line">    <span class="comment"># seed of 10 for reproducibility.</span></div><div class="line">    clusterer = KMeans(n_clusters=n_clusters, random_state=<span class="number">10</span>)</div><div class="line">    cluster_labels = clusterer.fit_predict(X)</div><div class="line"></div><div class="line">    <span class="comment"># The silhouette_score gives the average value for all the samples.</span></div><div class="line">    <span class="comment"># This gives a perspective into the density and separation of the formed</span></div><div class="line">    <span class="comment"># clusters</span></div><div class="line">    silhouette_avg = silhouette_score(X, cluster_labels)</div><div class="line">    print(<span class="string">"For n_clusters ="</span>, n_clusters,</div><div class="line">          <span class="string">"The average silhouette_score is :"</span>, silhouette_avg)</div><div class="line"></div><div class="line">    <span class="comment"># Compute the silhouette scores for each sample</span></div><div class="line">    sample_silhouette_values = silhouette_samples(X, cluster_labels)</div><div class="line"></div><div class="line">    y_lower = <span class="number">10</span></div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(n_clusters):</div><div class="line">        <span class="comment"># Aggregate the silhouette scores for samples belonging to</span></div><div class="line">        <span class="comment"># cluster i, and sort them</span></div><div class="line">        ith_cluster_silhouette_values = \</div><div class="line">            sample_silhouette_values[cluster_labels == i]</div><div class="line"></div><div class="line">        ith_cluster_silhouette_values.sort()</div><div class="line"></div><div class="line">        size_cluster_i = ith_cluster_silhouette_values.shape[<span class="number">0</span>]</div><div class="line">        y_upper = y_lower + size_cluster_i</div><div class="line"></div><div class="line">        color = cm.spectral(float(i) / n_clusters)</div><div class="line">        ax1.fill_betweenx(np.arange(y_lower, y_upper),</div><div class="line">                          <span class="number">0</span>, ith_cluster_silhouette_values,</div><div class="line">                          facecolor=color, edgecolor=color, alpha=<span class="number">0.7</span>)</div><div class="line"></div><div class="line">        <span class="comment"># Label the silhouette plots with their cluster numbers at the middle</span></div><div class="line">        ax1.text(<span class="number">-0.05</span>, y_lower + <span class="number">0.5</span> * size_cluster_i, str(i))</div><div class="line"></div><div class="line">        <span class="comment"># Compute the new y_lower for next plot</span></div><div class="line">        y_lower = y_upper + <span class="number">10</span>  <span class="comment"># 10 for the 0 samples</span></div><div class="line"></div><div class="line">    ax1.set_title(<span class="string">"The silhouette plot for the various clusters."</span>)</div><div class="line">    ax1.set_xlabel(<span class="string">"The silhouette coefficient values"</span>)</div><div class="line">    ax1.set_ylabel(<span class="string">"Cluster label"</span>)</div><div class="line"></div><div class="line">    <span class="comment"># The vertical line for average silhouette score of all the values</span></div><div class="line">    ax1.axvline(x=silhouette_avg, color=<span class="string">"red"</span>, linestyle=<span class="string">"--"</span>)</div><div class="line"></div><div class="line">    ax1.set_yticks([])  <span class="comment"># Clear the yaxis labels / ticks</span></div><div class="line">    ax1.set_xticks([<span class="number">-0.1</span>, <span class="number">0</span>, <span class="number">0.2</span>, <span class="number">0.4</span>, <span class="number">0.6</span>, <span class="number">0.8</span>, <span class="number">1</span>])</div><div class="line"></div><div class="line">    <span class="comment"># 2nd Plot showing the actual clusters formed</span></div><div class="line">    colors = cm.spectral(cluster_labels.astype(float) / n_clusters)</div><div class="line">    ax2.scatter(X[:, <span class="number">0</span>], X[:, <span class="number">1</span>], marker=<span class="string">'.'</span>, s=<span class="number">30</span>, lw=<span class="number">0</span>, alpha=<span class="number">0.7</span>,</div><div class="line">                c=colors)</div><div class="line"></div><div class="line">    <span class="comment"># Labeling the clusters</span></div><div class="line">    centers = clusterer.cluster_centers_</div><div class="line">    <span class="comment"># Draw white circles at cluster centers</span></div><div class="line">    ax2.scatter(centers[:, <span class="number">0</span>], centers[:, <span class="number">1</span>],</div><div class="line">                marker=<span class="string">'o'</span>, c=<span class="string">"white"</span>, alpha=<span class="number">1</span>, s=<span class="number">200</span>)</div><div class="line"></div><div class="line">    <span class="keyword">for</span> i, c <span class="keyword">in</span> enumerate(centers):</div><div class="line">        ax2.scatter(c[<span class="number">0</span>], c[<span class="number">1</span>], marker=<span class="string">'$%d$'</span> % i, alpha=<span class="number">1</span>, s=<span class="number">50</span>)</div><div class="line"></div><div class="line">    ax2.set_title(<span class="string">"The visualization of the clustered data."</span>)</div><div class="line">    ax2.set_xlabel(<span class="string">"Feature space for the 1st feature"</span>)</div><div class="line">    ax2.set_ylabel(<span class="string">"Feature space for the 2nd feature"</span>)</div><div class="line"></div><div class="line">    plt.suptitle((<span class="string">"Silhouette analysis for KMeans clustering on sample data "</span></div><div class="line">                  <span class="string">"with n_clusters = %d"</span> % n_clusters),</div><div class="line">                 fontsize=<span class="number">14</span>, fontweight=<span class="string">'bold'</span>)</div><div class="line"></div><div class="line">    plt.show()</div></pre></td></tr></table></figure>
       
     </div>
 <div align="center">
   
     <div class="copyright">
     <p><span>
-    <b>本文地址：</b><a href="/2017/04/13/Dynamic programming/" title="Dynamic programming">http://phoebepan.cn/2017/04/13/Dynamic programming/</a><br /><b>转载请注明出处，谢谢！</b>
+    <b>本文地址：</b><a href="/2017/05/05/silhouette analysis/" title="如何决定K-Means聚类个数——silhouette analysis">http://phoebepan.cn/2017/05/05/silhouette analysis/</a><br /><b>转载请注明出处，谢谢！</b>
     </span></p>
     </div>
   
@@ -503,9 +510,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/LeetCode/" rel="tag"># LeetCode</a>
-          
-            <a href="/tags/Algorithms/" rel="tag"># Algorithms</a>
+            <a href="/tags/ML/" rel="tag"># ML</a>
           
         </div>
       
@@ -518,8 +523,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/04/09/goodstudy/" rel="next" title="读《好好学习》">
-                <i class="fa fa-chevron-left"></i> 读《好好学习》
+              <a href="/2017/04/26/ML_EDA/" rel="next" title="机器学习WorkFlow——EDA">
+                <i class="fa fa-chevron-left"></i> 机器学习WorkFlow——EDA
               </a>
             
           </div>
@@ -528,8 +533,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/04/16/New Commercial civilization/" rel="prev" title="《新商业文明》摘录">
-                《新商业文明》摘录 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/05/12/pandas/" rel="prev" title="Pandas杂碎">
+                Pandas杂碎 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -767,7 +772,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本思想"><span class="nav-number">1.</span> <span class="nav-text">基本思想</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用的情况"><span class="nav-number">2.</span> <span class="nav-text">使用的情况</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实例"><span class="nav-number">3.</span> <span class="nav-text">实例</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据集分布"><span class="nav-number">2.</span> <span class="nav-text">数据集分布</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#轮廓系数"><span class="nav-number">3.</span> <span class="nav-text">轮廓系数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#轮廓宽度"><span class="nav-number">4.</span> <span class="nav-text">轮廓宽度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#附脚本"><span class="nav-number">5.</span> <span class="nav-text">附脚本</span></a></li></ol></div>
             
 
           </div>

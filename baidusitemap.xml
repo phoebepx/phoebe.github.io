@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>http://phoebepan.cn/2017/05/05/silhouette%20analysis/</loc>
+    <lastmod>2017-06-12T23:44:18.000Z</lastmod>
+    <data>
+        <display>
+        <title>如何决定K-Means聚类个数——silhouette analysis</title>
+        <pubTime>2017-05-05T07:30:16.000Z</pubTime>
+        
+        <tag>ML</tag>
+         
+         
+           
+             
+              <breadCrumb title="Machine Learning" url="http://phoebepan.cn/categories/Machine-Learning/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://phoebepan.cn/2017/04/26/ML_EDA/</loc>
     <lastmod>2017-06-09T00:02:52.000Z</lastmod>
     <data>
@@ -91,9 +111,9 @@
         <title>充实的无话可说</title>
         <pubTime>2017-05-15T07:30:16.000Z</pubTime>
         
-        <tag>Thinking</tag>
-         
         <tag>Life</tag>
+         
+        <tag>Thinking</tag>
          
          
            
@@ -219,9 +239,9 @@
         <title>朗读者「百合花开」</title>
         <pubTime>2017-03-20T07:30:16.000Z</pubTime>
         
-        <tag>Thinking</tag>
-         
         <tag>Life</tag>
+         
+        <tag>Thinking</tag>
          
          
            
