@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>http://phoebepan.cn/2017/04/27/data_clean/</loc>
+    <lastmod>2017-06-27T01:15:59.000Z</lastmod>
+    <data>
+        <display>
+        <title>机器学习WorkFlow——Data cleaning</title>
+        <pubTime>2017-04-27T07:30:16.000Z</pubTime>
+        
+        <tag>ML</tag>
+         
+         
+           
+             
+              <breadCrumb title="Machine Learning" url="http://phoebepan.cn/categories/Machine-Learning/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://phoebepan.cn/2017/05/05/silhouette%20analysis/</loc>
     <lastmod>2017-06-12T23:44:18.000Z</lastmod>
     <data>
@@ -111,9 +131,9 @@
         <title>充实的无话可说</title>
         <pubTime>2017-05-15T07:30:16.000Z</pubTime>
         
-        <tag>Life</tag>
-         
         <tag>Thinking</tag>
+         
+        <tag>Life</tag>
          
          
            
@@ -239,9 +259,9 @@
         <title>朗读者「百合花开」</title>
         <pubTime>2017-03-20T07:30:16.000Z</pubTime>
         
-        <tag>Life</tag>
-         
         <tag>Thinking</tag>
+         
+        <tag>Life</tag>
          
          
            
