@@ -3,6 +3,50 @@
 
 
     
+  <url>
+    <loc>http://phoebepan.cn/2017/06/05/Imbalanced_data/</loc>
+    <lastmod>2017-06-28T15:15:00.000Z</lastmod>
+    <data>
+        <display>
+        <title>阅读笔记——7 Techniques to Handle Imbalanced Data</title>
+        <pubTime>2017-06-05T07:30:16.000Z</pubTime>
+        
+        <tag>ML</tag>
+         
+        <tag>Reading</tag>
+         
+         
+           
+             
+              <breadCrumb title="Machine Learning" url="http://phoebepan.cn/categories/Machine-Learning/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://phoebepan.cn/2017/06/06/learn_seaborn/</loc>
+    <lastmod>2017-06-28T15:14:42.000Z</lastmod>
+    <data>
+        <display>
+        <title>数据可视化——Seaborn</title>
+        <pubTime>2017-06-06T07:30:16.000Z</pubTime>
+        
+        <tag>ML</tag>
+         
+        <tag>Visualization</tag>
+         
+         
+           
+             
+              <breadCrumb title="Data Visualization" url="http://phoebepan.cn/categories/Data-Visualization/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
     
   <url>
     <loc>http://phoebepan.cn/2017/04/30/feature%20selection/</loc>
@@ -18,46 +62,6 @@
            
              
               <breadCrumb title="Feature Selection" url="http://phoebepan.cn/categories/Feature-Selection/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://phoebepan.cn/2017/06/05/Imbalanced_data/</loc>
-    <lastmod>2017-06-28T13:47:43.000Z</lastmod>
-    <data>
-        <display>
-        <title>阅读笔记——7 Techniques to Handle Imbalanced Data</title>
-        <pubTime>2017-06-05T07:30:16.000Z</pubTime>
-        
-        <tag>ML Reading</tag>
-         
-         
-           
-             
-              <breadCrumb title="Machine Learning" url="http://phoebepan.cn/categories/Machine-Learning/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://phoebepan.cn/2017/06/06/learn_seaborn/</loc>
-    <lastmod>2017-06-28T13:47:12.000Z</lastmod>
-    <data>
-        <display>
-        <title>数据可视化——Seaborn</title>
-        <pubTime>2017-06-06T07:30:16.000Z</pubTime>
-        
-        <tag>ML Visualization</tag>
-         
-         
-           
-             
-              <breadCrumb title="Data Visualization" url="http://phoebepan.cn/categories/Data-Visualization/"/>
           
         </display>
     </data>
