@@ -4,12 +4,72 @@
 
     
   <url>
-    <loc>http://phoebepan.cn/2017/04/29/train_model/</loc>
-    <lastmod>2017-06-27T03:51:47.000Z</lastmod>
+    <loc>http://phoebepan.cn/2017/04/30/feature%20selection/</loc>
+    <lastmod>2017-06-28T13:49:02.000Z</lastmod>
     <data>
         <display>
-        <title>机器学习WorkFlow——Model training</title>
-        <pubTime>2017-04-29T07:30:16.000Z</pubTime>
+        <title>Scikit-Learn如何做特征选择</title>
+        <pubTime>2017-04-30T07:30:16.000Z</pubTime>
+        
+        <tag>ML</tag>
+         
+         
+           
+             
+              <breadCrumb title="Feature Selection" url="http://phoebepan.cn/categories/Feature-Selection/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://phoebepan.cn/2017/06/05/Imbalanced_data/</loc>
+    <lastmod>2017-06-28T13:47:43.000Z</lastmod>
+    <data>
+        <display>
+        <title>阅读笔记——7 Techniques to Handle Imbalanced Data</title>
+        <pubTime>2017-06-05T07:30:16.000Z</pubTime>
+        
+        <tag>ML Reading</tag>
+         
+         
+           
+             
+              <breadCrumb title="Machine Learning" url="http://phoebepan.cn/categories/Machine-Learning/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://phoebepan.cn/2017/06/06/learn_seaborn/</loc>
+    <lastmod>2017-06-28T13:47:12.000Z</lastmod>
+    <data>
+        <display>
+        <title>数据可视化——Seaborn</title>
+        <pubTime>2017-06-06T07:30:16.000Z</pubTime>
+        
+        <tag>ML Visualization</tag>
+         
+         
+           
+             
+              <breadCrumb title="Data Visualization" url="http://phoebepan.cn/categories/Data-Visualization/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://phoebepan.cn/2017/04/28/feature_engineering/</loc>
+    <lastmod>2017-06-28T02:10:53.000Z</lastmod>
+    <data>
+        <display>
+        <title>机器学习WorkFlow——Feature Engineering</title>
+        <pubTime>2017-04-28T07:30:16.000Z</pubTime>
         
         <tag>ML</tag>
          
@@ -24,12 +84,12 @@
 
     
   <url>
-    <loc>http://phoebepan.cn/2017/04/28/feature%20selection/</loc>
-    <lastmod>2017-06-27T02:24:55.000Z</lastmod>
+    <loc>http://phoebepan.cn/2017/04/29/train_model/</loc>
+    <lastmod>2017-06-27T03:51:47.000Z</lastmod>
     <data>
         <display>
-        <title>机器学习WorkFlow——Feature Engineering</title>
-        <pubTime>2017-04-28T07:30:16.000Z</pubTime>
+        <title>机器学习WorkFlow——Model training</title>
+        <pubTime>2017-04-29T07:30:16.000Z</pubTime>
         
         <tag>ML</tag>
          
@@ -92,46 +152,6 @@
         <pubTime>2017-04-26T07:30:16.000Z</pubTime>
         
         <tag>ML</tag>
-         
-         
-           
-             
-              <breadCrumb title="Machine Learning" url="http://phoebepan.cn/categories/Machine-Learning/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://phoebepan.cn/2017/06/06/learn_seaborn/</loc>
-    <lastmod>2017-06-07T12:56:54.000Z</lastmod>
-    <data>
-        <display>
-        <title>数据可视化——Seaborn</title>
-        <pubTime>2017-06-06T07:30:16.000Z</pubTime>
-        
-        <tag>ML，Visualization</tag>
-         
-         
-           
-             
-              <breadCrumb title="Data Visualization" url="http://phoebepan.cn/categories/Data-Visualization/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://phoebepan.cn/2017/06/05/Imbalanced_data/</loc>
-    <lastmod>2017-06-05T14:17:18.000Z</lastmod>
-    <data>
-        <display>
-        <title>阅读笔记——7 Techniques to Handle Imbalanced Data</title>
-        <pubTime>2017-06-05T07:30:16.000Z</pubTime>
-        
-        <tag>ML，Reading</tag>
          
          
            

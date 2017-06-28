@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Python," />
+  <meta name="keywords" content="ML," />
 
 
 
@@ -89,16 +89,18 @@
 
 
 
-<meta name="description" content="起因：在图论中，实现广度搜索两顶点所有路径时，被好用的 yield 和 yield from 惊呆啦~">
+<meta name="description" content="简介特征选择是特征工程相对重要的一环节，太多不相关的特征会降低模型的准确性，特征选择，可以有效降低过拟合、训练时间等问题。本文简单介绍使用Scikit-Learn做特征选择。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="魔力Python——yield & yield from">
-<meta property="og:url" content="http://phoebepan.cn/2017/03/17/python_yield/index.html">
+<meta property="og:title" content="Scikit-Learn如何做特征选择">
+<meta property="og:url" content="http://phoebepan.cn/2017/04/30/feature selection/index.html">
 <meta property="og:site_name" content="技忆">
-<meta property="og:description" content="起因：在图论中，实现广度搜索两顶点所有路径时，被好用的 yield 和 yield from 惊呆啦~">
-<meta property="og:updated_time" content="2017-05-29T05:10:35.000Z">
+<meta property="og:description" content="简介特征选择是特征工程相对重要的一环节，太多不相关的特征会降低模型的准确性，特征选择，可以有效降低过拟合、训练时间等问题。本文简单介绍使用Scikit-Learn做特征选择。">
+<meta property="og:image" content="http://phoebepan.cn/images/feature_selection.png">
+<meta property="og:updated_time" content="2017-06-28T13:49:02.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="魔力Python——yield & yield from">
-<meta name="twitter:description" content="起因：在图论中，实现广度搜索两顶点所有路径时，被好用的 yield 和 yield from 惊呆啦~">
+<meta name="twitter:title" content="Scikit-Learn如何做特征选择">
+<meta name="twitter:description" content="简介特征选择是特征工程相对重要的一环节，太多不相关的特征会降低模型的准确性，特征选择，可以有效降低过拟合、训练时间等问题。本文简单介绍使用Scikit-Learn做特征选择。">
+<meta name="twitter:image" content="http://phoebepan.cn/images/feature_selection.png">
 
 
 
@@ -126,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="http://phoebepan.cn/2017/03/17/python_yield/"/>
+  <link rel="canonical" href="http://phoebepan.cn/2017/04/30/feature selection/"/>
 
 
 
 
 
-  <title> 魔力Python——yield & yield from | 技忆 </title>
+  <title> Scikit-Learn如何做特征选择 | 技忆 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -321,7 +323,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://phoebepan.cn/2017/03/17/python_yield/">
+    <link itemprop="mainEntityOfPage" href="http://phoebepan.cn/2017/04/30/feature selection/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Phoebe">
@@ -342,7 +344,7 @@
             
             
               
-                魔力Python——yield & yield from
+                Scikit-Learn如何做特征选择
               
             
           </h1>
@@ -357,8 +359,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-17T15:30:16+08:00">
-                2017-03-17
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-30T15:30:16+08:00">
+                2017-04-30
               </time>
             
 
@@ -380,8 +382,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python/" itemprop="url" rel="index">
-                    <span itemprop="name">Python</span>
+                  <a href="/categories/Feature-Selection/" itemprop="url" rel="index">
+                    <span itemprop="name">Feature Selection</span>
                   </a>
                 </span>
 
@@ -398,7 +400,7 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a class="cloud-tie-join-count" href="/2017/03/17/python_yield/#comments" itemprop="discussionUrl">
+                <a class="cloud-tie-join-count" href="/2017/04/30/feature selection/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count join-count" itemprop="commentCount"></span>
                 </a>
               </span>
@@ -407,7 +409,7 @@
 
           
           
-             <span id="/2017/03/17/python_yield/" class="leancloud_visitors" data-flag-title="魔力Python——yield & yield from">
+             <span id="/2017/04/30/feature selection/" class="leancloud_visitors" data-flag-title="Scikit-Learn如何做特征选择">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -436,7 +438,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  499
+                  751
                 </span>
               
 
@@ -452,7 +454,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长" }}">
-                  2
+                  4
                 </span>
               
             </div>
@@ -471,22 +473,27 @@
       
 
       
-        <p><strong>起因：</strong>在图论中，实现广度搜索两顶点所有路径时，被好用的 yield 和 yield from 惊呆啦~<br><a id="more"></a><br><em>题外话：</em> 想真正搞明白这两者，先学习两个名词，<strong>迭代器</strong> 、<strong>生成器</strong>。</p>
-<p>　　先说迭代器，对于<font color="red">string、list、dict、tuple</font>等容器对象，用<font color="red">for</font>循环遍历是很方便的，在后台<font color="red">for</font>语句对容器对象调用<font color="red">iter()</font>函数，<font color="red">iter()</font>会返回一个定义了<font color="red">next()</font>方法的迭代器对象，从而在容器中逐个访问容器内元素，直到最后抛出<font color="red">StopIteration</font>异常，for循环结束。</p>
-<p>　　生成器是创建迭代器的简单而强大的工具，能做到迭代器能做的所有事，自动创建<font color="red">iter()和next()</font>方法，自动抛出<font color="red">StopIteration</font>异常。一个带<font color="red">yield</font>的函数就是一个生成器。</p>
-<p>　　好，了解了迭代器与生成器，看看yield的用法：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">generator</span><span class="params">()</span>:</span></div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>):</div><div class="line">        <span class="keyword">yield</span> i</div></pre></td></tr></table></figure></p>
-<p>　　上面的<font color="red">generator()</font>函数就是一个带<font color="red">yield</font>的生成器，执行<font color="red">print(list(generator()))</font>，就会输出[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]这样的列表。</p>
-<p>　　Python3.3版本的PEP 380中添加了yield from语法，允许一个生成器将其部分操作委派给另一个生成器。其产生的动力在于使生成器能够容易分为多个拥有send和throw方法的子生成器。进一步了解可参考Stack Overflow上的经典解释<a href="http://stackoverflow.com/questions/9708902/in-practice-what-are-the-main-uses-for-the-new-yield-from-syntax-in-python-3" target="_blank" rel="external">yield from主要有什么用?</a></p>
-<p>　　知道了，yield 和 yield from，下面这段代码是我结合这两者，求图中两个顶点之间广度搜索路径：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#def a undirected graph</span></div><div class="line">graph = &#123;<span class="string">'A'</span>: set([<span class="string">'B'</span>, <span class="string">'C'</span>]),</div><div class="line">         <span class="string">'B'</span>: set([<span class="string">'A'</span>, <span class="string">'D'</span>, <span class="string">'E'</span>]),</div><div class="line">         <span class="string">'C'</span>: set([<span class="string">'A'</span>, <span class="string">'F'</span>]),</div><div class="line">         <span class="string">'D'</span>: set([<span class="string">'B'</span>]),</div><div class="line">         <span class="string">'E'</span>: set([<span class="string">'B'</span>, <span class="string">'F'</span>]),</div><div class="line">         <span class="string">'F'</span>: set([<span class="string">'C'</span>, <span class="string">'E'</span>])&#125;</div><div class="line"></div><div class="line"><span class="comment">#dfs </span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">dfs_paths</span><span class="params">(graph,start,goal,path=None)</span>:</span></div><div class="line">    <span class="keyword">if</span> path <span class="keyword">is</span> <span class="keyword">None</span>:</div><div class="line">        path = [start]</div><div class="line">    <span class="keyword">if</span> start == goal:</div><div class="line">        <span class="keyword">yield</span> path</div><div class="line">    <span class="keyword">for</span> next <span class="keyword">in</span> graph[start] - set(path):</div><div class="line">        <span class="keyword">yield</span> <span class="keyword">from</span> dfs_paths_recursion(graph, next, goal, path + [next])</div><div class="line"></div><div class="line"><span class="comment"># test</span></div><div class="line">print(list(dfs_paths(graph,<span class="string">'A'</span>,<span class="string">'F'</span>,path=<span class="keyword">None</span>)))</div><div class="line">[[<span class="string">'A'</span>, <span class="string">'C'</span>, <span class="string">'F'</span>], [<span class="string">'A'</span>, <span class="string">'B'</span>, <span class="string">'E'</span>, <span class="string">'F'</span>]]</div></pre></td></tr></table></figure></p>
-<p>　　总之，这是一个魔法语句，简洁明了，nice，i love Python！</p>
-<center><strong>Talk is cheap. Show me the code.</strong></center>
+        <blockquote class="blockquote-center"><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>特征选择是<a href="http://phoebepan.cn/2017/04/28/feature%20selection/">特征工程</a>相对重要的一环节，太多不相关的特征会降低模型的准确性，特征选择，可以有效降低过拟合、训练时间等问题。本文简单介绍使用Scikit-Learn做特征选择。</p>
+</blockquote>
+<a id="more"></a>
+<p>Scikit-Learn提供了几种不同的特征选择方法，其一，单变量选择（Univariate Selection）；其二，主成分分析（Principal Component Analysis）；其三，递归特征排除法（Recursive Feature Elimination）；其四，特征重要性排名（feature importance ranking）。</p>
+<h3 id="Univariate-Selection"><a href="#Univariate-Selection" class="headerlink" title="Univariate Selection"></a>Univariate Selection</h3><p>原理：使用统计检验方法选择与输出变量最相关的特征。<br>使用方法：Scikit-Learn库中的<a href="http://scikit-learn.org/stable/modules/generated/sklearn.feature_selection.SelectKBest.html#sklearn.feature_selection.SelectKBest" target="_blank" rel="external"><code>SelectKBest</code></a>类可用不同的统计检验方法挑选指定数量的重要特征。<br>举例：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Feature Extraction with Univariate Statistical Tests (Chi-squared for classification)</span></div><div class="line"><span class="keyword">import</span> pandas</div><div class="line"><span class="keyword">import</span> numpy</div><div class="line"><span class="keyword">from</span> sklearn.feature_selection <span class="keyword">import</span> SelectKBest</div><div class="line"><span class="keyword">from</span> sklearn.feature_selection <span class="keyword">import</span> chi2</div><div class="line"><span class="comment"># load data</span></div><div class="line">url = <span class="string">"https://archive.ics.uci.edu/ml/machine-learning-databases/pima-indians-diabetes/pima-indians-diabetes.data"</span></div><div class="line">names = [<span class="string">'preg'</span>, <span class="string">'plas'</span>, <span class="string">'pres'</span>, <span class="string">'skin'</span>, <span class="string">'test'</span>, <span class="string">'mass'</span>, <span class="string">'pedi'</span>, <span class="string">'age'</span>, <span class="string">'class'</span>]</div><div class="line">dataframe = pandas.read_csv(url, names=names)</div><div class="line">array = dataframe.values</div><div class="line">X = array[:,<span class="number">0</span>:<span class="number">8</span>]</div><div class="line">Y = array[:,<span class="number">8</span>]</div><div class="line"><span class="comment"># feature extraction</span></div><div class="line">test = SelectKBest(score_func=chi2, k=<span class="number">4</span>)</div><div class="line">fit = test.fit(X, Y)</div><div class="line"><span class="comment"># summarize scores</span></div><div class="line">print(fit.scores_)  </div><div class="line"><span class="comment">#[111.52 1411.887 17.605 53.108 2175.565 127.669 5.393 181.304]</span></div><div class="line">X_new = fit.transform(X)</div><div class="line">print(X.shape)              <span class="comment">#(768,8)</span></div><div class="line">print(X_new.shape)          <span class="comment">#(768,4)</span></div></pre></td></tr></table></figure></p>
+<h3 id="Principal-Component-Analysis"><a href="#Principal-Component-Analysis" class="headerlink" title="Principal Component Analysis"></a><a href="http://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html" target="_blank" rel="external">Principal Component Analysis</a></h3><p>原理：使用线性代数的方式将数据集进行压缩，本质上，是一种降维方法。<br>举例：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Feature Extraction with PCA</span></div><div class="line"><span class="keyword">import</span> numpy</div><div class="line"><span class="keyword">from</span> pandas <span class="keyword">import</span> read_csv</div><div class="line"><span class="keyword">from</span> sklearn.decomposition <span class="keyword">import</span> PCA</div><div class="line"><span class="comment"># load data</span></div><div class="line">url = <span class="string">"https://archive.ics.uci.edu/ml/machine-learning-databases/pima-indians-diabetes/pima-indians-diabetes.data"</span></div><div class="line">names = [<span class="string">'preg'</span>, <span class="string">'plas'</span>, <span class="string">'pres'</span>, <span class="string">'skin'</span>, <span class="string">'test'</span>, <span class="string">'mass'</span>, <span class="string">'pedi'</span>, <span class="string">'age'</span>, <span class="string">'class'</span>]</div><div class="line">dataframe = read_csv(url, names=names)</div><div class="line">array = dataframe.values</div><div class="line">X = array[:,<span class="number">0</span>:<span class="number">8</span>]</div><div class="line">Y = array[:,<span class="number">8</span>]</div><div class="line"><span class="comment"># feature extraction</span></div><div class="line">pca = PCA(n_components=<span class="number">3</span>)</div><div class="line">fit = pca.fit(X)</div><div class="line"><span class="comment"># summarize components</span></div><div class="line">print(fit.explained_variance_ratio_)</div><div class="line">print(fit.components_)</div><div class="line">X_new = fit.transform(X)</div><div class="line">print(X_new.shape)      <span class="comment">#(768,3)</span></div></pre></td></tr></table></figure></p>
+<h3 id="Recursive-Feature-Elimination-RFE"><a href="#Recursive-Feature-Elimination-RFE" class="headerlink" title="Recursive Feature Elimination (RFE)"></a><a href="http://scikit-learn.org/stable/modules/generated/sklearn.feature_selection.RFE.html#sklearn.feature_selection.RFE" target="_blank" rel="external">Recursive Feature Elimination (RFE)</a></h3><p>原理：递归移除特征，剩余特征重新建模，通过模型准确性识别出贡献度最好的特征。<br>使用方法：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Recursive Feature Elimination</span></div><div class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> datasets</div><div class="line"><span class="keyword">from</span> sklearn.feature_selection <span class="keyword">import</span> RFE</div><div class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LogisticRegression</div><div class="line"><span class="comment"># load the iris datasets</span></div><div class="line">dataset = datasets.load_iris()</div><div class="line"><span class="comment"># create a base classifier used to evaluate a subset of attributes</span></div><div class="line">model = LogisticRegression()</div><div class="line"><span class="comment"># create the RFE model and select 3 attributes</span></div><div class="line">rfe = RFE(model, <span class="number">3</span>)</div><div class="line">rfe = rfe.fit(dataset.data, dataset.target)</div><div class="line"><span class="comment"># summarize the selection of the attributes</span></div><div class="line">print(rfe.support_)     <span class="comment">#[False  True  True  True]</span></div><div class="line">print(rfe.ranking_)     <span class="comment">#[2 1 1 1]</span></div></pre></td></tr></table></figure></p>
+<h3 id="Feature-Importance"><a href="#Feature-Importance" class="headerlink" title="Feature Importance"></a>Feature Importance</h3><p>方法：Random Forest，Extra Trees等基于决策树的ensemble方法，可以直接得到每一个特征的重要性分值，这个分值可以用来做特征选择。查阅手册，了解更多<a href="http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.ExtraTreesClassifier.html" target="_blank" rel="external">ExtraTreesClassifier</a>。<br>举例：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Feature Importance</span></div><div class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> datasets</div><div class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> metrics</div><div class="line"><span class="keyword">from</span> sklearn.ensemble <span class="keyword">import</span> ExtraTreesClassifier</div><div class="line"><span class="comment"># load the iris datasets</span></div><div class="line">dataset = datasets.load_iris()</div><div class="line"><span class="comment"># fit an Extra Trees model to the data</span></div><div class="line">model = ExtraTreesClassifier()</div><div class="line">model.fit(dataset.data, dataset.target)</div><div class="line"><span class="comment"># display the relative importance of each attribute</span></div><div class="line">print(model.feature_importances_)</div></pre></td></tr></table></figure></p>
+<p>总之，特征选择主要有3大类方法，过滤(Filter)，重组(Wrapper)，正则化(如LASSO, Elastic Net and Ridge Regression)。</p>
+<h3 id="番外篇"><a href="#番外篇" class="headerlink" title="番外篇"></a>番外篇</h3> <blockquote class="blockquote-center"><p>A mistake would be to perform feature selection first to prepare your data, then perform model selection and training on the selected features.</p>
+</blockquote>
+<p> 这是进行特征选择，可能会犯的错误，我们需要在交叉验证的内循环中嵌入特征选择，即，对每一折进行特征选择。</p>
+<p> 另附一份特征选择清单(Checklist)：<br> <img src="/images/feature_selection.png" alt="checklist"><br> 文献阅读：<a href="http://jmlr.csail.mit.edu/papers/volume3/guyon03a/guyon03a.pdf" target="_blank" rel="external">An Introduction to Variable and Feature Selection</a></p>
+
       
     </div>
 <div align="center">
   
     <div class="copyright">
     <p><span>
-    <b>本文地址：</b><a href="/2017/03/17/python_yield/" title="魔力Python——yield & yield from">http://phoebepan.cn/2017/03/17/python_yield/</a><br /><b>转载请注明出处，谢谢！</b>
+    <b>本文地址：</b><a href="/2017/04/30/feature selection/" title="Scikit-Learn如何做特征选择">http://phoebepan.cn/2017/04/30/feature selection/</a><br /><b>转载请注明出处，谢谢！</b>
     </span></p>
     </div>
   
@@ -511,7 +518,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Python/" rel="tag"># Python</a>
+            <a href="/tags/ML/" rel="tag"># ML</a>
           
         </div>
       
@@ -524,8 +531,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/15/read_block_data/" rel="next" title="读《块数据》">
-                <i class="fa fa-chevron-left"></i> 读《块数据》
+              <a href="/2017/04/29/train_model/" rel="next" title="机器学习WorkFlow——Model training">
+                <i class="fa fa-chevron-left"></i> 机器学习WorkFlow——Model training
               </a>
             
           </div>
@@ -534,8 +541,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/03/20/reader/" rel="prev" title="朗读者「百合花开」">
-                朗读者「百合花开」 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/05/05/silhouette analysis/" rel="prev" title="如何决定K-Means聚类个数——silhouette analysis">
+                如何决定K-Means聚类个数——silhouette analysis <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -603,8 +610,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -758,6 +774,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Univariate-Selection"><span class="nav-number">2.</span> <span class="nav-text">Univariate Selection</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Principal-Component-Analysis"><span class="nav-number">3.</span> <span class="nav-text">Principal Component Analysis</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Recursive-Feature-Elimination-RFE"><span class="nav-number">4.</span> <span class="nav-text">Recursive Feature Elimination (RFE)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Feature-Importance"><span class="nav-number">5.</span> <span class="nav-text">Feature Importance</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#番外篇"><span class="nav-number">6.</span> <span class="nav-text">番外篇</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

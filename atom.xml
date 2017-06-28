@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://phoebepan.cn/"/>
-  <updated>2017-06-07T12:56:54.000Z</updated>
+  <updated>2017-06-28T13:47:12.000Z</updated>
   <id>http://phoebepan.cn/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://phoebepan.cn/2017/06/06/learn_seaborn/"/>
     <id>http://phoebepan.cn/2017/06/06/learn_seaborn/</id>
     <published>2017-06-06T07:30:16.000Z</published>
-    <updated>2017-06-07T12:56:54.000Z</updated>
+    <updated>2017-06-28T13:47:12.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote class="blockquote-center"><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>EDA过程中，想要更了解你的数据，选择一个合适的可视化工具，可以说会让你的工作事半功倍。<br>本文主要介绍一个以matplotlib作为底层，更易上手的作图库<code>seaborn</code>。</p>
 </blockquote>
@@ -59,7 +59,7 @@
       <category term="Data Visualization" scheme="http://phoebepan.cn/categories/Data-Visualization/"/>
     
     
-      <category term="ML，Visualization" scheme="http://phoebepan.cn/tags/ML%EF%BC%8CVisualization/"/>
+      <category term="ML Visualization" scheme="http://phoebepan.cn/tags/ML-Visualization/"/>
     
   </entry>
   
@@ -68,7 +68,7 @@
     <link href="http://phoebepan.cn/2017/06/05/Imbalanced_data/"/>
     <id>http://phoebepan.cn/2017/06/05/Imbalanced_data/</id>
     <published>2017-06-05T07:30:16.000Z</published>
-    <updated>2017-06-05T14:17:18.000Z</updated>
+    <updated>2017-06-28T13:47:43.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote class="blockquote-center"><p>这篇阅读笔记，主要介绍处理不平衡数据的常见7种方法。所谓<strong>不平衡数据</strong>，指在网络入侵、癌症监测、银行信用卡检测等领域，出现如下图所示的数据集中，正负样本比例严重失调的情况。<br><img src="/images/imbalanced-data-1.png" alt="imbalanced-data-1" title="正负样本分布"></p>
 </blockquote>
@@ -102,7 +102,7 @@
       <category term="Machine Learning" scheme="http://phoebepan.cn/categories/Machine-Learning/"/>
     
     
-      <category term="ML，Reading" scheme="http://phoebepan.cn/tags/ML%EF%BC%8CReading/"/>
+      <category term="ML Reading" scheme="http://phoebepan.cn/tags/ML-Reading/"/>
     
   </entry>
   
@@ -249,6 +249,42 @@
   </entry>
   
   <entry>
+    <title>Scikit-Learn如何做特征选择</title>
+    <link href="http://phoebepan.cn/2017/04/30/feature%20selection/"/>
+    <id>http://phoebepan.cn/2017/04/30/feature selection/</id>
+    <published>2017-04-30T07:30:16.000Z</published>
+    <updated>2017-06-28T13:49:02.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote class="blockquote-center"><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>特征选择是<a href="http://phoebepan.cn/2017/04/28/feature%20selection/">特征工程</a>相对重要的一环节，太多不相关的特征会降低模型的准确性，特征选择，可以有效降低过拟合、训练时间等问题。本文简单介绍使用Scikit-Learn做特征选择。</p>
+</blockquote>
+<a id="more"></a>
+<p>Scikit-Learn提供了几种不同的特征选择方法，其一，单变量选择（Univariate Selection）；其二，主成分分析（Principal Component Analysis）；其三，递归特征排除法（Recursive Feature Elimination）；其四，特征重要性排名（feature importance ranking）。</p>
+<h3 id="Univariate-Selection"><a href="#Univariate-Selection" class="headerlink" title="Univariate Selection"></a>Univariate Selection</h3><p>原理：使用统计检验方法选择与输出变量最相关的特征。<br>使用方法：Scikit-Learn库中的<a href="http://scikit-learn.org/stable/modules/generated/sklearn.feature_selection.SelectKBest.html#sklearn.feature_selection.SelectKBest" target="_blank" rel="external"><code>SelectKBest</code></a>类可用不同的统计检验方法挑选指定数量的重要特征。<br>举例：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Feature Extraction with Univariate Statistical Tests (Chi-squared for classification)</span></div><div class="line"><span class="keyword">import</span> pandas</div><div class="line"><span class="keyword">import</span> numpy</div><div class="line"><span class="keyword">from</span> sklearn.feature_selection <span class="keyword">import</span> SelectKBest</div><div class="line"><span class="keyword">from</span> sklearn.feature_selection <span class="keyword">import</span> chi2</div><div class="line"><span class="comment"># load data</span></div><div class="line">url = <span class="string">"https://archive.ics.uci.edu/ml/machine-learning-databases/pima-indians-diabetes/pima-indians-diabetes.data"</span></div><div class="line">names = [<span class="string">'preg'</span>, <span class="string">'plas'</span>, <span class="string">'pres'</span>, <span class="string">'skin'</span>, <span class="string">'test'</span>, <span class="string">'mass'</span>, <span class="string">'pedi'</span>, <span class="string">'age'</span>, <span class="string">'class'</span>]</div><div class="line">dataframe = pandas.read_csv(url, names=names)</div><div class="line">array = dataframe.values</div><div class="line">X = array[:,<span class="number">0</span>:<span class="number">8</span>]</div><div class="line">Y = array[:,<span class="number">8</span>]</div><div class="line"><span class="comment"># feature extraction</span></div><div class="line">test = SelectKBest(score_func=chi2, k=<span class="number">4</span>)</div><div class="line">fit = test.fit(X, Y)</div><div class="line"><span class="comment"># summarize scores</span></div><div class="line">print(fit.scores_)  </div><div class="line"><span class="comment">#[111.52 1411.887 17.605 53.108 2175.565 127.669 5.393 181.304]</span></div><div class="line">X_new = fit.transform(X)</div><div class="line">print(X.shape)              <span class="comment">#(768,8)</span></div><div class="line">print(X_new.shape)          <span class="comment">#(768,4)</span></div></pre></td></tr></table></figure></p>
+<h3 id="Principal-Component-Analysis"><a href="#Principal-Component-Analysis" class="headerlink" title="Principal Component Analysis"></a><a href="http://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html" target="_blank" rel="external">Principal Component Analysis</a></h3><p>原理：使用线性代数的方式将数据集进行压缩，本质上，是一种降维方法。<br>举例：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Feature Extraction with PCA</span></div><div class="line"><span class="keyword">import</span> numpy</div><div class="line"><span class="keyword">from</span> pandas <span class="keyword">import</span> read_csv</div><div class="line"><span class="keyword">from</span> sklearn.decomposition <span class="keyword">import</span> PCA</div><div class="line"><span class="comment"># load data</span></div><div class="line">url = <span class="string">"https://archive.ics.uci.edu/ml/machine-learning-databases/pima-indians-diabetes/pima-indians-diabetes.data"</span></div><div class="line">names = [<span class="string">'preg'</span>, <span class="string">'plas'</span>, <span class="string">'pres'</span>, <span class="string">'skin'</span>, <span class="string">'test'</span>, <span class="string">'mass'</span>, <span class="string">'pedi'</span>, <span class="string">'age'</span>, <span class="string">'class'</span>]</div><div class="line">dataframe = read_csv(url, names=names)</div><div class="line">array = dataframe.values</div><div class="line">X = array[:,<span class="number">0</span>:<span class="number">8</span>]</div><div class="line">Y = array[:,<span class="number">8</span>]</div><div class="line"><span class="comment"># feature extraction</span></div><div class="line">pca = PCA(n_components=<span class="number">3</span>)</div><div class="line">fit = pca.fit(X)</div><div class="line"><span class="comment"># summarize components</span></div><div class="line">print(fit.explained_variance_ratio_)</div><div class="line">print(fit.components_)</div><div class="line">X_new = fit.transform(X)</div><div class="line">print(X_new.shape)      <span class="comment">#(768,3)</span></div></pre></td></tr></table></figure></p>
+<h3 id="Recursive-Feature-Elimination-RFE"><a href="#Recursive-Feature-Elimination-RFE" class="headerlink" title="Recursive Feature Elimination (RFE)"></a><a href="http://scikit-learn.org/stable/modules/generated/sklearn.feature_selection.RFE.html#sklearn.feature_selection.RFE" target="_blank" rel="external">Recursive Feature Elimination (RFE)</a></h3><p>原理：递归移除特征，剩余特征重新建模，通过模型准确性识别出贡献度最好的特征。<br>使用方法：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Recursive Feature Elimination</span></div><div class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> datasets</div><div class="line"><span class="keyword">from</span> sklearn.feature_selection <span class="keyword">import</span> RFE</div><div class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LogisticRegression</div><div class="line"><span class="comment"># load the iris datasets</span></div><div class="line">dataset = datasets.load_iris()</div><div class="line"><span class="comment"># create a base classifier used to evaluate a subset of attributes</span></div><div class="line">model = LogisticRegression()</div><div class="line"><span class="comment"># create the RFE model and select 3 attributes</span></div><div class="line">rfe = RFE(model, <span class="number">3</span>)</div><div class="line">rfe = rfe.fit(dataset.data, dataset.target)</div><div class="line"><span class="comment"># summarize the selection of the attributes</span></div><div class="line">print(rfe.support_)     <span class="comment">#[False  True  True  True]</span></div><div class="line">print(rfe.ranking_)     <span class="comment">#[2 1 1 1]</span></div></pre></td></tr></table></figure></p>
+<h3 id="Feature-Importance"><a href="#Feature-Importance" class="headerlink" title="Feature Importance"></a>Feature Importance</h3><p>方法：Random Forest，Extra Trees等基于决策树的ensemble方法，可以直接得到每一个特征的重要性分值，这个分值可以用来做特征选择。查阅手册，了解更多<a href="http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.ExtraTreesClassifier.html" target="_blank" rel="external">ExtraTreesClassifier</a>。<br>举例：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Feature Importance</span></div><div class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> datasets</div><div class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> metrics</div><div class="line"><span class="keyword">from</span> sklearn.ensemble <span class="keyword">import</span> ExtraTreesClassifier</div><div class="line"><span class="comment"># load the iris datasets</span></div><div class="line">dataset = datasets.load_iris()</div><div class="line"><span class="comment"># fit an Extra Trees model to the data</span></div><div class="line">model = ExtraTreesClassifier()</div><div class="line">model.fit(dataset.data, dataset.target)</div><div class="line"><span class="comment"># display the relative importance of each attribute</span></div><div class="line">print(model.feature_importances_)</div></pre></td></tr></table></figure></p>
+<p>总之，特征选择主要有3大类方法，过滤(Filter)，重组(Wrapper)，正则化(如LASSO, Elastic Net and Ridge Regression)。</p>
+<h3 id="番外篇"><a href="#番外篇" class="headerlink" title="番外篇"></a>番外篇</h3> <blockquote class="blockquote-center"><p>A mistake would be to perform feature selection first to prepare your data, then perform model selection and training on the selected features.</p>
+</blockquote>
+<p> 这是进行特征选择，可能会犯的错误，我们需要在交叉验证的内循环中嵌入特征选择，即，对每一折进行特征选择。</p>
+<p> 另附一份特征选择清单(Checklist)：<br> <img src="/images/feature_selection.png" alt="checklist"><br> 文献阅读：<a href="http://jmlr.csail.mit.edu/papers/volume3/guyon03a/guyon03a.pdf" target="_blank" rel="external">An Introduction to Variable and Feature Selection</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote class=&quot;blockquote-center&quot;&gt;&lt;h3 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h3&gt;&lt;p&gt;特征选择是&lt;a href=&quot;http://phoebepan.cn/2017/04/28/feature%20selection/&quot;&gt;特征工程&lt;/a&gt;相对重要的一环节，太多不相关的特征会降低模型的准确性，特征选择，可以有效降低过拟合、训练时间等问题。本文简单介绍使用Scikit-Learn做特征选择。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="Feature Selection" scheme="http://phoebepan.cn/categories/Feature-Selection/"/>
+    
+    
+      <category term="ML" scheme="http://phoebepan.cn/tags/ML/"/>
+    
+  </entry>
+  
+  <entry>
     <title>机器学习WorkFlow——Model training</title>
     <link href="http://phoebepan.cn/2017/04/29/train_model/"/>
     <id>http://phoebepan.cn/2017/04/29/train_model/</id>
@@ -283,15 +319,15 @@
   
   <entry>
     <title>机器学习WorkFlow——Feature Engineering</title>
-    <link href="http://phoebepan.cn/2017/04/28/feature%20selection/"/>
-    <id>http://phoebepan.cn/2017/04/28/feature selection/</id>
+    <link href="http://phoebepan.cn/2017/04/28/feature_engineering/"/>
+    <id>http://phoebepan.cn/2017/04/28/feature_engineering/</id>
     <published>2017-04-28T07:30:16.000Z</published>
-    <updated>2017-06-27T02:24:55.000Z</updated>
+    <updated>2017-06-28T02:10:53.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote class="blockquote-center"><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>特征工程，是机器学习过程中最富有想象空间的环节，你可以大胆开脑洞。业界广为流传的一句话：数据和特征决定机器学习上限，而模型和算法只是逼近这个上限而已。本文只是简单介绍特征工程打开思路的一般套路。</p>
 </blockquote>
 <a id="more"></a>
-<p>下面这张图，来自这篇博文，查阅请点击<a href="http://www.cnblogs.com/jasonfreak/p/5448385.html" target="_blank" rel="external">这里</a>。<br><img src="/images/feature_engineering.jpg" alt="feature_engineering"></p>
+<p>提到特征工程，脑海中该有的框架，如下图所示：<br><img src="/images/feature.png" alt="feature_engineering"><br>具体特征工程做些什么，可参考这篇博文，查阅请点击<a href="http://www.cnblogs.com/jasonfreak/p/5448385.html" target="_blank" rel="external">这里</a>。<br><img src="/images/feature_engineering.jpg" alt="feature_engineering"></p>
 <p>下面是目前自己在特征工程环节，经常考虑的几个方面：<br><img src="/images/feature_engineering_1.png" alt="feature_engineering"></p>
 ]]></content>
     
@@ -756,44 +792,6 @@
     <summary type="html">
     
       &lt;h2 id=&quot;Part1&quot;&gt;&lt;a href=&quot;#Part1&quot; class=&quot;headerlink&quot; title=&quot;Part1&quot;&gt;&lt;/a&gt;&lt;center&gt;Part1&lt;/center&gt;&lt;/h2&gt;&lt;h3 id=&quot;Background&quot;&gt;&lt;a href=&quot;#Background&quot; class=&quot;headerlink&quot; title=&quot;Background&quot;&gt;&lt;/a&gt;Background&lt;/h3&gt;&lt;p&gt;python，想获取列表中满足某一要求的所有列表项的索引。如这样的列表：&lt;font color=red&gt;a = [‘id:123’,’is_a:ja’,’name:ad’,’is_a: dj’]&lt;/font&gt;，需得到含有&lt;font color = red&gt;‘is_a’&lt;/font&gt;的两个列表项索引。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Python" scheme="http://phoebepan.cn/categories/Python/"/>
-    
-    
-      <category term="Python" scheme="http://phoebepan.cn/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>魔力Python——fileinput &amp; bisect模块</title>
-    <link href="http://phoebepan.cn/2017/03/23/fileinput_bisect_/"/>
-    <id>http://phoebepan.cn/2017/03/23/fileinput_bisect_/</id>
-    <published>2017-03-23T07:30:16.000Z</published>
-    <updated>2017-05-29T05:03:39.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote class="blockquote-center"><h3 id="fileinput"><a href="#fileinput" class="headerlink" title="fileinput"></a>fileinput</h3><p>　　<strong>起因：</strong>小伙伴Q我问，如何用python在一个txt每行末尾添加内容？</p>
-</blockquote>
-<a id="more"></a>
-<p>　　我想了下，这不简单么，直接for循环读取每行再在末尾加新内容，然后重新写入新文档不就解决了么。想着这肯定不是小伙伴希望的，能不能直接在原文档添加，不写入新文档呢？</p>
-<p>　　这就了解到了fileinput模块，那么它能帮我干什么嘞！如：有一个test.txt，里面的内容如下：<br>|1|a|<br>|2|b|<br>|3|c|<br>　　那么，执行下面的代码，就能在test.txt文档每行末尾添加<font color="red">‘aaa’</font>。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> fileinput</div><div class="line"><span class="keyword">for</span> line <span class="keyword">in</span> fileinput.input(<span class="string">'test.txt'</span>, inplace=<span class="number">1</span>):</div><div class="line">    print(<span class="string">'&#123;0&#125;\t&#123;1&#125;'</span>.format(line.rstrip(<span class="string">'\n'</span>), <span class="string">'aaa'</span>))</div></pre></td></tr></table></figure></p>
-<h3 id="bisect"><a href="#bisect" class="headerlink" title="bisect"></a>bisect</h3><p>　　这是Lab小伙伴推荐的python排序模块，点<a href="http://www.cnblogs.com/skydesign/archive/2011/09/02/2163592.html" target="_blank" rel="external">这</a>学习模块具体内容。</p>
-<p>　　在LeetCode刷到<a href="https://leetcode.com/problems/reverse-pairs/#/description" target="_blank" rel="external">Reverse Pairs</a>这题时，我灵机一动，想到了用这个小模块非常简洁的写出了代码，虽然时间复杂度比用归并排序高，但不失为一种方法。</p>
-<p>　　题目大意：给定数组nums，定义所有满足i &lt; j 并且nums[i] &gt; 2 * nums[j]的数对(i, j)为“重要的逆序对”（important reverse pair），返回其个数。</p>
-<p>　　下面是我用bisect写的代码：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> bisect</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution3</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">reversePairs</span><span class="params">( self,nums)</span>:</span></div><div class="line">        count = <span class="number">0</span></div><div class="line">        done = []</div><div class="line">        <span class="keyword">for</span> num <span class="keyword">in</span> nums:</div><div class="line">            count += len(done) - bisect.bisect(done, num * <span class="number">2</span>)</div><div class="line">            bisect.insort(done, num)</div><div class="line">        <span class="keyword">return</span> count</div></pre></td></tr></table></figure></p>
-<p>　　归并排序的解参见我的<a href="https://github.com/phoebepx/Algorithm/blob/master/LeetCode/Reverse%20Pairs.py" target="_blank" rel="external">github</a>。</p>
-<center><strong>Talk is cheap. Show me the code.</strong></center>
-
-
-
-
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote class=&quot;blockquote-center&quot;&gt;&lt;h3 id=&quot;fileinput&quot;&gt;&lt;a href=&quot;#fileinput&quot; class=&quot;headerlink&quot; title=&quot;fileinput&quot;&gt;&lt;/a&gt;fileinput&lt;/h3&gt;&lt;p&gt;　　&lt;strong&gt;起因：&lt;/strong&gt;小伙伴Q我问，如何用python在一个txt每行末尾添加内容？&lt;/p&gt;
-&lt;/blockquote&gt;
     
     </summary>
     
