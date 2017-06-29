@@ -95,7 +95,7 @@
 <meta property="og:url" content="http://phoebepan.cn/accumulation/index.html">
 <meta property="og:site_name" content="技忆">
 <meta property="og:description" content="不积跬步无以至千里。">
-<meta property="og:updated_time" content="2017-06-28T15:12:49.000Z">
+<meta property="og:updated_time" content="2017-06-29T14:07:12.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="技忆">
 <meta name="twitter:description" content="不积跬步无以至千里。">
@@ -331,6 +331,10 @@
       <blockquote class="blockquote-center"><p>不积跬步无以至千里。</p>
 </blockquote>
 <a id="more"></a>
+<hr>
+<p>pandas 挑选特定类型的列：<code>pd.DataFrame.select_dtypes(include=None, exclude=None)</code></p>
+<hr>
+<p>python shuffle()方法将序列(<code>list</code> or <code>tuple</code>)的所有元素随机排序。<br>用法：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> random</div><div class="line">list = [<span class="number">20</span>, <span class="number">16</span>, <span class="number">10</span>, <span class="number">5</span>];</div><div class="line">random.shuffle(list)</div><div class="line">print(list)	<span class="comment">#[16, 5, 20, 10]</span></div><div class="line">random.shuffle(list)</div><div class="line">print(list)	<span class="comment">#[20, 10, 16, 5]</span></div><div class="line"></div><div class="line">**Notes:**`sklearn.utils.shuffle()`可以将多个序列经过同样的方式打乱。</div><div class="line">举例：</div><div class="line">feature,label = shuffle(feature,label, random_state=<span class="number">0</span>)</div></pre></td></tr></table></figure></p>
 <hr>
 <p>去掉CSV文件烦人的前两行头部信息：  <code>sed &#39;1,2d&#39; file &gt; newfile</code></p>
 <hr>
