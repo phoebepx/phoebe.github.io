@@ -95,7 +95,7 @@
 <meta property="og:url" content="http://phoebepan.cn/accumulation/index.html">
 <meta property="og:site_name" content="技忆">
 <meta property="og:description" content="不积跬步无以至千里。">
-<meta property="og:updated_time" content="2017-06-29T14:10:03.000Z">
+<meta property="og:updated_time" content="2017-07-02T07:10:45.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="技忆">
 <meta name="twitter:description" content="不积跬步无以至千里。">
@@ -331,6 +331,10 @@
       <blockquote class="blockquote-center"><p>不积跬步无以至千里。</p>
 </blockquote>
 <a id="more"></a>
+<hr>
+<p>单变量正态性检验：直方图、正太概率图<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#histogram and normal probability plot</span></div><div class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</div><div class="line"><span class="keyword">from</span> scipy <span class="keyword">import</span> stats</div><div class="line">sns.distplot(train[<span class="string">'colName'</span>], fit=norm);</div><div class="line">fig = plt.figure()</div><div class="line">res = stats.probplot(train[<span class="string">'colName'</span>], plot=plt)</div></pre></td></tr></table></figure></p>
+<hr>
+<p>pandas 某一列最大的k个值：<code>pandas.Series.nlargest(n=k)</code></p>
 <hr>
 <p>pandas 挑选特定类型的列：<code>pd.DataFrame.select_dtypes(include=None, exclude=None)</code></p>
 <hr>
