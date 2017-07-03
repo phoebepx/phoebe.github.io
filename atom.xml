@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://phoebepan.cn/"/>
-  <updated>2017-06-28T15:14:42.000Z</updated>
+  <updated>2017-07-03T12:39:27.000Z</updated>
   <id>http://phoebepan.cn/</id>
   
   <author>
@@ -14,6 +14,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>调超参神器——GridSearchCV</title>
+    <link href="http://phoebepan.cn/2017/06/16/GridSearchCV/"/>
+    <id>http://phoebepan.cn/2017/06/16/GridSearchCV/</id>
+    <published>2017-06-16T07:30:16.000Z</published>
+    <updated>2017-07-03T12:39:27.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote class="blockquote-center"><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>所谓超参，就是机器学习算法中，不能通过自身学习设定的参数，如SVM的惩罚因子C，核函数kernel，gamma参数等，参数间的组合很是繁琐，人工调节这些超参数时间成本太高，易出错。本文主要介绍sklearn模块的调参神器<code>GridSearchCV</code>模块，它能够在指定范围内自动搜索具有不同超参数的不同模型组合，寻找最佳参数，大大提高调参效率。</p>
+</blockquote>
+<a id="more"></a>
+<h3 id="缘起"><a href="#缘起" class="headerlink" title="缘起"></a>缘起</h3><p>这两天，闲来参加下Ctrip的一个数据竞赛，model选择的是XGboost，好用是自然，但是参数有很多，最迫切需要一个自动调节参数工具，于是接触到GridSearchCV模块。</p>
+<h3 id="官方手册"><a href="#官方手册" class="headerlink" title="官方手册"></a>官方手册</h3><p><a href="http://scikit-learn.org/stable/modules/generated/sklearn.grid_search.GridSearchCV.html#sklearn.grid_search.GridSearchCV" target="_blank" rel="external">手册链接</a></p>
+<h3 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h3><p>自己训练的代码如下(XGboost+5-fold Cross Validation)，清晰易懂，无须解释。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> xgboost <span class="keyword">as</span> xgb</div><div class="line"><span class="keyword">from</span> sklearn.grid_search <span class="keyword">import</span> GridSearchCV</div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">xgbmodel_train</span><span class="params">(train)</span>:</span></div><div class="line">    xgb_model = xgb.XGBClassifier()</div><div class="line">    train_feature, train_label = train.drop(<span class="string">'orderlabel'</span>, axis=<span class="number">1</span>), train[<span class="string">'orderlabel'</span>]</div><div class="line"></div><div class="line">    parameters = &#123;<span class="string">'nthread'</span>: [<span class="number">4</span>],</div><div class="line">                  <span class="string">'objective'</span>: [<span class="string">'binary:logistic'</span>],</div><div class="line">                  <span class="string">'learning_rate'</span>: [<span class="number">0.05</span>,<span class="number">0.06</span>,<span class="number">0.1</span>],</div><div class="line">                  <span class="string">'max_depth'</span>: [<span class="number">5</span>, <span class="number">6</span>],</div><div class="line">                  <span class="string">'min_child_weight'</span>: [<span class="number">1</span>, <span class="number">3</span>],</div><div class="line">                  <span class="string">'silent'</span>: [<span class="number">1</span>],</div><div class="line">                  <span class="string">'gamma'</span>: [<span class="number">0</span>, <span class="number">0.1</span>],</div><div class="line">                  <span class="string">'subsample'</span>: [<span class="number">0.6</span>, <span class="number">0.7</span>, <span class="number">0.8</span>],</div><div class="line">                  <span class="string">'colsample_bytree'</span>: [<span class="number">0.7</span>, <span class="number">0.5</span>, <span class="number">0.6</span>],</div><div class="line">                  <span class="string">'n_estimators'</span>: [<span class="number">5</span>],</div><div class="line">                  <span class="string">'missing'</span>: [<span class="number">-999</span>],</div><div class="line">                  <span class="string">'seed'</span>: [<span class="number">12455</span>]&#125;</div><div class="line"></div><div class="line">    clf = GridSearchCV(xgb_model, parameters, n_jobs=<span class="number">1</span>,</div><div class="line">                       cv=StratifiedKFold(train[<span class="string">'orderlabel'</span>], n_folds=<span class="number">5</span>, shuffle=<span class="keyword">True</span>),</div><div class="line">                       scoring=<span class="string">'roc_auc'</span>,</div><div class="line">                       verbose=<span class="number">2</span>, refit=<span class="keyword">True</span>)</div><div class="line"></div><div class="line"></div><div class="line">    clf.fit(train_feature, train_label)</div><div class="line">   </div><div class="line">    best_parameters, score, _ = max(clf.grid_scores_, key=<span class="keyword">lambda</span> x: x[<span class="number">1</span>])</div><div class="line">    print(<span class="string">'AUC score:'</span>, score)</div><div class="line">    <span class="keyword">for</span> param_name <span class="keyword">in</span> sorted(best_parameters.keys()):</div><div class="line">        print(<span class="string">'%s: %r'</span> % (param_name, best_parameters[param_name]))</div></pre></td></tr></table></figure></p>
+<h3 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h3><p><img src="/images/process.png" alt="process"><br><img src="/images/best_score.png" alt="best para"></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote class=&quot;blockquote-center&quot;&gt;&lt;h3 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h3&gt;&lt;p&gt;所谓超参，就是机器学习算法中，不能通过自身学习设定的参数，如SVM的惩罚因子C，核函数kernel，gamma参数等，参数间的组合很是繁琐，人工调节这些超参数时间成本太高，易出错。本文主要介绍sklearn模块的调参神器&lt;code&gt;GridSearchCV&lt;/code&gt;模块，它能够在指定范围内自动搜索具有不同超参数的不同模型组合，寻找最佳参数，大大提高调参效率。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="Machine Learning" scheme="http://phoebepan.cn/categories/Machine-Learning/"/>
+    
+    
+      <category term="ML Tune" scheme="http://phoebepan.cn/tags/ML-Tune/"/>
+    
+  </entry>
   
   <entry>
     <title>数据可视化——Seaborn</title>
@@ -776,33 +806,6 @@
       <category term="Reading" scheme="http://phoebepan.cn/tags/Reading/"/>
     
       <category term="Thinking" scheme="http://phoebepan.cn/tags/Thinking/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>魔力Python—— 查找列表项与np.genefromtxt()</title>
-    <link href="http://phoebepan.cn/2017/03/25/python_genefromtxt/"/>
-    <id>http://phoebepan.cn/2017/03/25/python_genefromtxt/</id>
-    <published>2017-03-25T07:30:16.000Z</published>
-    <updated>2017-05-29T05:10:26.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="Part1"><a href="#Part1" class="headerlink" title="Part1"></a><center>Part1</center></h2><h3 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h3><p>python，想获取列表中满足某一要求的所有列表项的索引。如这样的列表：<font color="red">a = [‘id:123’,’is_a:ja’,’name:ad’,’is_a: dj’]</font>，需得到含有<font color="red">‘is_a’</font>的两个列表项索引。<br><a id="more"></a></p>
-<h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h3><h4 id="startswith"><a href="#startswith" class="headerlink" title="startswith()"></a>startswith()</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">a = [<span class="string">'id:123'</span>,<span class="string">'is_a:ja'</span>,<span class="string">'name:ad'</span>,<span class="string">'is_a: dj'</span>]</div><div class="line">[ i <span class="keyword">for</span> i, word <span class="keyword">in</span> enumerate(a) <span class="keyword">if</span> word.startswith(<span class="string">'is_a:'</span>) ]</div><div class="line">&gt;&gt;&gt;[<span class="number">1</span>,<span class="number">3</span>]</div></pre></td></tr></table></figure>
-<h4 id="re-search"><a href="#re-search" class="headerlink" title="re.search()"></a>re.search()</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">a = [<span class="string">'id:123'</span>,<span class="string">'is_a:ja'</span>,<span class="string">'name:ad'</span>,<span class="string">'is_a: dj'</span>]</div><div class="line">[ i <span class="keyword">for</span> i, word <span class="keyword">in</span> enumerate(a) <span class="keyword">if</span> re.search(<span class="string">'is_a:'</span>,word) ]</div><div class="line">&gt;&gt;&gt;[<span class="number">1</span>,<span class="number">3</span>]</div></pre></td></tr></table></figure>
-<h2 id="Part2"><a href="#Part2" class="headerlink" title="Part2"></a><center>Part2</center></h2><h3 id="Background-1"><a href="#Background-1" class="headerlink" title="Background"></a>Background</h3><p>在读取数据文本时，遇到这样的问题，结构文本数据值默认为空，或者是缺失的，这时加载时，就需要对其进行处理，设定一个默认值。</p>
-<h3 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution"></a>Solution</h3><h4 id="numpy-genefromtxt"><a href="#numpy-genefromtxt" class="headerlink" title="numpy.genefromtxt()"></a><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.genfromtxt.html" target="_blank" rel="external">numpy.genefromtxt()</a></h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="string">'''</span></div><div class="line">将test.csv里的空值用'0'来代替，test.txt内容如下：</div><div class="line">1,,1,</div><div class="line">,,1,</div><div class="line">,,,</div><div class="line">,1,,</div><div class="line"></div><div class="line">'''</div><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line">data = np.genfromtxt(<span class="string">'test.csv'</span>, delimiter=<span class="string">','</span>, missing_values=[<span class="string">''</span>],filling_values=<span class="string">'0'</span>)</div><div class="line">&gt;&gt;&gt;data</div><div class="line">[[ <span class="number">1.</span>  <span class="number">0.</span>  <span class="number">1.</span>  <span class="number">0.</span>]</div><div class="line"> [ <span class="number">0.</span>  <span class="number">0.</span>  <span class="number">1.</span>  <span class="number">0.</span>]</div><div class="line"> [ <span class="number">0.</span>  <span class="number">0.</span>  <span class="number">0.</span>  <span class="number">0.</span>]</div><div class="line"> [ <span class="number">0.</span>  <span class="number">1.</span>  <span class="number">0.</span>  <span class="number">0.</span>]]</div></pre></td></tr></table></figure>
-<center><strong>Keep calm and carry on</strong></center>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Part1&quot;&gt;&lt;a href=&quot;#Part1&quot; class=&quot;headerlink&quot; title=&quot;Part1&quot;&gt;&lt;/a&gt;&lt;center&gt;Part1&lt;/center&gt;&lt;/h2&gt;&lt;h3 id=&quot;Background&quot;&gt;&lt;a href=&quot;#Background&quot; class=&quot;headerlink&quot; title=&quot;Background&quot;&gt;&lt;/a&gt;Background&lt;/h3&gt;&lt;p&gt;python，想获取列表中满足某一要求的所有列表项的索引。如这样的列表：&lt;font color=red&gt;a = [‘id:123’,’is_a:ja’,’name:ad’,’is_a: dj’]&lt;/font&gt;，需得到含有&lt;font color = red&gt;‘is_a’&lt;/font&gt;的两个列表项索引。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Python" scheme="http://phoebepan.cn/categories/Python/"/>
-    
-    
-      <category term="Python" scheme="http://phoebepan.cn/tags/Python/"/>
     
   </entry>
   
