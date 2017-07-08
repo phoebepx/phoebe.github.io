@@ -2,9 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://phoebepan.cn/knowledge/index.html</loc>
+    
+    <lastmod>2017-07-08T11:47:12.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://phoebepan.cn/2017/04/28/feature_engineering/</loc>
+    
+    <lastmod>2017-07-08T11:39:26.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://phoebepan.cn/2017/04/30/feature%20selection/</loc>
+    
+    <lastmod>2017-07-08T11:38:42.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://phoebepan.cn/2017/03/15/DFA/</loc>
+    
+    <lastmod>2017-07-08T11:37:03.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://phoebepan.cn/2017/06/16/GridSearchCV/</loc>
     
-    <lastmod>2017-07-03T12:39:27.000Z</lastmod>
+    <lastmod>2017-07-08T11:35:58.000Z</lastmod>
     
   </url>
   
@@ -26,20 +54,6 @@
     <loc>http://phoebepan.cn/2017/06/06/learn_seaborn/</loc>
     
     <lastmod>2017-06-28T15:14:42.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://phoebepan.cn/2017/04/30/feature%20selection/</loc>
-    
-    <lastmod>2017-06-28T13:49:02.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://phoebepan.cn/2017/04/28/feature_engineering/</loc>
-    
-    <lastmod>2017-06-28T02:10:53.000Z</lastmod>
     
   </url>
   
@@ -180,13 +194,6 @@
     <loc>http://phoebepan.cn/2017/04/13/Dynamic%20programming/</loc>
     
     <lastmod>2017-05-29T05:01:51.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://phoebepan.cn/2017/03/15/DFA/</loc>
-    
-    <lastmod>2017-05-29T05:01:04.000Z</lastmod>
     
   </url>
   
