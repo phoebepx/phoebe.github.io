@@ -95,7 +95,7 @@
 <meta property="og:url" content="http://phoebepan.cn/accumulation/index.html">
 <meta property="og:site_name" content="技忆">
 <meta property="og:description" content="不积跬步无以至千里。">
-<meta property="og:updated_time" content="2017-07-02T07:10:45.000Z">
+<meta property="og:updated_time" content="2017-07-08T12:38:11.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="技忆">
 <meta name="twitter:description" content="不积跬步无以至千里。">
@@ -341,6 +341,10 @@
       <blockquote class="blockquote-center"><p>不积跬步无以至千里。</p>
 </blockquote>
 <a id="more"></a>
+<hr>
+<p>N*M的矩阵，计算N行对象间余弦相似性：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> sklearn.metrics.pairwise <span class="keyword">import</span> cosine_similarity</div><div class="line">cosine_similarity(data)</div></pre></td></tr></table></figure></p>
+<hr>
+<p>快速将数组、矩阵中低于某一值的数置0，e.g.<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> scipy.stats <span class="keyword">import</span> threshold</div><div class="line">array = [<span class="number">0</span>, <span class="number">.25</span>, <span class="number">-1</span>, <span class="number">.15</span>, <span class="number">.5</span>, <span class="number">-2</span>, <span class="number">-3</span>, <span class="number">-4</span>, <span class="number">0</span>, <span class="number">0</span>]</div><div class="line">cut_array=threshold(array,<span class="number">0.1</span>)	</div><div class="line">print(cut_array)	<span class="comment">#[ 0.  ,  0.25,  0.  ,  0.15,  0.5 ,  0.  ,  0.  ,  0.  ,  0.  ,  0.  ]</span></div></pre></td></tr></table></figure></p>
 <hr>
 <p>单变量正态性检验：直方图、正太概率图<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#histogram and normal probability plot</span></div><div class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</div><div class="line"><span class="keyword">from</span> scipy <span class="keyword">import</span> stats</div><div class="line">sns.distplot(train[<span class="string">'colName'</span>], fit=norm);</div><div class="line">fig = plt.figure()</div><div class="line">res = stats.probplot(train[<span class="string">'colName'</span>], plot=plt)</div></pre></td></tr></table></figure></p>
 <hr>
