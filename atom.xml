@@ -4,9 +4,9 @@
   <subtitle>Phoebe&#39;s little progress</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://phoebepan.cn/"/>
+  <link href="http://www.phoebepan.cn/"/>
   <updated>2017-07-08T11:35:58.000Z</updated>
-  <id>http://phoebepan.cn/</id>
+  <id>http://www.phoebepan.cn/</id>
   
   <author>
     <name>Phoebe</name>
@@ -17,8 +17,8 @@
   
   <entry>
     <title>调超参神器——GridSearchCV</title>
-    <link href="http://phoebepan.cn/2017/06/16/GridSearchCV/"/>
-    <id>http://phoebepan.cn/2017/06/16/GridSearchCV/</id>
+    <link href="http://www.phoebepan.cn/2017/06/16/GridSearchCV/"/>
+    <id>http://www.phoebepan.cn/2017/06/16/GridSearchCV/</id>
     <published>2017-06-16T07:30:16.000Z</published>
     <updated>2017-07-08T11:35:58.000Z</updated>
     
@@ -38,17 +38,17 @@
     
     </summary>
     
-      <category term="Machine Learning" scheme="http://phoebepan.cn/categories/Machine-Learning/"/>
+      <category term="Machine Learning" scheme="http://www.phoebepan.cn/categories/Machine-Learning/"/>
     
     
-      <category term="ML Tune" scheme="http://phoebepan.cn/tags/ML-Tune/"/>
+      <category term="ML Tune" scheme="http://www.phoebepan.cn/tags/ML-Tune/"/>
     
   </entry>
   
   <entry>
     <title>数据可视化——Seaborn</title>
-    <link href="http://phoebepan.cn/2017/06/06/learn_seaborn/"/>
-    <id>http://phoebepan.cn/2017/06/06/learn_seaborn/</id>
+    <link href="http://www.phoebepan.cn/2017/06/06/learn_seaborn/"/>
+    <id>http://www.phoebepan.cn/2017/06/06/learn_seaborn/</id>
     <published>2017-06-06T07:30:16.000Z</published>
     <updated>2017-06-28T15:14:42.000Z</updated>
     
@@ -86,19 +86,19 @@
     
     </summary>
     
-      <category term="Data Visualization" scheme="http://phoebepan.cn/categories/Data-Visualization/"/>
+      <category term="Data Visualization" scheme="http://www.phoebepan.cn/categories/Data-Visualization/"/>
     
     
-      <category term="ML" scheme="http://phoebepan.cn/tags/ML/"/>
+      <category term="ML" scheme="http://www.phoebepan.cn/tags/ML/"/>
     
-      <category term="Visualization" scheme="http://phoebepan.cn/tags/Visualization/"/>
+      <category term="Visualization" scheme="http://www.phoebepan.cn/tags/Visualization/"/>
     
   </entry>
   
   <entry>
     <title>阅读笔记——7 Techniques to Handle Imbalanced Data</title>
-    <link href="http://phoebepan.cn/2017/06/05/Imbalanced_data/"/>
-    <id>http://phoebepan.cn/2017/06/05/Imbalanced_data/</id>
+    <link href="http://www.phoebepan.cn/2017/06/05/Imbalanced_data/"/>
+    <id>http://www.phoebepan.cn/2017/06/05/Imbalanced_data/</id>
     <published>2017-06-05T07:30:16.000Z</published>
     <updated>2017-06-28T15:15:00.000Z</updated>
     
@@ -131,19 +131,19 @@
     
     </summary>
     
-      <category term="Machine Learning" scheme="http://phoebepan.cn/categories/Machine-Learning/"/>
+      <category term="Machine Learning" scheme="http://www.phoebepan.cn/categories/Machine-Learning/"/>
     
     
-      <category term="ML" scheme="http://phoebepan.cn/tags/ML/"/>
+      <category term="ML" scheme="http://www.phoebepan.cn/tags/ML/"/>
     
-      <category term="Reading" scheme="http://phoebepan.cn/tags/Reading/"/>
+      <category term="Reading" scheme="http://www.phoebepan.cn/tags/Reading/"/>
     
   </entry>
   
   <entry>
     <title>充实的无话可说</title>
-    <link href="http://phoebepan.cn/2017/05/15/fine_life/"/>
-    <id>http://phoebepan.cn/2017/05/15/fine_life/</id>
+    <link href="http://www.phoebepan.cn/2017/05/15/fine_life/"/>
+    <id>http://www.phoebepan.cn/2017/05/15/fine_life/</id>
     <published>2017-05-15T07:30:16.000Z</published>
     <updated>2017-06-04T02:26:13.000Z</updated>
     
@@ -165,19 +165,19 @@
     
     </summary>
     
-      <category term="Thinking" scheme="http://phoebepan.cn/categories/Thinking/"/>
+      <category term="Thinking" scheme="http://www.phoebepan.cn/categories/Thinking/"/>
     
     
-      <category term="Thinking" scheme="http://phoebepan.cn/tags/Thinking/"/>
+      <category term="Thinking" scheme="http://www.phoebepan.cn/tags/Thinking/"/>
     
-      <category term="Life" scheme="http://phoebepan.cn/tags/Life/"/>
+      <category term="Life" scheme="http://www.phoebepan.cn/tags/Life/"/>
     
   </entry>
   
   <entry>
     <title>Modern Machine Learning Algorithms:Strengths and Weaknesses(阅读笔记)</title>
-    <link href="http://phoebepan.cn/2017/05/13/ML_good_weak/"/>
-    <id>http://phoebepan.cn/2017/05/13/ML_good_weak/</id>
+    <link href="http://www.phoebepan.cn/2017/05/13/ML_good_weak/"/>
+    <id>http://www.phoebepan.cn/2017/05/13/ML_good_weak/</id>
     <published>2017-05-13T07:30:16.000Z</published>
     <updated>2017-06-02T14:34:39.000Z</updated>
     
@@ -201,19 +201,19 @@
     
     </summary>
     
-      <category term="Machine Learning" scheme="http://phoebepan.cn/categories/Machine-Learning/"/>
+      <category term="Machine Learning" scheme="http://www.phoebepan.cn/categories/Machine-Learning/"/>
     
     
-      <category term="ML" scheme="http://phoebepan.cn/tags/ML/"/>
+      <category term="ML" scheme="http://www.phoebepan.cn/tags/ML/"/>
     
-      <category term="Reading" scheme="http://phoebepan.cn/tags/Reading/"/>
+      <category term="Reading" scheme="http://www.phoebepan.cn/tags/Reading/"/>
     
   </entry>
   
   <entry>
     <title>Pandas杂碎</title>
-    <link href="http://phoebepan.cn/2017/05/12/pandas/"/>
-    <id>http://phoebepan.cn/2017/05/12/pandas/</id>
+    <link href="http://www.phoebepan.cn/2017/05/12/pandas/"/>
+    <id>http://www.phoebepan.cn/2017/05/12/pandas/</id>
     <published>2017-05-12T07:30:16.000Z</published>
     <updated>2017-05-29T05:14:14.000Z</updated>
     
@@ -240,19 +240,19 @@
     
     </summary>
     
-      <category term="Python" scheme="http://phoebepan.cn/categories/Python/"/>
+      <category term="Python" scheme="http://www.phoebepan.cn/categories/Python/"/>
     
     
-      <category term="Python" scheme="http://phoebepan.cn/tags/Python/"/>
+      <category term="Python" scheme="http://www.phoebepan.cn/tags/Python/"/>
     
-      <category term="pandas" scheme="http://phoebepan.cn/tags/pandas/"/>
+      <category term="pandas" scheme="http://www.phoebepan.cn/tags/pandas/"/>
     
   </entry>
   
   <entry>
     <title>如何决定K-Means聚类个数——silhouette analysis</title>
-    <link href="http://phoebepan.cn/2017/05/05/silhouette%20analysis/"/>
-    <id>http://phoebepan.cn/2017/05/05/silhouette analysis/</id>
+    <link href="http://www.phoebepan.cn/2017/05/05/silhouette%20analysis/"/>
+    <id>http://www.phoebepan.cn/2017/05/05/silhouette analysis/</id>
     <published>2017-05-05T07:30:16.000Z</published>
     <updated>2017-06-12T23:44:18.000Z</updated>
     
@@ -275,21 +275,21 @@
     
     </summary>
     
-      <category term="Machine Learning" scheme="http://phoebepan.cn/categories/Machine-Learning/"/>
+      <category term="Machine Learning" scheme="http://www.phoebepan.cn/categories/Machine-Learning/"/>
     
     
-      <category term="ML" scheme="http://phoebepan.cn/tags/ML/"/>
+      <category term="ML" scheme="http://www.phoebepan.cn/tags/ML/"/>
     
   </entry>
   
   <entry>
     <title>Scikit-Learn如何做特征选择</title>
-    <link href="http://phoebepan.cn/2017/04/30/feature%20selection/"/>
-    <id>http://phoebepan.cn/2017/04/30/feature selection/</id>
+    <link href="http://www.phoebepan.cn/2017/04/30/feature%20selection/"/>
+    <id>http://www.phoebepan.cn/2017/04/30/feature selection/</id>
     <published>2017-04-30T07:30:16.000Z</published>
     <updated>2017-07-08T11:38:42.000Z</updated>
     
-    <content type="html"><![CDATA[<blockquote class="blockquote-center"><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>特征选择是<a href="http://phoebepan.cn/2017/04/28/feature%20selection/">特征工程</a>相对重要的一环节，太多不相关的特征会降低模型的准确性，特征选择，可以有效降低过拟合、训练时间等问题。本文简单介绍使用Scikit-Learn做特征选择。</p>
+    <content type="html"><![CDATA[<blockquote class="blockquote-center"><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>特征选择是<a href="http://phoebepan.cn/2017/04/28/feature%20selection/" target="_blank" rel="external">特征工程</a>相对重要的一环节，太多不相关的特征会降低模型的准确性，特征选择，可以有效降低过拟合、训练时间等问题。本文简单介绍使用Scikit-Learn做特征选择。</p>
 </blockquote>
 <a id="more"></a>
 <p>Scikit-Learn提供了几种不同的特征选择方法，其一，单变量选择（Univariate Selection）；其二，主成分分析（Principal Component Analysis）；其三，递归特征排除法（Recursive Feature Elimination）；其四，特征重要性排名（feature importance ranking）。</p>
@@ -311,17 +311,17 @@
     
     </summary>
     
-      <category term="Machine Learning" scheme="http://phoebepan.cn/categories/Machine-Learning/"/>
+      <category term="Machine Learning" scheme="http://www.phoebepan.cn/categories/Machine-Learning/"/>
     
     
-      <category term="ML FeatureSelection" scheme="http://phoebepan.cn/tags/ML-FeatureSelection/"/>
+      <category term="ML FeatureSelection" scheme="http://www.phoebepan.cn/tags/ML-FeatureSelection/"/>
     
   </entry>
   
   <entry>
     <title>机器学习WorkFlow——Model training</title>
-    <link href="http://phoebepan.cn/2017/04/29/train_model/"/>
-    <id>http://phoebepan.cn/2017/04/29/train_model/</id>
+    <link href="http://www.phoebepan.cn/2017/04/29/train_model/"/>
+    <id>http://www.phoebepan.cn/2017/04/29/train_model/</id>
     <published>2017-04-29T07:30:16.000Z</published>
     <updated>2017-06-27T03:51:47.000Z</updated>
     
@@ -344,17 +344,17 @@
     
     </summary>
     
-      <category term="Machine Learning" scheme="http://phoebepan.cn/categories/Machine-Learning/"/>
+      <category term="Machine Learning" scheme="http://www.phoebepan.cn/categories/Machine-Learning/"/>
     
     
-      <category term="ML" scheme="http://phoebepan.cn/tags/ML/"/>
+      <category term="ML" scheme="http://www.phoebepan.cn/tags/ML/"/>
     
   </entry>
   
   <entry>
     <title>机器学习WorkFlow——Feature Engineering</title>
-    <link href="http://phoebepan.cn/2017/04/28/feature_engineering/"/>
-    <id>http://phoebepan.cn/2017/04/28/feature_engineering/</id>
+    <link href="http://www.phoebepan.cn/2017/04/28/feature_engineering/"/>
+    <id>http://www.phoebepan.cn/2017/04/28/feature_engineering/</id>
     <published>2017-04-28T07:30:16.000Z</published>
     <updated>2017-07-08T11:39:26.000Z</updated>
     
@@ -372,17 +372,17 @@
     
     </summary>
     
-      <category term="Machine Learning" scheme="http://phoebepan.cn/categories/Machine-Learning/"/>
+      <category term="Machine Learning" scheme="http://www.phoebepan.cn/categories/Machine-Learning/"/>
     
     
-      <category term="ML FeatureEngineering" scheme="http://phoebepan.cn/tags/ML-FeatureEngineering/"/>
+      <category term="ML FeatureEngineering" scheme="http://www.phoebepan.cn/tags/ML-FeatureEngineering/"/>
     
   </entry>
   
   <entry>
     <title>机器学习WorkFlow——Data cleaning</title>
-    <link href="http://phoebepan.cn/2017/04/27/data_clean/"/>
-    <id>http://phoebepan.cn/2017/04/27/data_clean/</id>
+    <link href="http://www.phoebepan.cn/2017/04/27/data_clean/"/>
+    <id>http://www.phoebepan.cn/2017/04/27/data_clean/</id>
     <published>2017-04-27T07:30:16.000Z</published>
     <updated>2017-06-27T02:00:05.000Z</updated>
     
@@ -414,17 +414,17 @@
     
     </summary>
     
-      <category term="Machine Learning" scheme="http://phoebepan.cn/categories/Machine-Learning/"/>
+      <category term="Machine Learning" scheme="http://www.phoebepan.cn/categories/Machine-Learning/"/>
     
     
-      <category term="ML" scheme="http://phoebepan.cn/tags/ML/"/>
+      <category term="ML" scheme="http://www.phoebepan.cn/tags/ML/"/>
     
   </entry>
   
   <entry>
     <title>机器学习WorkFlow——EDA</title>
-    <link href="http://phoebepan.cn/2017/04/26/ML_EDA/"/>
-    <id>http://phoebepan.cn/2017/04/26/ML_EDA/</id>
+    <link href="http://www.phoebepan.cn/2017/04/26/ML_EDA/"/>
+    <id>http://www.phoebepan.cn/2017/04/26/ML_EDA/</id>
     <published>2017-04-26T07:30:16.000Z</published>
     <updated>2017-06-09T00:02:52.000Z</updated>
     
@@ -462,17 +462,17 @@
     
     </summary>
     
-      <category term="Machine Learning" scheme="http://phoebepan.cn/categories/Machine-Learning/"/>
+      <category term="Machine Learning" scheme="http://www.phoebepan.cn/categories/Machine-Learning/"/>
     
     
-      <category term="ML" scheme="http://phoebepan.cn/tags/ML/"/>
+      <category term="ML" scheme="http://www.phoebepan.cn/tags/ML/"/>
     
   </entry>
   
   <entry>
     <title>Python实现大文件分割</title>
-    <link href="http://phoebepan.cn/2017/04/25/split_bigtxt/"/>
-    <id>http://phoebepan.cn/2017/04/25/split_bigtxt/</id>
+    <link href="http://www.phoebepan.cn/2017/04/25/split_bigtxt/"/>
+    <id>http://www.phoebepan.cn/2017/04/25/split_bigtxt/</id>
     <published>2017-04-25T07:30:16.000Z</published>
     <updated>2017-06-04T23:59:50.000Z</updated>
     
@@ -493,17 +493,17 @@
     
     </summary>
     
-      <category term="Python" scheme="http://phoebepan.cn/categories/Python/"/>
+      <category term="Python" scheme="http://www.phoebepan.cn/categories/Python/"/>
     
     
-      <category term="Python" scheme="http://phoebepan.cn/tags/Python/"/>
+      <category term="Python" scheme="http://www.phoebepan.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>魔力Python——pickle持久化对象</title>
-    <link href="http://phoebepan.cn/2017/04/22/pickle/"/>
-    <id>http://phoebepan.cn/2017/04/22/pickle/</id>
+    <link href="http://www.phoebepan.cn/2017/04/22/pickle/"/>
+    <id>http://www.phoebepan.cn/2017/04/22/pickle/</id>
     <published>2017-04-22T07:30:16.000Z</published>
     <updated>2017-06-02T23:53:42.000Z</updated>
     
@@ -522,17 +522,17 @@
     
     </summary>
     
-      <category term="Python" scheme="http://phoebepan.cn/categories/Python/"/>
+      <category term="Python" scheme="http://www.phoebepan.cn/categories/Python/"/>
     
     
-      <category term="Python" scheme="http://phoebepan.cn/tags/Python/"/>
+      <category term="Python" scheme="http://www.phoebepan.cn/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>初涉MapReduce</title>
-    <link href="http://phoebepan.cn/2017/04/21/MapReduce/"/>
-    <id>http://phoebepan.cn/2017/04/21/MapReduce/</id>
+    <link href="http://www.phoebepan.cn/2017/04/21/MapReduce/"/>
+    <id>http://www.phoebepan.cn/2017/04/21/MapReduce/</id>
     <published>2017-04-21T07:30:16.000Z</published>
     <updated>2017-05-31T23:45:18.000Z</updated>
     
@@ -553,17 +553,17 @@
     
     </summary>
     
-      <category term="Architecture" scheme="http://phoebepan.cn/categories/Architecture/"/>
+      <category term="Architecture" scheme="http://www.phoebepan.cn/categories/Architecture/"/>
     
     
-      <category term="MapReduce" scheme="http://phoebepan.cn/tags/MapReduce/"/>
+      <category term="MapReduce" scheme="http://www.phoebepan.cn/tags/MapReduce/"/>
     
   </entry>
   
   <entry>
     <title>并行化——multiprocessing</title>
-    <link href="http://phoebepan.cn/2017/04/19/multiprocessing/"/>
-    <id>http://phoebepan.cn/2017/04/19/multiprocessing/</id>
+    <link href="http://www.phoebepan.cn/2017/04/19/multiprocessing/"/>
+    <id>http://www.phoebepan.cn/2017/04/19/multiprocessing/</id>
     <published>2017-04-19T07:30:16.000Z</published>
     <updated>2017-06-02T00:20:55.000Z</updated>
     
@@ -585,19 +585,19 @@
     
     </summary>
     
-      <category term="Python" scheme="http://phoebepan.cn/categories/Python/"/>
+      <category term="Python" scheme="http://www.phoebepan.cn/categories/Python/"/>
     
     
-      <category term="Python" scheme="http://phoebepan.cn/tags/Python/"/>
+      <category term="Python" scheme="http://www.phoebepan.cn/tags/Python/"/>
     
-      <category term="Parallelization" scheme="http://phoebepan.cn/tags/Parallelization/"/>
+      <category term="Parallelization" scheme="http://www.phoebepan.cn/tags/Parallelization/"/>
     
   </entry>
   
   <entry>
     <title>Linux——后台运行、查看和关闭</title>
-    <link href="http://phoebepan.cn/2017/04/17/linux_backstage/"/>
-    <id>http://phoebepan.cn/2017/04/17/linux_backstage/</id>
+    <link href="http://www.phoebepan.cn/2017/04/17/linux_backstage/"/>
+    <id>http://www.phoebepan.cn/2017/04/17/linux_backstage/</id>
     <published>2017-04-17T07:30:16.000Z</published>
     <updated>2017-05-29T04:57:34.000Z</updated>
     
@@ -629,17 +629,17 @@
     
     </summary>
     
-      <category term="Daily Accumulation" scheme="http://phoebepan.cn/categories/Daily-Accumulation/"/>
+      <category term="Daily Accumulation" scheme="http://www.phoebepan.cn/categories/Daily-Accumulation/"/>
     
     
-      <category term="linux" scheme="http://phoebepan.cn/tags/linux/"/>
+      <category term="linux" scheme="http://www.phoebepan.cn/tags/linux/"/>
     
   </entry>
   
   <entry>
     <title>《新商业文明》摘录</title>
-    <link href="http://phoebepan.cn/2017/04/16/New%20Commercial%20civilization/"/>
-    <id>http://phoebepan.cn/2017/04/16/New Commercial civilization/</id>
+    <link href="http://www.phoebepan.cn/2017/04/16/New%20Commercial%20civilization/"/>
+    <id>http://www.phoebepan.cn/2017/04/16/New Commercial civilization/</id>
     <published>2017-04-16T07:30:16.000Z</published>
     <updated>2017-05-29T05:05:36.000Z</updated>
     
@@ -696,19 +696,19 @@
     
     </summary>
     
-      <category term="Reading Nodes" scheme="http://phoebepan.cn/categories/Reading-Nodes/"/>
+      <category term="Reading Nodes" scheme="http://www.phoebepan.cn/categories/Reading-Nodes/"/>
     
     
-      <category term="Reading" scheme="http://phoebepan.cn/tags/Reading/"/>
+      <category term="Reading" scheme="http://www.phoebepan.cn/tags/Reading/"/>
     
-      <category term="Thinking" scheme="http://phoebepan.cn/tags/Thinking/"/>
+      <category term="Thinking" scheme="http://www.phoebepan.cn/tags/Thinking/"/>
     
   </entry>
   
   <entry>
     <title>Dynamic programming</title>
-    <link href="http://phoebepan.cn/2017/04/13/Dynamic%20programming/"/>
-    <id>http://phoebepan.cn/2017/04/13/Dynamic programming/</id>
+    <link href="http://www.phoebepan.cn/2017/04/13/Dynamic%20programming/"/>
+    <id>http://www.phoebepan.cn/2017/04/13/Dynamic programming/</id>
     <published>2017-04-13T07:30:16.000Z</published>
     <updated>2017-05-29T05:01:51.000Z</updated>
     
@@ -731,19 +731,19 @@
     
     </summary>
     
-      <category term="Algorithms" scheme="http://phoebepan.cn/categories/Algorithms/"/>
+      <category term="Algorithms" scheme="http://www.phoebepan.cn/categories/Algorithms/"/>
     
     
-      <category term="LeetCode" scheme="http://phoebepan.cn/tags/LeetCode/"/>
+      <category term="LeetCode" scheme="http://www.phoebepan.cn/tags/LeetCode/"/>
     
-      <category term="Algorithms" scheme="http://phoebepan.cn/tags/Algorithms/"/>
+      <category term="Algorithms" scheme="http://www.phoebepan.cn/tags/Algorithms/"/>
     
   </entry>
   
   <entry>
     <title>读《好好学习》</title>
-    <link href="http://phoebepan.cn/2017/04/09/goodstudy/"/>
-    <id>http://phoebepan.cn/2017/04/09/goodstudy/</id>
+    <link href="http://www.phoebepan.cn/2017/04/09/goodstudy/"/>
+    <id>http://www.phoebepan.cn/2017/04/09/goodstudy/</id>
     <published>2017-04-09T07:30:16.000Z</published>
     <updated>2017-05-29T05:04:31.000Z</updated>
     
@@ -800,12 +800,12 @@
     
     </summary>
     
-      <category term="Thinking" scheme="http://phoebepan.cn/categories/Thinking/"/>
+      <category term="Thinking" scheme="http://www.phoebepan.cn/categories/Thinking/"/>
     
     
-      <category term="Reading" scheme="http://phoebepan.cn/tags/Reading/"/>
+      <category term="Reading" scheme="http://www.phoebepan.cn/tags/Reading/"/>
     
-      <category term="Thinking" scheme="http://phoebepan.cn/tags/Thinking/"/>
+      <category term="Thinking" scheme="http://www.phoebepan.cn/tags/Thinking/"/>
     
   </entry>
   
