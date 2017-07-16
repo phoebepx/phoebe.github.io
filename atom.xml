@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.phoebepan.cn/"/>
-  <updated>2017-07-08T11:35:58.000Z</updated>
+  <updated>2017-07-16T04:40:44.000Z</updated>
   <id>http://www.phoebepan.cn/</id>
   
   <author>
@@ -14,6 +14,46 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>python中time模块</title>
+    <link href="http://www.phoebepan.cn/2017/07/16/time/"/>
+    <id>http://www.phoebepan.cn/2017/07/16/time/</id>
+    <published>2017-07-16T07:30:16.000Z</published>
+    <updated>2017-07-16T04:40:44.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote class="blockquote-center"><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>在日常数据处理中，常常需要与时间打交道，python中与时间处理有关的模块有：<code>time</code>，<code>datetime</code>，<code>calendar</code>。本文主要介绍<strong>time</strong>模块。<br><img src="/images/time_convert.png" alt="time"></p>
+</blockquote>
+<a id="more"></a>
+<p>Python中，表示时间的方式有：</p>
+<ul>
+<li>时间戳：通常来说，表示的是从<strong>1970年1月1日00:00:00</strong>开始按秒计算的偏移量；</li>
+<li>格式化的时间字符串；</li>
+<li>元组(struct_time)。</li>
+</ul>
+<p>time模块常用的几个函数：</p>
+<h3 id="time-localtime"><a href="#time-localtime" class="headerlink" title="time.localtime()"></a>time.localtime()</h3><p>将一个时间戳转换成当前时区的struct_time。</p>
+<h3 id="time-time"><a href="#time-time" class="headerlink" title="time.time()"></a>time.time()</h3><p>返回当前时间的时间戳。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt;time.time()</div><div class="line"><span class="number">1500176454.689554</span></div></pre></td></tr></table></figure></p>
+<h3 id="time-mktime"><a href="#time-mktime" class="headerlink" title="time.mktime()"></a>time.mktime()</h3><p>将一个struct_time转化为时间戳<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt;time.mktime(time.localtime())</div><div class="line"><span class="number">1500176622.0</span></div></pre></td></tr></table></figure></p>
+<h3 id="time-sleep"><a href="#time-sleep" class="headerlink" title="time.sleep()"></a>time.sleep()</h3><p>线程推迟运行，单位为秒</p>
+<h3 id="time-strftime"><a href="#time-strftime" class="headerlink" title="time.strftime()"></a>time.strftime()</h3><p>把一个代表时间的元组转化为格式化的时间字符串。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt;time.strftime(<span class="string">'%Y-%m-%d %X'</span>,time.localtime())</div><div class="line"><span class="string">'2017-07-16 11:58:07'</span></div></pre></td></tr></table></figure></p>
+<h3 id="time-strptime"><a href="#time-strptime" class="headerlink" title="time.strptime()"></a>time.strptime()</h3><p>格式化时间字符串转化成struct_time。与strftime()操作互逆。<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt;time.strptime('2017-07-16 11:58:07','%Y-%m-%d %X'')</div><div class="line">time.struct_time(tm_year=2017, tm_mon=7, tm_mday=16, tm_hour=11, tm_min=58, tm_sec=7, tm_wday=6, tm_yday=197, tm_isdst=-1)</div></pre></td></tr></table></figure></p>
+<p>了解更多，请参考<a href="https://docs.python.org/3/library/time.html" target="_blank" rel="external">time模块的官方文档</a>。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote class=&quot;blockquote-center&quot;&gt;&lt;h3 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h3&gt;&lt;p&gt;在日常数据处理中，常常需要与时间打交道，python中与时间处理有关的模块有：&lt;code&gt;time&lt;/code&gt;，&lt;code&gt;datetime&lt;/code&gt;，&lt;code&gt;calendar&lt;/code&gt;。本文主要介绍&lt;strong&gt;time&lt;/strong&gt;模块。&lt;br&gt;&lt;img src=&quot;/images/time_convert.png&quot; alt=&quot;time&quot;&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="Python" scheme="http://www.phoebepan.cn/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="http://www.phoebepan.cn/tags/Python/"/>
+    
+  </entry>
   
   <entry>
     <title>调超参神器——GridSearchCV</title>
@@ -737,75 +777,6 @@
       <category term="LeetCode" scheme="http://www.phoebepan.cn/tags/LeetCode/"/>
     
       <category term="Algorithms" scheme="http://www.phoebepan.cn/tags/Algorithms/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>读《好好学习》</title>
-    <link href="http://www.phoebepan.cn/2017/04/09/goodstudy/"/>
-    <id>http://www.phoebepan.cn/2017/04/09/goodstudy/</id>
-    <published>2017-04-09T07:30:16.000Z</published>
-    <updated>2017-05-29T05:04:31.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote class="blockquote-center"><p>简介：被罗辑思维评为十位“全国最会学习的人之一”，“得到”最受欢迎的说书人成甲，为你解开学习迷思，讲授“学习的方法”，帮助你将零碎的知识体系打造为高效的知识管理体系，让所学知识真正变成你的资产，让学习成为你财富积累的过程！</p>
-</blockquote>
-<a id="more"></a>
-<p>知识和知识是不一样的，有些知识比其他知识的威力更大。少数的知识能够给我们带来关键的影响，这就是临界知识。</p>
-<blockquote>
-<p><strong>我</strong>    这是作者给出的临界知识的定义，通读全书，我觉得所谓临界知识，更接近一般的底层规律，从小学到大学，我们不断地在学习知识，信息爆炸的互联网时代，知识的数量更大，知识的获取更便捷，而人的时间精力是有限的，如何将知识内化，提升认知效率，加强个人知识深度那真可谓是“磨刀石”，就自身而言，maybe我也入了“低水平勤奋陷阱”，看似不断学习，但大多数只是停留在知道层面，没有内化为自己的能力，二八原理有说，20%的知识比80%的知识要有用，这20%的关键知识就是撬动效能的杠杆点，我们要做的是花80%的时间，用在这20%的关键问题上，而不是平均地把时间花在各种知识上。</p>
-</blockquote>
-<p>我们所谓的专业，比如市场营销、法律、政治、历史、文学，其实只是人为制造的分类标签罢了，但是，这个世界不是按照你划分的标签在各个专业之内单独运行的。一个市场营销的问题，背后往往涉及法律、政治、历史和文化的因素。可是我们所谓的专业，并不管这些：你学好4P（产品、价格、渠道、促销）、市场细分等概念，就可以毕业了。这种认识，会极大地阻碍我们学习真正应该学的知识。</p>
-<blockquote>
-<p><strong>我</strong>    对于专业的解说，很符合自己的反思过程，以前自己读书总是读文学名著，专业书籍，至于其他领域，基本不会深入阅读，也许可归因于曾经浮躁的状态，想了解更多，但又觉得无用，受制于自己给贴的标签。但渐渐的我发现，很多时候，知识是相通的，想要在某一方面做到极致，不是说只学习某个专业知识就够了，也不是简单地这也学学，那也学学，而是要学习与解决某一类问题相关的所有核心能力。这一点，一定是突破专业限制的。</p>
-</blockquote>
-<p>生命有限，不要把有限的生命浪费在那些“低水平勤奋陷阱”里。现在的我，在读书时既不追求数量，也不要求读完。我的做法是：当我要解决某个问题的时候，主动去寻找可能会讨论这个问题的文章和书籍，去观察——作者用什么样的思路解决这个问题？在解决方案背后，是否有我熟悉的知识？我还能把这个解决方案的原理应用在什么领域？</p>
-<blockquote>
-<p><strong>我</strong>    这点挺启发我的，我拿起一本书要看的时候，总是，从前言，目录一直到结尾，生怕落下什么重要的细节，而且我总想尽快读完，然后去读更多的书，但maybe这真的是低效的表现，读书不在于多少，而在于有没有通过读书重新认识这个世界，发现深度知识并把它运用到自己的生活当中，举一反三，学习这样的检视阅读，把书当做自己的一个私人顾问，让自己以后能更高效解决问题。</p>
-</blockquote>
-<p>区分“我”和“我的观点/行为”，不再把对自己观点的质疑与自己这个人绑定起来。乔布斯在生前说过一句很著名的话：“我特别喜欢和聪明人在一起工作，因为最大的好处是不用考虑他们的尊严”</p>
-<blockquote>
-<p><strong>我</strong>    深有感触，以前实习的时候，两个老师之间意见不一致，其中一个的威信明显受到挑衅，当时就很困惑，难道老师不担心自己丢面子？不害怕没有尊严？其实不是，聪明人他们知道尊严不是在别人驳倒自己时去维护面子，真正的尊严是发现改进和成长的机会，成为更好的自己，这才是真正的老司机啊，哈哈。</p>
-</blockquote>
-<p>学习临界知识其实也就是用更合理的假设来替代我们过去不合理的假设，从而让我们的决策质量更高。<br>做事的顺序：做出假设——&gt;采取行动——&gt;产生结果<br>反思的顺序：观察结果（现象）——&gt;研究原先假设——&gt;反思校正假设</p>
-<blockquote>
-<p><strong>我</strong>    学习的本质，就是改变我们假设的过程，这讲清楚了学习的目的，因为，我们做出的所有决策都是在自己的假设下做出的，如果自己的假设不正确，不合适，那么必然产生不好的结果，所以学习，能够帮助我们更好的应对这个变化的世界。</p>
-</blockquote>
-<p>而我个人也是从事广告的6年间每天保持着阅读10个以上广告案例的习惯。正是这些背后看不见的可以练习，才铸就了今天小马宋举重若轻的广告能力。</p>
-<blockquote>
-<p><strong>我</strong>    真的没有谁，是随随便便成功的，台上十分钟，台下十年功，保持足够的好奇，寻找自己的热情所在，戒骄戒躁，在如今尤为重要，想想自己浪费的一年多生活，有些惋惜，但浪子回头，什么时候都不会晚，我坚信可以变成更好的自己。</p>
-</blockquote>
-<p>复利的本质？做事情A会导致结果B，而结果B又会加强A，不断循环。生活中，凡是符合这一规律的事情，都可以视为复利效应。比如，网站的访问量越多，在搜索引擎的排名就越靠前，那么网站访问量就越多。</p>
-<blockquote>
-<p><strong>我</strong>    复利，这个概念来源自我们小学就接触到的利息模型。近年来，读书无用论盛行，家长们会说，孩子学习这些数学有什么用，生活中也用不到，你看，这个复利，我们简单的停留在求出利息的层面，那它的用途的确有限，但是如果把它抽象出来，结合二八原理，书中提到我们想要向前20%靠近的话，就要充分利用复利效应，而这就需要我们做到：首先，我们要在生活中发现“A导致B，B加强A”这样的事情；其次，我们要尽可能地提高这件事情的利率；最后，我们要加强这件事情重复发生的可能性。</p>
-</blockquote>
-<p>所以拓展人脉的关键，首先是不断地提升自己的价值，让自己变得对他人有帮助；其次，才是让别人知道自己的价值。</p>
-<blockquote>
-<p><strong>我</strong>    来沪也快两年了，参加过一些活动，认识了一些朋友，虽然有些只是一面之交，但真的特别感谢每次的相遇，让我的眼界更加开阔。印象比较深的是，有一次参加一个英语角活动，活动后我们几个年龄相仿的，聊得特别嗨，一眨眼二三个小时过去了，但仍然意犹未尽，互加了微信，回去过后，有一个程序员哥哥，每次看到可能对我有帮助的，都会分享给我，我这个人么，属于能不麻烦别人就不麻烦别人的，但渐渐我发现，朋友其实就是在这样互相帮助下，联系的越紧密的，现在的我特别喜欢，有事就联系，没事各忙各的这样的相处方式。</p>
-</blockquote>
-<p>我不是说老司机的经验没有价值。我是说，你要意识到老司机的经验，只是众多可能性中的一个可能性，千万不能把它当成真理。它只是这个世界各种概率下的一个，甚至可能是小概率下的那一个。</p>
-<blockquote>
-<p><strong>我</strong>    这里讲的就是概率模型，这也是为什么我讨厌别人给我灌鸡汤，跟我讲大道理的原因，我始终都认为，一个人的成功，天时地利人和，缺一不可，老司机的经验，并不能保证在你所处的场景下也发生，只能规避你的风险，这也是我看好罗胖的内容创业，但是不会成为得到的深度用户。</p>
-</blockquote>
-<p>“与鬼共舞”其大意是说一个物种在适应过去的环境时，会形成一种行为A；当环境发生变化不需要行为A了，可物种仍然会延续过去的做法，就像与鬼魂共舞一样。</p>
-<blockquote>
-<p><strong>我</strong>    书里面提到的例子说，父母让女儿远离一线城市高房价，高压力的生活，回到自己的家乡县城，做稳定的银行柜员。我一直都坚信，没有所谓的稳定，环境在不断的变化，但是如果我们行动跟不上这样的变化，就会在新环境中“与鬼共舞”。我呢，天生爱自由，喜欢变化的世界，厌倦一层不变，这也是我渴望进入互联网这个行业的原因。</p>
-</blockquote>
-<p>夫夷以近，则游者众；险以远，则至者少。让我们一起好好学习，成为更好的自己~~</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote class=&quot;blockquote-center&quot;&gt;&lt;p&gt;简介：被罗辑思维评为十位“全国最会学习的人之一”，“得到”最受欢迎的说书人成甲，为你解开学习迷思，讲授“学习的方法”，帮助你将零碎的知识体系打造为高效的知识管理体系，让所学知识真正变成你的资产，让学习成为你财富积累的过程！&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="Thinking" scheme="http://www.phoebepan.cn/categories/Thinking/"/>
-    
-    
-      <category term="Reading" scheme="http://www.phoebepan.cn/tags/Reading/"/>
-    
-      <category term="Thinking" scheme="http://www.phoebepan.cn/tags/Thinking/"/>
     
   </entry>
   
