@@ -181,6 +181,41 @@
   </entry>
   
   <entry>
+    <title>推荐系统实战——学习笔记一</title>
+    <link href="http://www.phoebepan.cn/2017/05/16/Recommendation_action1/"/>
+    <id>http://www.phoebepan.cn/2017/05/16/Recommendation_action1/</id>
+    <published>2017-05-16T07:30:16.000Z</published>
+    <updated>2017-07-17T08:52:41.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote class="blockquote-center"><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>信息过载的现在，催生出了个性化推荐系统，“千人千面”，分析你的历史兴趣，发现对用户有价值的信息，同时，让信息能够展现在对它感兴趣的用户面前，可谓是双赢的酷事！选择《推荐系统实战》这本书作为自己的入门读物，一步一步深入学习个性化推荐，本文是推荐系统的概述，作为系列开篇之记。</p>
+</blockquote>
+<a id="more"></a>
+<h3 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h3><p>下面这张思维导图，可以粗略了解推荐系统是什么，解决什么问题，有什么用（经典三问，是什么？为什么？怎么样？），以及如何评价推荐系统优劣？<br><img src="/images/recommend.png" alt="recommend"></p>
+<h3 id="附1：覆盖率——基尼系数计算原理："><a href="#附1：覆盖率——基尼系数计算原理：" class="headerlink" title="附1：覆盖率——基尼系数计算原理："></a>附1：覆盖率——基尼系数计算原理：</h3><p> $$Gini=\frac{1}{n-1}\sum<em>{j=1}^{n}(2j-n-1)p(i</em>{j}) $$，上式左边i<sub>j</sub>是按照物品流行度p()<strong>从小到大</strong>排序的物品列表中第j个物品。结合下图，gini系数的形象化解释为（黑色曲线表示最不热门的x%物品的总流行度占系统的比例y%）,$$Gini=\frac{A的面积}{(A+B)的面积} $$<br><img src="/images/gini.png" alt="gini"><br>由此可见，如果系统物品流行度分配很不均匀，那么分子就会很大，从而基尼系数也会很大。</p>
+<h3 id="附2：一个推荐算法最终上线，需完成3个实验。"><a href="#附2：一个推荐算法最终上线，需完成3个实验。" class="headerlink" title="附2：一个推荐算法最终上线，需完成3个实验。"></a>附2：一个推荐算法最终上线，需完成3个实验。</h3><ul>
+<li>离线实验证明他在很多离线指标上优于现有算法；</li>
+<li>通过用户调查确定它的用户满意度不低于现有算法；</li>
+<li>在线AB测试确定它在我们关心的指标上优于现有算法。</li>
+</ul>
+<h3 id="附3：离线实验的优化目标"><a href="#附3：离线实验的优化目标" class="headerlink" title="附3：离线实验的优化目标"></a>附3：离线实验的优化目标</h3><p>用一个数学公式表达，如下：<br>最大化预测准确度<br>使得 覆盖率 &gt; A<br>多样性 &gt; B<br>新颖性 &gt; C</p>
+<p> [1]项亮，推荐系统实战.</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote class=&quot;blockquote-center&quot;&gt;&lt;h3 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h3&gt;&lt;p&gt;信息过载的现在，催生出了个性化推荐系统，“千人千面”，分析你的历史兴趣，发现对用户有价值的信息，同时，让信息能够展现在对它感兴趣的用户面前，可谓是双赢的酷事！选择《推荐系统实战》这本书作为自己的入门读物，一步一步深入学习个性化推荐，本文是推荐系统的概述，作为系列开篇之记。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="Personalized Recommendation" scheme="http://www.phoebepan.cn/categories/Personalized-Recommendation/"/>
+    
+    
+      <category term="Recommendation" scheme="http://www.phoebepan.cn/tags/Recommendation/"/>
+    
+  </entry>
+  
+  <entry>
     <title>充实的无话可说</title>
     <link href="http://www.phoebepan.cn/2017/05/15/fine_life/"/>
     <id>http://www.phoebepan.cn/2017/05/15/fine_life/</id>
@@ -742,41 +777,6 @@
       <category term="Reading" scheme="http://www.phoebepan.cn/tags/Reading/"/>
     
       <category term="Thinking" scheme="http://www.phoebepan.cn/tags/Thinking/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Dynamic programming</title>
-    <link href="http://www.phoebepan.cn/2017/04/13/Dynamic%20programming/"/>
-    <id>http://www.phoebepan.cn/2017/04/13/Dynamic programming/</id>
-    <published>2017-04-13T07:30:16.000Z</published>
-    <updated>2017-05-29T05:01:51.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote class="blockquote-center"><h3 id="基本思想"><a href="#基本思想" class="headerlink" title="基本思想"></a>基本思想</h3><p>动态规划（Dynamic programming，DP），通过把原问题分解为相对简单的子问题的方式分解复杂问题的方法。</p>
-</blockquote>
-<a id="more"></a>
-<h3 id="使用的情况"><a href="#使用的情况" class="headerlink" title="使用的情况"></a>使用的情况</h3><p>能采用动态规划求解的问题一般具有3个性质：</p>
-<ul>
-<li>最优化原理：如果问题的最优解所包含的子问题的解也是最优的，就称该问题具有最优子结构；</li>
-<li>无后效性：某状态以后的过程不会影响以前的状态，只与当前状态有关；</li>
-<li>有重叠子问题：子问题之间不独立，一个字问题在下一阶段中可能被多次使用。（这一性质是动态规划与其他算法相比所具备的优势）</li>
-</ul>
-<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><p>LeetCode: <a href="https://leetcode.com/problems/wildcard-matching/#/description" target="_blank" rel="external">Wildcard Matching</a><br>这道题其实就是Regular Expression Matching的简化版，下面主要说一下动态规划的解法。<br>输入两个字符串s,p，用一个布尔数组dp，dp[n]值表示字符串s前n个字符是否符合模式p。这就将原问题拆分成很多子问题，要想知道s是否匹配p，只需要知道之前匹配结果及当前位匹配情况就可以ok了。<br>具体代码如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">isMatch</span><span class="params">(self, s, p)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        :type s: str</div><div class="line">        :type p: str</div><div class="line">        :rtype: bool</div><div class="line">        """</div><div class="line">        length = len(s)</div><div class="line">        <span class="keyword">if</span> len(p)-p.count(<span class="string">'*'</span>) &gt; length:</div><div class="line">            <span class="keyword">return</span> <span class="keyword">False</span></div><div class="line">        dp = [<span class="keyword">True</span>]+[<span class="keyword">False</span>]*length</div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> p:</div><div class="line">            <span class="keyword">if</span> i != <span class="string">'*'</span>:</div><div class="line">                <span class="keyword">for</span> n <span class="keyword">in</span> reversed(range(length)):</div><div class="line">                    dp[n+<span class="number">1</span>]=dp[n] <span class="keyword">and</span> (i==s[n] <span class="keyword">or</span> i == <span class="string">'?'</span>)</div><div class="line">            <span class="keyword">else</span>:</div><div class="line">                <span class="keyword">for</span> n <span class="keyword">in</span> range(<span class="number">1</span>,length+<span class="number">1</span>):</div><div class="line">                    dp[n]=dp[n<span class="number">-1</span>] <span class="keyword">or</span> dp[n]</div><div class="line">            dp[<span class="number">0</span>]=dp[<span class="number">0</span>] <span class="keyword">and</span> i==<span class="string">'*'</span></div><div class="line">        <span class="keyword">return</span> dp[<span class="number">-1</span>]</div><div class="line"><span class="comment">#test</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>isMatch(<span class="string">'aa'</span>,<span class="string">'*'</span>)</div><div class="line"><span class="keyword">True</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>isMatch(<span class="string">"ab"</span>, <span class="string">"?*"</span>)</div><div class="line"><span class="keyword">True</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>isMatch(<span class="string">"aab"</span>, <span class="string">"c*a*b"</span>)</div><div class="line"><span class="keyword">False</span></div></pre></td></tr></table></figure></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote class=&quot;blockquote-center&quot;&gt;&lt;h3 id=&quot;基本思想&quot;&gt;&lt;a href=&quot;#基本思想&quot; class=&quot;headerlink&quot; title=&quot;基本思想&quot;&gt;&lt;/a&gt;基本思想&lt;/h3&gt;&lt;p&gt;动态规划（Dynamic programming，DP），通过把原问题分解为相对简单的子问题的方式分解复杂问题的方法。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="Algorithms" scheme="http://www.phoebepan.cn/categories/Algorithms/"/>
-    
-    
-      <category term="LeetCode" scheme="http://www.phoebepan.cn/tags/LeetCode/"/>
-    
-      <category term="Algorithms" scheme="http://www.phoebepan.cn/tags/Algorithms/"/>
     
   </entry>
   

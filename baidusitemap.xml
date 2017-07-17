@@ -3,6 +3,26 @@
 
 
     
+  <url>
+    <loc>http://www.phoebepan.cn/2017/05/16/Recommendation_action1/</loc>
+    <lastmod>2017-07-17T08:52:41.000Z</lastmod>
+    <data>
+        <display>
+        <title>推荐系统实战——学习笔记一</title>
+        <pubTime>2017-05-16T07:30:16.000Z</pubTime>
+        
+        <tag>Recommendation</tag>
+         
+         
+           
+             
+              <breadCrumb title="Personalized Recommendation" url="http://www.phoebepan.cn/categories/Personalized-Recommendation/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
     
   <url>
     <loc>http://www.phoebepan.cn/2017/07/16/time/</loc>
@@ -577,9 +597,9 @@
         <title>Binary indexed tree (Fenwick tree)</title>
         <pubTime>2017-03-21T07:30:16.000Z</pubTime>
         
-        <tag>Algorithms</tag>
-         
         <tag>Python</tag>
+         
+        <tag>Algorithms</tag>
          
          
            
