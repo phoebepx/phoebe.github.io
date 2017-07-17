@@ -3,10 +3,9 @@
 
 
     
-    
   <url>
     <loc>http://www.phoebepan.cn/2017/05/16/Recommendation_action1/</loc>
-    <lastmod>2017-07-17T09:01:01.000Z</lastmod>
+    <lastmod>2017-07-17T23:42:42.000Z</lastmod>
     <data>
         <display>
         <title>推荐系统实战——学习笔记一</title>
@@ -17,12 +16,13 @@
          
            
              
-              <breadCrumb title="Personalized Recommendation" url="http://www.phoebepan.cn/categories/Personalized-Recommendation/"/>
+              <breadCrumb title="Recommendation" url="http://www.phoebepan.cn/categories/Recommendation/"/>
           
         </display>
     </data>
     </url>
 
+    
     
   <url>
     <loc>http://www.phoebepan.cn/2017/07/16/time/</loc>
