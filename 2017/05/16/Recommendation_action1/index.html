@@ -97,7 +97,7 @@
 <meta property="og:description" content="简介信息过载的现在，催生出了个性化推荐系统，“千人千面”，分析你的历史兴趣，发现对用户有价值的信息，同时，让信息能够展现在对它感兴趣的用户面前，可谓是双赢的酷事！选择《推荐系统实战》这本书作为自己的入门读物，一步一步深入学习个性化推荐，本文是推荐系统的概述，作为系列开篇之记。">
 <meta property="og:image" content="http://www.phoebepan.cn/images/recommend.png">
 <meta property="og:image" content="http://www.phoebepan.cn/images/gini.png">
-<meta property="og:updated_time" content="2017-07-17T08:52:41.000Z">
+<meta property="og:updated_time" content="2017-07-17T09:01:01.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="推荐系统实战——学习笔记一">
 <meta name="twitter:description" content="简介信息过载的现在，催生出了个性化推荐系统，“千人千面”，分析你的历史兴趣，发现对用户有价值的信息，同时，让信息能够展现在对它感兴趣的用户面前，可谓是双赢的酷事！选择《推荐系统实战》这本书作为自己的入门读物，一步一步深入学习个性化推荐，本文是推荐系统的概述，作为系列开篇之记。">
@@ -449,7 +449,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  466
+                  421
                 </span>
               
 
@@ -465,7 +465,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长" }}">
-                  2
+                  1
                 </span>
               
             </div>
@@ -488,13 +488,13 @@
 </blockquote>
 <a id="more"></a>
 <h3 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h3><p>下面这张思维导图，可以粗略了解推荐系统是什么，解决什么问题，有什么用（经典三问，是什么？为什么？怎么样？），以及如何评价推荐系统优劣？<br><img src="/images/recommend.png" alt="recommend"></p>
-<h3 id="附1：覆盖率——基尼系数计算原理："><a href="#附1：覆盖率——基尼系数计算原理：" class="headerlink" title="附1：覆盖率——基尼系数计算原理："></a>附1：覆盖率——基尼系数计算原理：</h3><p> $$Gini=\frac{1}{n-1}\sum<em>{j=1}^{n}(2j-n-1)p(i</em>{j}) $$，上式左边i<sub>j</sub>是按照物品流行度p()<strong>从小到大</strong>排序的物品列表中第j个物品。结合下图，gini系数的形象化解释为（黑色曲线表示最不热门的x%物品的总流行度占系统的比例y%）,$$Gini=\frac{A的面积}{(A+B)的面积} $$<br><img src="/images/gini.png" alt="gini"><br>由此可见，如果系统物品流行度分配很不均匀，那么分子就会很大，从而基尼系数也会很大。</p>
+<h3 id="附1：覆盖率——基尼系数计算原理："><a href="#附1：覆盖率——基尼系数计算原理：" class="headerlink" title="附1：覆盖率——基尼系数计算原理："></a>附1：覆盖率——基尼系数计算原理：</h3><p>结合下图，gini系数的形象化解释为（黑色曲线表示最不热门的x%物品的总流行度占系统的比例y%）,$$Gini=\frac{A的面积}{(A+B)的面积} $$<br><img src="/images/gini.png" alt="gini"><br>由此可见，如果系统物品流行度分配很不均匀，那么分子就会很大，从而基尼系数也会很大。</p>
 <h3 id="附2：一个推荐算法最终上线，需完成3个实验。"><a href="#附2：一个推荐算法最终上线，需完成3个实验。" class="headerlink" title="附2：一个推荐算法最终上线，需完成3个实验。"></a>附2：一个推荐算法最终上线，需完成3个实验。</h3><ul>
 <li>离线实验证明他在很多离线指标上优于现有算法；</li>
 <li>通过用户调查确定它的用户满意度不低于现有算法；</li>
 <li>在线AB测试确定它在我们关心的指标上优于现有算法。</li>
 </ul>
-<h3 id="附3：离线实验的优化目标"><a href="#附3：离线实验的优化目标" class="headerlink" title="附3：离线实验的优化目标"></a>附3：离线实验的优化目标</h3><p>用一个数学公式表达，如下：<br>最大化预测准确度<br>使得 覆盖率 &gt; A<br>多样性 &gt; B<br>新颖性 &gt; C</p>
+<h3 id="附3：离线实验的优化目标"><a href="#附3：离线实验的优化目标" class="headerlink" title="附3：离线实验的优化目标"></a>附3：离线实验的优化目标</h3><p>用一个数学公式表达，如下：<br>最大化预测准确度<br>使得 覆盖率 &gt; A，多样性 &gt; B，新颖性 &gt; C</p>
 <p> [1]项亮，推荐系统实战.</p>
 
       
@@ -661,7 +661,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>

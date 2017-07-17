@@ -5,7 +5,7 @@
     
   <url>
     <loc>http://www.phoebepan.cn/2017/05/16/Recommendation_action1/</loc>
-    <lastmod>2017-07-17T08:52:41.000Z</lastmod>
+    <lastmod>2017-07-17T09:01:01.000Z</lastmod>
     <data>
         <display>
         <title>推荐系统实战——学习笔记一</title>
@@ -597,9 +597,9 @@
         <title>Binary indexed tree (Fenwick tree)</title>
         <pubTime>2017-03-21T07:30:16.000Z</pubTime>
         
-        <tag>Python</tag>
-         
         <tag>Algorithms</tag>
+         
+        <tag>Python</tag>
          
          
            
