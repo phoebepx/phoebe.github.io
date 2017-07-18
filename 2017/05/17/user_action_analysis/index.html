@@ -97,9 +97,10 @@
 <meta property="og:description" content="简介古语，听其言，观其行，用户的行为不是随机的，而是蕴含着很多模式，通过算法自动挖掘用户行为数据，从而推测出用户的兴趣和需求，做出个性化推荐。本文是自己对用户行为分析的学习笔记。">
 <meta property="og:image" content="http://www.phoebepan.cn/images/user_action_analysis.png">
 <meta property="og:image" content="http://www.phoebepan.cn/images/user_item_reversort.png">
+<meta property="og:image" content="http://www.phoebepan.cn/images/pui.png">
 <meta property="og:image" content="http://www.phoebepan.cn/images/UserCF_ItemCF.png">
 <meta property="og:image" content="http://www.phoebepan.cn/images/part2graph.png">
-<meta property="og:updated_time" content="2017-07-18T09:16:12.000Z">
+<meta property="og:updated_time" content="2017-07-18T09:42:36.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="推荐系统实战——学习笔记二">
 <meta name="twitter:description" content="简介古语，听其言，观其行，用户的行为不是随机的，而是蕴含着很多模式，通过算法自动挖掘用户行为数据，从而推测出用户的兴趣和需求，做出个性化推荐。本文是自己对用户行为分析的学习笔记。">
@@ -451,7 +452,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  905
+                  889
                 </span>
               
 
@@ -495,7 +496,7 @@
 <li>找到和目标用户兴趣相似的用户集合</li>
 <li>找到集合中用户喜欢且目标用户没有行为的物品做出推荐</li>
 </ul>
-<p><img src="/images/user_item_reversort.png" alt="reserve_sort"><br>上面这张图是，用户行为数据导出用户间共现矩阵的过程，基于该共现矩阵，利用余弦相似度（或Jaccard）得到用户间兴趣相似度后，UserCF算法会给用户推荐和他兴趣最相似的K个用户喜欢的物品。用户u对物品i的感兴趣程度：<br>$$p(u,i)=\sum<em>{v\epsilon S(u,K)\bigcap N(i)}w</em>{uv}r_{vi}$$<br>,S(u,K)包含和用户u兴趣最接近的K个用户，N(i)是对物品i有过行为的用户集合，w<sub>uv</sub>是用户u,v的兴趣相似度，r<sub>vi</sub>用户v对物品i的兴趣。<br><strong>改进</strong><br>计算用户间兴趣相似度时，增加用户u,v共同兴趣列表中热门物品的惩罚。原理类似TF-IDF。</p>
+<p><img src="/images/user_item_reversort.png" alt="reserve_sort"><br>上面这张图是，用户行为数据导出用户间共现矩阵的过程，基于该共现矩阵，利用余弦相似度（或Jaccard）得到用户间兴趣相似度后，UserCF算法会给用户推荐和他兴趣最相似的K个用户喜欢的物品。用户u对物品i的感兴趣程度：<br><img src="/images/pui.png" alt="pui"><br>,S(u,K)包含和用户u兴趣最接近的K个用户，N(i)是对物品i有过行为的用户集合，w<sub>uv</sub>是用户u,v的兴趣相似度，r<sub>vi</sub>用户v对物品i的兴趣。<br><strong>改进</strong><br>计算用户间兴趣相似度时，增加用户u,v共同兴趣列表中热门物品的惩罚。原理类似TF-IDF。</p>
 <h4 id="基于物品的协同过滤-ItemCF"><a href="#基于物品的协同过滤-ItemCF" class="headerlink" title="基于物品的协同过滤(ItemCF)"></a>基于物品的协同过滤(ItemCF)</h4><p>推荐原理：给用户推荐那些和他之前喜欢的物品类似的物品，着重于维系用户历史兴趣，更个性化。<br>主要包括两步：</p>
 <ul>
 <li>计算物品间相似度</li>
