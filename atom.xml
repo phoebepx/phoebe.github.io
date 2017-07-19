@@ -183,11 +183,39 @@
   </entry>
   
   <entry>
-    <title>推荐系统实战——学习笔记三</title>
+    <title>推荐系统实战——用户标签数据</title>
+    <link href="http://www.phoebepan.cn/2017/05/19/user_tags/"/>
+    <id>http://www.phoebepan.cn/2017/05/19/user_tags/</id>
+    <published>2017-05-19T07:30:16.000Z</published>
+    <updated>2017-07-19T08:25:13.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote class="blockquote-center"><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>推荐系统的目的是联系用户的兴趣和物品，倘若通过一些特征(feature)联系用户和物品，给用户推荐那些具有用户喜欢的特征的物品，标签作为一种无层次化结构的、用来描述信息的关键词。本文主要介绍有关<strong>标签</strong>在推荐系统中的应用。</p>
+</blockquote>
+<a id="more"></a>
+<h3 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h3><p><img src="/images/user_tag.png" alt="user_tag"></p>
+<p> [1]项亮，推荐系统实战.</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote class=&quot;blockquote-center&quot;&gt;&lt;h3 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h3&gt;&lt;p&gt;推荐系统的目的是联系用户的兴趣和物品，倘若通过一些特征(feature)联系用户和物品，给用户推荐那些具有用户喜欢的特征的物品，标签作为一种无层次化结构的、用来描述信息的关键词。本文主要介绍有关&lt;strong&gt;标签&lt;/strong&gt;在推荐系统中的应用。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="Recommendation" scheme="http://www.phoebepan.cn/categories/Recommendation/"/>
+    
+    
+      <category term="Recommendation" scheme="http://www.phoebepan.cn/tags/Recommendation/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>推荐系统实战——冷启动</title>
     <link href="http://www.phoebepan.cn/2017/05/18/cold_start/"/>
     <id>http://www.phoebepan.cn/2017/05/18/cold_start/</id>
     <published>2017-05-18T07:30:16.000Z</published>
-    <updated>2017-07-19T04:03:07.000Z</updated>
+    <updated>2017-07-19T08:24:24.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote class="blockquote-center"><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>前一篇博文的介绍，可见大量用户行为数据是推荐系统的先决条件。那么，如何在没有大量用户数据的情况下设计个性化推荐系统并让用户对推荐结果满意而增加用户粘性，这就是本文所介绍的冷启动问题。</p>
 </blockquote>
@@ -220,11 +248,11 @@
   </entry>
   
   <entry>
-    <title>推荐系统实战——学习笔记二</title>
+    <title>推荐系统实战——用户行为分析</title>
     <link href="http://www.phoebepan.cn/2017/05/17/user_action_analysis/"/>
     <id>http://www.phoebepan.cn/2017/05/17/user_action_analysis/</id>
     <published>2017-05-17T07:30:16.000Z</published>
-    <updated>2017-07-18T09:42:36.000Z</updated>
+    <updated>2017-07-19T08:24:59.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote class="blockquote-center"><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>古语，听其言，观其行，用户的行为不是随机的，而是蕴含着很多模式，通过算法自动挖掘用户行为数据，从而推测出用户的兴趣和需求，做出个性化推荐。本文是自己对用户行为分析的学习笔记。</p>
 </blockquote>
@@ -281,11 +309,11 @@
   </entry>
   
   <entry>
-    <title>推荐系统实战——学习笔记一</title>
+    <title>推荐系统实战——概述</title>
     <link href="http://www.phoebepan.cn/2017/05/16/Recommendation_action1/"/>
     <id>http://www.phoebepan.cn/2017/05/16/Recommendation_action1/</id>
     <published>2017-05-16T07:30:16.000Z</published>
-    <updated>2017-07-17T23:42:42.000Z</updated>
+    <updated>2017-07-19T08:24:32.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote class="blockquote-center"><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>信息过载的现在，催生出了个性化推荐系统，“千人千面”，分析你的历史兴趣，发现对用户有价值的信息，同时，让信息能够展现在对它感兴趣的用户面前，可谓是双赢的酷事！选择《推荐系统实战》这本书作为自己的入门读物，一步一步深入学习个性化推荐，本文是推荐系统的概述，作为系列开篇之记。</p>
 </blockquote>
@@ -736,40 +764,6 @@
     
     
       <category term="MapReduce" scheme="http://www.phoebepan.cn/tags/MapReduce/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>并行化——multiprocessing</title>
-    <link href="http://www.phoebepan.cn/2017/04/19/multiprocessing/"/>
-    <id>http://www.phoebepan.cn/2017/04/19/multiprocessing/</id>
-    <published>2017-04-19T07:30:16.000Z</published>
-    <updated>2017-06-02T00:20:55.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote class="blockquote-center"><p><code>multiprocessing</code>是Python的标准模块，它既可以用来编写多进程，也可以用来编写多线程。<code>multiprocessing.dummy</code>实现多线程，<code>multiprocessing</code>实现多进程，本文主要介绍多进程的用法。</p>
-</blockquote>
-<a id="more"></a>
-<h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a><center>问题</center></h3><p>最近在处理疾病数据时，遇到这样一个问题，需要计算同构的2000个文档加和平均值，为提高处理效率，使用<code>multiprocessing</code>库进行并行化，在此记录下。</p>
-<h3 id="用法"><a href="#用法" class="headerlink" title="用法"></a><center>用法</center></h3><p><code>multiprocessing.pool</code>能自动管理进程任务，通过下面的语句初始化有10个进程数的pool，若<code>Pool()</code>未指定进程数，那么使用os.cpu_count()返回的数量。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> multiprocessing <span class="keyword">import</span> Pool</div><div class="line">processNum = <span class="number">10</span></div><div class="line">p = Pool(processNum)</div></pre></td></tr></table></figure></p>
-<p>假定我们需要并行执行的任务是如下函数：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">func</span><span class="params">(parameter)</span>:</span></div><div class="line">    <span class="comment"># do something</span></div><div class="line">    <span class="keyword">return</span> result</div></pre></td></tr></table></figure></p>
-<p>主函数调用：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">results = []</div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(processNum):</div><div class="line">    result = p.apply_async(func, args=(i,))</div><div class="line">    results.append(result)</div></pre></td></tr></table></figure></p>
-<p><code>p.apply_async</code>采用异步方式调用函数func，<code>p.apply</code>采用同步方式调用，即串行方式，下一个func要等待上一个func运行完成才开始运行。针对我的问题，只需要异步操作即可。<br>最后，使用以下语句回收进程池：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">p.close()</div><div class="line">p.join()</div></pre></td></tr></table></figure></p>
-<h3 id="附上完成使用代码"><a href="#附上完成使用代码" class="headerlink" title="附上完成使用代码"></a>附上完成使用代码</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> multiprocessing <span class="keyword">import</span> Pool</div><div class="line">processNum = <span class="number">10</span></div><div class="line">p = Pool(processNum)</div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">func</span><span class="params">(parameter)</span>:</span></div><div class="line">    <span class="comment"># do something</span></div><div class="line">    <span class="keyword">return</span> result</div><div class="line">results = []</div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(processNum):</div><div class="line">    result = p.apply_async(func, args=(i,))</div><div class="line">    results.append(result)</div><div class="line">p.close()</div><div class="line">p.join()</div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote class=&quot;blockquote-center&quot;&gt;&lt;p&gt;&lt;code&gt;multiprocessing&lt;/code&gt;是Python的标准模块，它既可以用来编写多进程，也可以用来编写多线程。&lt;code&gt;multiprocessing.dummy&lt;/code&gt;实现多线程，&lt;code&gt;multiprocessing&lt;/code&gt;实现多进程，本文主要介绍多进程的用法。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="Python" scheme="http://www.phoebepan.cn/categories/Python/"/>
-    
-    
-      <category term="Python" scheme="http://www.phoebepan.cn/tags/Python/"/>
-    
-      <category term="Parallelization" scheme="http://www.phoebepan.cn/tags/Parallelization/"/>
     
   </entry>
   

@@ -4,11 +4,71 @@
 
     
   <url>
-    <loc>http://www.phoebepan.cn/2017/05/18/cold_start/</loc>
-    <lastmod>2017-07-19T04:03:07.000Z</lastmod>
+    <loc>http://www.phoebepan.cn/2017/05/19/user_tags/</loc>
+    <lastmod>2017-07-19T08:25:13.000Z</lastmod>
     <data>
         <display>
-        <title>推荐系统实战——学习笔记三</title>
+        <title>推荐系统实战——用户标签数据</title>
+        <pubTime>2017-05-19T07:30:16.000Z</pubTime>
+        
+        <tag>Recommendation</tag>
+         
+         
+           
+             
+              <breadCrumb title="Recommendation" url="http://www.phoebepan.cn/categories/Recommendation/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.phoebepan.cn/2017/05/17/user_action_analysis/</loc>
+    <lastmod>2017-07-19T08:24:59.000Z</lastmod>
+    <data>
+        <display>
+        <title>推荐系统实战——用户行为分析</title>
+        <pubTime>2017-05-17T07:30:16.000Z</pubTime>
+        
+        <tag>Recommendation</tag>
+         
+         
+           
+             
+              <breadCrumb title="Recommendation" url="http://www.phoebepan.cn/categories/Recommendation/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.phoebepan.cn/2017/05/16/Recommendation_action1/</loc>
+    <lastmod>2017-07-19T08:24:32.000Z</lastmod>
+    <data>
+        <display>
+        <title>推荐系统实战——概述</title>
+        <pubTime>2017-05-16T07:30:16.000Z</pubTime>
+        
+        <tag>Recommendation</tag>
+         
+         
+           
+             
+              <breadCrumb title="Recommendation" url="http://www.phoebepan.cn/categories/Recommendation/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.phoebepan.cn/2017/05/18/cold_start/</loc>
+    <lastmod>2017-07-19T08:24:24.000Z</lastmod>
+    <data>
+        <display>
+        <title>推荐系统实战——冷启动</title>
         <pubTime>2017-05-18T07:30:16.000Z</pubTime>
         
         <tag>Recommendation</tag>
@@ -89,46 +149,6 @@
     </url>
 
     
-    
-  <url>
-    <loc>http://www.phoebepan.cn/2017/05/17/user_action_analysis/</loc>
-    <lastmod>2017-07-18T09:42:36.000Z</lastmod>
-    <data>
-        <display>
-        <title>推荐系统实战——学习笔记二</title>
-        <pubTime>2017-05-17T07:30:16.000Z</pubTime>
-        
-        <tag>Recommendation</tag>
-         
-         
-           
-             
-              <breadCrumb title="Recommendation" url="http://www.phoebepan.cn/categories/Recommendation/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.phoebepan.cn/2017/05/16/Recommendation_action1/</loc>
-    <lastmod>2017-07-17T23:42:42.000Z</lastmod>
-    <data>
-        <display>
-        <title>推荐系统实战——学习笔记一</title>
-        <pubTime>2017-05-16T07:30:16.000Z</pubTime>
-        
-        <tag>Recommendation</tag>
-         
-         
-           
-             
-              <breadCrumb title="Recommendation" url="http://www.phoebepan.cn/categories/Recommendation/"/>
-          
-        </display>
-    </data>
-    </url>
-
     
   <url>
     <loc>http://www.phoebepan.cn/2017/07/16/time/</loc>
