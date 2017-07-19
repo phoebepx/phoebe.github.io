@@ -60,7 +60,7 @@
     <link href="http://www.phoebepan.cn/2017/06/16/GridSearchCV/"/>
     <id>http://www.phoebepan.cn/2017/06/16/GridSearchCV/</id>
     <published>2017-06-16T07:30:16.000Z</published>
-    <updated>2017-07-08T11:35:58.000Z</updated>
+    <updated>2017-07-19T02:41:47.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote class="blockquote-center"><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>所谓超参，就是机器学习算法中，不能通过自身学习设定的参数，如SVM的惩罚因子C，核函数kernel，gamma参数等，参数间的组合很是繁琐，人工调节这些超参数时间成本太高，易出错。本文主要介绍sklearn模块的调参神器<code>GridSearchCV</code>模块，它能够在指定范围内自动搜索具有不同超参数的不同模型组合，寻找最佳参数，大大提高调参效率。</p>
 </blockquote>
@@ -81,7 +81,9 @@
       <category term="Machine Learning" scheme="http://www.phoebepan.cn/categories/Machine-Learning/"/>
     
     
-      <category term="ML Tune" scheme="http://www.phoebepan.cn/tags/ML-Tune/"/>
+      <category term="ML" scheme="http://www.phoebepan.cn/tags/ML/"/>
+    
+      <category term="Tune" scheme="http://www.phoebepan.cn/tags/Tune/"/>
     
   </entry>
   
@@ -177,6 +179,43 @@
       <category term="ML" scheme="http://www.phoebepan.cn/tags/ML/"/>
     
       <category term="Reading" scheme="http://www.phoebepan.cn/tags/Reading/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>推荐系统实战——学习笔记三</title>
+    <link href="http://www.phoebepan.cn/2017/05/18/cold_start/"/>
+    <id>http://www.phoebepan.cn/2017/05/18/cold_start/</id>
+    <published>2017-05-18T07:30:16.000Z</published>
+    <updated>2017-07-19T04:03:07.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote class="blockquote-center"><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>前一篇博文的介绍，可见大量用户行为数据是推荐系统的先决条件。那么，如何在没有大量用户数据的情况下设计个性化推荐系统并让用户对推荐结果满意而增加用户粘性，这就是本文所介绍的冷启动问题。</p>
+</blockquote>
+<a id="more"></a>
+<h3 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h3><p><img src="/images/coldstart.png" alt="coldstart"></p>
+<h3 id="用户注册信息"><a href="#用户注册信息" class="headerlink" title="用户注册信息"></a>用户注册信息</h3><p>基于用户注册信息的推荐算法其核心问题是计算每种特征的用户喜<br>欢的物品，将 p(f,i)定义为喜欢物品i的用户中具有特征f的比例，$$ p(f,i)=\frac{\left | N(i)\bigcap U(f) \right |}{\left | N(i) \right | + \alpha} $$，参数$\alpha$（较大的数）的目的是解决数据稀疏问题。</p>
+<h4 id="如何选择合适的物品启动用户的兴趣"><a href="#如何选择合适的物品启动用户的兴趣" class="headerlink" title="如何选择合适的物品启动用户的兴趣"></a>如何选择合适的物品启动用户的兴趣</h4><p>Nadav Golbandi的算法通过建立物品区分度的决策树，来启动用户的兴趣，下图是Nadav Golbandi算法的举例，<br><img src="/images/Nadav_Golbandi.png" alt="Nadav Golbandi"></p>
+<h3 id="物品内容信息"><a href="#物品内容信息" class="headerlink" title="物品内容信息"></a>物品内容信息</h3><p>内容相似度计算简单，能频繁更新，而且能够解决物品冷启动问题，那么为什么还需要协同过滤的算法?</p>
+<ul>
+<li>内容过滤算法忽视了用户行为，从而也忽视了物品的流行度以及用户行为中所包含的规律，所以它的精度比较低，但结果的新颖度却比较高。</li>
+<li>如果用户的行为强烈受某一内容属性的影响，那么内容过滤的算法还是可以在精度上超过协同过滤算法的。</li>
+</ul>
+<p>所以，通常将这两种算法融合，可获得比单独使用这两种算法更好的效果。</p>
+<h4 id="话题模型（topic-model）"><a href="#话题模型（topic-model）" class="headerlink" title="话题模型（topic model）"></a>话题模型（topic model）</h4><p>“推荐系统的动态特性”和“基于时间的协同过滤算法研究”，这两篇文章title关键词不同，但关键词所属话题相同。这种情况下，先知道文章的话题分布，然后才能准确地计算文章的相似度。</p>
+<h4 id="KL散度"><a href="#KL散度" class="headerlink" title="KL散度"></a>KL散度</h4><p><strong>定义：</strong><br>对于<code>离散空间</code>两个概率分布P和Q，从Q到P的KL散度为<img src="/images/lisan_KL.gif" alt="lisan_KL"><br>对于<code>连续空间</code>的两个概率分布P和Q，从Q到P的KL散度为：<img src="/images/lianxu_KL.gif" alt="lianxu_KL">，p和q是概率分布P和Q的概率密度。<br><strong>简单例子计算：</strong><br>比如有四个类别，一个方法P得到四个类别的概率分别是0.1，0.2，0.3，0.4。另一种方法Q（或者说是事实情况）是得到四个类别的概率分别是0.4，0.3，0.2，0.1,那么这两个分布的 KL 散度就是：<br><img src="/images/KL_eg.gif" alt="KL_eg"><br><strong>实际案例</strong><br>参考附录2<br> [1]项亮，推荐系统实战.<br> <a href="http://chuansong.me/n/2759305" target="_blank" rel="external">[2] KL散度（从动力系统到推荐系统）</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote class=&quot;blockquote-center&quot;&gt;&lt;h3 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h3&gt;&lt;p&gt;前一篇博文的介绍，可见大量用户行为数据是推荐系统的先决条件。那么，如何在没有大量用户数据的情况下设计个性化推荐系统并让用户对推荐结果满意而增加用户粘性，这就是本文所介绍的冷启动问题。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="Recommendation" scheme="http://www.phoebepan.cn/categories/Recommendation/"/>
+    
+    
+      <category term="Recommendation" scheme="http://www.phoebepan.cn/tags/Recommendation/"/>
     
   </entry>
   
@@ -423,7 +462,7 @@
     <link href="http://www.phoebepan.cn/2017/04/30/feature%20selection/"/>
     <id>http://www.phoebepan.cn/2017/04/30/feature selection/</id>
     <published>2017-04-30T07:30:16.000Z</published>
-    <updated>2017-07-08T11:38:42.000Z</updated>
+    <updated>2017-07-19T02:41:30.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote class="blockquote-center"><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>特征选择是<a href="http://phoebepan.cn/2017/04/28/feature%20selection/" target="_blank" rel="external">特征工程</a>相对重要的一环节，太多不相关的特征会降低模型的准确性，特征选择，可以有效降低过拟合、训练时间等问题。本文简单介绍使用Scikit-Learn做特征选择。</p>
 </blockquote>
@@ -450,7 +489,9 @@
       <category term="Machine Learning" scheme="http://www.phoebepan.cn/categories/Machine-Learning/"/>
     
     
-      <category term="ML FeatureSelection" scheme="http://www.phoebepan.cn/tags/ML-FeatureSelection/"/>
+      <category term="ML" scheme="http://www.phoebepan.cn/tags/ML/"/>
+    
+      <category term="FeatureSelection" scheme="http://www.phoebepan.cn/tags/FeatureSelection/"/>
     
   </entry>
   
@@ -492,7 +533,7 @@
     <link href="http://www.phoebepan.cn/2017/04/28/feature_engineering/"/>
     <id>http://www.phoebepan.cn/2017/04/28/feature_engineering/</id>
     <published>2017-04-28T07:30:16.000Z</published>
-    <updated>2017-07-08T11:39:26.000Z</updated>
+    <updated>2017-07-19T02:41:09.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote class="blockquote-center"><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>特征工程，是机器学习过程中最富有想象空间的环节，你可以大胆开脑洞。业界广为流传的一句话：数据和特征决定机器学习上限，而模型和算法只是逼近这个上限而已。本文只是简单介绍特征工程打开思路的一般套路。</p>
 </blockquote>
@@ -511,7 +552,9 @@
       <category term="Machine Learning" scheme="http://www.phoebepan.cn/categories/Machine-Learning/"/>
     
     
-      <category term="ML FeatureEngineering" scheme="http://www.phoebepan.cn/tags/ML-FeatureEngineering/"/>
+      <category term="ML" scheme="http://www.phoebepan.cn/tags/ML/"/>
+    
+      <category term="FeatureEngineering" scheme="http://www.phoebepan.cn/tags/FeatureEngineering/"/>
     
   </entry>
   
@@ -727,48 +770,6 @@
       <category term="Python" scheme="http://www.phoebepan.cn/tags/Python/"/>
     
       <category term="Parallelization" scheme="http://www.phoebepan.cn/tags/Parallelization/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux——后台运行、查看和关闭</title>
-    <link href="http://www.phoebepan.cn/2017/04/17/linux_backstage/"/>
-    <id>http://www.phoebepan.cn/2017/04/17/linux_backstage/</id>
-    <published>2017-04-17T07:30:16.000Z</published>
-    <updated>2017-05-29T04:57:34.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote class="blockquote-center"><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>用Xshell/ssh登录了Linux服务器，运行一些耗时长的程序，结果不小心断网了，白白花了时间却没出结果。如何让命令提交不受本地关闭终端、断网等干扰呢？</p>
-</blockquote>
-<blockquote class="blockquote-center"><h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>让进程在后台运行，相关命令：<code>&amp;、nohup、jobs、fg、ctrl+z、bg、ctrl+c、kill</code></p>
-</blockquote>
-<a id="more"></a>
-<h3 id="amp"><a href="#amp" class="headerlink" title="&amp;"></a>&amp;</h3><p>命令末尾加上&amp;，相当于把这条命令放在后台执行，如：<code>python3.4 test.py &amp;</code></p>
-<h3 id="nohup"><a href="#nohup" class="headerlink" title="nohup"></a>nohup</h3><p>若想要终端关闭，程序依旧执行，nohup无疑是首选方式，用法：<code>nohup &lt;command&gt; &amp;</code></p>
-<h3 id="jobs"><a href="#jobs" class="headerlink" title="jobs"></a>jobs</h3><p>查看当前在后台运行的命令状态，<code>jobs -l</code>可显示所有任务得PID</p>
-<h3 id="fg"><a href="#fg" class="headerlink" title="fg"></a>fg</h3><p>后台命令调入前台运行。用法：<code>fg %jobnumber</code>（jobnumber通过<code>jobs</code>命令查看）</p>
-<h3 id="ctrl-z"><a href="#ctrl-z" class="headerlink" title="ctrl+z"></a>ctrl+z</h3><p>可以将一个正在前台运行的命令放入后台，并处于暂停状态</p>
-<h3 id="bg"><a href="#bg" class="headerlink" title="bg"></a>bg</h3><p>后台暂停的命令，变成在后台继续执行，用法：<code>bg %jobnumber</code></p>
-<h3 id="ctrl-c"><a href="#ctrl-c" class="headerlink" title="ctrl+c"></a>ctrl+c</h3><p>前台终止进程</p>
-<h3 id="kill"><a href="#kill" class="headerlink" title="kill"></a>kill</h3><p>终止后台进程继续运行，</p>
-<ul>
-<li>通过job号，执行：<code>kill %jobnumber</code></li>
-<li><code>ps xw</code>查看进程号(PID)，执行：<code>kill PID</code></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote class=&quot;blockquote-center&quot;&gt;&lt;h2 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h2&gt;&lt;p&gt;用Xshell/ssh登录了Linux服务器，运行一些耗时长的程序，结果不小心断网了，白白花了时间却没出结果。如何让命令提交不受本地关闭终端、断网等干扰呢？&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote class=&quot;blockquote-center&quot;&gt;&lt;h2 id=&quot;解决方法&quot;&gt;&lt;a href=&quot;#解决方法&quot; class=&quot;headerlink&quot; title=&quot;解决方法&quot;&gt;&lt;/a&gt;解决方法&lt;/h2&gt;&lt;p&gt;让进程在后台运行，相关命令：&lt;code&gt;&amp;amp;、nohup、jobs、fg、ctrl+z、bg、ctrl+c、kill&lt;/code&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="Daily Accumulation" scheme="http://www.phoebepan.cn/categories/Daily-Accumulation/"/>
-    
-    
-      <category term="linux" scheme="http://www.phoebepan.cn/tags/linux/"/>
     
   </entry>
   

@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Recommendation," />
 
 
 
@@ -89,15 +89,22 @@
 
 
 
-<meta name="description" content="Do things don&apos;t scale, just do it!">
-<meta property="og:type" content="website">
-<meta property="og:title" content="技忆">
-<meta property="og:url" content="http://www.phoebepan.cn/tags/ML-Tune/index.html">
+<meta name="description" content="简介前一篇博文的介绍，可见大量用户行为数据是推荐系统的先决条件。那么，如何在没有大量用户数据的情况下设计个性化推荐系统并让用户对推荐结果满意而增加用户粘性，这就是本文所介绍的冷启动问题。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="推荐系统实战——学习笔记三">
+<meta property="og:url" content="http://www.phoebepan.cn/2017/05/18/cold_start/index.html">
 <meta property="og:site_name" content="技忆">
-<meta property="og:description" content="Do things don&apos;t scale, just do it!">
+<meta property="og:description" content="简介前一篇博文的介绍，可见大量用户行为数据是推荐系统的先决条件。那么，如何在没有大量用户数据的情况下设计个性化推荐系统并让用户对推荐结果满意而增加用户粘性，这就是本文所介绍的冷启动问题。">
+<meta property="og:image" content="http://www.phoebepan.cn/images/coldstart.png">
+<meta property="og:image" content="http://www.phoebepan.cn/images/Nadav_Golbandi.png">
+<meta property="og:image" content="http://www.phoebepan.cn/images/lisan_KL.gif">
+<meta property="og:image" content="http://www.phoebepan.cn/images/lianxu_KL.gif">
+<meta property="og:image" content="http://www.phoebepan.cn/images/KL_eg.gif">
+<meta property="og:updated_time" content="2017-07-19T04:03:07.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="技忆">
-<meta name="twitter:description" content="Do things don&apos;t scale, just do it!">
+<meta name="twitter:title" content="推荐系统实战——学习笔记三">
+<meta name="twitter:description" content="简介前一篇博文的介绍，可见大量用户行为数据是推荐系统的先决条件。那么，如何在没有大量用户数据的情况下设计个性化推荐系统并让用户对推荐结果满意而增加用户粘性，这就是本文所介绍的冷启动问题。">
+<meta name="twitter:image" content="http://www.phoebepan.cn/images/coldstart.png">
 
 
 
@@ -125,13 +132,13 @@
 
 
 
-  <link rel="canonical" href="http://www.phoebepan.cn/tags/ML-Tune/"/>
+  <link rel="canonical" href="http://www.phoebepan.cn/2017/05/18/cold_start/"/>
 
 
 
 
 
-  <title> 标签: ML Tune | 技忆 </title>
+  <title> 推荐系统实战——学习笔记三 | 技忆 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -166,7 +173,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -320,46 +327,272 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        ML Tune
-        <small>标签</small>
-      </h2>
-    </div>
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://www.phoebepan.cn/2017/05/18/cold_start/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Phoebe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="技忆">
+    </span>
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                推荐系统实战——学习笔记三
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-18T15:30:16+08:00">
+                2017-05-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Recommendation/" itemprop="url" rel="index">
+                    <span itemprop="name">Recommendation</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/05/18/cold_start/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/05/18/cold_start/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/05/18/cold_start/" class="leancloud_visitors" data-flag-title="推荐系统实战——学习笔记三">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  680
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长" }}">
+                  2
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
       
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+      
+        <blockquote class="blockquote-center"><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>前一篇博文的介绍，可见大量用户行为数据是推荐系统的先决条件。那么，如何在没有大量用户数据的情况下设计个性化推荐系统并让用户对推荐结果满意而增加用户粘性，这就是本文所介绍的冷启动问题。</p>
+</blockquote>
+<a id="more"></a>
+<h3 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h3><p><img src="/images/coldstart.png" alt="coldstart"></p>
+<h3 id="用户注册信息"><a href="#用户注册信息" class="headerlink" title="用户注册信息"></a>用户注册信息</h3><p>基于用户注册信息的推荐算法其核心问题是计算每种特征的用户喜<br>欢的物品，将 p(f,i)定义为喜欢物品i的用户中具有特征f的比例，$$ p(f,i)=\frac{\left | N(i)\bigcap U(f) \right |}{\left | N(i) \right | + \alpha} $$，参数$\alpha$（较大的数）的目的是解决数据稀疏问题。</p>
+<h4 id="如何选择合适的物品启动用户的兴趣"><a href="#如何选择合适的物品启动用户的兴趣" class="headerlink" title="如何选择合适的物品启动用户的兴趣"></a>如何选择合适的物品启动用户的兴趣</h4><p>Nadav Golbandi的算法通过建立物品区分度的决策树，来启动用户的兴趣，下图是Nadav Golbandi算法的举例，<br><img src="/images/Nadav_Golbandi.png" alt="Nadav Golbandi"></p>
+<h3 id="物品内容信息"><a href="#物品内容信息" class="headerlink" title="物品内容信息"></a>物品内容信息</h3><p>内容相似度计算简单，能频繁更新，而且能够解决物品冷启动问题，那么为什么还需要协同过滤的算法?</p>
+<ul>
+<li>内容过滤算法忽视了用户行为，从而也忽视了物品的流行度以及用户行为中所包含的规律，所以它的精度比较低，但结果的新颖度却比较高。</li>
+<li>如果用户的行为强烈受某一内容属性的影响，那么内容过滤的算法还是可以在精度上超过协同过滤算法的。</li>
+</ul>
+<p>所以，通常将这两种算法融合，可获得比单独使用这两种算法更好的效果。</p>
+<h4 id="话题模型（topic-model）"><a href="#话题模型（topic-model）" class="headerlink" title="话题模型（topic model）"></a>话题模型（topic model）</h4><p>“推荐系统的动态特性”和“基于时间的协同过滤算法研究”，这两篇文章title关键词不同，但关键词所属话题相同。这种情况下，先知道文章的话题分布，然后才能准确地计算文章的相似度。</p>
+<h4 id="KL散度"><a href="#KL散度" class="headerlink" title="KL散度"></a>KL散度</h4><p><strong>定义：</strong><br>对于<code>离散空间</code>两个概率分布P和Q，从Q到P的KL散度为<img src="/images/lisan_KL.gif" alt="lisan_KL"><br>对于<code>连续空间</code>的两个概率分布P和Q，从Q到P的KL散度为：<img src="/images/lianxu_KL.gif" alt="lianxu_KL">，p和q是概率分布P和Q的概率密度。<br><strong>简单例子计算：</strong><br>比如有四个类别，一个方法P得到四个类别的概率分别是0.1，0.2，0.3，0.4。另一种方法Q（或者说是事实情况）是得到四个类别的概率分别是0.4，0.3，0.2，0.1,那么这两个分布的 KL 散度就是：<br><img src="/images/KL_eg.gif" alt="KL_eg"><br><strong>实际案例</strong><br>参考附录2<br> [1]项亮，推荐系统实战.<br> <a href="http://chuansong.me/n/2759305" target="_blank" rel="external">[2] KL散度（从动力系统到推荐系统）</a></p>
 
-      <h1 class="post-title">
+      
+    </div>
+<div align="center">
+  
+    <div class="copyright">
+    <p><span>
+    <b>本文地址：</b><a href="/2017/05/18/cold_start/" title="推荐系统实战——学习笔记三">http://www.phoebepan.cn/2017/05/18/cold_start/</a><br /><b>转载请注明出处，谢谢！</b>
+    </span></p>
+    </div>
+  
+</div>
+	
+    <div>
+      
         
-            <a class="post-title-link" href="/2017/06/16/GridSearchCV/" itemprop="url">
-              
-                <span itemprop="name">调超参神器——GridSearchCV</span>
-              
-            </a>
+
+      
+    </div>
+
+    <div>
+      
         
-      </h1>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-06-16T15:30:16+08:00"
-              content="2017-06-16" >
-          06-16
-        </time>
-      </div>
+      
+    </div>
 
-    </header>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Recommendation/" rel="tag"># Recommendation</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/05/17/user_action_analysis/" rel="next" title="推荐系统实战——学习笔记二">
+                <i class="fa fa-chevron-left"></i> 推荐系统实战——学习笔记二
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/06/05/Imbalanced_data/" rel="prev" title="阅读笔记——7 Techniques to Handle Imbalanced Data">
+                阅读笔记——7 Techniques to Handle Imbalanced Data <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
-    
-  </div>
 
-  
+    <div class="post-spread">
+      
+        <!--MOB SHARE BEGIN-->
+<div class="-mob-share-ui-button -mob-share-open">分享</div>
+<div class="-mob-share-ui" style="display: none">
+    <ul class="-mob-share-list">
+        <li class="-mob-share-weixin"><p>微信</p></li>
+        <li class="-mob-share-weibo"><p>新浪微博</p></li>
+        <li class="-mob-share-qq"><p>QQ好友</p></li>
+        <li class="-mob-share-douban"><p>豆瓣</p></li>
+        <li class="-mob-share-youdao"><p>有道云笔记</p></li>
+        <li class="-mob-share-linkedin"><p>领英</p></li>
+        <li class="-mob-share-google"><p>Google+</p></li>
+    </ul>
+    <div class="-mob-share-close">取消</div>
+</div>
+<div class="-mob-share-ui-bg"></div>
+<script id="-mob-share" src="http://f1.webshare.mob.com/code/mob-share.js?appkey=Infinity"></script>
+<!--MOB SHARE END-->          
+      
+    </div>
+  </div>
 
           
           </div>
@@ -367,6 +600,17 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -386,8 +630,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -402,7 +655,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">31</span>
+                <span class="site-state-item-count">32</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -424,7 +677,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-count">19</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -545,6 +798,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#思维导图"><span class="nav-number">2.</span> <span class="nav-text">思维导图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用户注册信息"><span class="nav-number">3.</span> <span class="nav-text">用户注册信息</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#如何选择合适的物品启动用户的兴趣"><span class="nav-number">3.1.</span> <span class="nav-text">如何选择合适的物品启动用户的兴趣</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#物品内容信息"><span class="nav-number">4.</span> <span class="nav-text">物品内容信息</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#话题模型（topic-model）"><span class="nav-number">4.1.</span> <span class="nav-text">话题模型（topic model）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#KL散度"><span class="nav-number">4.2.</span> <span class="nav-text">KL散度</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -688,6 +957,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
 
   
 
@@ -704,9 +977,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'phoebepanx';
-      var disqus_identifier = 'tags/ML-Tune/index.html';
+      var disqus_identifier = '2017/05/18/cold_start/';
 
-      var disqus_title = "";
+      var disqus_title = "推荐系统实战——学习笔记三";
 
 
       function run_disqus_script(disqus_script) {
@@ -719,6 +992,13 @@
 
       run_disqus_script('count.js');
 
+      
+        var disqus_config = function () {
+            this.page.url = disqus_url;
+            this.page.identifier = disqus_identifier;
+            this.page.title = disqus_title;
+        };
+        run_disqus_script('embed.js');
       
 
     </script>

@@ -89,16 +89,15 @@
 
 
 
-<meta name="description" content="不积跬步无以至千里。">
+<meta name="description" content="Do things don&apos;t scale, just do it!">
 <meta property="og:type" content="website">
 <meta property="og:title" content="技忆">
-<meta property="og:url" content="http://www.phoebepan.cn/accumulation/index.html">
+<meta property="og:url" content="http://www.phoebepan.cn/tags/FeatureEngineering/index.html">
 <meta property="og:site_name" content="技忆">
-<meta property="og:description" content="不积跬步无以至千里。">
-<meta property="og:updated_time" content="2017-07-08T12:38:11.000Z">
+<meta property="og:description" content="Do things don&apos;t scale, just do it!">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="技忆">
-<meta name="twitter:description" content="不积跬步无以至千里。">
+<meta name="twitter:description" content="Do things don&apos;t scale, just do it!">
 
 
 
@@ -126,19 +125,13 @@
 
 
 
-  <link rel="canonical" href="http://www.phoebepan.cn/accumulation/"/>
+  <link rel="canonical" href="http://www.phoebepan.cn/tags/FeatureEngineering/"/>
 
 
 
 
 
-  <title>
-  
-
-  
-     | 技忆
-  
-</title>
+  <title> 标签: FeatureEngineering | 技忆 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -327,48 +320,46 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-  <header class="post-header">
-
-	<h1 class="post-title" itemprop="name headline"></h1>
-
-
-
-</header>
+  <div id="posts" class="posts-collapse">
+    <div class="collection-title">
+      <h2 >
+        FeatureEngineering
+        <small>标签</small>
+      </h2>
+    </div>
 
     
-    
-      <blockquote class="blockquote-center"><p>不积跬步无以至千里。</p>
-</blockquote>
-<a id="more"></a>
-<hr>
-<p>N*M的矩阵，计算N行对象间余弦相似性：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> sklearn.metrics.pairwise <span class="keyword">import</span> cosine_similarity</div><div class="line">cosine_similarity(data)</div></pre></td></tr></table></figure></p>
-<hr>
-<p>快速将数组、矩阵中低于某一值的数置0，e.g.<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> scipy.stats <span class="keyword">import</span> threshold</div><div class="line">array = [<span class="number">0</span>, <span class="number">.25</span>, <span class="number">-1</span>, <span class="number">.15</span>, <span class="number">.5</span>, <span class="number">-2</span>, <span class="number">-3</span>, <span class="number">-4</span>, <span class="number">0</span>, <span class="number">0</span>]</div><div class="line">cut_array=threshold(array,<span class="number">0.1</span>)	</div><div class="line">print(cut_array)	<span class="comment">#[ 0.  ,  0.25,  0.  ,  0.15,  0.5 ,  0.  ,  0.  ,  0.  ,  0.  ,  0.  ]</span></div></pre></td></tr></table></figure></p>
-<hr>
-<p>单变量正态性检验：直方图、正太概率图<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#histogram and normal probability plot</span></div><div class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</div><div class="line"><span class="keyword">from</span> scipy <span class="keyword">import</span> stats</div><div class="line">sns.distplot(train[<span class="string">'colName'</span>], fit=norm);</div><div class="line">fig = plt.figure()</div><div class="line">res = stats.probplot(train[<span class="string">'colName'</span>], plot=plt)</div></pre></td></tr></table></figure></p>
-<hr>
-<p>pandas 某一列最大的k个值：<code>pandas.Series.nlargest(n=k)</code></p>
-<hr>
-<p>pandas 挑选特定类型的列：<code>pd.DataFrame.select_dtypes(include=None, exclude=None)</code></p>
-<hr>
-<p>python shuffle()方法将序列(<code>list</code> or <code>tuple</code>)的所有元素随机排序。<br>用法：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> random</div><div class="line">list = [<span class="number">20</span>, <span class="number">16</span>, <span class="number">10</span>, <span class="number">5</span>];</div><div class="line">random.shuffle(list)</div><div class="line">print(list)	<span class="comment">#[16, 5, 20, 10]</span></div><div class="line">random.shuffle(list)</div><div class="line">print(list)	<span class="comment">#[20, 10, 16, 5]</span></div></pre></td></tr></table></figure></p>
-<p><strong>Notes:</strong><code>sklearn.utils.shuffle()</code>可以将多个序列经过同样的方式打乱。<br>举例：<br>feature,label = shuffle(feature,label, random_state=0)</p>
-<hr>
-<p>去掉CSV文件烦人的前两行头部信息：  <code>sed &#39;1,2d&#39; file &gt; newfile</code></p>
-<hr>
-<p>用逗号替换源文件中所有插入字符（^）： <code>sed &#39;s/\^/,/g&#39; file &gt; new file</code></p>
-<hr>
-<p>数百万行的超级大文本，高效读取某一指定行内容，如行号789： <code>sed &#39;789q;d&#39; file</code></p>
-<hr>
-<ul>
-<li>非常大的文件分割成最大不超过500MB的块，同时保留完整的行尾（避免整行被破坏），可使用： <code>split -C 500m file</code></li>
-<li>每个文件有5000行来切分，可使用 <code>split -l 5000 file</code></li>
-</ul>
-<hr>
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h1 class="post-title">
+        
+            <a class="post-title-link" href="/2017/04/28/feature_engineering/" itemprop="url">
+              
+                <span itemprop="name">机器学习WorkFlow——Feature Engineering</span>
+              
+            </a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2017-04-28T15:30:16+08:00"
+              content="2017-04-28" >
+          04-28
+        </time>
+      </div>
+
+    </header>
+  </article>
+
 
     
   </div>
+
+  
 
           
           </div>
@@ -376,17 +367,6 @@
 
 
           
-  <div class="comments" id="comments">
-    
-      <div id="disqus_thread">
-        <noscript>
-          Please enable JavaScript to view the
-          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
-        </noscript>
-      </div>
-    
-  </div>
-
 
         </div>
         
@@ -724,7 +704,7 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'phoebepanx';
-      var disqus_identifier = 'accumulation/index.html';
+      var disqus_identifier = 'tags/FeatureEngineering/index.html';
 
       var disqus_title = "";
 
@@ -739,13 +719,6 @@
 
       run_disqus_script('count.js');
 
-      
-        var disqus_config = function () {
-            this.page.url = disqus_url;
-            this.page.identifier = disqus_identifier;
-            this.page.title = disqus_title;
-        };
-        run_disqus_script('embed.js');
       
 
     </script>
