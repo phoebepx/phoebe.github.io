@@ -183,6 +183,33 @@
   </entry>
   
   <entry>
+    <title>推荐系统实战——上下文信息</title>
+    <link href="http://www.phoebepan.cn/2017/05/20/context/"/>
+    <id>http://www.phoebepan.cn/2017/05/20/context/</id>
+    <published>2017-05-20T07:30:16.000Z</published>
+    <updated>2017-07-20T02:05:48.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote class="blockquote-center"><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>将最符合用户兴趣的物品推荐给用户时，用户此时、此刻、心情等等，是提高推荐系统算法不可忽视的一环，这些信息在推荐系统中对应的专业名词是上下文(context)，本文主要说说<strong>上下文信息</strong>的事儿~</p>
+</blockquote>
+<a id="more"></a>
+<h3 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h3><p><img src="/images/context.png" alt="context"></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote class=&quot;blockquote-center&quot;&gt;&lt;h3 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h3&gt;&lt;p&gt;将最符合用户兴趣的物品推荐给用户时，用户此时、此刻、心情等等，是提高推荐系统算法不可忽视的一环，这些信息在推荐系统中对应的专业名词是上下文(context)，本文主要说说&lt;strong&gt;上下文信息&lt;/strong&gt;的事儿~&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="Recommendation" scheme="http://www.phoebepan.cn/categories/Recommendation/"/>
+    
+    
+      <category term="Recommendation" scheme="http://www.phoebepan.cn/tags/Recommendation/"/>
+    
+  </entry>
+  
+  <entry>
     <title>推荐系统实战——用户标签数据</title>
     <link href="http://www.phoebepan.cn/2017/05/19/user_tags/"/>
     <id>http://www.phoebepan.cn/2017/05/19/user_tags/</id>
@@ -371,9 +398,9 @@
       <category term="Thinking" scheme="http://www.phoebepan.cn/categories/Thinking/"/>
     
     
-      <category term="Thinking" scheme="http://www.phoebepan.cn/tags/Thinking/"/>
-    
       <category term="Life" scheme="http://www.phoebepan.cn/tags/Life/"/>
+    
+      <category term="Thinking" scheme="http://www.phoebepan.cn/tags/Thinking/"/>
     
   </entry>
   
@@ -733,37 +760,6 @@
     
     
       <category term="Python" scheme="http://www.phoebepan.cn/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>初涉MapReduce</title>
-    <link href="http://www.phoebepan.cn/2017/04/21/MapReduce/"/>
-    <id>http://www.phoebepan.cn/2017/04/21/MapReduce/</id>
-    <published>2017-04-21T07:30:16.000Z</published>
-    <updated>2017-05-31T23:45:18.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote class="blockquote-center"><p>了解一件事是什么，可以帮助了解它不是什么。</p>
-</blockquote>
-<a id="more"></a>
-<h3 id="产生根源"><a href="#产生根源" class="headerlink" title="产生根源"></a><center>产生根源</center></h3><p>解决大数据分布式存储、运算容错性问题。</p>
-<h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a><center>原理</center></h3><p>MapReduce是一种算法和框架。Hadoop是MapReduce的开源实现。使用MapReduce需要两个函数，一个<strong>mapper函数</strong>，一个<strong>reducer函数</strong>，mapper函数将每个数据点作为输入，按排序输出形如（键，值）这样的二元组列表，然后框架会使用定向冒泡排序对输出排序，如果键相同，合并两个二元组。这些二元组会被送往执行reducer函数的机器，reducer函数使用聚合函数对值进行聚合，得到新的值，输出新的（键，新值）列表。</p>
-<p><img src="/images/mapreduce.png" alt="示例图" title="抽象原理图"></p>
-<h3 id="适用场景"><a href="#适用场景" class="headerlink" title="适用场景"></a><center>适用场景</center></h3><p>能用MapReduce解决的问题有一个重要特征：数据可以被分布存储到各个计算机上，且算法可以在每台计算机上独立处理数据，即每台计算机之间是相互隔离的，他们不需要知道其他机器在处理什么。MapReduce<strong>不适合迭代式的算法</strong>，所谓迭代式算法就是，上一次的输出作为下一次的输入，这样的算法。</p>
-<p><a href="http://blog.jobbole.com/1321/" target="_blank" rel="external">加深理解，请看这篇博文！</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote class=&quot;blockquote-center&quot;&gt;&lt;p&gt;了解一件事是什么，可以帮助了解它不是什么。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="Architecture" scheme="http://www.phoebepan.cn/categories/Architecture/"/>
-    
-    
-      <category term="MapReduce" scheme="http://www.phoebepan.cn/tags/MapReduce/"/>
     
   </entry>
   
