@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="ML," />
+  <meta name="keywords" content="Recommendation," />
 
 
 
@@ -89,18 +89,18 @@
 
 
 
-<meta name="description" content="简介机器学习想要获得很好的效果，就像做菜一样，离不开3个基本要素：好的厨师(human guidance)、干净的食材(clean, relevant data)、适量(avoid overfitting)。围绕这3要素，机器学习有下图5个核心步骤。本文先谈谈EDA过程。">
+<meta name="description" content="简介六度原理讲的是社会中任意两个人都可以通过不超过6个人的路径相互认识。在现实社会中，很多时候我们都是通过朋友获得推荐，基于社交网络的推荐可以很好地模拟现实社会。本文是利用社交网络数据给用户进行个性化推荐相关内容的学习。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="机器学习WorkFlow——EDA">
-<meta property="og:url" content="http://www.phoebepan.cn/2017/04/26/ML_EDA/index.html">
+<meta property="og:title" content="推荐系统实战——社交网络数据">
+<meta property="og:url" content="http://www.phoebepan.cn/2017/05/21/social_data/index.html">
 <meta property="og:site_name" content="技忆">
-<meta property="og:description" content="简介机器学习想要获得很好的效果，就像做菜一样，离不开3个基本要素：好的厨师(human guidance)、干净的食材(clean, relevant data)、适量(avoid overfitting)。围绕这3要素，机器学习有下图5个核心步骤。本文先谈谈EDA过程。">
-<meta property="og:image" content="http://www.phoebepan.cn/images/machine_pipeline.JPG">
-<meta property="og:updated_time" content="2017-06-09T00:02:52.000Z">
+<meta property="og:description" content="简介六度原理讲的是社会中任意两个人都可以通过不超过6个人的路径相互认识。在现实社会中，很多时候我们都是通过朋友获得推荐，基于社交网络的推荐可以很好地模拟现实社会。本文是利用社交网络数据给用户进行个性化推荐相关内容的学习。">
+<meta property="og:image" content="http://www.phoebepan.cn/images/social_data.png">
+<meta property="og:updated_time" content="2017-07-20T06:13:49.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="机器学习WorkFlow——EDA">
-<meta name="twitter:description" content="简介机器学习想要获得很好的效果，就像做菜一样，离不开3个基本要素：好的厨师(human guidance)、干净的食材(clean, relevant data)、适量(avoid overfitting)。围绕这3要素，机器学习有下图5个核心步骤。本文先谈谈EDA过程。">
-<meta name="twitter:image" content="http://www.phoebepan.cn/images/machine_pipeline.JPG">
+<meta name="twitter:title" content="推荐系统实战——社交网络数据">
+<meta name="twitter:description" content="简介六度原理讲的是社会中任意两个人都可以通过不超过6个人的路径相互认识。在现实社会中，很多时候我们都是通过朋友获得推荐，基于社交网络的推荐可以很好地模拟现实社会。本文是利用社交网络数据给用户进行个性化推荐相关内容的学习。">
+<meta name="twitter:image" content="http://www.phoebepan.cn/images/social_data.png">
 
 
 
@@ -128,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="http://www.phoebepan.cn/2017/04/26/ML_EDA/"/>
+  <link rel="canonical" href="http://www.phoebepan.cn/2017/05/21/social_data/"/>
 
 
 
 
 
-  <title> 机器学习WorkFlow——EDA | 技忆 </title>
+  <title> 推荐系统实战——社交网络数据 | 技忆 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -333,7 +333,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://www.phoebepan.cn/2017/04/26/ML_EDA/">
+    <link itemprop="mainEntityOfPage" href="http://www.phoebepan.cn/2017/05/21/social_data/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Phoebe">
@@ -354,7 +354,7 @@
             
             
               
-                机器学习WorkFlow——EDA
+                推荐系统实战——社交网络数据
               
             
           </h1>
@@ -369,8 +369,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-26T15:30:16+08:00">
-                2017-04-26
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-21T15:30:16+08:00">
+                2017-05-21
               </time>
             
 
@@ -392,8 +392,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index">
-                    <span itemprop="name">Machine Learning</span>
+                  <a href="/categories/Recommendation/" itemprop="url" rel="index">
+                    <span itemprop="name">Recommendation</span>
                   </a>
                 </span>
 
@@ -410,8 +410,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/04/26/ML_EDA/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/04/26/ML_EDA/" itemprop="commentCount"></span>
+                <a href="/2017/05/21/social_data/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/05/21/social_data/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -419,7 +419,7 @@
 
           
           
-             <span id="/2017/04/26/ML_EDA/" class="leancloud_visitors" data-flag-title="机器学习WorkFlow——EDA">
+             <span id="/2017/05/21/social_data/" class="leancloud_visitors" data-flag-title="推荐系统实战——社交网络数据">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -448,7 +448,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  472
+                  118
                 </span>
               
 
@@ -464,7 +464,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长" }}">
-                  2
+                  1
                 </span>
               
             </div>
@@ -483,31 +483,11 @@
       
 
       
-        <blockquote class="blockquote-center"><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>机器学习想要获得很好的效果，就像做菜一样，离不开3个基本要素：好的厨师(human guidance)、干净的食材(clean, relevant data)、适量(avoid overfitting)。围绕这3要素，机器学习有下图5个核心步骤。本文先谈谈EDA过程。<br><img src="/images/machine_pipeline.JPG" alt="machine_pipeline"></p>
+        <blockquote class="blockquote-center"><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p><strong>六度原理</strong>讲的是社会中任意两个人都可以通过不超过6个人的路径相互认识。在现实社会中，很多时候我们都是通过朋友获得推荐，基于社交网络的推荐可以很好地模拟现实社会。本文是利用社交网络数据给用户进行个性化推荐相关内容的学习。</p>
 </blockquote>
 <a id="more"></a>
-<h3 id="Exploratory-Data-Analysis-EDA"><a href="#Exploratory-Data-Analysis-EDA" class="headerlink" title="Exploratory Data Analysis(EDA)"></a>Exploratory Data Analysis(EDA)</h3><p>探索性数据分析阶段，目的就是更好地了解你的数据，对你的数据有那么点 <strong>feel</strong>，这对下面的数据清洗、特征工程都是有帮助的。EDA对于ML来说，要<strong>快速，高效，决定性的</strong>。<br>这一步中，首先需要回答出这些问题：</p>
-<ul>
-<li>观测数据、特征有多少？</li>
-<li>特征的数据类型？数值 or 类别？</li>
-<li>是否有目标变量？</li>
-<li>哪些列是有意义的？列中值是否有意义？值占比合适？</li>
-<li>缺失值严重？</li>
-</ul>
-<h3 id="数值型特征分布"><a href="#数值型特征分布" class="headerlink" title="数值型特征分布"></a>数值型特征分布</h3><p><strong>直方图(histograms)</strong>就可以很好的观测出<strong>数值型features</strong>的分布。主要关注这几点：</p>
-<ul>
-<li>分布合理？</li>
-<li>二值？</li>
-<li>有潜在异常值？</li>
-<li>有潜在测试误差？</li>
-<li><p>边界合理？</p>
-<p>如果发现数据有异常，可以咨询相关人士，从而更清楚的认识你的数据。</p>
-</li>
-</ul>
-<h3 id="类别型特征分布"><a href="#类别型特征分布" class="headerlink" title="类别型特征分布"></a>类别型特征分布</h3><p><strong>条形图(Bar plot)</strong>可以有效观测<strong>类别features</strong>的分布。对于稀缺类别，后续可以考虑进行合并等等处理。</p>
-<p><strong>盒图(Box plot)</strong>有效的观测<strong>类别feature</strong>与<strong>数值型feature</strong>之间的关系。</p>
-<h3 id="协方差矩阵"><a href="#协方差矩阵" class="headerlink" title="协方差矩阵"></a>协方差矩阵</h3><p>数值型特征之间协方差矩阵，潜在的反应它们的关系。<strong>热图(heatmaps)</strong>可以很好的可视化，这样的相关性。在这你可以找出那些特征与目标变量相关性更强？强相关的特征有意义？</p>
-<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>总之，EDA，能够让我们更好的了解数据集，给下面的数据清洗，特征工程提供思路。</p>
+<h3 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h3><p><img src="/images/social_data.png" alt="social_data"></p>
+<p> [1]项亮，推荐系统实战.</p>
 
       
     </div>
@@ -515,7 +495,7 @@
   
     <div class="copyright">
     <p><span>
-    <b>本文地址：</b><a href="/2017/04/26/ML_EDA/" title="机器学习WorkFlow——EDA">http://www.phoebepan.cn/2017/04/26/ML_EDA/</a><br /><b>转载请注明出处，谢谢！</b>
+    <b>本文地址：</b><a href="/2017/05/21/social_data/" title="推荐系统实战——社交网络数据">http://www.phoebepan.cn/2017/05/21/social_data/</a><br /><b>转载请注明出处，谢谢！</b>
     </span></p>
     </div>
   
@@ -540,7 +520,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/ML/" rel="tag"># ML</a>
+            <a href="/tags/Recommendation/" rel="tag"># Recommendation</a>
           
         </div>
       
@@ -553,8 +533,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/04/25/split_bigtxt/" rel="next" title="Python实现大文件分割">
-                <i class="fa fa-chevron-left"></i> Python实现大文件分割
+              <a href="/2017/05/20/context/" rel="next" title="推荐系统实战——上下文信息">
+                <i class="fa fa-chevron-left"></i> 推荐系统实战——上下文信息
               </a>
             
           </div>
@@ -563,8 +543,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/04/27/data_clean/" rel="prev" title="机器学习WorkFlow——Data cleaning">
-                机器学习WorkFlow——Data cleaning <i class="fa fa-chevron-right"></i>
+              <a href="/2017/06/05/Imbalanced_data/" rel="prev" title="阅读笔记——7 Techniques to Handle Imbalanced Data">
+                阅读笔记——7 Techniques to Handle Imbalanced Data <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -815,7 +795,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Exploratory-Data-Analysis-EDA"><span class="nav-number">2.</span> <span class="nav-text">Exploratory Data Analysis(EDA)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数值型特征分布"><span class="nav-number">3.</span> <span class="nav-text">数值型特征分布</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类别型特征分布"><span class="nav-number">4.</span> <span class="nav-text">类别型特征分布</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#协方差矩阵"><span class="nav-number">5.</span> <span class="nav-text">协方差矩阵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#小结"><span class="nav-number">6.</span> <span class="nav-text">小结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#思维导图"><span class="nav-number">2.</span> <span class="nav-text">思维导图</span></a></li></ol></div>
             
 
           </div>
@@ -984,9 +964,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'phoebepanx';
-      var disqus_identifier = '2017/04/26/ML_EDA/';
+      var disqus_identifier = '2017/05/21/social_data/';
 
-      var disqus_title = "机器学习WorkFlow——EDA";
+      var disqus_title = "推荐系统实战——社交网络数据";
 
 
       function run_disqus_script(disqus_script) {

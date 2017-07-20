@@ -4,8 +4,28 @@
 
     
   <url>
+    <loc>http://www.phoebepan.cn/2017/05/21/social_data/</loc>
+    <lastmod>2017-07-20T06:13:49.000Z</lastmod>
+    <data>
+        <display>
+        <title>推荐系统实战——社交网络数据</title>
+        <pubTime>2017-05-21T07:30:16.000Z</pubTime>
+        
+        <tag>Recommendation</tag>
+         
+         
+           
+             
+              <breadCrumb title="Recommendation" url="http://www.phoebepan.cn/categories/Recommendation/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.phoebepan.cn/2017/05/20/context/</loc>
-    <lastmod>2017-07-20T02:05:48.000Z</lastmod>
+    <lastmod>2017-07-20T06:13:19.000Z</lastmod>
     <data>
         <display>
         <title>推荐系统实战——上下文信息</title>

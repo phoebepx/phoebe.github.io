@@ -183,16 +183,45 @@
   </entry>
   
   <entry>
+    <title>推荐系统实战——社交网络数据</title>
+    <link href="http://www.phoebepan.cn/2017/05/21/social_data/"/>
+    <id>http://www.phoebepan.cn/2017/05/21/social_data/</id>
+    <published>2017-05-21T07:30:16.000Z</published>
+    <updated>2017-07-20T06:13:49.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote class="blockquote-center"><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p><strong>六度原理</strong>讲的是社会中任意两个人都可以通过不超过6个人的路径相互认识。在现实社会中，很多时候我们都是通过朋友获得推荐，基于社交网络的推荐可以很好地模拟现实社会。本文是利用社交网络数据给用户进行个性化推荐相关内容的学习。</p>
+</blockquote>
+<a id="more"></a>
+<h3 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h3><p><img src="/images/social_data.png" alt="social_data"></p>
+<p> [1]项亮，推荐系统实战.</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote class=&quot;blockquote-center&quot;&gt;&lt;h3 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;六度原理&lt;/strong&gt;讲的是社会中任意两个人都可以通过不超过6个人的路径相互认识。在现实社会中，很多时候我们都是通过朋友获得推荐，基于社交网络的推荐可以很好地模拟现实社会。本文是利用社交网络数据给用户进行个性化推荐相关内容的学习。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="Recommendation" scheme="http://www.phoebepan.cn/categories/Recommendation/"/>
+    
+    
+      <category term="Recommendation" scheme="http://www.phoebepan.cn/tags/Recommendation/"/>
+    
+  </entry>
+  
+  <entry>
     <title>推荐系统实战——上下文信息</title>
     <link href="http://www.phoebepan.cn/2017/05/20/context/"/>
     <id>http://www.phoebepan.cn/2017/05/20/context/</id>
     <published>2017-05-20T07:30:16.000Z</published>
-    <updated>2017-07-20T02:05:48.000Z</updated>
+    <updated>2017-07-20T06:13:19.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote class="blockquote-center"><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>将最符合用户兴趣的物品推荐给用户时，用户此时、此刻、心情等等，是提高推荐系统算法不可忽视的一环，这些信息在推荐系统中对应的专业名词是上下文(context)，本文主要说说<strong>上下文信息</strong>的事儿~</p>
 </blockquote>
 <a id="more"></a>
 <h3 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h3><p><img src="/images/context.png" alt="context"></p>
+<p> [1]项亮，推荐系统实战.</p>
 ]]></content>
     
     <summary type="html">
@@ -723,35 +752,6 @@
     
       &lt;blockquote class=&quot;blockquote-center&quot;&gt;&lt;h3 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h3&gt;&lt;p&gt;最近处理数据，碰到有一个按行存储的文本文件，含有七百多万条数据，大小近7G，本地直接报出&lt;code&gt;MemoryError&lt;/code&gt;，处理不了。&lt;/p&gt;
 &lt;h3 id=&quot;解决方法&quot;&gt;&lt;a href=&quot;#解决方法&quot; class=&quot;headerlink&quot; title=&quot;解决方法&quot;&gt;&lt;/a&gt;解决方法&lt;/h3&gt;&lt;p&gt;用python写个脚本，将大文件拆分成小文件，对小文件进行处理，问题不就解决了么。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="Python" scheme="http://www.phoebepan.cn/categories/Python/"/>
-    
-    
-      <category term="Python" scheme="http://www.phoebepan.cn/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>魔力Python——pickle持久化对象</title>
-    <link href="http://www.phoebepan.cn/2017/04/22/pickle/"/>
-    <id>http://www.phoebepan.cn/2017/04/22/pickle/</id>
-    <published>2017-04-22T07:30:16.000Z</published>
-    <updated>2017-06-02T23:53:42.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote class="blockquote-center"><p><center><strong>简介</strong></center><br>本文主要介绍Python pickle模块的用法，实例分析<code>pickle</code>模块的功能与相关适用技巧。<code>pickle</code>提供了一个简单的<strong>持久化</strong>功能，可以将对象以文件的形式存放在磁盘上，方便多次读取与共享。</p>
-</blockquote>
-<a id="more"></a>
-<h3 id="具体用法"><a href="#具体用法" class="headerlink" title="具体用法"></a>具体用法</h3><h4 id="pickle-dump-obj-file-protocol"><a href="#pickle-dump-obj-file-protocol" class="headerlink" title="pickle.dump(obj,file[,protocol])"></a>pickle.dump(obj,file[,protocol])</h4><p>这条语句序列化对象obj，并将结果数据流写入到文件file中。可选参数protocol是序列化模式，默认为0，表示以文本形式序列化，如果设置为 1 或 True，则以高压缩的二进制格式保存序列化后的对象，否则以ASCII格式保存。</p>
-<h4 id="pickle-load-file"><a href="#pickle-load-file" class="headerlink" title="pickle.load(file)"></a>pickle.load(file)</h4><p>反序列化对象，将文件中的数据解析为一个python对象。</p>
-<h3 id="基本用例"><a href="#基本用例" class="headerlink" title="基本用例"></a>基本用例</h3><p>下面这段代码，实现将4维矩阵obj对象持久化：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> pickle</div><div class="line"><span class="keyword">import</span> os</div><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"><span class="keyword">if</span> os.path.exists(<span class="string">'./test.pkl'</span>):    <span class="comment">#当前路径下是否已经存在序列化的test.pkl</span></div><div class="line">    obj=pickle.load(open(<span class="string">'./test.pkl'</span>,<span class="string">'rb'</span>))    <span class="comment">#如果已经存在直接load</span></div><div class="line"><span class="keyword">else</span>:   <span class="comment">#否则，将4维矩阵序列化到存储到当前路径下的test.pkl中</span></div><div class="line">    obj = np.ones((<span class="number">4</span>,<span class="number">4</span>))    </div><div class="line">    pickle.dump(obj,open(<span class="string">'./test.pkl'</span>,<span class="string">'wb'</span>))</div><div class="line">print(obj)</div></pre></td></tr></table></figure></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote class=&quot;blockquote-center&quot;&gt;&lt;p&gt;&lt;center&gt;&lt;strong&gt;简介&lt;/strong&gt;&lt;/center&gt;&lt;br&gt;本文主要介绍Python pickle模块的用法，实例分析&lt;code&gt;pickle&lt;/code&gt;模块的功能与相关适用技巧。&lt;code&gt;pickle&lt;/code&gt;提供了一个简单的&lt;strong&gt;持久化&lt;/strong&gt;功能，可以将对象以文件的形式存放在磁盘上，方便多次读取与共享。&lt;/p&gt;
 &lt;/blockquote&gt;
     
     </summary>
