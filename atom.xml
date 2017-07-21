@@ -659,7 +659,7 @@
     <link href="http://www.phoebepan.cn/2017/04/30/feature%20selection/"/>
     <id>http://www.phoebepan.cn/2017/04/30/feature selection/</id>
     <published>2017-04-30T07:30:16.000Z</published>
-    <updated>2017-07-19T02:41:30.000Z</updated>
+    <updated>2017-07-21T13:44:27.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote class="blockquote-center"><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>特征选择是<a href="http://phoebepan.cn/2017/04/28/feature%20selection/" target="_blank" rel="external">特征工程</a>相对重要的一环节，太多不相关的特征会降低模型的准确性，特征选择，可以有效降低过拟合、训练时间等问题。本文简单介绍使用Scikit-Learn做特征选择。</p>
 </blockquote>
@@ -688,7 +688,7 @@
     
       <category term="ML" scheme="http://www.phoebepan.cn/tags/ML/"/>
     
-      <category term="FeatureSelection" scheme="http://www.phoebepan.cn/tags/FeatureSelection/"/>
+      <category term="Feature Selection" scheme="http://www.phoebepan.cn/tags/Feature-Selection/"/>
     
   </entry>
   
@@ -730,7 +730,7 @@
     <link href="http://www.phoebepan.cn/2017/04/28/feature_engineering/"/>
     <id>http://www.phoebepan.cn/2017/04/28/feature_engineering/</id>
     <published>2017-04-28T07:30:16.000Z</published>
-    <updated>2017-07-19T02:41:09.000Z</updated>
+    <updated>2017-07-21T13:44:46.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote class="blockquote-center"><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>特征工程，是机器学习过程中最富有想象空间的环节，你可以大胆开脑洞。业界广为流传的一句话：数据和特征决定机器学习上限，而模型和算法只是逼近这个上限而已。本文只是简单介绍特征工程打开思路的一般套路。</p>
 </blockquote>
@@ -751,7 +751,7 @@
     
       <category term="ML" scheme="http://www.phoebepan.cn/tags/ML/"/>
     
-      <category term="FeatureEngineering" scheme="http://www.phoebepan.cn/tags/FeatureEngineering/"/>
+      <category term="Feature Engineering" scheme="http://www.phoebepan.cn/tags/Feature-Engineering/"/>
     
   </entry>
   

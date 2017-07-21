@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.phoebepan.cn/2017/04/28/feature_engineering/</loc>
+    
+    <lastmod>2017-07-21T13:44:46.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.phoebepan.cn/2017/03/26/%CF%872_test/</loc>
     
-    <lastmod>2017-07-21T13:41:09.000Z</lastmod>
+    <lastmod>2017-07-21T13:44:39.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.phoebepan.cn/2017/04/30/feature%20selection/</loc>
+    
+    <lastmod>2017-07-21T13:44:27.000Z</lastmod>
     
   </url>
   
@@ -82,20 +96,6 @@
     <loc>http://www.phoebepan.cn/2017/06/16/GridSearchCV/</loc>
     
     <lastmod>2017-07-19T02:41:47.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.phoebepan.cn/2017/04/30/feature%20selection/</loc>
-    
-    <lastmod>2017-07-19T02:41:30.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.phoebepan.cn/2017/04/28/feature_engineering/</loc>
-    
-    <lastmod>2017-07-19T02:41:09.000Z</lastmod>
     
   </url>
   
