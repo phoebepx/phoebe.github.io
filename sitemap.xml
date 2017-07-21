@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.phoebepan.cn/about/index.html</loc>
+    
+    <lastmod>2017-07-21T00:54:07.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.phoebepan.cn/2017/05/22/recsys/</loc>
     
     <lastmod>2017-07-20T07:40:50.000Z</lastmod>
@@ -264,13 +271,6 @@
     <loc>http://www.phoebepan.cn/2017/04/17/linux_backstage/</loc>
     
     <lastmod>2017-05-29T04:57:34.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.phoebepan.cn/about/index.html</loc>
-    
-    <lastmod>2017-05-28T15:04:43.000Z</lastmod>
     
   </url>
   
