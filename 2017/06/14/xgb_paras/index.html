@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="ML," />
+  <meta name="keywords" content="Python,ML,Tune,XGBoost," />
 
 
 
@@ -89,22 +89,16 @@
 
 
 
-<meta name="description" content="Garbage in gets you garbage out.Better data beats fancier algorithms.
-
-简介数据清洗是每个数据人的必备技能，诚然这不是机器学习最‘骨感’的地方，没有什么隐藏的技能值得来说，但这确是最耗时的环节。不同类型数据需要不同处理方式，本文是自己系统学习数据清洗的起点。">
+<meta name="description" content="简介在预测分析建模时，如果结果不理想，那么不妨试试XGBoost，可以说，XGBoost已经成为许多数据科学家的秘密武器，，本文翻译自Complete Guide to Parameter Tuning in XGBoost (with codes in Python)，它详细介绍了XGBoost中参数的含义以及通过实例说明调参的技艺。在此，记下自己的学习笔记。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="机器学习WorkFlow——Data cleaning">
-<meta property="og:url" content="http://www.phoebepan.cn/2017/04/27/data_clean/index.html">
+<meta property="og:title" content="XGBoost调参指南">
+<meta property="og:url" content="http://www.phoebepan.cn/2017/06/14/xgb_paras/index.html">
 <meta property="og:site_name" content="技忆">
-<meta property="og:description" content="Garbage in gets you garbage out.Better data beats fancier algorithms.
-
-简介数据清洗是每个数据人的必备技能，诚然这不是机器学习最‘骨感’的地方，没有什么隐藏的技能值得来说，但这确是最耗时的环节。不同类型数据需要不同处理方式，本文是自己系统学习数据清洗的起点。">
-<meta property="og:updated_time" content="2017-06-27T02:00:05.000Z">
+<meta property="og:description" content="简介在预测分析建模时，如果结果不理想，那么不妨试试XGBoost，可以说，XGBoost已经成为许多数据科学家的秘密武器，，本文翻译自Complete Guide to Parameter Tuning in XGBoost (with codes in Python)，它详细介绍了XGBoost中参数的含义以及通过实例说明调参的技艺。在此，记下自己的学习笔记。">
+<meta property="og:updated_time" content="2017-07-21T05:17:53.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="机器学习WorkFlow——Data cleaning">
-<meta name="twitter:description" content="Garbage in gets you garbage out.Better data beats fancier algorithms.
-
-简介数据清洗是每个数据人的必备技能，诚然这不是机器学习最‘骨感’的地方，没有什么隐藏的技能值得来说，但这确是最耗时的环节。不同类型数据需要不同处理方式，本文是自己系统学习数据清洗的起点。">
+<meta name="twitter:title" content="XGBoost调参指南">
+<meta name="twitter:description" content="简介在预测分析建模时，如果结果不理想，那么不妨试试XGBoost，可以说，XGBoost已经成为许多数据科学家的秘密武器，，本文翻译自Complete Guide to Parameter Tuning in XGBoost (with codes in Python)，它详细介绍了XGBoost中参数的含义以及通过实例说明调参的技艺。在此，记下自己的学习笔记。">
 
 
 
@@ -132,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://www.phoebepan.cn/2017/04/27/data_clean/"/>
+  <link rel="canonical" href="http://www.phoebepan.cn/2017/06/14/xgb_paras/"/>
 
 
 
 
 
-  <title> 机器学习WorkFlow——Data cleaning | 技忆 </title>
+  <title> XGBoost调参指南 | 技忆 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -337,7 +331,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://www.phoebepan.cn/2017/04/27/data_clean/">
+    <link itemprop="mainEntityOfPage" href="http://www.phoebepan.cn/2017/06/14/xgb_paras/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Phoebe">
@@ -358,7 +352,7 @@
             
             
               
-                机器学习WorkFlow——Data cleaning
+                XGBoost调参指南
               
             
           </h1>
@@ -373,8 +367,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-27T15:30:16+08:00">
-                2017-04-27
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-14T15:30:16+08:00">
+                2017-06-14
               </time>
             
 
@@ -414,8 +408,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/04/27/data_clean/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/04/27/data_clean/" itemprop="commentCount"></span>
+                <a href="/2017/06/14/xgb_paras/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/06/14/xgb_paras/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -423,7 +417,7 @@
 
           
           
-             <span id="/2017/04/27/data_clean/" class="leancloud_visitors" data-flag-title="机器学习WorkFlow——Data cleaning">
+             <span id="/2017/06/14/xgb_paras/" class="leancloud_visitors" data-flag-title="XGBoost调参指南">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -452,7 +446,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  453
+                  890
                 </span>
               
 
@@ -468,7 +462,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长" }}">
-                  2
+                  3
                 </span>
               
             </div>
@@ -487,24 +481,45 @@
       
 
       
-        <blockquote class="blockquote-center"><p>Garbage in gets you garbage out.<br>Better data beats fancier algorithms.</p>
+        <blockquote class="blockquote-center"><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>在预测分析建模时，如果结果不理想，那么不妨试试XGBoost，可以说，XGBoost已经成为许多数据科学家的秘密武器，，本文翻译自<a href="https://www.analyticsvidhya.com/blog/2016/03/complete-guide-parameter-tuning-xgboost-with-codes-python/" target="_blank" rel="external">Complete Guide to Parameter Tuning in XGBoost (with codes in Python)</a>，它详细介绍了XGBoost中参数的含义以及通过实例说明调参的技艺。在此，记下自己的学习笔记。</p>
 </blockquote>
-<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a><center>简介</center></h3><p>数据清洗是每个数据人的必备技能，诚然这不是机器学习最‘骨感’的地方，没有什么隐藏的技能值得来说，但这确是最耗时的环节。不同类型数据需要不同处理方式，本文是自己系统学习数据清洗的起点。</p>
 <a id="more"></a>
-<h3 id="删除不需观测的数据"><a href="#删除不需观测的数据" class="headerlink" title="删除不需观测的数据"></a>删除不需观测的数据</h3><p>第一步，从数据集中去除不需观测的数据，包括重复，或者不相关数据，所谓不相关，就是与当前解决的特定问题无关。</p>
-<h3 id="结构错误"><a href="#结构错误" class="headerlink" title="结构错误"></a>结构错误</h3><p>结构错误，指在测量，数据传输或其他形式的内部管理中出现的错误。例如，数据格式，拼写错误，大小写不一致等等。</p>
-<h3 id="异常值"><a href="#异常值" class="headerlink" title="异常值"></a>异常值</h3><p>识别连续变量异常值，通常可以用：</p>
-<ul>
-<li>箱形图</li>
-<li>Z记分法（当变量符合正态分布，Z&gt;3通常标记为异常值）<br>有充分理由说明其是异常值，才可以将其删除，否则，尽量保留。</li>
+<h3 id="XGBoost"><a href="#XGBoost" class="headerlink" title="XGBoost"></a>XGBoost</h3><p>XGBoost是Gradient Boosting算法的一个优化版本，由于XGBoost算法的内部复杂性，涉及很多超参数，相比于建立一个XGBoost model，提高该model的性能需要花费很大的精力，但这又是必须做的。</p>
+<h4 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h4><ul>
+<li><strong>正则化</strong>，在GBM基础之上，增加了正则化，有效降低过拟合风险；</li>
+<li><strong>并行处理</strong>，Boosting算法是顺序处理的，比起GBM，它快的惊人，另外，XGBoost也支持Hadoop实现；</li>
+<li><strong>高度灵活性</strong>，允许自定义优化目标和评价标准；</li>
+<li><strong>缺失值处理</strong>，内置处理缺失值的规则，提供一个特殊值作为参数传进去；</li>
+<li><strong>剪枝</strong>，GBM实则是一贪心算法，遇到负损失，就停止分裂，XGBoost根据指定最大深度(max_depth)，回过头来剪枝。如果某节点之后没有正值，它会去除这一分裂；</li>
+<li><strong>内置交叉验证</strong>，允许在每一轮boosting迭代中使用交叉验证，方便获得最优迭代次数；</li>
+<li><strong>上一轮结果基础上继续训练</strong></li>
 </ul>
-<h3 id="缺失值"><a href="#缺失值" class="headerlink" title="缺失值"></a>缺失值</h3><p>缺失值，在机器学习中是非常棘手的事情。最常规的2种套路，其一，当数据量很充足的时候，删除没太大影响，直接Dropping；其二，利用其它观测对象重新填补缺失，填补的方式有：</p>
+<h3 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h3><p>XGBoost的作者把所有参数分成3类：通用参数、Booster参数、学习目标参数。</p>
+<h4 id="通用参数"><a href="#通用参数" class="headerlink" title="通用参数"></a>通用参数</h4><p>控制XGBoost的宏观功能。有：</p>
 <ul>
-<li>特殊值填补（中位数、平均值）</li>
-<li>聚类均值填补（找出有缺失值的观测所属的簇）</li>
+<li><code>booster</code>，选择每次迭代的模型，默认gbtree；</li>
+<li><code>silent</code>，默认为0，设为1，则不会输出任何信息；</li>
+<li><code>nthread</code>，最大可能的线程数，用来进行多线程控制。</li>
 </ul>
-<p>最好的处理<strong>缺失类别数据</strong>的方式就是，直接归为<strong>缺失类</strong>。<br><strong>缺失数值型数据</strong>，要么填补它，要么flag它<strong>NaN</strong>，处理方式，还需要考虑你套用的算法，是否支持。</p>
-<p>完成数据清洗步骤后，算是解决机器学习的一大麻烦啦~</p>
+<h4 id="Booster参数"><a href="#Booster参数" class="headerlink" title="Booster参数"></a>Booster参数</h4><p>这里只介绍tree booster参数，有：</p>
+<ul>
+<li><code>eta</code>，学习率，每一步减少权重，提高模型鲁棒性。通常设置在0.01-0.2范围内；</li>
+<li><code>min_child_weight</code>，最小叶子节点样本权重和，避免过拟合，值过高会导致欠拟合，可以通过CV调节该参数；</li>
+<li><code>max_depth</code>，树最大深度，避免过拟合，值越大，模型可学到更具体更局部样本，CV调节该参数，通常设在3-10区间内；</li>
+<li><code>max_leaf_nodes</code>，树上叶子节点最大数量；</li>
+<li><code>gamma</code>，默认为0，节点分裂时，只有分裂后损失函数值下降了，才会分裂该节点，该参数指定节点分裂损失函数最小下降值，值越大，越保守；</li>
+<li><code>subsample</code>，控制每棵树随机采样比例，值越小越保守，避免过拟合，值过小，可能欠拟合，通常取值范围，0.5-1；</li>
+<li><code>colsample_bytree</code>，默认1，对列数采样比例；</li>
+<li><code>lambda</code>，默认1，L2正则化的权重，控制正则化部分，减少过拟合；</li>
+<li><code>scale_pos_weight</code>，默认1，在类别十分不均衡时，该参数设置成正值，可以是model更快收敛。</li>
+</ul>
+<h4 id="学习目标参数"><a href="#学习目标参数" class="headerlink" title="学习目标参数"></a>学习目标参数</h4><p>控制理想的优化目标，和每一步结果的度量，有：</p>
+<ul>
+<li><code>objective</code>，最小化的损失函数，常用值有binary:logistic（二分类的逻辑回归） 、multi:softmax （softmax多分类器，返回预测的类别）、multi:softprob（softmax多分类器，返回属于各个类别的概率）</li>
+<li><code>eval_metric</code>，对于回归默认rmse，分类默认error，常用值，rmse，mae，logloss，error，merror，mlogloss，auc</li>
+<li><code>seed</code>，随机数种子，复现随机数据结果。</li>
+</ul>
+<p>最后，还有两个重要参数<code>num_boosting_rounds</code>，<code>early_stopping_rounds</code>，可以控制迭代次数。<br>更多参数参考：<br><a href="http://xgboost.readthedocs.io/en/latest/model.html" target="_blank" rel="external">XGBoost Guide – Introduction to Boosted Trees</a></p>
 
       
     </div>
@@ -512,7 +527,7 @@
   
     <div class="copyright">
     <p><span>
-    <b>本文地址：</b><a href="/2017/04/27/data_clean/" title="机器学习WorkFlow——Data cleaning">http://www.phoebepan.cn/2017/04/27/data_clean/</a><br /><b>转载请注明出处，谢谢！</b>
+    <b>本文地址：</b><a href="/2017/06/14/xgb_paras/" title="XGBoost调参指南">http://www.phoebepan.cn/2017/06/14/xgb_paras/</a><br /><b>转载请注明出处，谢谢！</b>
     </span></p>
     </div>
   
@@ -537,7 +552,13 @@
       
         <div class="post-tags">
           
+            <a href="/tags/Python/" rel="tag"># Python</a>
+          
             <a href="/tags/ML/" rel="tag"># ML</a>
+          
+            <a href="/tags/Tune/" rel="tag"># Tune</a>
+          
+            <a href="/tags/XGBoost/" rel="tag"># XGBoost</a>
           
         </div>
       
@@ -550,8 +571,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/04/26/ML_EDA/" rel="next" title="机器学习WorkFlow——EDA">
-                <i class="fa fa-chevron-left"></i> 机器学习WorkFlow——EDA
+              <a href="/2017/06/06/learn_seaborn/" rel="next" title="数据可视化——Seaborn">
+                <i class="fa fa-chevron-left"></i> 数据可视化——Seaborn
               </a>
             
           </div>
@@ -560,8 +581,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/04/28/feature_engineering/" rel="prev" title="机器学习WorkFlow——Feature Engineering">
-                机器学习WorkFlow——Feature Engineering <i class="fa fa-chevron-right"></i>
+              <a href="/2017/06/16/GridSearchCV/" rel="prev" title="调超参神器——GridSearchCV">
+                调超参神器——GridSearchCV <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -812,7 +833,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除不需观测的数据"><span class="nav-number">2.</span> <span class="nav-text">删除不需观测的数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结构错误"><span class="nav-number">3.</span> <span class="nav-text">结构错误</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#异常值"><span class="nav-number">4.</span> <span class="nav-text">异常值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缺失值"><span class="nav-number">5.</span> <span class="nav-text">缺失值</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XGBoost"><span class="nav-number">2.</span> <span class="nav-text">XGBoost</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#优势"><span class="nav-number">2.1.</span> <span class="nav-text">优势</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参数"><span class="nav-number">3.</span> <span class="nav-text">参数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#通用参数"><span class="nav-number">3.1.</span> <span class="nav-text">通用参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Booster参数"><span class="nav-number">3.2.</span> <span class="nav-text">Booster参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#学习目标参数"><span class="nav-number">3.3.</span> <span class="nav-text">学习目标参数</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -981,9 +1002,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'phoebepanx';
-      var disqus_identifier = '2017/04/27/data_clean/';
+      var disqus_identifier = '2017/06/14/xgb_paras/';
 
-      var disqus_title = "机器学习WorkFlow——Data cleaning";
+      var disqus_title = "XGBoost调参指南";
 
 
       function run_disqus_script(disqus_script) {

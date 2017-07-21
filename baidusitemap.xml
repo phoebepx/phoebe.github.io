@@ -5,6 +5,33 @@
     
     
   <url>
+    <loc>http://www.phoebepan.cn/2017/06/14/xgb_paras/</loc>
+    <lastmod>2017-07-21T05:17:53.000Z</lastmod>
+    <data>
+        <display>
+        <title>XGBoost调参指南</title>
+        <pubTime>2017-06-14T07:30:16.000Z</pubTime>
+        
+        <tag>Python</tag>
+         
+        <tag>ML</tag>
+         
+        <tag>Tune</tag>
+         
+        <tag>XGBoost</tag>
+         
+         
+           
+             
+              <breadCrumb title="Machine Learning" url="http://www.phoebepan.cn/categories/Machine-Learning/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+    
+  <url>
     <loc>http://www.phoebepan.cn/2017/05/22/recsys/</loc>
     <lastmod>2017-07-20T07:40:50.000Z</lastmod>
     <data>
@@ -63,7 +90,6 @@
     </data>
     </url>
 
-    
     
   <url>
     <loc>http://www.phoebepan.cn/2017/05/19/user_tags/</loc>
