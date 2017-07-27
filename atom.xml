@@ -622,6 +622,221 @@
   </entry>
   
   <entry>
+    <title>正则表达式</title>
+    <link href="http://www.phoebepan.cn/2017/05/06/Regular%20Expression/"/>
+    <id>http://www.phoebepan.cn/2017/05/06/Regular Expression/</id>
+    <published>2017-05-06T07:30:16.000Z</published>
+    <updated>2017-07-27T15:17:38.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>本文主要是shell正则表达式相关的笔记，正则表达式的分类有，</p>
+<ul>
+<li>基本的正则表达式（Basic Regular Expression 又叫Basic RegEx 简称BREs）</li>
+<li>扩展的正则表达式（Extended Regular Expression 又叫Extended RegEx 简称EREs）</li>
+<li>Perl的正则表达式（Perl Regular Expression 又叫Perl RegEx 简称PREs）</li>
+</ul>
+<a id="more"></a>
+<h3 id="基本组成部分"><a href="#基本组成部分" class="headerlink" title="基本组成部分"></a>基本组成部分</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">正则表达式</th>
+<th style="text-align:left">示例</th>
+<th style="text-align:center">BREs</th>
+<th style="text-align:center">EREs</th>
+<th style="text-align:center">Python RegEx</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">\</td>
+<td style="text-align:left">转义符，如a\.b匹配a.b</td>
+<td style="text-align:center">\</td>
+<td style="text-align:center">\</td>
+<td style="text-align:center">\</td>
+</tr>
+<tr>
+<td style="text-align:center">^</td>
+<td style="text-align:left">行首，如^tux匹配以tux开头的行</td>
+<td style="text-align:center">^</td>
+<td style="text-align:center">^</td>
+<td style="text-align:center">^</td>
+</tr>
+<tr>
+<td style="text-align:center">\$</td>
+<td style="text-align:left">行尾，如tux\$匹配以tux结尾的行</td>
+<td style="text-align:center">\$</td>
+<td style="text-align:center">\$</td>
+<td style="text-align:center">\$</td>
+</tr>
+<tr>
+<td style="text-align:center">.</td>
+<td style="text-align:left">匹配除换行符\n之外的任意单个字符</td>
+<td style="text-align:center">.</td>
+<td style="text-align:center">.</td>
+<td style="text-align:center">.</td>
+</tr>
+<tr>
+<td style="text-align:center">[]</td>
+<td style="text-align:left">匹配包含在[字符]之中的任意一个字符</td>
+<td style="text-align:center">[]</td>
+<td style="text-align:center">[]</td>
+<td style="text-align:center">[]</td>
+</tr>
+<tr>
+<td style="text-align:center">[^]</td>
+<td style="text-align:left">匹配[^字符]之外的任意一个字符，如123[^45]不能匹配到1234或1235</td>
+<td style="text-align:center">[^]</td>
+<td style="text-align:center">[^]</td>
+<td style="text-align:center">[^]</td>
+</tr>
+<tr>
+<td style="text-align:center">[-]</td>
+<td style="text-align:left">匹配[]中指定范围内(递增)的任意一个字符，如[0-9]可以匹配0到9之间任意数</td>
+<td style="text-align:center">[-]</td>
+<td style="text-align:center">[-]</td>
+<td style="text-align:center">[-]</td>
+</tr>
+<tr>
+<td style="text-align:center">?</td>
+<td style="text-align:left">匹配之前的项至多1次，如colou?r可以匹配color或者colour</td>
+<td style="text-align:center">不支持</td>
+<td style="text-align:center">?</td>
+<td style="text-align:center">?</td>
+</tr>
+<tr>
+<td style="text-align:center">+</td>
+<td style="text-align:left">匹配之前的项至少1次，sa-6+匹配sa-6、sa-666</td>
+<td style="text-align:center">不支持</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+</tr>
+<tr>
+<td style="text-align:center">*</td>
+<td style="text-align:left">匹配之前项0次或多次</td>
+<td style="text-align:center">*</td>
+<td style="text-align:center">*</td>
+<td style="text-align:center">*</td>
+</tr>
+<tr>
+<td style="text-align:center">{n}</td>
+<td style="text-align:left">匹配之前项n次</td>
+<td style="text-align:center">不支持</td>
+<td style="text-align:center">{n}</td>
+<td style="text-align:center">{n}</td>
+</tr>
+<tr>
+<td style="text-align:center">{n,}</td>
+<td style="text-align:left">之前项至少匹配n次</td>
+<td style="text-align:center">不支持</td>
+<td style="text-align:center">{n,}</td>
+<td style="text-align:center">{n,}</td>
+</tr>
+<tr>
+<td style="text-align:center">{n,m}</td>
+<td style="text-align:left">之前项至少匹配n次，最多匹配m次，n&lt;=m</td>
+<td style="text-align:center">不支持</td>
+<td style="text-align:center">{n,m}</td>
+<td style="text-align:center">{n,m}</td>
+</tr>
+<tr>
+<td style="text-align:center">()</td>
+<td style="text-align:left">创建一个匹配子串，如ma(tri)?匹配max或maxtrix</td>
+<td style="text-align:center">不支持</td>
+<td style="text-align:center">()</td>
+<td style="text-align:center">()</td>
+</tr>
+</tbody>
+</table>
+<h3 id="元字符"><a href="#元字符" class="headerlink" title="元字符"></a>元字符</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">正则表达式</th>
+<th style="text-align:left">示例</th>
+<th style="text-align:center">BREs</th>
+<th style="text-align:center">EREs</th>
+<th style="text-align:center">Python RegEx</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">\b</td>
+<td style="text-align:left">单词边界，如\bcool\b 匹配cool</td>
+<td style="text-align:center">\b</td>
+<td style="text-align:center">\b</td>
+<td style="text-align:center">\b</td>
+</tr>
+<tr>
+<td style="text-align:center">\B</td>
+<td style="text-align:left">非单词边界，如cool\B 匹配coolant，不匹配cool</td>
+<td style="text-align:center">\B</td>
+<td style="text-align:center">\B</td>
+<td style="text-align:center">\B</td>
+</tr>
+<tr>
+<td style="text-align:center">\d</td>
+<td style="text-align:left">单个数字字符，如b\db 匹配b2b，不匹配bcb</td>
+<td style="text-align:center">不支持</td>
+<td style="text-align:center">不支持</td>
+<td style="text-align:center">\d</td>
+</tr>
+<tr>
+<td style="text-align:center">\D</td>
+<td style="text-align:left">单个非数字字符，如b\Db 匹配bcb，不匹配b2b</td>
+<td style="text-align:center">不支持</td>
+<td style="text-align:center">不支持</td>
+<td style="text-align:center">\D</td>
+</tr>
+<tr>
+<td style="text-align:center">\w</td>
+<td style="text-align:left">单个单词字符</td>
+<td style="text-align:center">\w</td>
+<td style="text-align:center">\w</td>
+<td style="text-align:center">\w</td>
+</tr>
+<tr>
+<td style="text-align:center">\W</td>
+<td style="text-align:left">单个非单词字符</td>
+<td style="text-align:center">\W</td>
+<td style="text-align:center">\W</td>
+<td style="text-align:center">\W</td>
+</tr>
+<tr>
+<td style="text-align:center">\s</td>
+<td style="text-align:left">单个空白字符</td>
+<td style="text-align:center">不支持</td>
+<td style="text-align:center">不支持</td>
+<td style="text-align:center">\s</td>
+</tr>
+<tr>
+<td style="text-align:center">\S</td>
+<td style="text-align:left">单个非空白字符</td>
+<td style="text-align:center">不支持</td>
+<td style="text-align:center">不支持</td>
+<td style="text-align:center">\S</td>
+</tr>
+</tbody>
+</table>
+<p><a href="http://man.linuxde.net/docs/shell_regex.html" target="_blank" rel="external">更多参考访问</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h3&gt;&lt;p&gt;本文主要是shell正则表达式相关的笔记，正则表达式的分类有，&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;基本的正则表达式（Basic Regular Expression 又叫Basic RegEx 简称BREs）&lt;/li&gt;
+&lt;li&gt;扩展的正则表达式（Extended Regular Expression 又叫Extended RegEx 简称EREs）&lt;/li&gt;
+&lt;li&gt;Perl的正则表达式（Perl Regular Expression 又叫Perl RegEx 简称PREs）&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="Daily Accumulation" scheme="http://www.phoebepan.cn/categories/Daily-Accumulation/"/>
+    
+    
+      <category term="Regular Expression" scheme="http://www.phoebepan.cn/tags/Regular-Expression/"/>
+    
+  </entry>
+  
+  <entry>
     <title>如何决定K-Means聚类个数——silhouette analysis</title>
     <link href="http://www.phoebepan.cn/2017/05/05/silhouette%20analysis/"/>
     <id>http://www.phoebepan.cn/2017/05/05/silhouette analysis/</id>
@@ -651,6 +866,37 @@
     
     
       <category term="ML" scheme="http://www.phoebepan.cn/tags/ML/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>凸优化</title>
+    <link href="http://www.phoebepan.cn/2017/05/01/convex/"/>
+    <id>http://www.phoebepan.cn/2017/05/01/convex/</id>
+    <published>2017-05-01T07:30:16.000Z</published>
+    <updated>2017-07-27T15:15:44.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote class="blockquote-center"><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>机器学习中常用到数学优化技巧，最常见的优化就属凸优化了，本文参考Stanford CS229 Machine Learning的教学资料：<a href="http://cs229.stanford.edu/section/cs229-cvxopt.pdf" target="_blank" rel="external">http://cs229.stanford.edu/section/cs229-cvxopt.pdf</a>，对凸优化问题的初步认识，以下是几个重要的概念笔记。</p>
+</blockquote>
+<a id="more"></a>
+<h3 id="凸集"><a href="#凸集" class="headerlink" title="凸集"></a>凸集</h3><p><strong>几何意义</strong>为，集合C中任意两点间的线段仍然在C中，其示意图如下：<img src="/images/convex.png" alt="convex set"><br><strong>数学定义</strong>，对任意x<sub>1</sub>,x<sub>2</sub>$ \epsilon C$,$0 \leq \Theta \leq 1$，都有$$\Theta x<em>{1}+(1- \Theta )x</em>{2} \epsilon C$$<br>常见的凸集有，n维实数空间；一些范数约束形式的集合；仿射子空间；凸集的交集；n维半正定矩阵集。</p>
+<h3 id="凸函数"><a href="#凸函数" class="headerlink" title="凸函数"></a>凸函数</h3><p><strong>几何意义</strong>为，函数任意两点连线上的值大于对应自变量处的函数值，示例图如下：<img src="/images/convex_function.jpg" alt="convex_function"><br><strong>数学定义</strong>，如果函数定义域(dom f)是凸集，且对于任意$x,y\epsilon dom f$和任意$0\leq \Theta \leq 1$，有$$f(\Theta x+(1-\Theta )y)\leq \Theta f(x)+(1-\Theta )f(y).$$<br>常见的凸函数有，指数函数族；非负对数函数；仿射函数；二次函数；常见的范数函数；凸函数非负加权的和等</p>
+<h3 id="凸优化问题"><a href="#凸优化问题" class="headerlink" title="凸优化问题"></a>凸优化问题</h3><p>研究定义于<code>凸集</code>中的<code>凸函数</code>最小化问题。它要求<strong>目标函数是凸函数</strong>，<strong>变量所属集合是凸集</strong>的优化问题。或者目标函数是凸函数，<strong>变量约束函数是凸函数（不等式），或仿射函数（等式约束）</strong><br><strong>数学定义</strong><img src="images/convex_prob.jpg" alt="convex_prob"><br>常见的凸优化问题有，线性规划、二次规划、二次约束的二次规划、半正定规划。</p>
+<h3 id="对偶"><a href="#对偶" class="headerlink" title="对偶"></a>对偶</h3><p>在约束最优化问题中，常常利用拉格朗日对偶性将原始问题转换成对偶问题，通过解对偶问题而得到原始问题的解。这样做的优点是对偶问题往往更容易求解。<br>Lagrange对偶的基本思想是在目标函数中考虑上图中的约束条件，也就是添加约束条件的加权和，得到增广的目标函数。定义上面问题的Lagrange函数L：$R^{n} x R^{m} x R^{p}$-&gt;R为$$L(x,\lambda ,\nu )=f(x)+\sum<em>{i=1}^{m} \lambda </em>{i}f<em>{i}(x)+\sum</em>{i=1}^{p}\nu <em>{i}h</em>{i}(x)$$。</p>
+<h3 id="附：仿射函数"><a href="#附：仿射函数" class="headerlink" title="附：仿射函数"></a>附：仿射函数</h3><p>如果f(x)=a·x+b，$a \epsilon R^{n},b\epsilon R,x \epsilon R^{n}$，则f(x)为仿射函数。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote class=&quot;blockquote-center&quot;&gt;&lt;h3 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h3&gt;&lt;p&gt;机器学习中常用到数学优化技巧，最常见的优化就属凸优化了，本文参考Stanford CS229 Machine Learning的教学资料：&lt;a href=&quot;http://cs229.stanford.edu/section/cs229-cvxopt.pdf&quot;&gt;http://cs229.stanford.edu/section/cs229-cvxopt.pdf&lt;/a&gt;，对凸优化问题的初步认识，以下是几个重要的概念笔记。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="Mathematics in ML" scheme="http://www.phoebepan.cn/categories/Mathematics-in-ML/"/>
+    
+    
+      <category term="Mathematics in ML" scheme="http://www.phoebepan.cn/tags/Mathematics-in-ML/"/>
     
   </entry>
   
@@ -715,78 +961,6 @@
     
       &lt;blockquote class=&quot;blockquote-center&quot;&gt;&lt;h3 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h3&gt;&lt;p&gt;经过了EDA，数据清洗，特征工程，终于可以聊聊建模型啦，本文简单介绍整个建模过程，最大限度提高性能，同时避免过拟合。&lt;/p&gt;
 &lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="Machine Learning" scheme="http://www.phoebepan.cn/categories/Machine-Learning/"/>
-    
-    
-      <category term="ML" scheme="http://www.phoebepan.cn/tags/ML/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>机器学习WorkFlow——Feature Engineering</title>
-    <link href="http://www.phoebepan.cn/2017/04/28/feature_engineering/"/>
-    <id>http://www.phoebepan.cn/2017/04/28/feature_engineering/</id>
-    <published>2017-04-28T07:30:16.000Z</published>
-    <updated>2017-07-21T13:44:46.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote class="blockquote-center"><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>特征工程，是机器学习过程中最富有想象空间的环节，你可以大胆开脑洞。业界广为流传的一句话：数据和特征决定机器学习上限，而模型和算法只是逼近这个上限而已。本文只是简单介绍特征工程打开思路的一般套路。</p>
-</blockquote>
-<a id="more"></a>
-<p>提到特征工程，脑海中该有的框架，如下图所示：<br><img src="/images/feature.png" alt="feature_engineering"><br>具体特征工程做些什么，可参考这篇博文，查阅请点击<a href="http://www.cnblogs.com/jasonfreak/p/5448385.html" target="_blank" rel="external">这里</a>。<br><img src="/images/feature_engineering.jpg" alt="feature_engineering"></p>
-<p>下面是目前自己在特征工程环节，经常考虑的几个方面：<br><img src="/images/feature_engineering_1.png" alt="feature_engineering"></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote class=&quot;blockquote-center&quot;&gt;&lt;h3 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h3&gt;&lt;p&gt;特征工程，是机器学习过程中最富有想象空间的环节，你可以大胆开脑洞。业界广为流传的一句话：数据和特征决定机器学习上限，而模型和算法只是逼近这个上限而已。本文只是简单介绍特征工程打开思路的一般套路。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="Machine Learning" scheme="http://www.phoebepan.cn/categories/Machine-Learning/"/>
-    
-    
-      <category term="ML" scheme="http://www.phoebepan.cn/tags/ML/"/>
-    
-      <category term="Feature Engineering" scheme="http://www.phoebepan.cn/tags/Feature-Engineering/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>机器学习WorkFlow——Data cleaning</title>
-    <link href="http://www.phoebepan.cn/2017/04/27/data_clean/"/>
-    <id>http://www.phoebepan.cn/2017/04/27/data_clean/</id>
-    <published>2017-04-27T07:30:16.000Z</published>
-    <updated>2017-06-27T02:00:05.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote class="blockquote-center"><p>Garbage in gets you garbage out.<br>Better data beats fancier algorithms.</p>
-</blockquote>
-<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a><center>简介</center></h3><p>数据清洗是每个数据人的必备技能，诚然这不是机器学习最‘骨感’的地方，没有什么隐藏的技能值得来说，但这确是最耗时的环节。不同类型数据需要不同处理方式，本文是自己系统学习数据清洗的起点。</p>
-<a id="more"></a>
-<h3 id="删除不需观测的数据"><a href="#删除不需观测的数据" class="headerlink" title="删除不需观测的数据"></a>删除不需观测的数据</h3><p>第一步，从数据集中去除不需观测的数据，包括重复，或者不相关数据，所谓不相关，就是与当前解决的特定问题无关。</p>
-<h3 id="结构错误"><a href="#结构错误" class="headerlink" title="结构错误"></a>结构错误</h3><p>结构错误，指在测量，数据传输或其他形式的内部管理中出现的错误。例如，数据格式，拼写错误，大小写不一致等等。</p>
-<h3 id="异常值"><a href="#异常值" class="headerlink" title="异常值"></a>异常值</h3><p>识别连续变量异常值，通常可以用：</p>
-<ul>
-<li>箱形图</li>
-<li>Z记分法（当变量符合正态分布，Z&gt;3通常标记为异常值）<br>有充分理由说明其是异常值，才可以将其删除，否则，尽量保留。</li>
-</ul>
-<h3 id="缺失值"><a href="#缺失值" class="headerlink" title="缺失值"></a>缺失值</h3><p>缺失值，在机器学习中是非常棘手的事情。最常规的2种套路，其一，当数据量很充足的时候，删除没太大影响，直接Dropping；其二，利用其它观测对象重新填补缺失，填补的方式有：</p>
-<ul>
-<li>特殊值填补（中位数、平均值）</li>
-<li>聚类均值填补（找出有缺失值的观测所属的簇）</li>
-</ul>
-<p>最好的处理<strong>缺失类别数据</strong>的方式就是，直接归为<strong>缺失类</strong>。<br><strong>缺失数值型数据</strong>，要么填补它，要么flag它<strong>NaN</strong>，处理方式，还需要考虑你套用的算法，是否支持。</p>
-<p>完成数据清洗步骤后，算是解决机器学习的一大麻烦啦~</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote class=&quot;blockquote-center&quot;&gt;&lt;p&gt;Garbage in gets you garbage out.&lt;br&gt;Better data beats fancier algorithms.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;&lt;center&gt;简介&lt;/center&gt;&lt;/h3&gt;&lt;p&gt;数据清洗是每个数据人的必备技能，诚然这不是机器学习最‘骨感’的地方，没有什么隐藏的技能值得来说，但这确是最耗时的环节。不同类型数据需要不同处理方式，本文是自己系统学习数据清洗的起点。&lt;/p&gt;
     
     </summary>
     
