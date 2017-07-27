@@ -874,15 +874,15 @@
     <link href="http://www.phoebepan.cn/2017/05/01/convex/"/>
     <id>http://www.phoebepan.cn/2017/05/01/convex/</id>
     <published>2017-05-01T07:30:16.000Z</published>
-    <updated>2017-07-27T15:15:44.000Z</updated>
+    <updated>2017-07-27T15:35:04.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote class="blockquote-center"><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>机器学习中常用到数学优化技巧，最常见的优化就属凸优化了，本文参考Stanford CS229 Machine Learning的教学资料：<a href="http://cs229.stanford.edu/section/cs229-cvxopt.pdf" target="_blank" rel="external">http://cs229.stanford.edu/section/cs229-cvxopt.pdf</a>，对凸优化问题的初步认识，以下是几个重要的概念笔记。</p>
 </blockquote>
 <a id="more"></a>
-<h3 id="凸集"><a href="#凸集" class="headerlink" title="凸集"></a>凸集</h3><p><strong>几何意义</strong>为，集合C中任意两点间的线段仍然在C中，其示意图如下：<img src="/images/convex.png" alt="convex set"><br><strong>数学定义</strong>，对任意x<sub>1</sub>,x<sub>2</sub>$ \epsilon C$,$0 \leq \Theta \leq 1$，都有$$\Theta x<em>{1}+(1- \Theta )x</em>{2} \epsilon C$$<br>常见的凸集有，n维实数空间；一些范数约束形式的集合；仿射子空间；凸集的交集；n维半正定矩阵集。</p>
+<h3 id="凸集"><a href="#凸集" class="headerlink" title="凸集"></a>凸集</h3><p><strong>几何意义</strong>为，集合C中任意两点间的线段仍然在C中，其示意图如下：<img src="/images/convex.png" alt="convex set"><br><strong>数学定义</strong>，对任意x<sub>1</sub>,x<sub>2</sub>$ \epsilon C$,$0 \leq \Theta \leq 1$，都有<img src="/images/convexf.png" alt="convexf"><br>常见的凸集有，n维实数空间；一些范数约束形式的集合；仿射子空间；凸集的交集；n维半正定矩阵集。</p>
 <h3 id="凸函数"><a href="#凸函数" class="headerlink" title="凸函数"></a>凸函数</h3><p><strong>几何意义</strong>为，函数任意两点连线上的值大于对应自变量处的函数值，示例图如下：<img src="/images/convex_function.jpg" alt="convex_function"><br><strong>数学定义</strong>，如果函数定义域(dom f)是凸集，且对于任意$x,y\epsilon dom f$和任意$0\leq \Theta \leq 1$，有$$f(\Theta x+(1-\Theta )y)\leq \Theta f(x)+(1-\Theta )f(y).$$<br>常见的凸函数有，指数函数族；非负对数函数；仿射函数；二次函数；常见的范数函数；凸函数非负加权的和等</p>
-<h3 id="凸优化问题"><a href="#凸优化问题" class="headerlink" title="凸优化问题"></a>凸优化问题</h3><p>研究定义于<code>凸集</code>中的<code>凸函数</code>最小化问题。它要求<strong>目标函数是凸函数</strong>，<strong>变量所属集合是凸集</strong>的优化问题。或者目标函数是凸函数，<strong>变量约束函数是凸函数（不等式），或仿射函数（等式约束）</strong><br><strong>数学定义</strong><img src="images/convex_prob.jpg" alt="convex_prob"><br>常见的凸优化问题有，线性规划、二次规划、二次约束的二次规划、半正定规划。</p>
-<h3 id="对偶"><a href="#对偶" class="headerlink" title="对偶"></a>对偶</h3><p>在约束最优化问题中，常常利用拉格朗日对偶性将原始问题转换成对偶问题，通过解对偶问题而得到原始问题的解。这样做的优点是对偶问题往往更容易求解。<br>Lagrange对偶的基本思想是在目标函数中考虑上图中的约束条件，也就是添加约束条件的加权和，得到增广的目标函数。定义上面问题的Lagrange函数L：$R^{n} x R^{m} x R^{p}$-&gt;R为$$L(x,\lambda ,\nu )=f(x)+\sum<em>{i=1}^{m} \lambda </em>{i}f<em>{i}(x)+\sum</em>{i=1}^{p}\nu <em>{i}h</em>{i}(x)$$。</p>
+<h3 id="凸优化问题"><a href="#凸优化问题" class="headerlink" title="凸优化问题"></a>凸优化问题</h3><p>研究定义于<code>凸集</code>中的<code>凸函数</code>最小化问题。它要求<strong>目标函数是凸函数</strong>，<strong>变量所属集合是凸集</strong>的优化问题。或者目标函数是凸函数，<strong>变量约束函数是凸函数（不等式），或仿射函数（等式约束）</strong><br><strong>数学定义</strong><br><img src="/images/convex_prob.jpg" alt="convex_prob"><br>常见的凸优化问题有，线性规划、二次规划、二次约束的二次规划、半正定规划。</p>
+<h3 id="对偶"><a href="#对偶" class="headerlink" title="对偶"></a>对偶</h3><p>在约束最优化问题中，常常利用拉格朗日对偶性将原始问题转换成对偶问题，通过解对偶问题而得到原始问题的解。这样做的优点是对偶问题往往更容易求解。<br>Lagrange对偶的基本思想是在目标函数中考虑上图中的约束条件，也就是添加约束条件的加权和，得到增广的目标函数。定义上面问题的Lagrange函数<img src="/images/lagr.png" alt="lagr"></p>
 <h3 id="附：仿射函数"><a href="#附：仿射函数" class="headerlink" title="附：仿射函数"></a>附：仿射函数</h3><p>如果f(x)=a·x+b，$a \epsilon R^{n},b\epsilon R,x \epsilon R^{n}$，则f(x)为仿射函数。</p>
 ]]></content>
     
