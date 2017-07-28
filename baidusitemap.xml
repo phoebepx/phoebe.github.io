@@ -4,6 +4,28 @@
 
     
   <url>
+    <loc>http://www.phoebepan.cn/2017/05/04/SVM/</loc>
+    <lastmod>2017-07-28T00:53:52.000Z</lastmod>
+    <data>
+        <display>
+        <title>支持向量机</title>
+        <pubTime>2017-05-04T07:30:16.000Z</pubTime>
+        
+        <tag>Mathematics in ML</tag>
+         
+        <tag>Model</tag>
+         
+         
+           
+             
+              <breadCrumb title="Machine Learning" url="http://www.phoebepan.cn/categories/Machine-Learning/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.phoebepan.cn/2017/05/01/convex/</loc>
     <lastmod>2017-07-27T15:35:04.000Z</lastmod>
     <data>
@@ -119,11 +141,11 @@
         <title>XGBoost调参指南</title>
         <pubTime>2017-06-14T07:30:16.000Z</pubTime>
         
-        <tag>Python</tag>
-         
         <tag>ML</tag>
          
         <tag>Tune</tag>
+         
+        <tag>Python</tag>
          
         <tag>XGBoost</tag>
          
@@ -328,9 +350,9 @@
         <title>关键词匹配经典算法——DFA</title>
         <pubTime>2017-03-15T07:30:16.000Z</pubTime>
         
-        <tag>Algorithms</tag>
-         
         <tag>LeetCode</tag>
+         
+        <tag>Algorithms</tag>
          
          
            
@@ -494,9 +516,9 @@
         <title>充实的无话可说</title>
         <pubTime>2017-05-15T07:30:16.000Z</pubTime>
         
-        <tag>Thinking</tag>
-         
         <tag>Life</tag>
+         
+        <tag>Thinking</tag>
          
          
            
@@ -622,9 +644,9 @@
         <title>朗读者「百合花开」</title>
         <pubTime>2017-03-20T07:30:16.000Z</pubTime>
         
-        <tag>Thinking</tag>
-         
         <tag>Life</tag>
+         
+        <tag>Thinking</tag>
          
          
            
@@ -644,9 +666,9 @@
         <title>读《块数据》</title>
         <pubTime>2017-03-15T07:30:16.000Z</pubTime>
         
-        <tag>Reading</tag>
-         
         <tag>Thinking</tag>
+         
+        <tag>Reading</tag>
          
          
            
@@ -726,9 +748,9 @@
         <title>《新商业文明》摘录</title>
         <pubTime>2017-04-16T07:30:16.000Z</pubTime>
         
-        <tag>Reading</tag>
-         
         <tag>Thinking</tag>
+         
+        <tag>Reading</tag>
          
          
            
@@ -748,9 +770,9 @@
         <title>读《好好学习》</title>
         <pubTime>2017-04-09T07:30:16.000Z</pubTime>
         
-        <tag>Reading</tag>
-         
         <tag>Thinking</tag>
+         
+        <tag>Reading</tag>
          
          
            
@@ -790,9 +812,9 @@
         <title>Dynamic programming</title>
         <pubTime>2017-04-13T07:30:16.000Z</pubTime>
         
-        <tag>Algorithms</tag>
-         
         <tag>LeetCode</tag>
+         
+        <tag>Algorithms</tag>
          
          
            
@@ -812,9 +834,9 @@
         <title>Binary indexed tree (Fenwick tree)</title>
         <pubTime>2017-03-21T07:30:16.000Z</pubTime>
         
-        <tag>Python</tag>
-         
         <tag>Algorithms</tag>
+         
+        <tag>Python</tag>
          
          
            
