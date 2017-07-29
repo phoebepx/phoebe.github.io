@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.phoebepan.cn/knowledge/index.html</loc>
+    
+    <lastmod>2017-07-29T01:19:33.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.phoebepan.cn/2017/05/04/SVM/</loc>
     
     <lastmod>2017-07-28T00:53:52.000Z</lastmod>
@@ -19,13 +26,6 @@
     <loc>http://www.phoebepan.cn/2017/05/06/Regular%20Expression/</loc>
     
     <lastmod>2017-07-27T15:17:38.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.phoebepan.cn/knowledge/index.html</loc>
-    
-    <lastmod>2017-07-26T15:31:58.000Z</lastmod>
     
   </url>
   
