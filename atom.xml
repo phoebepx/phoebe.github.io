@@ -251,6 +251,216 @@
   </entry>
   
   <entry>
+    <title>机器学习经典算法优缺点总结</title>
+    <link href="http://www.phoebepan.cn/2017/05/23/ML_good_bad/"/>
+    <id>http://www.phoebepan.cn/2017/05/23/ML_good_bad/</id>
+    <published>2017-05-23T07:30:16.000Z</published>
+    <updated>2017-08-01T23:06:56.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote class="blockquote-center"><p>简介<br>机器学习大多数场景是搜索、广告、垃圾过滤、安全、推荐系统等等。本文是经典机器学习算法的优劣势比较，欢迎纠正。</p>
+</blockquote>
+<a id="more"></a>
+<h3 id="朴素贝叶斯"><a href="#朴素贝叶斯" class="headerlink" title="朴素贝叶斯"></a>朴素贝叶斯</h3><p><code>生成模型</code>、<code>贝叶斯定理</code>、<code>特征条件独立</code>、<code>后验概率最大化</code></p>
+<h4 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h4><blockquote>
+<p>基于贝叶斯定理与特征条件独立假设的分类方法。对于给定的训练集首先基于特征条件独立假设学习输入/输出的联合概率分布，然后利用贝叶斯定理求出后验概率最大。</p>
+</blockquote>
+<h4 id="解决问题-适用场景"><a href="#解决问题-适用场景" class="headerlink" title="解决问题(适用场景)"></a>解决问题(适用场景)</h4><blockquote>
+<p>分类问题<br>场景举例：文本主题分类、垃圾文本过滤</p>
+</blockquote>
+<h4 id="技术细节"><a href="#技术细节" class="headerlink" title="技术细节"></a>技术细节</h4><blockquote>
+<p>概率估计方法：极大似然估计和贝叶斯估计(拉普拉斯平滑)</p>
+</blockquote>
+<h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><blockquote>
+<p>实现简单；对小规模数据表现很好，适合多分类任务；适合增量式训练</p>
+</blockquote>
+<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4><blockquote>
+<p>对输入数据表达形式敏感(离散、连续、值极大极小等)；需要条件独立假设，会牺牲准确率，分类性能不一定高</p>
+</blockquote>
+<h3 id="逻辑回归"><a href="#逻辑回归" class="headerlink" title="逻辑回归"></a>逻辑回归</h3><p><code>对数线性模型</code>、<code>似然函数为目标函数</code>、<code>最优化问题</code></p>
+<h4 id="原理-1"><a href="#原理-1" class="headerlink" title="原理"></a>原理</h4><blockquote>
+<p>主要计算在某个样本特征下事件发生的概率。用sigmoid函数将线性回归进行了归一化，输出值压缩到0-1之间，这个值代表的是发生的概率。</p>
+</blockquote>
+<h4 id="解决问题-适用场景-1"><a href="#解决问题-适用场景-1" class="headerlink" title="解决问题(适用场景)"></a>解决问题(适用场景)</h4><blockquote>
+<p>分类问题(二分类推广到多分类)<br>场景举例：根据用户浏览情况预测是否购买商品</p>
+</blockquote>
+<h4 id="技术细节-1"><a href="#技术细节-1" class="headerlink" title="技术细节"></a>技术细节</h4><blockquote>
+<ul>
+<li>LogReg中，输出Y=1的对数几率是输入x的线性函数；</li>
+<li>极大似然估计法估计模型参数；</li>
+<li>softmax和k个LR的选择，<strong>类别之间互斥，softmax</strong>、类别之前有联系，K个LR</li>
+<li>优化：梯度下降、拟牛顿法、BFGS、改进的迭代尺度法<br>梯度下降会陷入局部最优，改用随机梯度下降，收敛速度更快，且易并行。</li>
+</ul>
+</blockquote>
+<h4 id="优点-1"><a href="#优点-1" class="headerlink" title="优点"></a>优点</h4><blockquote>
+<p>简单高效；概率值输出；多重共线性可以通过L2正则化应对</p>
+</blockquote>
+<h4 id="缺点-1"><a href="#缺点-1" class="headerlink" title="缺点"></a>缺点</h4><blockquote>
+<p>欠拟合，精度不高；<br>必须线性可分；<br>特征空间太大时表现不太好；<br>大量分类变量性能较差；</p>
+</blockquote>
+<h3 id="k-近邻"><a href="#k-近邻" class="headerlink" title="k-近邻"></a>k-近邻</h3><p><code>判别模型</code>、<code>多分类与回归</code>、<code>不具有显式学习过程</code></p>
+<h4 id="原理-2"><a href="#原理-2" class="headerlink" title="原理"></a>原理</h4><blockquote>
+<p>利用训练数据集对特征向量空间进行划分，根据k个最近邻的训练样本的类别，通过多数表决进行预测。</p>
+</blockquote>
+<h4 id="解决问题-适用场景-2"><a href="#解决问题-适用场景-2" class="headerlink" title="解决问题(适用场景)"></a>解决问题(适用场景)</h4><blockquote>
+<p>分类与回归</p>
+</blockquote>
+<h4 id="技术细节-2"><a href="#技术细节-2" class="headerlink" title="技术细节"></a>技术细节</h4><blockquote>
+<p>三要素：K的选择、距离度量、决策规则</p>
+<blockquote>
+<p><strong>交叉验证，取最优k值</strong><br>K小，模型变得复杂，过拟合；估计误差增大；<br>K大，模型变得简单，近似误差增大</p>
+</blockquote>
+<p><strong>kd 树</strong></p>
+<blockquote>
+<p>X的K个特征，一一个切分，使得每个数据最终都在切分点上(中位数)，对输入的数据搜索kd树，找到K近邻。</p>
+</blockquote>
+</blockquote>
+<h4 id="优点-2"><a href="#优点-2" class="headerlink" title="优点"></a>优点</h4><blockquote>
+<p>简单，分类与回归，可用于非线性，复杂度为O(n)，对噪声不敏感</p>
+</blockquote>
+<h4 id="缺点-2"><a href="#缺点-2" class="headerlink" title="缺点"></a>缺点</h4><blockquote>
+<p>K需要人为设定，对大小不平衡数据易偏向大容量数据；计算量大，大量内存</p>
+</blockquote>
+<h3 id="决策树"><a href="#决策树" class="headerlink" title="决策树"></a>决策树</h3><p><code>判别模型</code>、<code>多分类与回归</code>、<code>正则化的极大似然估计</code></p>
+<h4 id="原理-3"><a href="#原理-3" class="headerlink" title="原理"></a>原理</h4><blockquote>
+<p>决策树实际上是将空间用超平面进行划分的一种方法，每次分割的时候，都将当前的空间一分为二，这样使得每一个叶子节点都是在空间中的一个不相交的区域，在进行决策的时候，会根据输入样本每一维feature的值，一步一步往下，最后使得样本落入N个区域中的一个。</p>
+</blockquote>
+<h4 id="解决问题-适用场景-3"><a href="#解决问题-适用场景-3" class="headerlink" title="解决问题(适用场景)"></a>解决问题(适用场景)</h4><blockquote>
+<p>适用于小数据集<br>场景举例：基于规则的信用评估</p>
+</blockquote>
+<h4 id="技术细节-3"><a href="#技术细节-3" class="headerlink" title="技术细节"></a>技术细节</h4><blockquote>
+<p><strong>特征选择</strong>准则：信息增益或信息增益比<br><strong>决策树生成</strong>，ID3、C4.5、CART(Gini index，平方误差)<br><strong>剪枝</strong>，减小模型复杂度，设定$ \alpha $ ，相当于正则化的极大似然估计；动态规划实现</p>
+<blockquote>
+<p><strong>CART</strong><br>通过递归方式建立决策二叉树，基尼指数最小化的特征(分类)，平方误差最小化(回归)作为划分特征</p>
+</blockquote>
+</blockquote>
+<h4 id="优点-3"><a href="#优点-3" class="headerlink" title="优点"></a>优点</h4><blockquote>
+<p>训练时间复杂度低，预测过程快速；可读性好；适合处理有缺失属性值得样本，能够处理不相关特征</p>
+</blockquote>
+<h4 id="缺点-3"><a href="#缺点-3" class="headerlink" title="缺点"></a>缺点</h4><blockquote>
+<p>容易过拟合</p>
+<blockquote>
+<p>解决过拟合：剪枝、交叉验证、随机森林</p>
+</blockquote>
+<p>单棵树分类能力弱，对连续变量难以处理</p>
+</blockquote>
+<h3 id="随机森林"><a href="#随机森林" class="headerlink" title="随机森林"></a>随机森林</h3><p><code>判别模型</code>、<code>多分类与回归</code>、<code>正则化的极大似然估计</code>、<code>Random Future</code>、<code>Bagging</code></p>
+<h4 id="原理-4"><a href="#原理-4" class="headerlink" title="原理"></a>原理</h4><blockquote>
+<p>很多随机生成的决策树组成，预测时，每颗决策树进行判断，最后通过Bagging思想进行结果的输出。<br>RF被证明对大规模数据集和存在大量且有时不相关特征的项来说很有用。</p>
+</blockquote>
+<h4 id="解决问题-适用场景-4"><a href="#解决问题-适用场景-4" class="headerlink" title="解决问题(适用场景)"></a>解决问题(适用场景)</h4><blockquote>
+<p>场景举例：用户流失分析、风险评估、检测离群点</p>
+</blockquote>
+<h4 id="技术细节-4"><a href="#技术细节-4" class="headerlink" title="技术细节"></a>技术细节</h4><blockquote>
+<p>行(有放回)列(节点分裂时)采样，每个决策树使用相同参数<br>完全分裂，叶节点特征(样本特征相同、样本类别相同、样本数=1)<br>超参：树的数量、列采样特征数(通常取总特征的平方根)<br>泛化误差估计，oob(out-of-bag)</p>
+</blockquote>
+<h4 id="优点-4"><a href="#优点-4" class="headerlink" title="优点"></a>优点</h4><blockquote>
+<ol>
+<li>适合多分类问题，训练和预测速度快</li>
+<li>对训练数据容错能力强，有效的估计缺失数据的方法</li>
+<li>可以处理高维数据且不用特征选择</li>
+<li>训练过程中检测到特征间相互影响及特征重要性</li>
+<li>数据集上表现良好，避免过拟合</li>
+<li>实现简单且容易并行化</li>
+<li>在创建随机森林的时候，对generlization error使用的是无偏估计，所以在随机森林算法中不需要再进行交叉验证或者单独的测试集来获取测试集误差的无偏估计</li>
+</ol>
+</blockquote>
+<h4 id="缺点-4"><a href="#缺点-4" class="headerlink" title="缺点"></a>缺点</h4><blockquote>
+<p>噪声较大的分类和回归问题上会过拟合。对于类别特征的属性值较多时，RF产生的属性权重不可信。</p>
+</blockquote>
+<h3 id="支持向量机"><a href="#支持向量机" class="headerlink" title="支持向量机"></a>支持向量机</h3><p><code>间隔最大</code>、<code>凸二次规划</code>、<code>核函数</code></p>
+<h4 id="原理-5"><a href="#原理-5" class="headerlink" title="原理"></a>原理</h4><blockquote>
+<p>低维空间映射到高维空间，实现线性可分，求解正确划分训练集并(几何)间隔最大化的分离超平面。</p>
+</blockquote>
+<h4 id="技术细节-5"><a href="#技术细节-5" class="headerlink" title="技术细节"></a>技术细节</h4><blockquote>
+<p>函数间隔，几何间隔<br>应用拉格朗日对偶性，求解对偶问题(更易求解、自然引用核函数)<br>正则化的合页损失函数最优化问题<br>核函数</p>
+<blockquote>
+<p>表示将输入从输入空间映射到特征空间得到的特征向量之间的内积。</p>
+</blockquote>
+<p>序列最小最优化算法(不断分解，对子问题求解，每个子问题中选择两个变量优化，其中一个变量是违反KKT条件的，直到所有变量都满足KKT条件为止)</p>
+</blockquote>
+<h4 id="优点-5"><a href="#优点-5" class="headerlink" title="优点"></a>优点</h4><blockquote>
+<p>可以处理高维特征；使用核函数可以向高维空间进行映射，可以解决非线性分类；分类思想简单(间隔最大化)；分类效果好</p>
+</blockquote>
+<h4 id="缺点-5"><a href="#缺点-5" class="headerlink" title="缺点"></a>缺点</h4><blockquote>
+<p>核函数及参数敏感；无法直接支持多分类；大量观测样本，效率低</p>
+</blockquote>
+<h3 id="集成学习"><a href="#集成学习" class="headerlink" title="集成学习"></a>集成学习</h3><h4 id="关键点"><a href="#关键点" class="headerlink" title="关键点"></a>关键点</h4><ol>
+<li><code>差异性基分类器</code>:数据集(bagging、boosting)、数据特征、改变基分类器参数</li>
+<li><code>基分类器整合</code>，回归(简单平均、加权平均)、分类(简单/加权投票、概率投票)</li>
+</ol>
+<p><code>Notes</code>：分类问题，每个分类器的分类精度大于0.5</p>
+<h3 id="Boosting"><a href="#Boosting" class="headerlink" title="Boosting"></a>Boosting</h3><p><code>三个臭皮匠顶个诸葛亮</code>、<code>改变样本权重</code>、<code>分而治之</code>、<code>加法模型</code>、<code>前向分布算法</code>、<code>Shrinkage</code></p>
+<h4 id="原理-6"><a href="#原理-6" class="headerlink" title="原理"></a>原理</h4><blockquote>
+<p>在分类问题中，通过改变训练样本的权重，学习多个基分类器，最终进行线性组合。</p>
+</blockquote>
+<h4 id="技术细节-6"><a href="#技术细节-6" class="headerlink" title="技术细节"></a>技术细节</h4><blockquote>
+<p>概念强可学习充要条件概念弱可学习</p>
+<blockquote>
+<ul>
+<li>AdaBoost，提高前一轮弱分类器错分的<strong>样本权重</strong>，降低分对的样本权重；<strong>组合</strong>时，加大分类错误率低的基分类器权值，减小分类错误率大的权重。</li>
+<li>AdaBoost二分类学习时是加法模型、损失函数为指数函数、学习算法为前向分布算法</li>
+</ul>
+</blockquote>
+<p>boosting tree<br>基分类器，分类树或回归树，不同的问题的提升树主要区别在于<strong>损失函数</strong>不同。</p>
+<blockquote>
+<ul>
+<li>梯度提升(gradient boosting)，每一轮计算为了减少上一次的残差，加入新的model是在之前model损失函数梯度下降方向。</li>
+<li>GBDT精髓，在于训练都以上一棵树的残差为目标去提升。</li>
+</ul>
+</blockquote>
+<p>调参：树的个数、树深度、学习速率、叶子上最大节点树、训练采样比例、训练特征采样比例……</p>
+</blockquote>
+<h4 id="优点-6"><a href="#优点-6" class="headerlink" title="优点"></a>优点</h4><blockquote>
+<p>精度高；能处理非线性数据；能处理多特征类型；适合低维稠密数据</p>
+</blockquote>
+<h4 id="缺点-6"><a href="#缺点-6" class="headerlink" title="缺点"></a>缺点</h4><blockquote>
+<p>并行麻烦；多分类时，复杂度大</p>
+</blockquote>
+<h3 id="EM"><a href="#EM" class="headerlink" title="EM"></a>EM</h3><p><code>含隐变量的概率模型</code>、<code>极大似然估计</code></p>
+<h4 id="原理-7"><a href="#原理-7" class="headerlink" title="原理"></a>原理</h4><blockquote>
+<p>从不完全数据或有数据丢失的数据集（存在隐含变量）中求解概率模型参数的最大似然估计方法。</p>
+</blockquote>
+<h4 id="解决问题-适用场景-5"><a href="#解决问题-适用场景-5" class="headerlink" title="解决问题(适用场景)"></a>解决问题(适用场景)</h4><blockquote>
+<p>含有隐变量、非监督学习<br>高斯混合模型学习中的应用</p>
+</blockquote>
+<h4 id="技术细节-7"><a href="#技术细节-7" class="headerlink" title="技术细节"></a>技术细节</h4><blockquote>
+<p>E步，求期望，根据上一步迭代的模型参数计算隐变量的后验概率；M步，求极大，似然函数最大化获得新的参数值</p>
+</blockquote>
+<h4 id="优点-7"><a href="#优点-7" class="headerlink" title="优点"></a>优点</h4><blockquote>
+<p>思想简单，普适</p>
+</blockquote>
+<h4 id="缺点-7"><a href="#缺点-7" class="headerlink" title="缺点"></a>缺点</h4><blockquote>
+<p>EM算法与初值的选择有关，不同初值，得到不同参数估计；</p>
+</blockquote>
+<h3 id="归一化使梯度下降收敛更好？"><a href="#归一化使梯度下降收敛更好？" class="headerlink" title="归一化使梯度下降收敛更好？"></a>归一化使梯度下降收敛更好？</h3><blockquote>
+<p>如果不归一化，各维特征的跨度差距很大，梯度下降时，目标函数梯度方向就会偏离最小值的方向，走很多弯路，如下方左图。<br>如果归一化了，每一步梯度的方向都指向最小值，收敛更快，如下方右图。<br><img src="/images/descend.png" alt="descend"></p>
+</blockquote>
+<h3 id="算法横向比较"><a href="#算法横向比较" class="headerlink" title="算法横向比较"></a>算法横向比较</h3><h4 id="LR与Linear-SVM"><a href="#LR与Linear-SVM" class="headerlink" title="LR与Linear SVM"></a>LR与Linear SVM</h4><ul>
+<li>都是线性分类器；</li>
+<li>都会受到异常点影响；</li>
+<li>本质不同——损失函数，一个hinge loss，一个logistical loss</li>
+<li>Linear SVM只受支持向量影响(部分样本)，LR则受所有数据点影响；</li>
+<li>Linear SVM需要归一化数据，LR不受影响；</li>
+<li>Linear SVM自带正则，而LR需另加；</li>
+<li>海量数据LR使用更广泛，Linear SVM内存消耗大</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote class=&quot;blockquote-center&quot;&gt;&lt;p&gt;简介&lt;br&gt;机器学习大多数场景是搜索、广告、垃圾过滤、安全、推荐系统等等。本文是经典机器学习算法的优劣势比较，欢迎纠正。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="Machine Learning" scheme="http://www.phoebepan.cn/categories/Machine-Learning/"/>
+    
+    
+      <category term="ML" scheme="http://www.phoebepan.cn/tags/ML/"/>
+    
+  </entry>
+  
+  <entry>
     <title>推荐系统实战——架构</title>
     <link href="http://www.phoebepan.cn/2017/05/22/recsys/"/>
     <id>http://www.phoebepan.cn/2017/05/22/recsys/</id>
@@ -954,44 +1164,6 @@
     
     
       <category term="Mathematics in ML" scheme="http://www.phoebepan.cn/tags/Mathematics-in-ML/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Scikit-Learn如何做特征选择</title>
-    <link href="http://www.phoebepan.cn/2017/04/30/feature%20selection/"/>
-    <id>http://www.phoebepan.cn/2017/04/30/feature selection/</id>
-    <published>2017-04-30T07:30:16.000Z</published>
-    <updated>2017-07-21T13:44:27.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote class="blockquote-center"><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>特征选择是<a href="http://phoebepan.cn/2017/04/28/feature%20selection/" target="_blank" rel="external">特征工程</a>相对重要的一环节，太多不相关的特征会降低模型的准确性，特征选择，可以有效降低过拟合、训练时间等问题。本文简单介绍使用Scikit-Learn做特征选择。</p>
-</blockquote>
-<a id="more"></a>
-<p>Scikit-Learn提供了几种不同的特征选择方法，其一，单变量选择（Univariate Selection）；其二，主成分分析（Principal Component Analysis）；其三，递归特征排除法（Recursive Feature Elimination）；其四，特征重要性排名（feature importance ranking）。</p>
-<h3 id="Univariate-Selection"><a href="#Univariate-Selection" class="headerlink" title="Univariate Selection"></a>Univariate Selection</h3><p>原理：使用统计检验方法选择与输出变量最相关的特征。<br>使用方法：Scikit-Learn库中的<a href="http://scikit-learn.org/stable/modules/generated/sklearn.feature_selection.SelectKBest.html#sklearn.feature_selection.SelectKBest" target="_blank" rel="external"><code>SelectKBest</code></a>类可用不同的统计检验方法挑选指定数量的重要特征。<br>举例：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Feature Extraction with Univariate Statistical Tests (Chi-squared for classification)</span></div><div class="line"><span class="keyword">import</span> pandas</div><div class="line"><span class="keyword">import</span> numpy</div><div class="line"><span class="keyword">from</span> sklearn.feature_selection <span class="keyword">import</span> SelectKBest</div><div class="line"><span class="keyword">from</span> sklearn.feature_selection <span class="keyword">import</span> chi2</div><div class="line"><span class="comment"># load data</span></div><div class="line">url = <span class="string">"https://archive.ics.uci.edu/ml/machine-learning-databases/pima-indians-diabetes/pima-indians-diabetes.data"</span></div><div class="line">names = [<span class="string">'preg'</span>, <span class="string">'plas'</span>, <span class="string">'pres'</span>, <span class="string">'skin'</span>, <span class="string">'test'</span>, <span class="string">'mass'</span>, <span class="string">'pedi'</span>, <span class="string">'age'</span>, <span class="string">'class'</span>]</div><div class="line">dataframe = pandas.read_csv(url, names=names)</div><div class="line">array = dataframe.values</div><div class="line">X = array[:,<span class="number">0</span>:<span class="number">8</span>]</div><div class="line">Y = array[:,<span class="number">8</span>]</div><div class="line"><span class="comment"># feature extraction</span></div><div class="line">test = SelectKBest(score_func=chi2, k=<span class="number">4</span>)</div><div class="line">fit = test.fit(X, Y)</div><div class="line"><span class="comment"># summarize scores</span></div><div class="line">print(fit.scores_)  </div><div class="line"><span class="comment">#[111.52 1411.887 17.605 53.108 2175.565 127.669 5.393 181.304]</span></div><div class="line">X_new = fit.transform(X)</div><div class="line">print(X.shape)              <span class="comment">#(768,8)</span></div><div class="line">print(X_new.shape)          <span class="comment">#(768,4)</span></div></pre></td></tr></table></figure></p>
-<h3 id="Principal-Component-Analysis"><a href="#Principal-Component-Analysis" class="headerlink" title="Principal Component Analysis"></a><a href="http://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html" target="_blank" rel="external">Principal Component Analysis</a></h3><p>原理：使用线性代数的方式将数据集进行压缩，本质上，是一种降维方法。<br>举例：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Feature Extraction with PCA</span></div><div class="line"><span class="keyword">import</span> numpy</div><div class="line"><span class="keyword">from</span> pandas <span class="keyword">import</span> read_csv</div><div class="line"><span class="keyword">from</span> sklearn.decomposition <span class="keyword">import</span> PCA</div><div class="line"><span class="comment"># load data</span></div><div class="line">url = <span class="string">"https://archive.ics.uci.edu/ml/machine-learning-databases/pima-indians-diabetes/pima-indians-diabetes.data"</span></div><div class="line">names = [<span class="string">'preg'</span>, <span class="string">'plas'</span>, <span class="string">'pres'</span>, <span class="string">'skin'</span>, <span class="string">'test'</span>, <span class="string">'mass'</span>, <span class="string">'pedi'</span>, <span class="string">'age'</span>, <span class="string">'class'</span>]</div><div class="line">dataframe = read_csv(url, names=names)</div><div class="line">array = dataframe.values</div><div class="line">X = array[:,<span class="number">0</span>:<span class="number">8</span>]</div><div class="line">Y = array[:,<span class="number">8</span>]</div><div class="line"><span class="comment"># feature extraction</span></div><div class="line">pca = PCA(n_components=<span class="number">3</span>)</div><div class="line">fit = pca.fit(X)</div><div class="line"><span class="comment"># summarize components</span></div><div class="line">print(fit.explained_variance_ratio_)</div><div class="line">print(fit.components_)</div><div class="line">X_new = fit.transform(X)</div><div class="line">print(X_new.shape)      <span class="comment">#(768,3)</span></div></pre></td></tr></table></figure></p>
-<h3 id="Recursive-Feature-Elimination-RFE"><a href="#Recursive-Feature-Elimination-RFE" class="headerlink" title="Recursive Feature Elimination (RFE)"></a><a href="http://scikit-learn.org/stable/modules/generated/sklearn.feature_selection.RFE.html#sklearn.feature_selection.RFE" target="_blank" rel="external">Recursive Feature Elimination (RFE)</a></h3><p>原理：递归移除特征，剩余特征重新建模，通过模型准确性识别出贡献度最好的特征。<br>使用方法：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Recursive Feature Elimination</span></div><div class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> datasets</div><div class="line"><span class="keyword">from</span> sklearn.feature_selection <span class="keyword">import</span> RFE</div><div class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LogisticRegression</div><div class="line"><span class="comment"># load the iris datasets</span></div><div class="line">dataset = datasets.load_iris()</div><div class="line"><span class="comment"># create a base classifier used to evaluate a subset of attributes</span></div><div class="line">model = LogisticRegression()</div><div class="line"><span class="comment"># create the RFE model and select 3 attributes</span></div><div class="line">rfe = RFE(model, <span class="number">3</span>)</div><div class="line">rfe = rfe.fit(dataset.data, dataset.target)</div><div class="line"><span class="comment"># summarize the selection of the attributes</span></div><div class="line">print(rfe.support_)     <span class="comment">#[False  True  True  True]</span></div><div class="line">print(rfe.ranking_)     <span class="comment">#[2 1 1 1]</span></div></pre></td></tr></table></figure></p>
-<h3 id="Feature-Importance"><a href="#Feature-Importance" class="headerlink" title="Feature Importance"></a>Feature Importance</h3><p>方法：Random Forest，Extra Trees等基于决策树的ensemble方法，可以直接得到每一个特征的重要性分值，这个分值可以用来做特征选择。查阅手册，了解更多<a href="http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.ExtraTreesClassifier.html" target="_blank" rel="external">ExtraTreesClassifier</a>。<br>举例：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Feature Importance</span></div><div class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> datasets</div><div class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> metrics</div><div class="line"><span class="keyword">from</span> sklearn.ensemble <span class="keyword">import</span> ExtraTreesClassifier</div><div class="line"><span class="comment"># load the iris datasets</span></div><div class="line">dataset = datasets.load_iris()</div><div class="line"><span class="comment"># fit an Extra Trees model to the data</span></div><div class="line">model = ExtraTreesClassifier()</div><div class="line">model.fit(dataset.data, dataset.target)</div><div class="line"><span class="comment"># display the relative importance of each attribute</span></div><div class="line">print(model.feature_importances_)</div></pre></td></tr></table></figure></p>
-<p>总之，特征选择主要有3大类方法，过滤(Filter)，重组(Wrapper)，正则化(如LASSO, Elastic Net and Ridge Regression)。</p>
-<h3 id="番外篇"><a href="#番外篇" class="headerlink" title="番外篇"></a>番外篇</h3> <blockquote class="blockquote-center"><p>A mistake would be to perform feature selection first to prepare your data, then perform model selection and training on the selected features.</p>
-</blockquote>
-<p> 这是进行特征选择，可能会犯的错误，我们需要在交叉验证的内循环中嵌入特征选择，即，对每一折进行特征选择。</p>
-<p> 另附一份特征选择清单(Checklist)：<br> <img src="/images/feature_selection.png" alt="checklist"><br> 文献阅读：<a href="http://jmlr.csail.mit.edu/papers/volume3/guyon03a/guyon03a.pdf" target="_blank" rel="external">An Introduction to Variable and Feature Selection</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote class=&quot;blockquote-center&quot;&gt;&lt;h3 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h3&gt;&lt;p&gt;特征选择是&lt;a href=&quot;http://phoebepan.cn/2017/04/28/feature%20selection/&quot;&gt;特征工程&lt;/a&gt;相对重要的一环节，太多不相关的特征会降低模型的准确性，特征选择，可以有效降低过拟合、训练时间等问题。本文简单介绍使用Scikit-Learn做特征选择。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="Machine Learning" scheme="http://www.phoebepan.cn/categories/Machine-Learning/"/>
-    
-    
-      <category term="ML" scheme="http://www.phoebepan.cn/tags/ML/"/>
-    
-      <category term="Feature Selection" scheme="http://www.phoebepan.cn/tags/Feature-Selection/"/>
     
   </entry>
   
