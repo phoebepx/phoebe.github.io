@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="ML,Feature Engineering," />
+  <meta name="keywords" content="ML," />
 
 
 
@@ -89,20 +89,18 @@
 
 
 
-<meta name="description" content="简介特征工程，是机器学习过程中最富有想象空间的环节，你可以大胆开脑洞。业界广为流传的一句话：数据和特征决定机器学习上限，而模型和算法只是逼近这个上限而已。本文只是简单介绍特征工程打开思路的一般套路。">
+<meta name="description" content="稀疏表示文档分类时，每个文档当作一个样本，文档中的每个词作为一个特征，这往往会得到很高维的矩阵，而且矩阵中每一行都有大量的零元素，且每行零元素出现的列分布不同，具有这样的稀疏表达形式的矩阵，对学习任务来说是有好处的(可以当做线性可分问题处理)。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="机器学习WorkFlow——Feature Engineering">
-<meta property="og:url" content="http://www.phoebepan.cn/2017/04/28/feature_engineering/index.html">
+<meta property="og:title" content="稀疏表示与字典学习">
+<meta property="og:url" content="http://www.phoebepan.cn/2017/06/01/SpaseL/index.html">
 <meta property="og:site_name" content="技忆">
-<meta property="og:description" content="简介特征工程，是机器学习过程中最富有想象空间的环节，你可以大胆开脑洞。业界广为流传的一句话：数据和特征决定机器学习上限，而模型和算法只是逼近这个上限而已。本文只是简单介绍特征工程打开思路的一般套路。">
-<meta property="og:image" content="http://www.phoebepan.cn/images/feature.png">
-<meta property="og:image" content="http://www.phoebepan.cn/images/feature_engineering.jpg">
-<meta property="og:image" content="http://www.phoebepan.cn/images/feature_engineering_1.png">
-<meta property="og:updated_time" content="2017-07-21T13:44:46.000Z">
+<meta property="og:description" content="稀疏表示文档分类时，每个文档当作一个样本，文档中的每个词作为一个特征，这往往会得到很高维的矩阵，而且矩阵中每一行都有大量的零元素，且每行零元素出现的列分布不同，具有这样的稀疏表达形式的矩阵，对学习任务来说是有好处的(可以当做线性可分问题处理)。">
+<meta property="og:image" content="http://www.phoebepan.cn/images/spase.png">
+<meta property="og:updated_time" content="2017-08-03T23:07:13.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="机器学习WorkFlow——Feature Engineering">
-<meta name="twitter:description" content="简介特征工程，是机器学习过程中最富有想象空间的环节，你可以大胆开脑洞。业界广为流传的一句话：数据和特征决定机器学习上限，而模型和算法只是逼近这个上限而已。本文只是简单介绍特征工程打开思路的一般套路。">
-<meta name="twitter:image" content="http://www.phoebepan.cn/images/feature.png">
+<meta name="twitter:title" content="稀疏表示与字典学习">
+<meta name="twitter:description" content="稀疏表示文档分类时，每个文档当作一个样本，文档中的每个词作为一个特征，这往往会得到很高维的矩阵，而且矩阵中每一行都有大量的零元素，且每行零元素出现的列分布不同，具有这样的稀疏表达形式的矩阵，对学习任务来说是有好处的(可以当做线性可分问题处理)。">
+<meta name="twitter:image" content="http://www.phoebepan.cn/images/spase.png">
 
 
 
@@ -130,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="http://www.phoebepan.cn/2017/04/28/feature_engineering/"/>
+  <link rel="canonical" href="http://www.phoebepan.cn/2017/06/01/SpaseL/"/>
 
 
 
 
 
-  <title> 机器学习WorkFlow——Feature Engineering | 技忆 </title>
+  <title> 稀疏表示与字典学习 | 技忆 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -335,7 +333,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://www.phoebepan.cn/2017/04/28/feature_engineering/">
+    <link itemprop="mainEntityOfPage" href="http://www.phoebepan.cn/2017/06/01/SpaseL/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Phoebe">
@@ -356,7 +354,7 @@
             
             
               
-                机器学习WorkFlow——Feature Engineering
+                稀疏表示与字典学习
               
             
           </h1>
@@ -371,8 +369,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-28T15:30:16+08:00">
-                2017-04-28
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-01T15:30:16+08:00">
+                2017-06-01
               </time>
             
 
@@ -412,8 +410,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/04/28/feature_engineering/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/04/28/feature_engineering/" itemprop="commentCount"></span>
+                <a href="/2017/06/01/SpaseL/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/06/01/SpaseL/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -421,7 +419,7 @@
 
           
           
-             <span id="/2017/04/28/feature_engineering/" class="leancloud_visitors" data-flag-title="机器学习WorkFlow——Feature Engineering">
+             <span id="/2017/06/01/SpaseL/" class="leancloud_visitors" data-flag-title="稀疏表示与字典学习">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -450,7 +448,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  158
+                  532
                 </span>
               
 
@@ -466,7 +464,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长" }}">
-                  1
+                  2
                 </span>
               
             </div>
@@ -485,11 +483,11 @@
       
 
       
-        <blockquote class="blockquote-center"><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>特征工程，是机器学习过程中最富有想象空间的环节，你可以大胆开脑洞。业界广为流传的一句话：数据和特征决定机器学习上限，而模型和算法只是逼近这个上限而已。本文只是简单介绍特征工程打开思路的一般套路。</p>
-</blockquote>
-<a id="more"></a>
-<p>提到特征工程，脑海中该有的框架，如下图所示：<br><img src="/images/feature.png" alt="feature_engineering"><br>具体特征工程做些什么，可参考这篇博文，查阅请点击<a href="http://www.cnblogs.com/jasonfreak/p/5448385.html" target="_blank" rel="external">这里</a>。<br><img src="/images/feature_engineering.jpg" alt="feature_engineering"></p>
-<p>下面是目前自己在特征工程环节，经常考虑的几个方面：<br><img src="/images/feature_engineering_1.png" alt="feature_engineering"></p>
+        <h3 id="稀疏表示"><a href="#稀疏表示" class="headerlink" title="稀疏表示"></a>稀疏表示</h3><p>文档分类时，每个文档当作一个样本，文档中的每个词作为一个特征，这往往会得到很高维的矩阵，而且矩阵中每一行都有大量的零元素，且每行零元素出现的列分布不同，具有这样的<strong>稀疏表达</strong>形式的矩阵，对学习任务来说是有好处的(可以当做线性可分问题处理)。<br><a id="more"></a></p>
+<h3 id="字典学习"><a href="#字典学习" class="headerlink" title="字典学习"></a>字典学习</h3><p>如果将稠密的数据集转化成<strong>稀疏表示</strong>形式，使得数据集<strong>“恰当稀疏”</strong>，从而享受稀疏性的好处。那么问题来了，如何实现这种转化呢？<br>在上面的文本分类中提到的矩阵，常常是高维的，过度稀疏的，如果我们借鉴下“字典”的结构，将字的特征维度根据字典转化成合适的稀疏特征表示形式，就可以简化学习任务，模型复杂度大大降低，这样的过程称为<strong>“字典学习”</strong>。字典学习形式如下，<img src="/images/spase.png" alt="spase"><br>，样本x<sub>i</sub>通过字典矩阵B得到的稀疏表示$ \alpha $<sub>i</sub>。我们可以通过设置字典的维度，从而控制稀疏程度。<br>求解过程有很多，常用的有KSVD等</p>
+<h3 id="压缩感知"><a href="#压缩感知" class="headerlink" title="压缩感知"></a>压缩感知</h3><p>我们常常希望根据部分信息来恢复全部信息，如，数据通信中要将数字信号还原成模拟信号，部分用户对电影的评价数据等，如何精确的重构出这样的信息呢？<br>针对这类问题，压缩感知提供了新的思路。<br>压缩感知关注的是如何利用数据本身的所具有的稀疏性，从部分观测样本中恢复原来缺失的信息。主要涉及两个过程，<strong>稀疏表示</strong>、<strong>矩阵补全</strong>。能够通过压缩感知技术恢复补全信息的前提条件之一是原始数据(部分信息)有稀疏表示。</p>
+<h4 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h4><p>人脸识别的鲁棒主成分分析、基于矩阵补全的协同过滤……</p>
+<p>[1]. 周志华.《机器学习》</p>
 
       
     </div>
@@ -497,7 +495,7 @@
   
     <div class="copyright">
     <p><span>
-    <b>本文地址：</b><a href="/2017/04/28/feature_engineering/" title="机器学习WorkFlow——Feature Engineering">http://www.phoebepan.cn/2017/04/28/feature_engineering/</a><br /><b>转载请注明出处，谢谢！</b>
+    <b>本文地址：</b><a href="/2017/06/01/SpaseL/" title="稀疏表示与字典学习">http://www.phoebepan.cn/2017/06/01/SpaseL/</a><br /><b>转载请注明出处，谢谢！</b>
     </span></p>
     </div>
   
@@ -524,8 +522,6 @@
           
             <a href="/tags/ML/" rel="tag"># ML</a>
           
-            <a href="/tags/Feature-Engineering/" rel="tag"># Feature Engineering</a>
-          
         </div>
       
 
@@ -537,8 +533,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/04/27/data_clean/" rel="next" title="机器学习WorkFlow——Data cleaning">
-                <i class="fa fa-chevron-left"></i> 机器学习WorkFlow——Data cleaning
+              <a href="/2017/05/23/ML_good_bad/" rel="next" title="机器学习经典算法优缺点总结">
+                <i class="fa fa-chevron-left"></i> 机器学习经典算法优缺点总结
               </a>
             
           </div>
@@ -547,8 +543,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/04/29/train_model/" rel="prev" title="机器学习WorkFlow——Model training">
-                机器学习WorkFlow——Model training <i class="fa fa-chevron-right"></i>
+              <a href="/2017/06/05/Imbalanced_data/" rel="prev" title="阅读笔记——7 Techniques to Handle Imbalanced Data">
+                阅读笔记——7 Techniques to Handle Imbalanced Data <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -799,7 +795,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#稀疏表示"><span class="nav-number">1.</span> <span class="nav-text">稀疏表示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字典学习"><span class="nav-number">2.</span> <span class="nav-text">字典学习</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#压缩感知"><span class="nav-number">3.</span> <span class="nav-text">压缩感知</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#应用"><span class="nav-number">3.1.</span> <span class="nav-text">应用</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -963,9 +959,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'phoebepanx';
-      var disqus_identifier = '2017/04/28/feature_engineering/';
+      var disqus_identifier = '2017/06/01/SpaseL/';
 
-      var disqus_title = "机器学习WorkFlow——Feature Engineering";
+      var disqus_title = "稀疏表示与字典学习";
 
 
       function run_disqus_script(disqus_script) {

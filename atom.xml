@@ -251,11 +251,38 @@
   </entry>
   
   <entry>
+    <title>稀疏表示与字典学习</title>
+    <link href="http://www.phoebepan.cn/2017/06/01/SpaseL/"/>
+    <id>http://www.phoebepan.cn/2017/06/01/SpaseL/</id>
+    <published>2017-06-01T07:30:16.000Z</published>
+    <updated>2017-08-03T23:07:13.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="稀疏表示"><a href="#稀疏表示" class="headerlink" title="稀疏表示"></a>稀疏表示</h3><p>文档分类时，每个文档当作一个样本，文档中的每个词作为一个特征，这往往会得到很高维的矩阵，而且矩阵中每一行都有大量的零元素，且每行零元素出现的列分布不同，具有这样的<strong>稀疏表达</strong>形式的矩阵，对学习任务来说是有好处的(可以当做线性可分问题处理)。<br><a id="more"></a></p>
+<h3 id="字典学习"><a href="#字典学习" class="headerlink" title="字典学习"></a>字典学习</h3><p>如果将稠密的数据集转化成<strong>稀疏表示</strong>形式，使得数据集<strong>“恰当稀疏”</strong>，从而享受稀疏性的好处。那么问题来了，如何实现这种转化呢？<br>在上面的文本分类中提到的矩阵，常常是高维的，过度稀疏的，如果我们借鉴下“字典”的结构，将字的特征维度根据字典转化成合适的稀疏特征表示形式，就可以简化学习任务，模型复杂度大大降低，这样的过程称为<strong>“字典学习”</strong>。字典学习形式如下，<img src="/images/spase.png" alt="spase"><br>，样本x<sub>i</sub>通过字典矩阵B得到的稀疏表示$ \alpha $<sub>i</sub>。我们可以通过设置字典的维度，从而控制稀疏程度。<br>求解过程有很多，常用的有KSVD等</p>
+<h3 id="压缩感知"><a href="#压缩感知" class="headerlink" title="压缩感知"></a>压缩感知</h3><p>我们常常希望根据部分信息来恢复全部信息，如，数据通信中要将数字信号还原成模拟信号，部分用户对电影的评价数据等，如何精确的重构出这样的信息呢？<br>针对这类问题，压缩感知提供了新的思路。<br>压缩感知关注的是如何利用数据本身的所具有的稀疏性，从部分观测样本中恢复原来缺失的信息。主要涉及两个过程，<strong>稀疏表示</strong>、<strong>矩阵补全</strong>。能够通过压缩感知技术恢复补全信息的前提条件之一是原始数据(部分信息)有稀疏表示。</p>
+<h4 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h4><p>人脸识别的鲁棒主成分分析、基于矩阵补全的协同过滤……</p>
+<p>[1]. 周志华.《机器学习》</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;稀疏表示&quot;&gt;&lt;a href=&quot;#稀疏表示&quot; class=&quot;headerlink&quot; title=&quot;稀疏表示&quot;&gt;&lt;/a&gt;稀疏表示&lt;/h3&gt;&lt;p&gt;文档分类时，每个文档当作一个样本，文档中的每个词作为一个特征，这往往会得到很高维的矩阵，而且矩阵中每一行都有大量的零元素，且每行零元素出现的列分布不同，具有这样的&lt;strong&gt;稀疏表达&lt;/strong&gt;形式的矩阵，对学习任务来说是有好处的(可以当做线性可分问题处理)。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Machine Learning" scheme="http://www.phoebepan.cn/categories/Machine-Learning/"/>
+    
+    
+      <category term="ML" scheme="http://www.phoebepan.cn/tags/ML/"/>
+    
+  </entry>
+  
+  <entry>
     <title>机器学习经典算法优缺点总结</title>
     <link href="http://www.phoebepan.cn/2017/05/23/ML_good_bad/"/>
     <id>http://www.phoebepan.cn/2017/05/23/ML_good_bad/</id>
     <published>2017-05-23T07:30:16.000Z</published>
-    <updated>2017-08-01T23:06:56.000Z</updated>
+    <updated>2017-08-03T22:56:04.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote class="blockquote-center"><p>简介<br>机器学习大多数场景是搜索、广告、垃圾过滤、安全、推荐系统等等。本文是经典机器学习算法的优劣势比较，欢迎纠正。</p>
 </blockquote>
@@ -433,8 +460,9 @@
 <p>EM算法与初值的选择有关，不同初值，得到不同参数估计；</p>
 </blockquote>
 <h3 id="归一化使梯度下降收敛更好？"><a href="#归一化使梯度下降收敛更好？" class="headerlink" title="归一化使梯度下降收敛更好？"></a>归一化使梯度下降收敛更好？</h3><blockquote>
-<p>如果不归一化，各维特征的跨度差距很大，梯度下降时，目标函数梯度方向就会偏离最小值的方向，走很多弯路，如下方左图。<br>如果归一化了，每一步梯度的方向都指向最小值，收敛更快，如下方右图。<br><img src="/images/descend.png" alt="descend"></p>
+<p>如果不归一化，各维特征的跨度差距很大，梯度下降时，目标函数梯度方向就会偏离最小值的方向，走很多弯路，如下方左图。<br>如果归一化了，每一步梯度的方向都指向最小值，收敛更快，如下方右图。</p>
 </blockquote>
+<p><img src="/images/descend.png" alt="descend"></p>
 <h3 id="算法横向比较"><a href="#算法横向比较" class="headerlink" title="算法横向比较"></a>算法横向比较</h3><h4 id="LR与Linear-SVM"><a href="#LR与Linear-SVM" class="headerlink" title="LR与Linear SVM"></a>LR与Linear SVM</h4><ul>
 <li>都是线性分类器；</li>
 <li>都会受到异常点影响；</li>
@@ -444,6 +472,12 @@
 <li>Linear SVM自带正则，而LR需另加；</li>
 <li>海量数据LR使用更广泛，Linear SVM内存消耗大</li>
 </ul>
+<h4 id="LR与朴素贝叶斯"><a href="#LR与朴素贝叶斯" class="headerlink" title="LR与朴素贝叶斯"></a>LR与朴素贝叶斯</h4><ul>
+<li>判别/生成model；</li>
+<li>朴素贝叶斯条件独立假设；</li>
+<li>当数据集小时，首选朴素贝叶斯，数据集大时，考虑LR</li>
+</ul>
+<h3 id="附两份cheat-sheet"><a href="#附两份cheat-sheet" class="headerlink" title="附两份cheat sheet"></a>附两份cheat sheet</h3><p><img src="/images/sk-learn.png" alt="sk-learn"><br><img src="/images/cheat sheet.png" alt="cheat sheet"></p>
 ]]></content>
     
     <summary type="html">
@@ -1133,37 +1167,6 @@
       <category term="Mathematics in ML" scheme="http://www.phoebepan.cn/tags/Mathematics-in-ML/"/>
     
       <category term="Model" scheme="http://www.phoebepan.cn/tags/Model/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>凸优化</title>
-    <link href="http://www.phoebepan.cn/2017/05/01/convex/"/>
-    <id>http://www.phoebepan.cn/2017/05/01/convex/</id>
-    <published>2017-05-01T07:30:16.000Z</published>
-    <updated>2017-07-27T15:35:04.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote class="blockquote-center"><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>机器学习中常用到数学优化技巧，最常见的优化就属凸优化了，本文参考Stanford CS229 Machine Learning的教学资料：<a href="http://cs229.stanford.edu/section/cs229-cvxopt.pdf" target="_blank" rel="external">http://cs229.stanford.edu/section/cs229-cvxopt.pdf</a>，对凸优化问题的初步认识，以下是几个重要的概念笔记。</p>
-</blockquote>
-<a id="more"></a>
-<h3 id="凸集"><a href="#凸集" class="headerlink" title="凸集"></a>凸集</h3><p><strong>几何意义</strong>为，集合C中任意两点间的线段仍然在C中，其示意图如下：<img src="/images/convex.png" alt="convex set"><br><strong>数学定义</strong>，对任意x<sub>1</sub>,x<sub>2</sub>$ \epsilon C$,$0 \leq \Theta \leq 1$，都有<img src="/images/convexf.png" alt="convexf"><br>常见的凸集有，n维实数空间；一些范数约束形式的集合；仿射子空间；凸集的交集；n维半正定矩阵集。</p>
-<h3 id="凸函数"><a href="#凸函数" class="headerlink" title="凸函数"></a>凸函数</h3><p><strong>几何意义</strong>为，函数任意两点连线上的值大于对应自变量处的函数值，示例图如下：<img src="/images/convex_function.jpg" alt="convex_function"><br><strong>数学定义</strong>，如果函数定义域(dom f)是凸集，且对于任意$x,y\epsilon dom f$和任意$0\leq \Theta \leq 1$，有$$f(\Theta x+(1-\Theta )y)\leq \Theta f(x)+(1-\Theta )f(y).$$<br>常见的凸函数有，指数函数族；非负对数函数；仿射函数；二次函数；常见的范数函数；凸函数非负加权的和等</p>
-<h3 id="凸优化问题"><a href="#凸优化问题" class="headerlink" title="凸优化问题"></a>凸优化问题</h3><p>研究定义于<code>凸集</code>中的<code>凸函数</code>最小化问题。它要求<strong>目标函数是凸函数</strong>，<strong>变量所属集合是凸集</strong>的优化问题。或者目标函数是凸函数，<strong>变量约束函数是凸函数（不等式），或仿射函数（等式约束）</strong><br><strong>数学定义</strong><br><img src="/images/convex_prob.jpg" alt="convex_prob"><br>常见的凸优化问题有，线性规划、二次规划、二次约束的二次规划、半正定规划。</p>
-<h3 id="对偶"><a href="#对偶" class="headerlink" title="对偶"></a>对偶</h3><p>在约束最优化问题中，常常利用拉格朗日对偶性将原始问题转换成对偶问题，通过解对偶问题而得到原始问题的解。这样做的优点是对偶问题往往更容易求解。<br>Lagrange对偶的基本思想是在目标函数中考虑上图中的约束条件，也就是添加约束条件的加权和，得到增广的目标函数。定义上面问题的Lagrange函数<img src="/images/lagr.png" alt="lagr"></p>
-<h3 id="附：仿射函数"><a href="#附：仿射函数" class="headerlink" title="附：仿射函数"></a>附：仿射函数</h3><p>如果f(x)=a·x+b，$a \epsilon R^{n},b\epsilon R,x \epsilon R^{n}$，则f(x)为仿射函数。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote class=&quot;blockquote-center&quot;&gt;&lt;h3 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h3&gt;&lt;p&gt;机器学习中常用到数学优化技巧，最常见的优化就属凸优化了，本文参考Stanford CS229 Machine Learning的教学资料：&lt;a href=&quot;http://cs229.stanford.edu/section/cs229-cvxopt.pdf&quot;&gt;http://cs229.stanford.edu/section/cs229-cvxopt.pdf&lt;/a&gt;，对凸优化问题的初步认识，以下是几个重要的概念笔记。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="Mathematics in ML" scheme="http://www.phoebepan.cn/categories/Mathematics-in-ML/"/>
-    
-    
-      <category term="Mathematics in ML" scheme="http://www.phoebepan.cn/tags/Mathematics-in-ML/"/>
     
   </entry>
   
