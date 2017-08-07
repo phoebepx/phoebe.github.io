@@ -251,6 +251,62 @@
   </entry>
   
   <entry>
+    <title>降维——PCA和LDA</title>
+    <link href="http://www.phoebepan.cn/2017/06/02/pca_lda/"/>
+    <id>http://www.phoebepan.cn/2017/06/02/pca_lda/</id>
+    <published>2017-06-02T07:30:16.000Z</published>
+    <updated>2017-08-07T14:40:12.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote class="blockquote-center"><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>所有机器学习方法共同面临的，在高维情况下出现的数据样本稀疏、距离计算困难等问题，被称为“维度灾难”，李航老师在他的博客《机器学习新动向：从人机交互中》中提到，学习精度越高，学习确信度越高，学习模型越复杂，所需要的样本也就越多。特征太多会造成模型复杂，缓解这一问题的一个重要途径是<strong>降维</strong>，将原高维空间中的数据点映射到低维的空间。</p>
+</blockquote>
+<a id="more"></a>
+<h3 id="降维"><a href="#降维" class="headerlink" title="降维"></a>降维</h3><p>原始高维空间数据表示中包含冗余以及噪音信息，而降低准确率，通过降维减少冗余信息，提高精度。基于线性变换来进行降维的方法称为线性降维方法，通过对变换矩阵施加不同的约束，对低维子空间的性质的不同要求，可以得到多种线性降维方法。<br>对降维效果的<strong>评估</strong>，通常是比较降维前后学习器的性能，若性能有所提高，则认为降维起作用了。若维度降至二或三维，则可以通过可视化技术直观地判断降维效果。</p>
+<h3 id="PCA"><a href="#PCA" class="headerlink" title="PCA"></a>PCA</h3><p>目标：逐个寻找超平面，将样本投射到这个超平面后使得各样本点间方差最大。</p>
+<blockquote>
+<p>若存在这样的超平面，那么它大概要具有的性质：<br><strong>最近重构性</strong>，样本点到这个超平面的距离都足够近；<br><strong>最大可分性</strong>，样本点在这个超平面上的投影能尽可能分开。</p>
+</blockquote>
+<p>PCA追求的是在降维后能够最大化保持数据内在信息，并通过衡量在投影方向上的数据方差的大小来衡量该方向的重要性。</p>
+<p>算法：</p>
+<hr>
+<p>输入：样本数据集D={x<sub>1</sub>,x<sub>2</sub>,…,x<sub>m</sub>};<br>:  低维空间维度d’ </p>
+<p>输出：变换矩阵W=(w<sub>1</sub>,w<sub>2</sub>,…,w<sub>d’</sub>)<br>过程：</p>
+<ol>
+<li>对所有样本进行中心化；</li>
+<li>计算样本的协方差矩阵XX<sup>T</sup>；</li>
+<li>对协方差矩阵XX<sup>T</sup>做特征值分解；</li>
+<li>取最大的d’个特征值所对应的特征向量w<sub>1</sub>,w<sub>2</sub>,…,w<sub>d’</sub>.</li>
+</ol>
+<hr>
+<blockquote>
+<p><strong>决定降维维度/主成分个数</strong><br>用户指定；<br>重构角度设定阈值；<br>不同d’维空间+学习器(开销较小)进行交叉验证选取；</p>
+</blockquote>
+<p><code>不要盲目PCA，当在原数据有了一个比较好的结果，想进一步提升速度时可考虑PCA。</code></p>
+<h3 id="LDA"><a href="#LDA" class="headerlink" title="LDA"></a>LDA</h3><p>目标：找到一个超平面，样本点映射在超平面使得相同类别点尽可能靠近，不同类别数据尽可能远。</p>
+<p>PCA是无监督线性降维方法，LDA是有监督的线性降维方法。</p>
+<p>区别：如下图中两堆点是两类的话，LDA会选择轴1，PCA会是轴2<br><img src="/images/pca.jpg" alt="pca"></p>
+<h3 id="核化线性降维"><a href="#核化线性降维" class="headerlink" title="核化线性降维"></a>核化线性降维</h3><p>非线性降维常用的方法，是基于核技巧对线性降维方法进行“核化”，将原数据映射到高维特征空间，再在特征空间实施降维。</p>
+<p>参考文献：</p>
+<ol>
+<li>李航，<a href="http://blog.sina.com.cn/s/blog_7ad48fee01016d25.html" target="_blank" rel="external">《机器学习新动向：从人机交互中》</a></li>
+<li>周志华，《机器学习》</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote class=&quot;blockquote-center&quot;&gt;&lt;h3 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h3&gt;&lt;p&gt;所有机器学习方法共同面临的，在高维情况下出现的数据样本稀疏、距离计算困难等问题，被称为“维度灾难”，李航老师在他的博客《机器学习新动向：从人机交互中》中提到，学习精度越高，学习确信度越高，学习模型越复杂，所需要的样本也就越多。特征太多会造成模型复杂，缓解这一问题的一个重要途径是&lt;strong&gt;降维&lt;/strong&gt;，将原高维空间中的数据点映射到低维的空间。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="Machine Learning" scheme="http://www.phoebepan.cn/categories/Machine-Learning/"/>
+    
+    
+      <category term="ML" scheme="http://www.phoebepan.cn/tags/ML/"/>
+    
+  </entry>
+  
+  <entry>
     <title>稀疏表示与字典学习</title>
     <link href="http://www.phoebepan.cn/2017/06/01/SpaseL/"/>
     <id>http://www.phoebepan.cn/2017/06/01/SpaseL/</id>
@@ -1107,39 +1163,6 @@
     
     
       <category term="Regular Expression" scheme="http://www.phoebepan.cn/tags/Regular-Expression/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>如何决定K-Means聚类个数——silhouette analysis</title>
-    <link href="http://www.phoebepan.cn/2017/05/05/silhouette%20analysis/"/>
-    <id>http://www.phoebepan.cn/2017/05/05/silhouette analysis/</id>
-    <published>2017-05-05T07:30:16.000Z</published>
-    <updated>2017-06-12T23:44:18.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote class="blockquote-center"><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>在K-Means聚类时，我们常常会纠结，K该取多大呢？今天无意当中查看Sklearn时，发现了<code>silhouette analysis</code>，翻译过来，就是轮廓分析，具体来说，就是通过结果簇之间的分隔距离来辅助决定K的取值。偷个懒，直接参照手册，学习下。</p>
-</blockquote>
-<a id="more"></a>
-<h3 id="数据集分布"><a href="#数据集分布" class="headerlink" title="数据集分布"></a>数据集分布</h3><p>下图是500个样本含有2个feature的数据分布情况：<br><img src="/images/scatter.png" alt="scatter"></p>
-<h3 id="轮廓系数"><a href="#轮廓系数" class="headerlink" title="轮廓系数"></a>轮廓系数</h3><p>接下来看下，n_clusters 分别为 2，3，4，5，6时，平均的轮廓分值（结果簇之间平均的分隔距离）如下，这个轮廓分值是介于[-1,1]之间的度量指标。每次聚类后，每个样本都会得到一个轮廓系数，当它为1时，说明这个点与周围簇距离较远，结果非常好，当它为0，说明这个点可能处在两个簇的边界上，当值为负时，暗含该点可能被误分了。<br>从平均轮廓分值结果来看，K取3，5，6是不明智的。对于2,4的选择还是有点纠结的，因为它们值相差并不大。</p>
-<blockquote>
-<p>For n_clusters = 2 The average silhouette_score is : 0.704978749608<br>For n_clusters = 3 The average silhouette_score is : 0.588200401213<br>For n_clusters = 4 The average silhouette_score is : 0.650518663273<br>For n_clusters = 5 The average silhouette_score is : 0.563764690262<br>For n_clusters = 6 The average silhouette_score is : 0.450466629437</p>
-</blockquote>
-<h3 id="轮廓宽度"><a href="#轮廓宽度" class="headerlink" title="轮廓宽度"></a>轮廓宽度</h3><p>下面是簇为2,3,4,5,6相对应的轮廓图，左图可以看出，当n_clusters = 2时，第0簇的宽度远宽于第1簇，但n_clusters = 4时，所聚的簇宽度相差不大，这样分析下来，自然而然会选择K=4，作为最终聚类个数。<br><img src="/images/figure_1.png" alt="figure1"><br><img src="/images/figure_2.png" alt="figure2"><br><img src="/images/figure_3.png" alt="figure3"><br><img src="/images/figure_4.png" alt="figure4"><br><img src="/images/figure_5.png" alt="figure5"></p>
-<p>本例参考官方手册，<a href="http://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_silhouette_analysis.html#sphx-glr-auto-examples-cluster-plot-kmeans-silhouette-analysis-py" target="_blank" rel="external">详情戳这</a></p>
-<h3 id="附脚本"><a href="#附脚本" class="headerlink" title="附脚本"></a>附脚本</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> make_blobs</div><div class="line"><span class="keyword">from</span> sklearn.cluster <span class="keyword">import</span> KMeans</div><div class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> silhouette_samples, silhouette_score</div><div class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</div><div class="line"><span class="keyword">import</span> matplotlib.cm <span class="keyword">as</span> cm</div><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"><span class="comment"># Generating the sample data from make_blobs</span></div><div class="line"><span class="comment"># This particular setting has one distinct cluster and 3 clusters placed close</span></div><div class="line"><span class="comment"># together.</span></div><div class="line">X, y = make_blobs(n_samples=<span class="number">500</span>,</div><div class="line">                  n_features=<span class="number">2</span>,</div><div class="line">                  centers=<span class="number">4</span>,</div><div class="line">                  cluster_std=<span class="number">1</span>,</div><div class="line">                  center_box=(<span class="number">-10.0</span>, <span class="number">10.0</span>),</div><div class="line">                  shuffle=<span class="keyword">True</span>,</div><div class="line">                  random_state=<span class="number">1</span>)  <span class="comment"># For reproducibility</span></div><div class="line"></div><div class="line">range_n_clusters = [<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]</div><div class="line"></div><div class="line"><span class="keyword">for</span> n_clusters <span class="keyword">in</span> range_n_clusters:</div><div class="line">    <span class="comment"># Create a subplot with 1 row and 2 columns</span></div><div class="line">    fig, (ax1, ax2) = plt.subplots(<span class="number">1</span>, <span class="number">2</span>)</div><div class="line">    fig.set_size_inches(<span class="number">18</span>, <span class="number">7</span>)</div><div class="line"></div><div class="line">    <span class="comment"># The 1st subplot is the silhouette plot</span></div><div class="line">    <span class="comment"># The silhouette coefficient can range from -1, 1 but in this example all</span></div><div class="line">    <span class="comment"># lie within [-0.1, 1]</span></div><div class="line">    ax1.set_xlim([<span class="number">-0.1</span>, <span class="number">1</span>])</div><div class="line">    <span class="comment"># The (n_clusters+1)*10 is for inserting blank space between silhouette</span></div><div class="line">    <span class="comment"># plots of individual clusters, to demarcate them clearly.</span></div><div class="line">    ax1.set_ylim([<span class="number">0</span>, len(X) + (n_clusters + <span class="number">1</span>) * <span class="number">10</span>])</div><div class="line"></div><div class="line">    <span class="comment"># Initialize the clusterer with n_clusters value and a random generator</span></div><div class="line">    <span class="comment"># seed of 10 for reproducibility.</span></div><div class="line">    clusterer = KMeans(n_clusters=n_clusters, random_state=<span class="number">10</span>)</div><div class="line">    cluster_labels = clusterer.fit_predict(X)</div><div class="line"></div><div class="line">    <span class="comment"># The silhouette_score gives the average value for all the samples.</span></div><div class="line">    <span class="comment"># This gives a perspective into the density and separation of the formed</span></div><div class="line">    <span class="comment"># clusters</span></div><div class="line">    silhouette_avg = silhouette_score(X, cluster_labels)</div><div class="line">    print(<span class="string">"For n_clusters ="</span>, n_clusters,</div><div class="line">          <span class="string">"The average silhouette_score is :"</span>, silhouette_avg)</div><div class="line"></div><div class="line">    <span class="comment"># Compute the silhouette scores for each sample</span></div><div class="line">    sample_silhouette_values = silhouette_samples(X, cluster_labels)</div><div class="line"></div><div class="line">    y_lower = <span class="number">10</span></div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(n_clusters):</div><div class="line">        <span class="comment"># Aggregate the silhouette scores for samples belonging to</span></div><div class="line">        <span class="comment"># cluster i, and sort them</span></div><div class="line">        ith_cluster_silhouette_values = \</div><div class="line">            sample_silhouette_values[cluster_labels == i]</div><div class="line"></div><div class="line">        ith_cluster_silhouette_values.sort()</div><div class="line"></div><div class="line">        size_cluster_i = ith_cluster_silhouette_values.shape[<span class="number">0</span>]</div><div class="line">        y_upper = y_lower + size_cluster_i</div><div class="line"></div><div class="line">        color = cm.spectral(float(i) / n_clusters)</div><div class="line">        ax1.fill_betweenx(np.arange(y_lower, y_upper),</div><div class="line">                          <span class="number">0</span>, ith_cluster_silhouette_values,</div><div class="line">                          facecolor=color, edgecolor=color, alpha=<span class="number">0.7</span>)</div><div class="line"></div><div class="line">        <span class="comment"># Label the silhouette plots with their cluster numbers at the middle</span></div><div class="line">        ax1.text(<span class="number">-0.05</span>, y_lower + <span class="number">0.5</span> * size_cluster_i, str(i))</div><div class="line"></div><div class="line">        <span class="comment"># Compute the new y_lower for next plot</span></div><div class="line">        y_lower = y_upper + <span class="number">10</span>  <span class="comment"># 10 for the 0 samples</span></div><div class="line"></div><div class="line">    ax1.set_title(<span class="string">"The silhouette plot for the various clusters."</span>)</div><div class="line">    ax1.set_xlabel(<span class="string">"The silhouette coefficient values"</span>)</div><div class="line">    ax1.set_ylabel(<span class="string">"Cluster label"</span>)</div><div class="line"></div><div class="line">    <span class="comment"># The vertical line for average silhouette score of all the values</span></div><div class="line">    ax1.axvline(x=silhouette_avg, color=<span class="string">"red"</span>, linestyle=<span class="string">"--"</span>)</div><div class="line"></div><div class="line">    ax1.set_yticks([])  <span class="comment"># Clear the yaxis labels / ticks</span></div><div class="line">    ax1.set_xticks([<span class="number">-0.1</span>, <span class="number">0</span>, <span class="number">0.2</span>, <span class="number">0.4</span>, <span class="number">0.6</span>, <span class="number">0.8</span>, <span class="number">1</span>])</div><div class="line"></div><div class="line">    <span class="comment"># 2nd Plot showing the actual clusters formed</span></div><div class="line">    colors = cm.spectral(cluster_labels.astype(float) / n_clusters)</div><div class="line">    ax2.scatter(X[:, <span class="number">0</span>], X[:, <span class="number">1</span>], marker=<span class="string">'.'</span>, s=<span class="number">30</span>, lw=<span class="number">0</span>, alpha=<span class="number">0.7</span>,</div><div class="line">                c=colors)</div><div class="line"></div><div class="line">    <span class="comment"># Labeling the clusters</span></div><div class="line">    centers = clusterer.cluster_centers_</div><div class="line">    <span class="comment"># Draw white circles at cluster centers</span></div><div class="line">    ax2.scatter(centers[:, <span class="number">0</span>], centers[:, <span class="number">1</span>],</div><div class="line">                marker=<span class="string">'o'</span>, c=<span class="string">"white"</span>, alpha=<span class="number">1</span>, s=<span class="number">200</span>)</div><div class="line"></div><div class="line">    <span class="keyword">for</span> i, c <span class="keyword">in</span> enumerate(centers):</div><div class="line">        ax2.scatter(c[<span class="number">0</span>], c[<span class="number">1</span>], marker=<span class="string">'$%d$'</span> % i, alpha=<span class="number">1</span>, s=<span class="number">50</span>)</div><div class="line"></div><div class="line">    ax2.set_title(<span class="string">"The visualization of the clustered data."</span>)</div><div class="line">    ax2.set_xlabel(<span class="string">"Feature space for the 1st feature"</span>)</div><div class="line">    ax2.set_ylabel(<span class="string">"Feature space for the 2nd feature"</span>)</div><div class="line"></div><div class="line">    plt.suptitle((<span class="string">"Silhouette analysis for KMeans clustering on sample data "</span></div><div class="line">                  <span class="string">"with n_clusters = %d"</span> % n_clusters),</div><div class="line">                 fontsize=<span class="number">14</span>, fontweight=<span class="string">'bold'</span>)</div><div class="line"></div><div class="line">    plt.show()</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote class=&quot;blockquote-center&quot;&gt;&lt;h3 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h3&gt;&lt;p&gt;在K-Means聚类时，我们常常会纠结，K该取多大呢？今天无意当中查看Sklearn时，发现了&lt;code&gt;silhouette analysis&lt;/code&gt;，翻译过来，就是轮廓分析，具体来说，就是通过结果簇之间的分隔距离来辅助决定K的取值。偷个懒，直接参照手册，学习下。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="Machine Learning" scheme="http://www.phoebepan.cn/categories/Machine-Learning/"/>
-    
-    
-      <category term="ML" scheme="http://www.phoebepan.cn/tags/ML/"/>
     
   </entry>
   

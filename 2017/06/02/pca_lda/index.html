@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="ML," />
 
 
 
@@ -89,15 +89,18 @@
 
 
 
-<meta name="description" content="Do things don&apos;t scale, just do it!">
-<meta property="og:type" content="website">
-<meta property="og:title" content="技忆">
-<meta property="og:url" content="http://www.phoebepan.cn/archives/page/3/index.html">
+<meta name="description" content="简介所有机器学习方法共同面临的，在高维情况下出现的数据样本稀疏、距离计算困难等问题，被称为“维度灾难”，李航老师在他的博客《机器学习新动向：从人机交互中》中提到，学习精度越高，学习确信度越高，学习模型越复杂，所需要的样本也就越多。特征太多会造成模型复杂，缓解这一问题的一个重要途径是降维，将原高维空间中的数据点映射到低维的空间。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="降维——PCA和LDA">
+<meta property="og:url" content="http://www.phoebepan.cn/2017/06/02/pca_lda/index.html">
 <meta property="og:site_name" content="技忆">
-<meta property="og:description" content="Do things don&apos;t scale, just do it!">
+<meta property="og:description" content="简介所有机器学习方法共同面临的，在高维情况下出现的数据样本稀疏、距离计算困难等问题，被称为“维度灾难”，李航老师在他的博客《机器学习新动向：从人机交互中》中提到，学习精度越高，学习确信度越高，学习模型越复杂，所需要的样本也就越多。特征太多会造成模型复杂，缓解这一问题的一个重要途径是降维，将原高维空间中的数据点映射到低维的空间。">
+<meta property="og:image" content="http://www.phoebepan.cn/images/pca.jpg">
+<meta property="og:updated_time" content="2017-08-07T14:40:12.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="技忆">
-<meta name="twitter:description" content="Do things don&apos;t scale, just do it!">
+<meta name="twitter:title" content="降维——PCA和LDA">
+<meta name="twitter:description" content="简介所有机器学习方法共同面临的，在高维情况下出现的数据样本稀疏、距离计算困难等问题，被称为“维度灾难”，李航老师在他的博客《机器学习新动向：从人机交互中》中提到，学习精度越高，学习确信度越高，学习模型越复杂，所需要的样本也就越多。特征太多会造成模型复杂，缓解这一问题的一个重要途径是降维，将原高维空间中的数据点映射到低维的空间。">
+<meta name="twitter:image" content="http://www.phoebepan.cn/images/pca.jpg">
 
 
 
@@ -125,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="http://www.phoebepan.cn/archives/page/3/"/>
+  <link rel="canonical" href="http://www.phoebepan.cn/2017/06/02/pca_lda/"/>
 
 
 
 
 
-  <title> 归档 | 技忆 </title>
+  <title> 降维——PCA和LDA | 技忆 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -166,7 +169,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  page-archive  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -320,254 +323,291 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-    <span class="archive-page-counter">
-      
-      
-       
-      
-      OK! 目前共计 46 篇日志。 继续努力。
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://www.phoebepan.cn/2017/06/02/pca_lda/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Phoebe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="技忆">
     </span>
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                降维——PCA和LDA
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-02T15:30:16+08:00">
+                2017-06-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Machine Learning</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/06/02/pca_lda/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/06/02/pca_lda/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/06/02/pca_lda/" class="leancloud_visitors" data-flag-title="降维——PCA和LDA">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  806
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长" }}">
+                  3
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
-      
 
+      
+        <blockquote class="blockquote-center"><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>所有机器学习方法共同面临的，在高维情况下出现的数据样本稀疏、距离计算困难等问题，被称为“维度灾难”，李航老师在他的博客《机器学习新动向：从人机交互中》中提到，学习精度越高，学习确信度越高，学习模型越复杂，所需要的样本也就越多。特征太多会造成模型复杂，缓解这一问题的一个重要途径是<strong>降维</strong>，将原高维空间中的数据点映射到低维的空间。</p>
+</blockquote>
+<a id="more"></a>
+<h3 id="降维"><a href="#降维" class="headerlink" title="降维"></a>降维</h3><p>原始高维空间数据表示中包含冗余以及噪音信息，而降低准确率，通过降维减少冗余信息，提高精度。基于线性变换来进行降维的方法称为线性降维方法，通过对变换矩阵施加不同的约束，对低维子空间的性质的不同要求，可以得到多种线性降维方法。<br>对降维效果的<strong>评估</strong>，通常是比较降维前后学习器的性能，若性能有所提高，则认为降维起作用了。若维度降至二或三维，则可以通过可视化技术直观地判断降维效果。</p>
+<h3 id="PCA"><a href="#PCA" class="headerlink" title="PCA"></a>PCA</h3><p>目标：逐个寻找超平面，将样本投射到这个超平面后使得各样本点间方差最大。</p>
+<blockquote>
+<p>若存在这样的超平面，那么它大概要具有的性质：<br><strong>最近重构性</strong>，样本点到这个超平面的距离都足够近；<br><strong>最大可分性</strong>，样本点在这个超平面上的投影能尽可能分开。</p>
+</blockquote>
+<p>PCA追求的是在降维后能够最大化保持数据内在信息，并通过衡量在投影方向上的数据方差的大小来衡量该方向的重要性。</p>
+<p>算法：</p>
+<hr>
+<p>输入：样本数据集D={x<sub>1</sub>,x<sub>2</sub>,…,x<sub>m</sub>};<br>:  低维空间维度d’ </p>
+<p>输出：变换矩阵W=(w<sub>1</sub>,w<sub>2</sub>,…,w<sub>d’</sub>)<br>过程：</p>
+<ol>
+<li>对所有样本进行中心化；</li>
+<li>计算样本的协方差矩阵XX<sup>T</sup>；</li>
+<li>对协方差矩阵XX<sup>T</sup>做特征值分解；</li>
+<li>取最大的d’个特征值所对应的特征向量w<sub>1</sub>,w<sub>2</sub>,…,w<sub>d’</sub>.</li>
+</ol>
+<hr>
+<blockquote>
+<p><strong>决定降维维度/主成分个数</strong><br>用户指定；<br>重构角度设定阈值；<br>不同d’维空间+学习器(开销较小)进行交叉验证选取；</p>
+</blockquote>
+<p><code>不要盲目PCA，当在原数据有了一个比较好的结果，想进一步提升速度时可考虑PCA。</code></p>
+<h3 id="LDA"><a href="#LDA" class="headerlink" title="LDA"></a>LDA</h3><p>目标：找到一个超平面，样本点映射在超平面使得相同类别点尽可能靠近，不同类别数据尽可能远。</p>
+<p>PCA是无监督线性降维方法，LDA是有监督的线性降维方法。</p>
+<p>区别：如下图中两堆点是两类的话，LDA会选择轴1，PCA会是轴2<br><img src="/images/pca.jpg" alt="pca"></p>
+<h3 id="核化线性降维"><a href="#核化线性降维" class="headerlink" title="核化线性降维"></a>核化线性降维</h3><p>非线性降维常用的方法，是基于核技巧对线性降维方法进行“核化”，将原数据映射到高维特征空间，再在特征空间实施降维。</p>
+<p>参考文献：</p>
+<ol>
+<li>李航，<a href="http://blog.sina.com.cn/s/blog_7ad48fee01016d25.html" target="_blank" rel="external">《机器学习新动向：从人机交互中》</a></li>
+<li>周志华，《机器学习》</li>
+</ol>
+
+      
+    </div>
+<div align="center">
+  
+    <div class="copyright">
+    <p><span>
+    <b>本文地址：</b><a href="/2017/06/02/pca_lda/" title="降维——PCA和LDA">http://www.phoebepan.cn/2017/06/02/pca_lda/</a><br /><b>转载请注明出处，谢谢！</b>
+    </span></p>
+    </div>
+  
+</div>
+	
+    <div>
       
         
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2017">2017</h2>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ML/" rel="tag"># ML</a>
+          
         </div>
       
+
+      
+        
       
 
       
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/06/01/SpaseL/" rel="next" title="稀疏表示与字典学习">
+                <i class="fa fa-chevron-left"></i> 稀疏表示与字典学习
+              </a>
+            
+          </div>
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          <span class="post-nav-divider"></span>
 
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/03/21/binary_indexed_tree/" itemprop="url">
-              
-                <span itemprop="name">Binary indexed tree (Fenwick tree)</span>
-              
-            </a>
-        
-      </h1>
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/06/05/Imbalanced_data/" rel="prev" title="阅读笔记——7 Techniques to Handle Imbalanced Data">
+                阅读笔记——7 Techniques to Handle Imbalanced Data <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-03-21T15:30:16+08:00"
-              content="2017-03-21" >
-          03-21
-        </time>
-      </div>
-
-    </header>
+      
+      
+    </footer>
   </article>
 
 
 
-    
-
+    <div class="post-spread">
       
+        <!--MOB SHARE BEGIN-->
+<div class="-mob-share-ui-button -mob-share-open">分享</div>
+<div class="-mob-share-ui" style="display: none">
+    <ul class="-mob-share-list">
+        <li class="-mob-share-weixin"><p>微信</p></li>
+        <li class="-mob-share-weibo"><p>新浪微博</p></li>
+        <li class="-mob-share-qq"><p>QQ好友</p></li>
+        <li class="-mob-share-douban"><p>豆瓣</p></li>
+        <li class="-mob-share-youdao"><p>有道云笔记</p></li>
+        <li class="-mob-share-linkedin"><p>领英</p></li>
+        <li class="-mob-share-google"><p>Google+</p></li>
+    </ul>
+    <div class="-mob-share-close">取消</div>
+</div>
+<div class="-mob-share-ui-bg"></div>
+<script id="-mob-share" src="http://f1.webshare.mob.com/code/mob-share.js?appkey=Infinity"></script>
+<!--MOB SHARE END-->          
       
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/03/21/python_collections/" itemprop="url">
-              
-                <span itemprop="name">魔力Python——collections</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-03-21T15:30:16+08:00"
-              content="2017-03-21" >
-          03-21
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/03/20/reader/" itemprop="url">
-              
-                <span itemprop="name">朗读者「百合花开」</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-03-20T15:30:16+08:00"
-              content="2017-03-20" >
-          03-20
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/03/17/python_yield/" itemprop="url">
-              
-                <span itemprop="name">魔力Python——yield & yield from</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-03-17T15:30:16+08:00"
-              content="2017-03-17" >
-          03-17
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/03/15/DFA/" itemprop="url">
-              
-                <span itemprop="name">关键词匹配经典算法——DFA</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-03-15T15:30:16+08:00"
-              content="2017-03-15" >
-          03-15
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/03/15/read_block_data/" itemprop="url">
-              
-                <span itemprop="name">读《块数据》</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-03-15T15:30:16+08:00"
-              content="2017-03-15" >
-          03-15
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-  </section>
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/archives/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/archives/">1</a><a class="page-number" href="/archives/page/2/">2</a><span class="page-number current">3</span>
-  </nav>
-
-
+    </div>
+  </div>
 
           
           </div>
@@ -575,6 +615,17 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -594,8 +645,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -754,6 +814,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#降维"><span class="nav-number">2.</span> <span class="nav-text">降维</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PCA"><span class="nav-number">3.</span> <span class="nav-text">PCA</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LDA"><span class="nav-number">4.</span> <span class="nav-text">LDA</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#核化线性降维"><span class="nav-number">5.</span> <span class="nav-text">核化线性降维</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -891,11 +967,9 @@
   
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
 
 
   
@@ -913,9 +987,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'phoebepanx';
-      var disqus_identifier = 'archives/page/3/index.html';
+      var disqus_identifier = '2017/06/02/pca_lda/';
 
-      var disqus_title = "";
+      var disqus_title = "降维——PCA和LDA";
 
 
       function run_disqus_script(disqus_script) {
@@ -928,6 +1002,13 @@
 
       run_disqus_script('count.js');
 
+      
+        var disqus_config = function () {
+            this.page.url = disqus_url;
+            this.page.identifier = disqus_identifier;
+            this.page.title = disqus_title;
+        };
+        run_disqus_script('embed.js');
       
 
     </script>
