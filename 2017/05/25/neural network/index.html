@@ -1,0 +1,1215 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="ML," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="技忆" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="神经网络是由具有适应性的简单单元组成的广泛并行互连的网络，它的组织能够模拟生物神经系统对真实世界物体所作出的交互反应。——Kohonen">
+<meta property="og:type" content="article">
+<meta property="og:title" content="神经网络">
+<meta property="og:url" content="http://www.phoebepan.cn/2017/05/25/neural network/index.html">
+<meta property="og:site_name" content="技忆">
+<meta property="og:description" content="神经网络是由具有适应性的简单单元组成的广泛并行互连的网络，它的组织能够模拟生物神经系统对真实世界物体所作出的交互反应。——Kohonen">
+<meta property="og:image" content="http://www.phoebepan.cn/images/MP_model.jpg">
+<meta property="og:updated_time" content="2017-08-08T15:38:08.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="神经网络">
+<meta name="twitter:description" content="神经网络是由具有适应性的简单单元组成的广泛并行互连的网络，它的组织能够模拟生物神经系统对真实世界物体所作出的交互反应。——Kohonen">
+<meta name="twitter:image" content="http://www.phoebepan.cn/images/MP_model.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.phoebepan.cn/2017/05/25/neural network/"/>
+
+
+
+
+
+  <title> 神经网络 | 技忆 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?9c579837e278589db96fbd819280ab1e";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">技忆</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Phoebe's little progress</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-something">
+          <a href="/accumulation" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            一点
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-knowledge">
+          <a href="/knowledge" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+            
+            一滴
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'ce1Ta1UesTAgFvqLzL17','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://www.phoebepan.cn/2017/05/25/neural network/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Phoebe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="技忆">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                神经网络
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-25T15:30:16+08:00">
+                2017-05-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Machine Learning</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/05/25/neural network/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/05/25/neural network/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/05/25/neural network/" class="leancloud_visitors" data-flag-title="神经网络">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  767
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长" }}">
+                  3
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote class="blockquote-center"><p>神经网络是由具有适应性的简单单元组成的广泛并行互连的网络，它的组织能够模拟生物神经系统对真实世界物体所作出的交互反应。<br>——Kohonen</p>
+</blockquote>
+<a id="more"></a>
+<h3 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h3><h4 id="神经元模型"><a href="#神经元模型" class="headerlink" title="神经元模型"></a>神经元模型</h4><blockquote>
+<p>如下图，<strong>M-P神经元模型</strong></p>
+<ul>
+<li>连接权重</li>
+<li>阈值</li>
+<li>激活函数</li>
+</ul>
+</blockquote>
+<p><img src="/images/MP_model.jpg" alt="MP_model"></p>
+<h4 id="学习过程"><a href="#学习过程" class="headerlink" title="学习过程"></a>学习过程</h4><p>根据训练集来调整神经元之间的”连接权”以及每个功能神经元的阈值。</p>
+<h4 id="感知机与多层网络"><a href="#感知机与多层网络" class="headerlink" title="感知机与多层网络"></a>感知机与多层网络</h4><p><strong>感知机</strong>由两层神经元组成，输入层接收输入信号后传递给输出层，输出层是M-P神经元，可处理<strong>线性可分数据集</strong>。</p>
+<p><strong>多层网络</strong>，在输入层与输出层增加隐含层(一个或多个)，隐含层和输出层神经元都是拥有激活函数的功能神经元。</p>
+<h4 id="误差逆传播-BP-算法"><a href="#误差逆传播-BP-算法" class="headerlink" title="误差逆传播(BP)算法"></a>误差逆传播(BP)算法</h4><p>迭代学习算法，基于梯度下降策略，以目标的负梯度方向对参数进行调整。</p>
+<blockquote>
+<p><strong>标准BP和累积BP</strong><br>标准BP，每次更新只针对单个样例，参数更新频繁；<br>累积BP，读取整个数据集后才对参数进行一次更新。</p>
+</blockquote>
+<p><strong>缓解BP过拟合的策略</strong></p>
+<ul>
+<li>早停，训练误差降低，验证误差升高，停止训练；</li>
+<li>正则化，增加描述网络复杂度项(连接权与阈值的平方和)，交叉验证来估计。</li>
+</ul>
+<h3 id="全局最小和局部极小"><a href="#全局最小和局部极小" class="headerlink" title="全局最小和局部极小"></a>全局最小和局部极小</h3><p><code>参数寻优</code></p>
+<h4 id="跳出局部最小策略"><a href="#跳出局部最小策略" class="headerlink" title="跳出局部最小策略"></a>跳出局部最小策略</h4><ul>
+<li>多组不同参数值初始化多个神经网路，训练，选择更接近全局最小的结果；</li>
+<li>模拟退火，每一步以一定概率接受比当前解更差的结果；</li>
+<li>随机梯度下降，计算梯度时加入随机因素。</li>
+</ul>
+<h3 id="常见的神经网路"><a href="#常见的神经网路" class="headerlink" title="常见的神经网路"></a>常见的神经网路</h3><h4 id="RBF"><a href="#RBF" class="headerlink" title="RBF"></a>RBF</h4><ul>
+<li>单隐层前馈神经网路</li>
+<li>径向基函数作为隐层神经元激活函数</li>
+<li>输出层对隐层神经元输出进行线性组合</li>
+</ul>
+<h4 id="ART"><a href="#ART" class="headerlink" title="ART"></a>ART</h4><p><code>胜者通吃</code>、<code>竞争型学习</code>、<code>无监督学习</code>、<code>增量学习</code></p>
+<blockquote>
+<p>比较层(输入)、识别层(模式)、<strong>识别阈值</strong>、重置模块；</p>
+<blockquote>
+<p> 当识别阈值较高，学习更细；较低，产生粗略的模式类。</p>
+</blockquote>
+</blockquote>
+<h4 id="SOM"><a href="#SOM" class="headerlink" title="SOM"></a>SOM</h4><p>高维空间相似的样本点映射到网络输出层中的邻近神经元。<br>在聚类、高维数据可视化、图像分割中广泛应用。</p>
+<h4 id="级联相关网络"><a href="#级联相关网络" class="headerlink" title="级联相关网络"></a>级联相关网络</h4><p><code>结构自适应网络</code><br>数据较少时易过拟合。</p>
+<h4 id="Elman网络"><a href="#Elman网络" class="headerlink" title="Elman网络"></a>Elman网络</h4><p><code>递归神经网络</code>、<code>环型结构</code></p>
+<h4 id="Boltzmann机"><a href="#Boltzmann机" class="headerlink" title="Boltzmann机"></a>Boltzmann机</h4><p><code>完全图</code></p>
+<h4 id="RBM"><a href="#RBM" class="headerlink" title="RBM"></a>RBM</h4><p>受限Boltzmann机，<code>二部图</code></p>
+<h3 id="深度学习"><a href="#深度学习" class="headerlink" title="深度学习"></a>深度学习</h3><p><code>多隐层神经网络</code>(通常有八九层隐层)<br>训练手段，有以下两种：</p>
+<h4 id="无监督逐层训练"><a href="#无监督逐层训练" class="headerlink" title="无监督逐层训练"></a>无监督逐层训练</h4><p>预训练+微调</p>
+<blockquote>
+<p>大量参数分组，对每组先找到局部较好设置，在基于局部较优结果联合起来进行全局寻优。</p>
+</blockquote>
+<h4 id="权共享"><a href="#权共享" class="headerlink" title="权共享"></a>权共享</h4><p>每一组神经元使用相同的连接权。</p>
+<blockquote>
+<p>卷积神经网络CNN</p>
+</blockquote>
+<p>参考文献</p>
+<ol>
+<li>周志华，《机器学习》</li>
+</ol>
+
+      
+    </div>
+<div align="center">
+  
+    <div class="copyright">
+    <p><span>
+    <b>本文地址：</b><a href="/2017/05/25/neural network/" title="神经网络">http://www.phoebepan.cn/2017/05/25/neural network/</a><br /><b>转载请注明出处，谢谢！</b>
+    </span></p>
+    </div>
+  
+</div>
+	
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ML/" rel="tag"># ML</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/05/23/ML_good_bad/" rel="next" title="机器学习经典算法优缺点总结">
+                <i class="fa fa-chevron-left"></i> 机器学习经典算法优缺点总结
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/06/01/SpaseL/" rel="prev" title="稀疏表示与字典学习">
+                稀疏表示与字典学习 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!--MOB SHARE BEGIN-->
+<div class="-mob-share-ui-button -mob-share-open">分享</div>
+<div class="-mob-share-ui" style="display: none">
+    <ul class="-mob-share-list">
+        <li class="-mob-share-weixin"><p>微信</p></li>
+        <li class="-mob-share-weibo"><p>新浪微博</p></li>
+        <li class="-mob-share-qq"><p>QQ好友</p></li>
+        <li class="-mob-share-douban"><p>豆瓣</p></li>
+        <li class="-mob-share-youdao"><p>有道云笔记</p></li>
+        <li class="-mob-share-linkedin"><p>领英</p></li>
+        <li class="-mob-share-google"><p>Google+</p></li>
+    </ul>
+    <div class="-mob-share-close">取消</div>
+</div>
+<div class="-mob-share-ui-bg"></div>
+<script id="-mob-share" src="http://f1.webshare.mob.com/code/mob-share.js?appkey=Infinity"></script>
+<!--MOB SHARE END-->          
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Phoebe" />
+          <p class="site-author-name" itemprop="name">Phoebe</p>
+           
+              <p class="site-description motion-element" itemprop="description">Do things don't scale, just do it!</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">49</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/phoebepx" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="mailto:px978954874@163.com" target="_blank" title="Email">
+                  
+                    <i class="fa fa-fw fa-envelope"></i>
+                  
+                  Email
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.linkedin.com/in/%E9%9C%9E-%E6%BD%98-94362b113/" target="_blank" title="Linkedln">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Linkedln
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              常用链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://stackoverflow.com/" title="StackOverflow" target="_blank">StackOverflow</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://scholar.google.com/" title="Google Scholar" target="_blank">Google Scholar</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://arxiv.org/" title="arXiv" target="_blank">arXiv</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://www.coursera.org/" title="coursera" target="_blank">coursera</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://www.kaggle.com/" title="kaggle" target="_blank">kaggle</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://www.quora.com/" title="quora" target="_blank">quora</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://t.bookdna.cn/" title="Kindle特价书" target="_blank">Kindle特价书</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.52ml.net/" title="我爱机器学习" target="_blank">我爱机器学习</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.iresearch.cn/" title="艾瑞网" target="_blank">艾瑞网</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.36dsj.com/" title="36大数据" target="_blank">36大数据</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://techcrunch.com/" title="TechCrunch" target="_blank">TechCrunch</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#基础知识"><span class="nav-number">1.</span> <span class="nav-text">基础知识</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#神经元模型"><span class="nav-number">1.1.</span> <span class="nav-text">神经元模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#学习过程"><span class="nav-number">1.2.</span> <span class="nav-text">学习过程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#感知机与多层网络"><span class="nav-number">1.3.</span> <span class="nav-text">感知机与多层网络</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#误差逆传播-BP-算法"><span class="nav-number">1.4.</span> <span class="nav-text">误差逆传播(BP)算法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#全局最小和局部极小"><span class="nav-number">2.</span> <span class="nav-text">全局最小和局部极小</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#跳出局部最小策略"><span class="nav-number">2.1.</span> <span class="nav-text">跳出局部最小策略</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常见的神经网路"><span class="nav-number">3.</span> <span class="nav-text">常见的神经网路</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#RBF"><span class="nav-number">3.1.</span> <span class="nav-text">RBF</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ART"><span class="nav-number">3.2.</span> <span class="nav-text">ART</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SOM"><span class="nav-number">3.3.</span> <span class="nav-text">SOM</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#级联相关网络"><span class="nav-number">3.4.</span> <span class="nav-text">级联相关网络</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Elman网络"><span class="nav-number">3.5.</span> <span class="nav-text">Elman网络</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Boltzmann机"><span class="nav-number">3.6.</span> <span class="nav-text">Boltzmann机</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#RBM"><span class="nav-number">3.7.</span> <span class="nav-text">RBM</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#深度学习"><span class="nav-number">4.</span> <span class="nav-text">深度学习</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#无监督逐层训练"><span class="nav-number">4.1.</span> <span class="nav-text">无监督逐层训练</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#权共享"><span class="nav-number">4.2.</span> <span class="nav-text">权共享</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Phoebe</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>  <i class="fa fa-eye" aria-hidden="true"></i>本站总访问量<span id="busuanzi_value_site_pv"></span>次
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'phoebepanx';
+      var disqus_identifier = '2017/05/25/neural network/';
+
+      var disqus_title = "神经网络";
+
+
+      function run_disqus_script(disqus_script) {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+
+      
+        var disqus_config = function () {
+            this.page.url = disqus_url;
+            this.page.identifier = disqus_identifier;
+            this.page.title = disqus_title;
+        };
+        run_disqus_script('embed.js');
+      
+
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("MunlLt0HCRk7ir3iwzhIyi7l-gzGzoHsz", "WeFKTfSb0iTb0nGqhLhddDQU");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+
+  
+
+  
+
+  
+</body>
+</html>

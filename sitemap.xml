@@ -2,16 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://www.phoebepan.cn/knowledge/index.html</loc>
+    <loc>http://www.phoebepan.cn/2017/05/25/neural%20network/</loc>
     
-    <lastmod>2017-08-07T15:50:40.000Z</lastmod>
+    <lastmod>2017-08-08T15:38:08.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.phoebepan.cn/2017/06/03/max_depth/</loc>
+    
+    <lastmod>2017-08-08T15:32:50.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://www.phoebepan.cn/2017/06/02/pca_lda/</loc>
     
-    <lastmod>2017-08-07T14:40:12.000Z</lastmod>
+    <lastmod>2017-08-08T15:08:30.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.phoebepan.cn/2017/06/07/spark_1/</loc>
+    
+    <lastmod>2017-08-08T15:08:08.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.phoebepan.cn/knowledge/index.html</loc>
+    
+    <lastmod>2017-08-07T15:50:40.000Z</lastmod>
     
   </url>
   

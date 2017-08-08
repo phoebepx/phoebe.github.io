@@ -156,6 +156,40 @@
   </entry>
   
   <entry>
+    <title>单机安装Spark开发环境</title>
+    <link href="http://www.phoebepan.cn/2017/06/07/spark_1/"/>
+    <id>http://www.phoebepan.cn/2017/06/07/spark_1/</id>
+    <published>2017-06-07T07:30:16.000Z</published>
+    <updated>2017-08-08T15:08:08.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote class="blockquote-center"><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>MapReduce在迭代计算和交互计算的任务上表现得效率低下，Spark从一开始就是为交互式查询和迭代算法设计的，同时还支持内存式存储和高效的容错机制，Spark的核心是一个对由很多计算任务组成的、运行在多个工作机器或者是一个计算集群上的应用进行调度、分发以及监控的计算引擎。<br>因Spark支持java、python等语言，尝试安装了python语言环境下的spark开发环境。本篇笔记是win10下配置过程记录。</p>
+</blockquote>
+<a id="more"></a>
+<p>机器：Win10 64bit</p>
+<h3 id="jdk安装"><a href="#jdk安装" class="headerlink" title="jdk安装"></a>jdk安装</h3><p>从Oracle网站上下载JDK。我装的<a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank" rel="external">JDK 1.8版本</a>。安装完新建系统环境变量<strong>JAVA_HOME</strong>，值为<code>D:\program files\Java\jdk1.8.0_144</code>(根据自己安装路径来)，系统变量<strong>Path</strong>下添加<code>%JAVA_HOME%\bin</code>和<code>%JAVA_HOME%\jre\bin</code>。</p>
+<h3 id="spark环境变量配置"><a href="#spark环境变量配置" class="headerlink" title="spark环境变量配置"></a>spark环境变量配置</h3><p>从<a href="https://spark.apache.org/downloads.html" target="_blank" rel="external">spark网站</a>上下载最新版本spark，我下载的了与Hadoop2.6匹配的spark，文件名spark-2.2.0-bin-hadoop2.6.tgz，将安装文件解压到本地文件夹中（如：D:\spark，<strong>路径中不能有空格</strong>）。将<code>D:\spark\spark-2.2.0-bin-hadoop2.6\bin</code>添加到系统<strong>Path</strong>变量，同时新建<strong>SPARK_HOME</strong>变量，变量值为：<code>D:\spark\spark-2.2.0-bin-hadoop2.6</code>。</p>
+<h3 id="hadoop工具包安装"><a href="#hadoop工具包安装" class="headerlink" title="hadoop工具包安装"></a>hadoop工具包安装</h3><p>spark是基于hadoop之上的，运行过程中会调用相关hadoop库，下载hadoop 2.6编译好的包，<a href="https://www.barik.net/archive/2015/01/19/172716/" target="_blank" rel="external">hadoop-2.6.0.tar.gz</a>。将安装文件解压到本地文件夹中(如：D:\program files\hadoop)，系统变量<strong>Path</strong>中添加<code>D:\program files\hadoop\hadoop-2.6.0\bin</code>；新建<strong>HADOOP_HOME</strong>系统变量,值为：<code>D:\program files\hadoop\hadoop-2.6.0</code>。</p>
+<h3 id="python下spark开发环境搭建"><a href="#python下spark开发环境搭建" class="headerlink" title="python下spark开发环境搭建"></a>python下spark开发环境搭建</h3><p>将spark目录下的pyspark文件夹(D:\spark\spark-2.2.0-bin-hadoop2.6\python\pyspark)复制到python安装目录(D:\Program Files (x86)\python3\Lib\site-packages)里。</p>
+<h3 id="验证spark安装正确性"><a href="#验证spark安装正确性" class="headerlink" title="验证spark安装正确性"></a>验证spark安装正确性</h3><p>cmd中输入：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">d:</div><div class="line">cd D:\spark\spark-2.2.0-bin-hadoop2.6</div><div class="line">bin\spark-shell</div></pre></td></tr></table></figure></p>
+<p>运行如下命令启动Spark python shell，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">d:</div><div class="line">cd D:\spark\spark-2.2.0-bin-hadoop2.6</div><div class="line">bin\pyshark</div></pre></td></tr></table></figure></p>
+<p>Tip：将目录D:\spark\spark-2.2.0-bin-hadoop2.6\bin\pyspark2.cmd的<code>PYSPARK_DRIVER_PYTHON=ipython</code>更改成ipython，就可以用ipython开始交互啦~<br>如果正确，控制台会输出如下信息：<br><img src="/images/success_spark.png" alt="success_spark"></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote class=&quot;blockquote-center&quot;&gt;&lt;h3 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h3&gt;&lt;p&gt;MapReduce在迭代计算和交互计算的任务上表现得效率低下，Spark从一开始就是为交互式查询和迭代算法设计的，同时还支持内存式存储和高效的容错机制，Spark的核心是一个对由很多计算任务组成的、运行在多个工作机器或者是一个计算集群上的应用进行调度、分发以及监控的计算引擎。&lt;br&gt;因Spark支持java、python等语言，尝试安装了python语言环境下的spark开发环境。本篇笔记是win10下配置过程记录。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="Spark" scheme="http://www.phoebepan.cn/categories/Spark/"/>
+    
+    
+      <category term="Spark" scheme="http://www.phoebepan.cn/tags/Spark/"/>
+    
+  </entry>
+  
+  <entry>
     <title>数据可视化——Seaborn</title>
     <link href="http://www.phoebepan.cn/2017/06/06/learn_seaborn/"/>
     <id>http://www.phoebepan.cn/2017/06/06/learn_seaborn/</id>
@@ -251,11 +285,44 @@
   </entry>
   
   <entry>
+    <title>python——DFS+BFS</title>
+    <link href="http://www.phoebepan.cn/2017/06/03/max_depth/"/>
+    <id>http://www.phoebepan.cn/2017/06/03/max_depth/</id>
+    <published>2017-06-03T07:30:16.000Z</published>
+    <updated>2017-08-08T15:32:50.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote class="blockquote-center"><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>本篇笔记主要记录，运用DFS或BFS算法求解二叉树最大深度问题。</p>
+</blockquote>
+<a id="more"></a>
+<h3 id="二叉树最大深度"><a href="#二叉树最大深度" class="headerlink" title="二叉树最大深度"></a>二叉树最大深度</h3><p> 题目来源：<a href="https://leetcode.com/problems/maximum-depth-of-binary-tree/description/" target="_blank" rel="external">LeeCode104: Maximum Depth of Binary Tree</a></p>
+<h3 id="解法一"><a href="#解法一" class="headerlink" title="解法一"></a>解法一</h3><p>DFS(递归)<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Definition for a binary tree node.</span></div><div class="line"><span class="comment"># class TreeNode(object):</span></div><div class="line"><span class="comment">#     def __init__(self, x):</span></div><div class="line"><span class="comment">#         self.val = x</span></div><div class="line"><span class="comment">#         self.left = None</span></div><div class="line"><span class="comment">#         self.right = None</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">maxDepth</span><span class="params">(self, root)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        :type root: TreeNode</div><div class="line">        :rtype: int</div><div class="line">        """</div><div class="line">        <span class="keyword">return</span> <span class="number">1</span>+max(self.maxDepth(root.left),self.maxDepth(root.right)) <span class="keyword">if</span> root <span class="keyword">else</span> <span class="number">0</span></div></pre></td></tr></table></figure></p>
+<h3 id="解法二"><a href="#解法二" class="headerlink" title="解法二"></a>解法二</h3><p>BFS、队列<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Definition for a binary tree node.</span></div><div class="line"><span class="comment"># class TreeNode(object):</span></div><div class="line"><span class="comment">#     def __init__(self, x):</span></div><div class="line"><span class="comment">#         self.val = x</span></div><div class="line"><span class="comment">#         self.left = None</span></div><div class="line"><span class="comment">#         self.right = None</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">maxDepth</span><span class="params">(self, root)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        :type root: TreeNode</div><div class="line">        :rtype: int</div><div class="line">        """</div><div class="line">        <span class="keyword">if</span> <span class="keyword">not</span> root:</div><div class="line">            <span class="keyword">return</span> <span class="number">0</span></div><div class="line">        queue,h=[root],<span class="number">0</span></div><div class="line">        <span class="keyword">while</span> queue:</div><div class="line">            h+=<span class="number">1</span></div><div class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>,len(queue)):</div><div class="line">                node=queue.pop(<span class="number">0</span>)</div><div class="line">                queue.extend(filter(<span class="keyword">None</span>,[node.left,node.right]))</div><div class="line">        <span class="keyword">return</span> h</div></pre></td></tr></table></figure></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote class=&quot;blockquote-center&quot;&gt;&lt;h3 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h3&gt;&lt;p&gt;本篇笔记主要记录，运用DFS或BFS算法求解二叉树最大深度问题。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="Algorithms" scheme="http://www.phoebepan.cn/categories/Algorithms/"/>
+    
+    
+      <category term="LeetCode" scheme="http://www.phoebepan.cn/tags/LeetCode/"/>
+    
+      <category term="Algorithms" scheme="http://www.phoebepan.cn/tags/Algorithms/"/>
+    
+      <category term="Python" scheme="http://www.phoebepan.cn/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
     <title>降维——PCA和LDA</title>
     <link href="http://www.phoebepan.cn/2017/06/02/pca_lda/"/>
     <id>http://www.phoebepan.cn/2017/06/02/pca_lda/</id>
     <published>2017-06-02T07:30:16.000Z</published>
-    <updated>2017-08-07T14:40:12.000Z</updated>
+    <updated>2017-08-08T15:08:30.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote class="blockquote-center"><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>所有机器学习方法共同面临的，在高维情况下出现的数据样本稀疏、距离计算困难等问题，被称为“维度灾难”，李航老师在他的博客《机器学习新动向：从人机交互中》中提到，学习精度越高，学习确信度越高，学习模型越复杂，所需要的样本也就越多。特征太多会造成模型复杂，缓解这一问题的一个重要途径是<strong>降维</strong>，将原高维空间中的数据点映射到低维的空间。</p>
 </blockquote>
@@ -268,7 +335,7 @@
 <p>PCA追求的是在降维后能够最大化保持数据内在信息，并通过衡量在投影方向上的数据方差的大小来衡量该方向的重要性。</p>
 <p>算法：</p>
 <hr>
-<p>输入：样本数据集D={x<sub>1</sub>,x<sub>2</sub>,…,x<sub>m</sub>};<br>:  低维空间维度d’ </p>
+<p>输入：样本数据集D={x<sub>1</sub>,x<sub>2</sub>,…,x<sub>m</sub>};<br>: 低维空间维度d’ </p>
 <p>输出：变换矩阵W=(w<sub>1</sub>,w<sub>2</sub>,…,w<sub>d’</sub>)<br>过程：</p>
 <ol>
 <li>对所有样本进行中心化；</li>
@@ -323,6 +390,89 @@
     <summary type="html">
     
       &lt;h3 id=&quot;稀疏表示&quot;&gt;&lt;a href=&quot;#稀疏表示&quot; class=&quot;headerlink&quot; title=&quot;稀疏表示&quot;&gt;&lt;/a&gt;稀疏表示&lt;/h3&gt;&lt;p&gt;文档分类时，每个文档当作一个样本，文档中的每个词作为一个特征，这往往会得到很高维的矩阵，而且矩阵中每一行都有大量的零元素，且每行零元素出现的列分布不同，具有这样的&lt;strong&gt;稀疏表达&lt;/strong&gt;形式的矩阵，对学习任务来说是有好处的(可以当做线性可分问题处理)。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Machine Learning" scheme="http://www.phoebepan.cn/categories/Machine-Learning/"/>
+    
+    
+      <category term="ML" scheme="http://www.phoebepan.cn/tags/ML/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>神经网络</title>
+    <link href="http://www.phoebepan.cn/2017/05/25/neural%20network/"/>
+    <id>http://www.phoebepan.cn/2017/05/25/neural network/</id>
+    <published>2017-05-25T07:30:16.000Z</published>
+    <updated>2017-08-08T15:38:08.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote class="blockquote-center"><p>神经网络是由具有适应性的简单单元组成的广泛并行互连的网络，它的组织能够模拟生物神经系统对真实世界物体所作出的交互反应。<br>——Kohonen</p>
+</blockquote>
+<a id="more"></a>
+<h3 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h3><h4 id="神经元模型"><a href="#神经元模型" class="headerlink" title="神经元模型"></a>神经元模型</h4><blockquote>
+<p>如下图，<strong>M-P神经元模型</strong></p>
+<ul>
+<li>连接权重</li>
+<li>阈值</li>
+<li>激活函数</li>
+</ul>
+</blockquote>
+<p><img src="/images/MP_model.jpg" alt="MP_model"></p>
+<h4 id="学习过程"><a href="#学习过程" class="headerlink" title="学习过程"></a>学习过程</h4><p>根据训练集来调整神经元之间的”连接权”以及每个功能神经元的阈值。</p>
+<h4 id="感知机与多层网络"><a href="#感知机与多层网络" class="headerlink" title="感知机与多层网络"></a>感知机与多层网络</h4><p><strong>感知机</strong>由两层神经元组成，输入层接收输入信号后传递给输出层，输出层是M-P神经元，可处理<strong>线性可分数据集</strong>。</p>
+<p><strong>多层网络</strong>，在输入层与输出层增加隐含层(一个或多个)，隐含层和输出层神经元都是拥有激活函数的功能神经元。</p>
+<h4 id="误差逆传播-BP-算法"><a href="#误差逆传播-BP-算法" class="headerlink" title="误差逆传播(BP)算法"></a>误差逆传播(BP)算法</h4><p>迭代学习算法，基于梯度下降策略，以目标的负梯度方向对参数进行调整。</p>
+<blockquote>
+<p><strong>标准BP和累积BP</strong><br>标准BP，每次更新只针对单个样例，参数更新频繁；<br>累积BP，读取整个数据集后才对参数进行一次更新。</p>
+</blockquote>
+<p><strong>缓解BP过拟合的策略</strong></p>
+<ul>
+<li>早停，训练误差降低，验证误差升高，停止训练；</li>
+<li>正则化，增加描述网络复杂度项(连接权与阈值的平方和)，交叉验证来估计。</li>
+</ul>
+<h3 id="全局最小和局部极小"><a href="#全局最小和局部极小" class="headerlink" title="全局最小和局部极小"></a>全局最小和局部极小</h3><p><code>参数寻优</code></p>
+<h4 id="跳出局部最小策略"><a href="#跳出局部最小策略" class="headerlink" title="跳出局部最小策略"></a>跳出局部最小策略</h4><ul>
+<li>多组不同参数值初始化多个神经网路，训练，选择更接近全局最小的结果；</li>
+<li>模拟退火，每一步以一定概率接受比当前解更差的结果；</li>
+<li>随机梯度下降，计算梯度时加入随机因素。</li>
+</ul>
+<h3 id="常见的神经网路"><a href="#常见的神经网路" class="headerlink" title="常见的神经网路"></a>常见的神经网路</h3><h4 id="RBF"><a href="#RBF" class="headerlink" title="RBF"></a>RBF</h4><ul>
+<li>单隐层前馈神经网路</li>
+<li>径向基函数作为隐层神经元激活函数</li>
+<li>输出层对隐层神经元输出进行线性组合</li>
+</ul>
+<h4 id="ART"><a href="#ART" class="headerlink" title="ART"></a>ART</h4><p><code>胜者通吃</code>、<code>竞争型学习</code>、<code>无监督学习</code>、<code>增量学习</code></p>
+<blockquote>
+<p>比较层(输入)、识别层(模式)、<strong>识别阈值</strong>、重置模块；</p>
+<blockquote>
+<p> 当识别阈值较高，学习更细；较低，产生粗略的模式类。</p>
+</blockquote>
+</blockquote>
+<h4 id="SOM"><a href="#SOM" class="headerlink" title="SOM"></a>SOM</h4><p>高维空间相似的样本点映射到网络输出层中的邻近神经元。<br>在聚类、高维数据可视化、图像分割中广泛应用。</p>
+<h4 id="级联相关网络"><a href="#级联相关网络" class="headerlink" title="级联相关网络"></a>级联相关网络</h4><p><code>结构自适应网络</code><br>数据较少时易过拟合。</p>
+<h4 id="Elman网络"><a href="#Elman网络" class="headerlink" title="Elman网络"></a>Elman网络</h4><p><code>递归神经网络</code>、<code>环型结构</code></p>
+<h4 id="Boltzmann机"><a href="#Boltzmann机" class="headerlink" title="Boltzmann机"></a>Boltzmann机</h4><p><code>完全图</code></p>
+<h4 id="RBM"><a href="#RBM" class="headerlink" title="RBM"></a>RBM</h4><p>受限Boltzmann机，<code>二部图</code></p>
+<h3 id="深度学习"><a href="#深度学习" class="headerlink" title="深度学习"></a>深度学习</h3><p><code>多隐层神经网络</code>(通常有八九层隐层)<br>训练手段，有以下两种：</p>
+<h4 id="无监督逐层训练"><a href="#无监督逐层训练" class="headerlink" title="无监督逐层训练"></a>无监督逐层训练</h4><p>预训练+微调</p>
+<blockquote>
+<p>大量参数分组，对每组先找到局部较好设置，在基于局部较优结果联合起来进行全局寻优。</p>
+</blockquote>
+<h4 id="权共享"><a href="#权共享" class="headerlink" title="权共享"></a>权共享</h4><p>每一组神经元使用相同的连接权。</p>
+<blockquote>
+<p>卷积神经网络CNN</p>
+</blockquote>
+<p>参考文献</p>
+<ol>
+<li>周志华，《机器学习》</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote class=&quot;blockquote-center&quot;&gt;&lt;p&gt;神经网络是由具有适应性的简单单元组成的广泛并行互连的网络，它的组织能够模拟生物神经系统对真实世界物体所作出的交互反应。&lt;br&gt;——Kohonen&lt;/p&gt;
+&lt;/blockquote&gt;
     
     </summary>
     
@@ -879,290 +1029,6 @@
       <category term="ML" scheme="http://www.phoebepan.cn/tags/ML/"/>
     
       <category term="Reading" scheme="http://www.phoebepan.cn/tags/Reading/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Pandas杂碎</title>
-    <link href="http://www.phoebepan.cn/2017/05/12/pandas/"/>
-    <id>http://www.phoebepan.cn/2017/05/12/pandas/</id>
-    <published>2017-05-12T07:30:16.000Z</published>
-    <updated>2017-05-29T05:14:14.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote class="blockquote-center"><p>本文主要是平时运用Pandas的小积累，涉及到读写文件，格式转换、缺失值填充，简单统计等多个方面。</p>
-</blockquote>
-<a id="more"></a>
-<h3 id="读写csv文件到DataFrame"><a href="#读写csv文件到DataFrame" class="headerlink" title="读写csv文件到DataFrame"></a>读写csv文件到DataFrame</h3><p><code>df=pd.read_csv(&#39;filename&#39;,encoding=&#39;utf-8&#39;)</code><br>读入csv文本，编码为utf-8<br><code>df.to_csv(&#39;filename&#39;,sep=&#39;\t&#39;,index=False)</code><br>‘\t’切分df，写入csv，不包含行索引</p>
-<h3 id="格式转换、值填充、删除"><a href="#格式转换、值填充、删除" class="headerlink" title="格式转换、值填充、删除"></a>格式转换、值填充、删除</h3><p> <code>df.to_dict(outtype=&#39;dict&#39;)</code><br>将DataFrame转换成其他结构类型，outtype的参数为‘dict’、‘list’、‘series’和‘records’<br> <code>df[&#39;A&#39;].astype(float)</code><br>将DataFrame的A列类型更改成float<br><code>df.rename(columns={&#39;oldname&#39;: &#39;newname&#39;}, inplace=True)</code>   #修改列名<br><code>df.fillna(0)</code>  #NaN用0填充，处理缺失值<br><code>df.drop_duplicates(subset=[&#39;A&#39;]，keep=&#39;first&#39;)</code><br>按A列去重，保留第一行，keep（’first’,’last’,False）</p>
-<h3 id="查看DataFrame概要"><a href="#查看DataFrame概要" class="headerlink" title="查看DataFrame概要"></a>查看DataFrame概要</h3><p><code>df.head()</code>     #前几行<br><code>df.tail()</code>     #末几行<br><code>df.index</code>      #行标签<br><code>df.columns</code>    #列标签<br><code>df.dtypes</code>     #每一列数据类型<br><code>df[&#39;column&#39;].count()</code>    #column列非空条数<br><code>df[&#39;column&#39;].isnull()</code>   #column列是否有NaN的数据<br><code>df[&#39;column&#39;].unique()</code>    #column列所有值</p>
-<h3 id="简单统计"><a href="#简单统计" class="headerlink" title="简单统计"></a>简单统计</h3><p><code>df.describe()</code>   #各列基本描述统计值<br><code>df[&#39;A&#39;].value_counts()</code>  #计算A列每个值的频率</p>
-<h3 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h3><p><code>df.sort_index(axis=1,ascending=False)</code><br>对DataFrame的axis=0(行)，1(列)索引排序（ascending=True(升)，False(降)）<br><code>df.sort_index(by=[&#39;A&#39;, &#39;B&#39;], ascending=[True, False])</code>&lt;==&gt;<code>df.sort_values(by=[&#39;A&#39;, &#39;B&#39;], ascending=[True, False])</code>&lt;==&gt;<code>df.sort(columns=[&#39;A&#39;,&#39;B&#39;],ascending=[1,0])</code><br>对DataFrame先按’A’升排序, 再按’B’降排序</p>
-<h3 id="分组"><a href="#分组" class="headerlink" title="分组"></a>分组</h3><p><code>df.groupby(subset=[&#39;A&#39;,&#39;B&#39;],as_index=True)</code>    #以列A，B对df进行分组，默认A，B作为分组索引<br><code>df.groupby(by=[&#39;A&#39;],as_index=True).get_group(&#39;a&#39;)</code> #按A列分组后获取’a’组<br><code>df.groupby([&#39;col1&#39;,&#39;col2&#39;]).size().to_frame(name =&#39;count&#39;)</code><br>&lt;==&gt;<code>df.groupby([&#39;col1&#39;,&#39;col2&#39;]).size().reset_index(name =&#39;count&#39;)</code><br>按col1,col2对df进行分组，<code>size()</code>统计每一分组成员个数(<code>count()</code>也可以，<a href="https://stackoverflow.com/documentation/pandas/1822/grouping-data/6874/aggregating-by-size-and-count#t=201607220906502658034" target="_blank" rel="external">区别</a>就是count()过滤了NaN，size()包含)，命名为’count’</p>
-<h3 id="选择DataFrame行列"><a href="#选择DataFrame行列" class="headerlink" title="选择DataFrame行列"></a>选择DataFrame行列</h3><p><a href="http://www.shanelynn.ie/select-pandas-dataframe-rows-and-columns-using-iloc-loc-and-ix/" target="_blank" rel="external">示例参考</a><br><code>df.iloc[&lt;row selection&gt;,&lt;col selection&gt;]</code>  #基于行列索引选择（Selecting rows by label/index）<br><code>df.loc[&lt;row selection&gt;,&lt;col selection&gt;]</code>   #基于条件选择（Selecting rows with a boolean / conditional lookup）<br><code>ix[]</code>  #索引，条件混合选择</p>
-<p><code>df[df[&#39;A&#39;].isin(li)]</code>  #选择A列值在列表li中的行<br><code>df.saple(n=3)</code> #随机抽取3行数据，</p>
-<h3 id="归一化处理"><a href="#归一化处理" class="headerlink" title="归一化处理"></a>归一化处理</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">from sklearn import preprocessing</div><div class="line">df=preprocessing.scale(df,axis=0)   #df每一个feature归一化(列)</div><div class="line">df=preprocessing.scale(df,axis=1)   #df每一个sample归一化(行)</div></pre></td></tr></table></figure>
-<h3 id="离散特征one-hot编码"><a href="#离散特征one-hot编码" class="headerlink" title="离散特征one-hot编码"></a>离散特征one-hot编码</h3><p><code>df = pd.get_dummies(df[&#39;A&#39;], prefix=&#39;A&#39;)</code>  #对A列重新编码，编码后的列前缀加上’A’<br><code>df = pd.get_dummies(df)</code>   #对df所有离散特征进行one-hot编码</p>
-<h3 id="合并——merge、concat、append"><a href="#合并——merge、concat、append" class="headerlink" title="合并——merge、concat、append"></a>合并——merge、concat、append</h3><p><code>df1.append(df2,ignore_index=True)</code> #在df1下面追加df2，行索引重排序<br><code>pd.concat([df1[&#39;A&#39;],df2],axis=1)</code>  #列方向合并<br><code>pd.merge(df1, df2, how=&#39;inner&#39;, on=None, left_on=None, right_on=None,left_index=False, right_index=False)</code><br>how=[‘inner’,’left’,’right’,’outer’]对应内，左，右，外连接,on指定连接key</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote class=&quot;blockquote-center&quot;&gt;&lt;p&gt;本文主要是平时运用Pandas的小积累，涉及到读写文件，格式转换、缺失值填充，简单统计等多个方面。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="Python" scheme="http://www.phoebepan.cn/categories/Python/"/>
-    
-    
-      <category term="Python" scheme="http://www.phoebepan.cn/tags/Python/"/>
-    
-      <category term="pandas" scheme="http://www.phoebepan.cn/tags/pandas/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>堆排序——heapq</title>
-    <link href="http://www.phoebepan.cn/2017/05/07/heapq/"/>
-    <id>http://www.phoebepan.cn/2017/05/07/heapq/</id>
-    <published>2017-05-07T07:30:16.000Z</published>
-    <updated>2017-08-06T01:45:37.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote class="blockquote-center"><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>堆是一种树形结构，父子节点之间是有序的，大顶堆即，父节点大于等于两个子节点，小顶堆相反。Python的headpq模块实现了列表的小顶堆排序算法。</p>
-</blockquote>
-<a id="more"></a>
-<h3 id="建堆"><a href="#建堆" class="headerlink" title="建堆"></a>建堆</h3><p>两种方式，<code>heappush()</code>、<code>heapify()</code><br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> heapq</div><div class="line">a=[<span class="number">1</span>,<span class="number">5</span>,<span class="number">9</span>,<span class="number">2</span>,<span class="number">10</span>,<span class="number">4</span>]</div><div class="line">heap=[]</div><div class="line"><span class="keyword">for</span> n <span class="keyword">in</span> a:</div><div class="line">    heapq.heappush(heap,n)</div><div class="line">print(heap)     <span class="comment">#[1, 2, 4, 5, 10, 9]</span></div></pre></td></tr></table></figure></p>
-<h3 id="删除最小值"><a href="#删除最小值" class="headerlink" title="删除最小值"></a>删除最小值</h3><p><code>heappop()</code><br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> heapq</div><div class="line">a=[<span class="number">1</span>,<span class="number">5</span>,<span class="number">9</span>,<span class="number">2</span>,<span class="number">10</span>,<span class="number">4</span>]</div><div class="line"><span class="comment">#建堆</span></div><div class="line">heapq.heapify(a)</div><div class="line">print(heapq.heappop(a)) <span class="comment"># print 1</span></div></pre></td></tr></table></figure></p>
-<h3 id="替换最小值"><a href="#替换最小值" class="headerlink" title="替换最小值"></a>替换最小值</h3><p><code>heapreplace()</code><br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> heapq</div><div class="line">a=[<span class="number">1</span>,<span class="number">5</span>,<span class="number">9</span>,<span class="number">2</span>,<span class="number">10</span>,<span class="number">4</span>]</div><div class="line"><span class="comment">#建堆</span></div><div class="line">heapq.heapify(a)</div><div class="line">heapq.heapreplace(a,<span class="number">6</span>) <span class="comment"># print 1 、a=[2, 5, 4, 6, 10, 9]</span></div></pre></td></tr></table></figure></p>
-<h3 id="堆排序"><a href="#堆排序" class="headerlink" title="堆排序"></a>堆排序</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> heapq <span class="keyword">import</span> *</div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">heapsort</span><span class="params">(data)</span>:</span></div><div class="line">    [heappush(heap,n) <span class="keyword">for</span> n <span class="keyword">in</span> data]</div><div class="line">    <span class="keyword">return</span> [heappop(heap) <span class="keyword">for</span> i <span class="keyword">in</span> range(len(heap))]</div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote class=&quot;blockquote-center&quot;&gt;&lt;h3 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h3&gt;&lt;p&gt;堆是一种树形结构，父子节点之间是有序的，大顶堆即，父节点大于等于两个子节点，小顶堆相反。Python的headpq模块实现了列表的小顶堆排序算法。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="Python" scheme="http://www.phoebepan.cn/categories/Python/"/>
-    
-    
-      <category term="Python" scheme="http://www.phoebepan.cn/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>正则表达式</title>
-    <link href="http://www.phoebepan.cn/2017/05/06/Regular%20Expression/"/>
-    <id>http://www.phoebepan.cn/2017/05/06/Regular Expression/</id>
-    <published>2017-05-06T07:30:16.000Z</published>
-    <updated>2017-07-27T15:17:38.000Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>本文主要是shell正则表达式相关的笔记，正则表达式的分类有，</p>
-<ul>
-<li>基本的正则表达式（Basic Regular Expression 又叫Basic RegEx 简称BREs）</li>
-<li>扩展的正则表达式（Extended Regular Expression 又叫Extended RegEx 简称EREs）</li>
-<li>Perl的正则表达式（Perl Regular Expression 又叫Perl RegEx 简称PREs）</li>
-</ul>
-<a id="more"></a>
-<h3 id="基本组成部分"><a href="#基本组成部分" class="headerlink" title="基本组成部分"></a>基本组成部分</h3><table>
-<thead>
-<tr>
-<th style="text-align:center">正则表达式</th>
-<th style="text-align:left">示例</th>
-<th style="text-align:center">BREs</th>
-<th style="text-align:center">EREs</th>
-<th style="text-align:center">Python RegEx</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">\</td>
-<td style="text-align:left">转义符，如a\.b匹配a.b</td>
-<td style="text-align:center">\</td>
-<td style="text-align:center">\</td>
-<td style="text-align:center">\</td>
-</tr>
-<tr>
-<td style="text-align:center">^</td>
-<td style="text-align:left">行首，如^tux匹配以tux开头的行</td>
-<td style="text-align:center">^</td>
-<td style="text-align:center">^</td>
-<td style="text-align:center">^</td>
-</tr>
-<tr>
-<td style="text-align:center">\$</td>
-<td style="text-align:left">行尾，如tux\$匹配以tux结尾的行</td>
-<td style="text-align:center">\$</td>
-<td style="text-align:center">\$</td>
-<td style="text-align:center">\$</td>
-</tr>
-<tr>
-<td style="text-align:center">.</td>
-<td style="text-align:left">匹配除换行符\n之外的任意单个字符</td>
-<td style="text-align:center">.</td>
-<td style="text-align:center">.</td>
-<td style="text-align:center">.</td>
-</tr>
-<tr>
-<td style="text-align:center">[]</td>
-<td style="text-align:left">匹配包含在[字符]之中的任意一个字符</td>
-<td style="text-align:center">[]</td>
-<td style="text-align:center">[]</td>
-<td style="text-align:center">[]</td>
-</tr>
-<tr>
-<td style="text-align:center">[^]</td>
-<td style="text-align:left">匹配[^字符]之外的任意一个字符，如123[^45]不能匹配到1234或1235</td>
-<td style="text-align:center">[^]</td>
-<td style="text-align:center">[^]</td>
-<td style="text-align:center">[^]</td>
-</tr>
-<tr>
-<td style="text-align:center">[-]</td>
-<td style="text-align:left">匹配[]中指定范围内(递增)的任意一个字符，如[0-9]可以匹配0到9之间任意数</td>
-<td style="text-align:center">[-]</td>
-<td style="text-align:center">[-]</td>
-<td style="text-align:center">[-]</td>
-</tr>
-<tr>
-<td style="text-align:center">?</td>
-<td style="text-align:left">匹配之前的项至多1次，如colou?r可以匹配color或者colour</td>
-<td style="text-align:center">不支持</td>
-<td style="text-align:center">?</td>
-<td style="text-align:center">?</td>
-</tr>
-<tr>
-<td style="text-align:center">+</td>
-<td style="text-align:left">匹配之前的项至少1次，sa-6+匹配sa-6、sa-666</td>
-<td style="text-align:center">不支持</td>
-<td style="text-align:center">+</td>
-<td style="text-align:center">+</td>
-</tr>
-<tr>
-<td style="text-align:center">*</td>
-<td style="text-align:left">匹配之前项0次或多次</td>
-<td style="text-align:center">*</td>
-<td style="text-align:center">*</td>
-<td style="text-align:center">*</td>
-</tr>
-<tr>
-<td style="text-align:center">{n}</td>
-<td style="text-align:left">匹配之前项n次</td>
-<td style="text-align:center">不支持</td>
-<td style="text-align:center">{n}</td>
-<td style="text-align:center">{n}</td>
-</tr>
-<tr>
-<td style="text-align:center">{n,}</td>
-<td style="text-align:left">之前项至少匹配n次</td>
-<td style="text-align:center">不支持</td>
-<td style="text-align:center">{n,}</td>
-<td style="text-align:center">{n,}</td>
-</tr>
-<tr>
-<td style="text-align:center">{n,m}</td>
-<td style="text-align:left">之前项至少匹配n次，最多匹配m次，n&lt;=m</td>
-<td style="text-align:center">不支持</td>
-<td style="text-align:center">{n,m}</td>
-<td style="text-align:center">{n,m}</td>
-</tr>
-<tr>
-<td style="text-align:center">()</td>
-<td style="text-align:left">创建一个匹配子串，如ma(tri)?匹配max或maxtrix</td>
-<td style="text-align:center">不支持</td>
-<td style="text-align:center">()</td>
-<td style="text-align:center">()</td>
-</tr>
-</tbody>
-</table>
-<h3 id="元字符"><a href="#元字符" class="headerlink" title="元字符"></a>元字符</h3><table>
-<thead>
-<tr>
-<th style="text-align:center">正则表达式</th>
-<th style="text-align:left">示例</th>
-<th style="text-align:center">BREs</th>
-<th style="text-align:center">EREs</th>
-<th style="text-align:center">Python RegEx</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">\b</td>
-<td style="text-align:left">单词边界，如\bcool\b 匹配cool</td>
-<td style="text-align:center">\b</td>
-<td style="text-align:center">\b</td>
-<td style="text-align:center">\b</td>
-</tr>
-<tr>
-<td style="text-align:center">\B</td>
-<td style="text-align:left">非单词边界，如cool\B 匹配coolant，不匹配cool</td>
-<td style="text-align:center">\B</td>
-<td style="text-align:center">\B</td>
-<td style="text-align:center">\B</td>
-</tr>
-<tr>
-<td style="text-align:center">\d</td>
-<td style="text-align:left">单个数字字符，如b\db 匹配b2b，不匹配bcb</td>
-<td style="text-align:center">不支持</td>
-<td style="text-align:center">不支持</td>
-<td style="text-align:center">\d</td>
-</tr>
-<tr>
-<td style="text-align:center">\D</td>
-<td style="text-align:left">单个非数字字符，如b\Db 匹配bcb，不匹配b2b</td>
-<td style="text-align:center">不支持</td>
-<td style="text-align:center">不支持</td>
-<td style="text-align:center">\D</td>
-</tr>
-<tr>
-<td style="text-align:center">\w</td>
-<td style="text-align:left">单个单词字符</td>
-<td style="text-align:center">\w</td>
-<td style="text-align:center">\w</td>
-<td style="text-align:center">\w</td>
-</tr>
-<tr>
-<td style="text-align:center">\W</td>
-<td style="text-align:left">单个非单词字符</td>
-<td style="text-align:center">\W</td>
-<td style="text-align:center">\W</td>
-<td style="text-align:center">\W</td>
-</tr>
-<tr>
-<td style="text-align:center">\s</td>
-<td style="text-align:left">单个空白字符</td>
-<td style="text-align:center">不支持</td>
-<td style="text-align:center">不支持</td>
-<td style="text-align:center">\s</td>
-</tr>
-<tr>
-<td style="text-align:center">\S</td>
-<td style="text-align:left">单个非空白字符</td>
-<td style="text-align:center">不支持</td>
-<td style="text-align:center">不支持</td>
-<td style="text-align:center">\S</td>
-</tr>
-</tbody>
-</table>
-<p><a href="http://man.linuxde.net/docs/shell_regex.html" target="_blank" rel="external">更多参考访问</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h3&gt;&lt;p&gt;本文主要是shell正则表达式相关的笔记，正则表达式的分类有，&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;基本的正则表达式（Basic Regular Expression 又叫Basic RegEx 简称BREs）&lt;/li&gt;
-&lt;li&gt;扩展的正则表达式（Extended Regular Expression 又叫Extended RegEx 简称EREs）&lt;/li&gt;
-&lt;li&gt;Perl的正则表达式（Perl Regular Expression 又叫Perl RegEx 简称PREs）&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-      <category term="Daily Accumulation" scheme="http://www.phoebepan.cn/categories/Daily-Accumulation/"/>
-    
-    
-      <category term="Regular Expression" scheme="http://www.phoebepan.cn/tags/Regular-Expression/"/>
     
   </entry>
   
