@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.phoebepan.cn/"/>
-  <updated>2017-07-16T04:40:44.000Z</updated>
+  <updated>2017-08-12T02:41:42.000Z</updated>
   <id>http://www.phoebepan.cn/</id>
   
   <author>
@@ -14,6 +14,105 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>搜索广告</title>
+    <link href="http://www.phoebepan.cn/2017/08/02/searchad/"/>
+    <id>http://www.phoebepan.cn/2017/08/02/searchad/</id>
+    <published>2017-08-02T07:30:16.000Z</published>
+    <updated>2017-08-12T02:41:42.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote class="blockquote-center"><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>搜索广告指，在搜索过程中，搜索引擎推送给我们的互联网广告。参考Google财报，绝大部分收入来自于搜索广告。一般来说，当用户输入一个查询后，广告系统会经过：广告检索、广告排序、流量分配，三个模块为用户提供广告。</p>
+</blockquote>
+<a id="more"></a>
+<h3 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h3><p><img src="/images/searchad.png" alt="searchad"></p>
+<h3 id="在线学习"><a href="#在线学习" class="headerlink" title="在线学习"></a>在线学习</h3><p>模型获得一个训练样本<x,y>，利用一个迭代方法更新模型变量，使得当前期望loss最小。</x,y></p>
+<blockquote>
+<p>实际使用中，特征向量高维稀疏性，需要采用特征缩减技术进行特征稀疏化处理，可使用L1泛数加入目标函数。<br>工业界需要CTR预估模型具有自适应性，能够迅速适应数据变化。如，逻辑回归模型采用随机梯度下降法就具备在线学习能力。</p>
+</blockquote>
+<p>SGD简单易行，但很难得到特征向量稀疏结果，且精度低，收敛慢，Google提出的FTRL-Proximal方法可以得到稀疏性更好地训练结果。FTRL算法融合了RDA算法能产生稀疏模型的特性和SGD算法能产生更有效模型的特性，在处理诸如LR之类的非光滑正则化项的凸优化问题上性能更出色。算法详细理解参考博文<sup>1</sup>。<br><img src="/images/ftrl.png" alt="ftrl"></p>
+<p>除了运用L1正则化降低特征维度，其他常见的方法也可以降低特征维度，比如，</p>
+<ul>
+<li>泊松选择法，不同特征表中的新特征以P的概率接纳其进入特征表。</li>
+</ul>
+<p>参考文献：</p>
+<ol>
+<li><a href="http://vividfree.github.io/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2015/12/05/understanding-FTRL-algorithm" target="_blank" rel="external">理解FTRL算法</a></li>
+<li>《互联网广告算法和系统实践》</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote class=&quot;blockquote-center&quot;&gt;&lt;h3 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h3&gt;&lt;p&gt;搜索广告指，在搜索过程中，搜索引擎推送给我们的互联网广告。参考Google财报，绝大部分收入来自于搜索广告。一般来说，当用户输入一个查询后，广告系统会经过：广告检索、广告排序、流量分配，三个模块为用户提供广告。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="ComputationalAdvertising" scheme="http://www.phoebepan.cn/categories/ComputationalAdvertising/"/>
+    
+    
+      <category term="计算广告" scheme="http://www.phoebepan.cn/tags/%E8%AE%A1%E7%AE%97%E5%B9%BF%E5%91%8A/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>互联网广告简介</title>
+    <link href="http://www.phoebepan.cn/2017/08/01/AdvertisingSummary/"/>
+    <id>http://www.phoebepan.cn/2017/08/01/AdvertisingSummary/</id>
+    <published>2017-08-01T07:30:16.000Z</published>
+    <updated>2017-08-12T01:16:36.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote class="blockquote-center"><p>广告是由已确定的出资人通过各种媒介进行的有关产品（商品、服务和观点）的、有偿的、有组织的、综合的、劝服性的非人员的信息传播活动。<br>——William F.Arens</p>
+</blockquote>
+<p><code>Stay Hungry, Stay Foolish.</code> 从这篇笔记开始学习计算广告。<br><a id="more"></a></p>
+<h3 id="角色"><a href="#角色" class="headerlink" title="角色"></a>角色</h3><p>广告主、媒体、受众；三者博弈的生态系统。</p>
+<h3 id="广告类型"><a href="#广告类型" class="headerlink" title="广告类型"></a>广告类型</h3><ul>
+<li>条幅广告</li>
+<li>邮件直接营销广告</li>
+<li>富媒体广告</li>
+<li>视频广告</li>
+<li>文字链广告</li>
+<li>社交广告</li>
+<li>移动端广告</li>
+</ul>
+<h3 id="系统架构"><a href="#系统架构" class="headerlink" title="系统架构"></a>系统架构</h3><ul>
+<li>前端引擎</li>
+<li>检索引擎</li>
+<li>实时点击率预估服务</li>
+<li>广告主操作消息更新服务</li>
+<li>用户行为数据收集和更新系统</li>
+<li>特征提取和行为分析</li>
+<li>反作弊系统</li>
+<li>广告主后台(建立投放计划、增加投放创意、出价、设定投放参数、阅读报表等)</li>
+<li>存储系统</li>
+<li>计算系统(人群属性、意图挖掘；多特征任务)</li>
+</ul>
+<h3 id="机制设计"><a href="#机制设计" class="headerlink" title="机制设计"></a>机制设计</h3><blockquote>
+<p>在经济学中，机制设计所讨论的问题是：在给定一个社会目标或者经济目标，以及自由选择、自愿交换的分散化决策条件下，能否并且怎样设计一个经济机制（包括制约条件、资源配置等），使得参与者的个人利益和设计者既定的目标一致。</p>
+</blockquote>
+<h4 id="广告机制设计"><a href="#广告机制设计" class="headerlink" title="广告机制设计"></a>广告机制设计</h4><blockquote>
+<p>主要研究的是，如何针对不同广告受众，将广告平台上有限的展现位置分配给不同的广告，以达到某种既定的利益目标。</p>
+</blockquote>
+<h3 id="优化目标"><a href="#优化目标" class="headerlink" title="优化目标"></a>优化目标</h3><p>互联网广告算法的核心问题，是根据用户、环境、广告的全部有效信息，找到最合适的投放策略和模型，兼顾浏览者、广告主、广告平台的最大利益，并不断调整。</p>
+<h3 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h3><p><img src="/images/advertising.png" alt="advertising"></p>
+<p>参考书目：《互联网广告算法和系统实践》</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote class=&quot;blockquote-center&quot;&gt;&lt;p&gt;广告是由已确定的出资人通过各种媒介进行的有关产品（商品、服务和观点）的、有偿的、有组织的、综合的、劝服性的非人员的信息传播活动。&lt;br&gt;——William F.Arens&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;code&gt;Stay Hungry, Stay Foolish.&lt;/code&gt; 从这篇笔记开始学习计算广告。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="ComputationalAdvertising" scheme="http://www.phoebepan.cn/categories/ComputationalAdvertising/"/>
+    
+    
+      <category term="计算广告" scheme="http://www.phoebepan.cn/tags/%E8%AE%A1%E7%AE%97%E5%B9%BF%E5%91%8A/"/>
+    
+  </entry>
   
   <entry>
     <title>python中time模块</title>
@@ -160,7 +259,7 @@
     <link href="http://www.phoebepan.cn/2017/06/07/spark_1/"/>
     <id>http://www.phoebepan.cn/2017/06/07/spark_1/</id>
     <published>2017-06-07T07:30:16.000Z</published>
-    <updated>2017-08-08T15:08:08.000Z</updated>
+    <updated>2017-08-08T15:43:26.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote class="blockquote-center"><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>MapReduce在迭代计算和交互计算的任务上表现得效率低下，Spark从一开始就是为交互式查询和迭代算法设计的，同时还支持内存式存储和高效的容错机制，Spark的核心是一个对由很多计算任务组成的、运行在多个工作机器或者是一个计算集群上的应用进行调度、分发以及监控的计算引擎。<br>因Spark支持java、python等语言，尝试安装了python语言环境下的spark开发环境。本篇笔记是win10下配置过程记录。</p>
 </blockquote>
@@ -172,7 +271,7 @@
 <h3 id="python下spark开发环境搭建"><a href="#python下spark开发环境搭建" class="headerlink" title="python下spark开发环境搭建"></a>python下spark开发环境搭建</h3><p>将spark目录下的pyspark文件夹(D:\spark\spark-2.2.0-bin-hadoop2.6\python\pyspark)复制到python安装目录(D:\Program Files (x86)\python3\Lib\site-packages)里。</p>
 <h3 id="验证spark安装正确性"><a href="#验证spark安装正确性" class="headerlink" title="验证spark安装正确性"></a>验证spark安装正确性</h3><p>cmd中输入：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">d:</div><div class="line">cd D:\spark\spark-2.2.0-bin-hadoop2.6</div><div class="line">bin\spark-shell</div></pre></td></tr></table></figure></p>
 <p>运行如下命令启动Spark python shell，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">d:</div><div class="line">cd D:\spark\spark-2.2.0-bin-hadoop2.6</div><div class="line">bin\pyshark</div></pre></td></tr></table></figure></p>
-<p>Tip：将目录D:\spark\spark-2.2.0-bin-hadoop2.6\bin\pyspark2.cmd的<code>PYSPARK_DRIVER_PYTHON=ipython</code>更改成ipython，就可以用ipython开始交互啦~<br>如果正确，控制台会输出如下信息：<br><img src="/images/success_spark.png" alt="success_spark"></p>
+<p><strong>Tip：</strong>将目录<code>D:\spark\spark-2.2.0-bin-hadoop2.6\bin\pyspark2.cmd</code>的<code>PYSPARK_DRIVER_PYTHON=ipython</code>更改成ipython，就可以用ipython开始交互啦~<br>如果正确，控制台会输出如下信息：<br><img src="/images/success_spark.png" alt="success_spark"></p>
 ]]></content>
     
     <summary type="html">
@@ -959,76 +1058,6 @@
     
     
       <category term="Recommendation" scheme="http://www.phoebepan.cn/tags/Recommendation/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>充实的无话可说</title>
-    <link href="http://www.phoebepan.cn/2017/05/15/fine_life/"/>
-    <id>http://www.phoebepan.cn/2017/05/15/fine_life/</id>
-    <published>2017-05-15T07:30:16.000Z</published>
-    <updated>2017-06-04T02:26:13.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote class="blockquote-center"><p>有人说，人生有两大遗憾，太晚谈恋爱，太早读经典。读懂一本书，看懂一部电影和谈对一场恋爱，都需要刚刚好的时间。太早理解不了，太晚就少了份陪伴感。</p>
-</blockquote>
-<a id="more"></a>
-<h3 id="碎碎念1"><a href="#碎碎念1" class="headerlink" title="碎碎念1"></a><center>碎碎念1</center></h3><blockquote>
-<p>好朋友问我，嘿，最近怎么不见你出去浪了呢，端午打算去哪耍去？<br>我笑着答道，宅家看书。<br>朋友诡异的看着我说，不是吧，学霸真可怕！</p>
-</blockquote>
-<p>回想年后这几个月自己的转变还真是蛮大的，从以前放荡自由的野孩子，变得像点研究僧的模样，而且越来越喜欢这样自律的自己。<br>研一的周末，要么在研究烘焙，要么参加户外活动，认识了很多有意思的朋友，相比较单调的校园生活，可以说外面的世界太精彩，一次次被惊艳，看着他们活出自己理想生活状态，可以说是非常羡慕。然而渐渐我发现，如果自己不够优秀，认识再多的人，你的生活也不会有所改变。现在的我，学着跟自己和平相处，控制情绪，学着量化每天的时间，每天有小目标，生活得很充实。</p>
-<h3 id="碎碎念2"><a href="#碎碎念2" class="headerlink" title="碎碎念2"></a><center>碎碎念2</center></h3><p>现在的我，每天不管多忙，多晚，也要读几页书，读书，可以说是一种自嗨的事儿，一旦这样的自嗨能力养成了，你就不容易陷入无聊，不容易被别人的想法左右。<br>人只能活一次，没有可以对标的人生，上一辈的建议有时过气，同龄人其实也一样迷茫，而读书就不一样了，只要你尝试阅读不同的书，你就可以尝试不同的人生，体验不同的精彩生活，重回现实，你会活的更明白。<br>平淡的日子，不急不躁，继续丰盈自己~</p>
-<p><img src="/images/Shawshank_Redemption.jpg" alt="肖申克的救赎" title="The Shawshank Redemption"></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote class=&quot;blockquote-center&quot;&gt;&lt;p&gt;有人说，人生有两大遗憾，太晚谈恋爱，太早读经典。读懂一本书，看懂一部电影和谈对一场恋爱，都需要刚刚好的时间。太早理解不了，太晚就少了份陪伴感。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="Thinking" scheme="http://www.phoebepan.cn/categories/Thinking/"/>
-    
-    
-      <category term="Life" scheme="http://www.phoebepan.cn/tags/Life/"/>
-    
-      <category term="Thinking" scheme="http://www.phoebepan.cn/tags/Thinking/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Modern Machine Learning Algorithms:Strengths and Weaknesses(阅读笔记)</title>
-    <link href="http://www.phoebepan.cn/2017/05/13/ML_good_weak/"/>
-    <id>http://www.phoebepan.cn/2017/05/13/ML_good_weak/</id>
-    <published>2017-05-13T07:30:16.000Z</published>
-    <updated>2017-06-02T14:34:39.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote class="blockquote-center"><p><center><strong>推荐理由</strong></center><br>对于机器学习算法的盘点，网上有很多。但本文亮点在于结合使用场景来把问题说明白，作者结合他的实际经验，细致剖析每种算法在实践中的优势和不足。</p>
-</blockquote>
-<a id="more"></a>
-<p>当前的「三大」最常见的机器学习任务：</p>
-<ul>
-<li>回归（Regression）</li>
-<li>分类（Classification）</li>
-<li>聚类（Clustering）</li>
-</ul>
-<p>下面是我阅读这篇文章后总结的的思维导图：<br><img src="/images/whole.png" alt="机器学习3大任务" title="机器学习3大任务"><br><img src="/images/regression1.png" alt="回归"><br><img src="/images/regression2.png" alt="回归" title="回归"><br><img src="/images/classfication1.png" alt="分类"><br><img src="/images/classfication2.png" alt="分类" title="分类"><br><img src="/images/cocluster1.png" alt="聚类"><br><img src="/images/cocluster2.png" alt="聚类" title="聚类"><br>最后，<a href="https://elitedatascience.com/machine-learning-algorithms" target="_blank" rel="external">附原文链接</a>，欢迎纠错。<br><blockquote class="blockquote-center"><p>Of course, the algorithms you try must be appropriate for your problem, which is where picking the right machine learning task comes in.</p>
-</blockquote></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote class=&quot;blockquote-center&quot;&gt;&lt;p&gt;&lt;center&gt;&lt;strong&gt;推荐理由&lt;/strong&gt;&lt;/center&gt;&lt;br&gt;对于机器学习算法的盘点，网上有很多。但本文亮点在于结合使用场景来把问题说明白，作者结合他的实际经验，细致剖析每种算法在实践中的优势和不足。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="Machine Learning" scheme="http://www.phoebepan.cn/categories/Machine-Learning/"/>
-    
-    
-      <category term="ML" scheme="http://www.phoebepan.cn/tags/ML/"/>
-    
-      <category term="Reading" scheme="http://www.phoebepan.cn/tags/Reading/"/>
     
   </entry>
   

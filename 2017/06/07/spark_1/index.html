@@ -96,7 +96,7 @@
 <meta property="og:site_name" content="技忆">
 <meta property="og:description" content="简介MapReduce在迭代计算和交互计算的任务上表现得效率低下，Spark从一开始就是为交互式查询和迭代算法设计的，同时还支持内存式存储和高效的容错机制，Spark的核心是一个对由很多计算任务组成的、运行在多个工作机器或者是一个计算集群上的应用进行调度、分发以及监控的计算引擎。因Spark支持java、python等语言，尝试安装了python语言环境下的spark开发环境。本篇笔记是win10">
 <meta property="og:image" content="http://www.phoebepan.cn/images/success_spark.png">
-<meta property="og:updated_time" content="2017-08-08T15:08:08.000Z">
+<meta property="og:updated_time" content="2017-08-08T15:43:26.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="单机安装Spark开发环境">
 <meta name="twitter:description" content="简介MapReduce在迭代计算和交互计算的任务上表现得效率低下，Spark从一开始就是为交互式查询和迭代算法设计的，同时还支持内存式存储和高效的容错机制，Spark的核心是一个对由很多计算任务组成的、运行在多个工作机器或者是一个计算集群上的应用进行调度、分发以及监控的计算引擎。因Spark支持java、python等语言，尝试安装了python语言环境下的spark开发环境。本篇笔记是win10">
@@ -493,7 +493,7 @@
 <h3 id="python下spark开发环境搭建"><a href="#python下spark开发环境搭建" class="headerlink" title="python下spark开发环境搭建"></a>python下spark开发环境搭建</h3><p>将spark目录下的pyspark文件夹(D:\spark\spark-2.2.0-bin-hadoop2.6\python\pyspark)复制到python安装目录(D:\Program Files (x86)\python3\Lib\site-packages)里。</p>
 <h3 id="验证spark安装正确性"><a href="#验证spark安装正确性" class="headerlink" title="验证spark安装正确性"></a>验证spark安装正确性</h3><p>cmd中输入：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">d:</div><div class="line">cd D:\spark\spark-2.2.0-bin-hadoop2.6</div><div class="line">bin\spark-shell</div></pre></td></tr></table></figure></p>
 <p>运行如下命令启动Spark python shell，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">d:</div><div class="line">cd D:\spark\spark-2.2.0-bin-hadoop2.6</div><div class="line">bin\pyshark</div></pre></td></tr></table></figure></p>
-<p>Tip：将目录D:\spark\spark-2.2.0-bin-hadoop2.6\bin\pyspark2.cmd的<code>PYSPARK_DRIVER_PYTHON=ipython</code>更改成ipython，就可以用ipython开始交互啦~<br>如果正确，控制台会输出如下信息：<br><img src="/images/success_spark.png" alt="success_spark"></p>
+<p><strong>Tip：</strong>将目录<code>D:\spark\spark-2.2.0-bin-hadoop2.6\bin\pyspark2.cmd</code>的<code>PYSPARK_DRIVER_PYTHON=ipython</code>更改成ipython，就可以用ipython开始交互啦~<br>如果正确，控制台会输出如下信息：<br><img src="/images/success_spark.png" alt="success_spark"></p>
 
       
     </div>
@@ -648,7 +648,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">49</span>
+                <span class="site-state-item-count">51</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -659,7 +659,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">14</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -670,7 +670,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-count">24</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

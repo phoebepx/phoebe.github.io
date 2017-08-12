@@ -95,7 +95,7 @@
 <meta property="og:url" content="http://www.phoebepan.cn/accumulation/index.html">
 <meta property="og:site_name" content="技忆">
 <meta property="og:description" content="不积跬步无以至千里。">
-<meta property="og:updated_time" content="2017-07-08T12:38:11.000Z">
+<meta property="og:updated_time" content="2017-08-08T15:39:39.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="技忆">
 <meta name="twitter:description" content="不积跬步无以至千里。">
@@ -342,6 +342,10 @@
 </blockquote>
 <a id="more"></a>
 <hr>
+<p>python中的<code>filter(function,list)</code>内置函数，根据function过滤list中的项，最后返回一个新的list，如：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">a=[<span class="number">1</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">8</span>]</div><div class="line">b=filter(<span class="keyword">lambda</span> x:x&gt;<span class="number">5</span>, a)</div><div class="line">print(b) <span class="comment">#[6,8]</span></div></pre></td></tr></table></figure></p>
+<hr>
+<p>字符串列表，按长度降序，如<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">d = [<span class="string">"ale"</span>,<span class="string">"apple"</span>,<span class="string">"monkey"</span>,<span class="string">"plea"</span>]</div><div class="line">d.sort(key = <span class="keyword">lambda</span> x: (-len(x), x))    <span class="comment">#或者sorted(d,key = lambda x: (-len(x), x))</span></div><div class="line">print(d)    <span class="comment">#d=['monkey', 'apple', 'plea', 'ale']</span></div></pre></td></tr></table></figure></p>
+<hr>
 <p>N*M的矩阵，计算N行对象间余弦相似性：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> sklearn.metrics.pairwise <span class="keyword">import</span> cosine_similarity</div><div class="line">cosine_similarity(data)</div></pre></td></tr></table></figure></p>
 <hr>
 <p>快速将数组、矩阵中低于某一值的数置0，e.g.<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> scipy.stats <span class="keyword">import</span> threshold</div><div class="line">array = [<span class="number">0</span>, <span class="number">.25</span>, <span class="number">-1</span>, <span class="number">.15</span>, <span class="number">.5</span>, <span class="number">-2</span>, <span class="number">-3</span>, <span class="number">-4</span>, <span class="number">0</span>, <span class="number">0</span>]</div><div class="line">cut_array=threshold(array,<span class="number">0.1</span>)	</div><div class="line">print(cut_array)	<span class="comment">#[ 0.  ,  0.25,  0.  ,  0.15,  0.5 ,  0.  ,  0.  ,  0.  ,  0.  ,  0.  ]</span></div></pre></td></tr></table></figure></p>
@@ -422,7 +426,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">49</span>
+                <span class="site-state-item-count">51</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -433,7 +437,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">14</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -444,7 +448,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-count">24</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
