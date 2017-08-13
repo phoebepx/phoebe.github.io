@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.phoebepan.cn/"/>
-  <updated>2017-08-12T03:11:02.000Z</updated>
+  <updated>2017-08-13T07:58:45.000Z</updated>
   <id>http://www.phoebepan.cn/</id>
   
   <author>
@@ -14,6 +14,37 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>定向广告到实时竞价广告</title>
+    <link href="http://www.phoebepan.cn/2017/08/03/rtb/"/>
+    <id>http://www.phoebepan.cn/2017/08/03/rtb/</id>
+    <published>2017-08-03T07:30:16.000Z</published>
+    <updated>2017-08-13T07:58:45.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote class="blockquote-center"><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>相比较于搜索广告，凡是浏览者没有主动输入搜索词的场景里面的广告，都可以叫做“非搜索广告”，即情景广告。本篇笔记包含非搜索广告的几种场景，以及针对定向广告的痛点发展而来的实时竞价广告。</p>
+</blockquote>
+<a id="more"></a>
+<h3 id="定向广告"><a href="#定向广告" class="headerlink" title="定向广告"></a>定向广告</h3><p><img src="/images/dingxiangad.png" alt="dingxiangad"></p>
+<p><strong>痛点：</strong>定向广告下，广告主的广告无法找到与其最相匹配的流量进行投放，大量媒体流量也无法找到最能实现其真实价值的广告和广告主，互联网的流量资源得不到合理和有效的配置。</p>
+<h3 id="实时广告竞价-RTB"><a href="#实时广告竞价-RTB" class="headerlink" title="实时广告竞价(RTB)"></a>实时广告竞价(RTB)</h3><p>核心：建立一种流量交换的协议，使得媒体和广告联盟可以向全网范围的广告主提供其尚未售出的流量，为自己带来更高收益的同时，也为广告主提供了更多的选择，提高了他们的广告投放效果与投资回报率。<br>实时广告竞价从根本上解决了展示广告需求和供给方之间的矛盾，用市场化的规则使得资源达到了最优化的配置。</p>
+<p><img src="/images/rtb.png" alt="rtb"></p>
+<p>参考书目：《互联网广告算法和系统实践》</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote class=&quot;blockquote-center&quot;&gt;&lt;h3 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h3&gt;&lt;p&gt;相比较于搜索广告，凡是浏览者没有主动输入搜索词的场景里面的广告，都可以叫做“非搜索广告”，即情景广告。本篇笔记包含非搜索广告的几种场景，以及针对定向广告的痛点发展而来的实时竞价广告。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="ComputationalAdvertising" scheme="http://www.phoebepan.cn/categories/ComputationalAdvertising/"/>
+    
+    
+      <category term="计算广告" scheme="http://www.phoebepan.cn/tags/%E8%AE%A1%E7%AE%97%E5%B9%BF%E5%91%8A/"/>
+    
+  </entry>
   
   <entry>
     <title>搜索广告</title>
@@ -61,7 +92,7 @@
     <link href="http://www.phoebepan.cn/2017/08/01/AdvertisingSummary/"/>
     <id>http://www.phoebepan.cn/2017/08/01/AdvertisingSummary/</id>
     <published>2017-08-01T07:30:16.000Z</published>
-    <updated>2017-08-12T03:11:23.000Z</updated>
+    <updated>2017-08-13T08:24:07.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote class="blockquote-center"><p>广告是由已确定的出资人通过各种媒介进行的有关产品（商品、服务和观点）的、有偿的、有组织的、综合的、劝服性的非人员的信息传播活动。<br>——William F.Arens</p>
 </blockquote>
@@ -96,6 +127,7 @@
 </blockquote>
 <h3 id="优化目标"><a href="#优化目标" class="headerlink" title="优化目标"></a>优化目标</h3><p>互联网广告算法的核心问题，是根据用户、环境、广告的全部有效信息，找到最合适的投放策略和模型，兼顾浏览者、广告主、广告平台的最大利益，并不断调整。</p>
 <h3 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h3><p><img src="/images/advertising.png" alt="advertising"></p>
+<h3 id="广告系统的架构"><a href="#广告系统的架构" class="headerlink" title="广告系统的架构"></a>广告系统的架构</h3><p><img src="/images/ad_challenge.png" alt="ad_challenge"></p>
 <p>参考书目：《互联网广告算法和系统实践》</p>
 ]]></content>
     
@@ -1015,41 +1047,6 @@
     <summary type="html">
     
       &lt;blockquote class=&quot;blockquote-center&quot;&gt;&lt;h3 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h3&gt;&lt;p&gt;古语，听其言，观其行，用户的行为不是随机的，而是蕴含着很多模式，通过算法自动挖掘用户行为数据，从而推测出用户的兴趣和需求，做出个性化推荐。本文是自己对用户行为分析的学习笔记。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="Recommendation" scheme="http://www.phoebepan.cn/categories/Recommendation/"/>
-    
-    
-      <category term="Recommendation" scheme="http://www.phoebepan.cn/tags/Recommendation/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>推荐系统实战——概述</title>
-    <link href="http://www.phoebepan.cn/2017/05/16/Recommendation_action1/"/>
-    <id>http://www.phoebepan.cn/2017/05/16/Recommendation_action1/</id>
-    <published>2017-05-16T07:30:16.000Z</published>
-    <updated>2017-07-19T08:24:32.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote class="blockquote-center"><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>信息过载的现在，催生出了个性化推荐系统，“千人千面”，分析你的历史兴趣，发现对用户有价值的信息，同时，让信息能够展现在对它感兴趣的用户面前，可谓是双赢的酷事！选择《推荐系统实战》这本书作为自己的入门读物，一步一步深入学习个性化推荐，本文是推荐系统的概述，作为系列开篇之记。</p>
-</blockquote>
-<a id="more"></a>
-<h3 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h3><p>下面这张思维导图，可以粗略了解推荐系统是什么，解决什么问题，有什么用（经典三问，是什么？为什么？怎么样？），以及如何评价推荐系统优劣？<br><img src="/images/recommend.png" alt="recommend"></p>
-<h3 id="附1：覆盖率——基尼系数计算原理："><a href="#附1：覆盖率——基尼系数计算原理：" class="headerlink" title="附1：覆盖率——基尼系数计算原理："></a>附1：覆盖率——基尼系数计算原理：</h3><p>结合下图，gini系数的形象化解释为（黑色曲线表示最不热门的x%物品的总流行度占系统的比例y%）,$$Gini=\frac{A的面积}{(A+B)的面积} $$<br><img src="/images/gini.png" alt="gini"><br>由此可见，如果系统物品流行度分配很不均匀，那么分子就会很大，从而基尼系数也会很大。</p>
-<h3 id="附2：一个推荐算法最终上线，需完成3个实验。"><a href="#附2：一个推荐算法最终上线，需完成3个实验。" class="headerlink" title="附2：一个推荐算法最终上线，需完成3个实验。"></a>附2：一个推荐算法最终上线，需完成3个实验。</h3><ul>
-<li>离线实验证明他在很多离线指标上优于现有算法；</li>
-<li>通过用户调查确定它的用户满意度不低于现有算法；</li>
-<li>在线AB测试确定它在我们关心的指标上优于现有算法。</li>
-</ul>
-<h3 id="附3：离线实验的优化目标"><a href="#附3：离线实验的优化目标" class="headerlink" title="附3：离线实验的优化目标"></a>附3：离线实验的优化目标</h3><p>用一个数学公式表达，如下：<br>最大化预测准确度<br>使得 覆盖率 &gt; A，多样性 &gt; B，新颖性 &gt; C</p>
-<p> [1]项亮，推荐系统实战.</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote class=&quot;blockquote-center&quot;&gt;&lt;h3 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h3&gt;&lt;p&gt;信息过载的现在，催生出了个性化推荐系统，“千人千面”，分析你的历史兴趣，发现对用户有价值的信息，同时，让信息能够展现在对它感兴趣的用户面前，可谓是双赢的酷事！选择《推荐系统实战》这本书作为自己的入门读物，一步一步深入学习个性化推荐，本文是推荐系统的概述，作为系列开篇之记。&lt;/p&gt;
 &lt;/blockquote&gt;
     
     </summary>

@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="LeetCode,Algorithms," />
+  <meta name="keywords" content="计算广告," />
 
 
 
@@ -89,18 +89,19 @@
 
 
 
-<meta name="description" content="起因：从网页中爬取的数据，需要判断是否包含预设的关键词，并返回所有匹配到的关键词。文字匹配（过滤）是很多文字类网站必不可少的功能，采用一个高效的文字过滤算法至关重要。其本质需求就是判断集合A中哪些子集属于集合B。">
+<meta name="description" content="简介相比较于搜索广告，凡是浏览者没有主动输入搜索词的场景里面的广告，都可以叫做“非搜索广告”，即情景广告。本篇笔记包含非搜索广告的几种场景，以及针对定向广告的痛点发展而来的实时竞价广告。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="关键词匹配经典算法——DFA">
-<meta property="og:url" content="http://www.phoebepan.cn/2017/03/15/DFA/index.html">
+<meta property="og:title" content="定向广告到实时竞价广告">
+<meta property="og:url" content="http://www.phoebepan.cn/2017/08/03/rtb/index.html">
 <meta property="og:site_name" content="技忆">
-<meta property="og:description" content="起因：从网页中爬取的数据，需要判断是否包含预设的关键词，并返回所有匹配到的关键词。文字匹配（过滤）是很多文字类网站必不可少的功能，采用一个高效的文字过滤算法至关重要。其本质需求就是判断集合A中哪些子集属于集合B。">
-<meta property="og:image" content="http://www.phoebepan.cn/images/dfastate.png">
-<meta property="og:updated_time" content="2017-07-08T11:37:03.000Z">
+<meta property="og:description" content="简介相比较于搜索广告，凡是浏览者没有主动输入搜索词的场景里面的广告，都可以叫做“非搜索广告”，即情景广告。本篇笔记包含非搜索广告的几种场景，以及针对定向广告的痛点发展而来的实时竞价广告。">
+<meta property="og:image" content="http://www.phoebepan.cn/images/dingxiangad.png">
+<meta property="og:image" content="http://www.phoebepan.cn/images/rtb.png">
+<meta property="og:updated_time" content="2017-08-13T07:58:45.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="关键词匹配经典算法——DFA">
-<meta name="twitter:description" content="起因：从网页中爬取的数据，需要判断是否包含预设的关键词，并返回所有匹配到的关键词。文字匹配（过滤）是很多文字类网站必不可少的功能，采用一个高效的文字过滤算法至关重要。其本质需求就是判断集合A中哪些子集属于集合B。">
-<meta name="twitter:image" content="http://www.phoebepan.cn/images/dfastate.png">
+<meta name="twitter:title" content="定向广告到实时竞价广告">
+<meta name="twitter:description" content="简介相比较于搜索广告，凡是浏览者没有主动输入搜索词的场景里面的广告，都可以叫做“非搜索广告”，即情景广告。本篇笔记包含非搜索广告的几种场景，以及针对定向广告的痛点发展而来的实时竞价广告。">
+<meta name="twitter:image" content="http://www.phoebepan.cn/images/dingxiangad.png">
 
 
 
@@ -128,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="http://www.phoebepan.cn/2017/03/15/DFA/"/>
+  <link rel="canonical" href="http://www.phoebepan.cn/2017/08/03/rtb/"/>
 
 
 
 
 
-  <title> 关键词匹配经典算法——DFA | 技忆 </title>
+  <title> 定向广告到实时竞价广告 | 技忆 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -333,7 +334,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://www.phoebepan.cn/2017/03/15/DFA/">
+    <link itemprop="mainEntityOfPage" href="http://www.phoebepan.cn/2017/08/03/rtb/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Phoebe">
@@ -354,7 +355,7 @@
             
             
               
-                关键词匹配经典算法——DFA
+                定向广告到实时竞价广告
               
             
           </h1>
@@ -369,8 +370,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-15T15:30:16+08:00">
-                2017-03-15
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-03T15:30:16+08:00">
+                2017-08-03
               </time>
             
 
@@ -392,8 +393,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Algorithms/" itemprop="url" rel="index">
-                    <span itemprop="name">Algorithms</span>
+                  <a href="/categories/ComputationalAdvertising/" itemprop="url" rel="index">
+                    <span itemprop="name">ComputationalAdvertising</span>
                   </a>
                 </span>
 
@@ -410,8 +411,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/03/15/DFA/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/03/15/DFA/" itemprop="commentCount"></span>
+                <a href="/2017/08/03/rtb/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/08/03/rtb/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -419,7 +420,7 @@
 
           
           
-             <span id="/2017/03/15/DFA/" class="leancloud_visitors" data-flag-title="关键词匹配经典算法——DFA">
+             <span id="/2017/08/03/rtb/" class="leancloud_visitors" data-flag-title="定向广告到实时竞价广告">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -448,7 +449,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  648
+                  322
                 </span>
               
 
@@ -464,7 +465,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长" }}">
-                  3
+                  1
                 </span>
               
             </div>
@@ -483,28 +484,22 @@
       
 
       
-        <blockquote class="blockquote-center"><p><strong>起因</strong>：<br>从网页中爬取的数据，需要判断是否包含预设的关键词，并返回所有匹配到的关键词。<br><em>文字匹配（过滤）</em>是很多文字类网站必不可少的功能，采用一个高效的文字过滤算法至关重要。其本质需求就是判断集合A中哪些子集属于集合B。</p>
+        <blockquote class="blockquote-center"><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>相比较于搜索广告，凡是浏览者没有主动输入搜索词的场景里面的广告，都可以叫做“非搜索广告”，即情景广告。本篇笔记包含非搜索广告的几种场景，以及针对定向广告的痛点发展而来的实时竞价广告。</p>
 </blockquote>
 <a id="more"></a>
-<p><strong>可行思路：</strong></p>
-<ul>
-<li>暴力解决，说说而已，实际不会这么做；</li>
-<li>正则表达式</li>
-<li>DFA</li>
-</ul>
-<p>　　接下来主要介绍下DFA算法。DFA是一个实现状态转移的自动机，基本功能是通过event和当前state得到下一个state。其算法核心就是构建一棵一棵的树，这样我们就可以确定需要检索的那棵树，然后再在这棵树中进行检索。算法详细内容参见<a href="https://zh.wikipedia.org/wiki/%E7%A1%AE%E5%AE%9A%E6%9C%89%E9%99%90%E7%8A%B6%E6%80%81%E8%87%AA%E5%8A%A8%E6%9C%BA" target="_blank" rel="external">维基百科</a>。<br>　　下面贴出用Python写的一<strong>DFA类</strong>：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">DFA</span>:</span></div><div class="line">    current_state = <span class="keyword">None</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, states, alphabet, transition_function, start_state, accept_states)</span>:</span></div><div class="line">        self.states = states</div><div class="line">        self.alphabet = alphabet</div><div class="line">        self.transition_function = transition_function</div><div class="line">        self.start_state = start_state</div><div class="line">        self.accept_states = accept_states</div><div class="line">        self.current_state = start_state</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">transition_to_state_with_input</span><span class="params">(self, input_value)</span>:</span></div><div class="line">        <span class="keyword">if</span> ((self.current_state, input_value) <span class="keyword">not</span> <span class="keyword">in</span> self.transition_function.keys()):</div><div class="line">            self.current_state = <span class="keyword">None</span></div><div class="line">        self.current_state = self.transition_function[(self.current_state, input_value)]</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">in_accept_state</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">return</span> self.current_state <span class="keyword">in</span> accept_states</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">go_to_initial_state</span><span class="params">(self)</span>:</span></div><div class="line">        self.current_state = self.start_state</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">run_with_input_list</span><span class="params">(self, input_list)</span>:</span></div><div class="line">        self.go_to_initial_state()</div><div class="line">        <span class="keyword">for</span> inp <span class="keyword">in</span> input_list:</div><div class="line">            self.transition_to_state_with_input(inp)</div><div class="line">            <span class="keyword">continue</span></div><div class="line">        <span class="keyword">return</span> self.in_accept_state()</div><div class="line">    <span class="keyword">pass</span></div></pre></td></tr></table></figure>
-<p>　　给出一个测试用例：states：状态集，alphabet：字母表，tf：转移函数，start_state：开始状态，accept_states：可接受状态集.当输入‘bcda’时，由于(0,’b’)-&gt;(2,’c’)-&gt;(3,’d’)-&gt;(0,’a’)-&gt;final_state=1，不可接受的状态，所以返回False。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">states = &#123;<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;</div><div class="line">alphabet = &#123;<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>&#125;</div><div class="line"></div><div class="line">tf = dict()</div><div class="line">tf[(<span class="number">0</span>, <span class="string">'a'</span>)] = <span class="number">1</span>;tf[(<span class="number">0</span>, <span class="string">'b'</span>)] = <span class="number">2</span>;tf[(<span class="number">0</span>, <span class="string">'c'</span>)] = <span class="number">3</span>;tf[(<span class="number">0</span>, <span class="string">'d'</span>)] = <span class="number">0</span></div><div class="line">tf[(<span class="number">1</span>, <span class="string">'a'</span>)] = <span class="number">1</span>;tf[(<span class="number">1</span>, <span class="string">'b'</span>)] = <span class="number">2</span>;tf[(<span class="number">1</span>, <span class="string">'c'</span>)] = <span class="number">3</span>;tf[(<span class="number">1</span>, <span class="string">'d'</span>)] = <span class="number">0</span></div><div class="line">tf[(<span class="number">2</span>, <span class="string">'a'</span>)] = <span class="number">1</span>;tf[(<span class="number">2</span>, <span class="string">'b'</span>)] = <span class="number">2</span>;tf[(<span class="number">2</span>, <span class="string">'c'</span>)] = <span class="number">3</span>;tf[(<span class="number">2</span>, <span class="string">'d'</span>)] = <span class="number">0</span></div><div class="line">tf[(<span class="number">3</span>, <span class="string">'a'</span>)] = <span class="number">1</span>;tf[(<span class="number">3</span>, <span class="string">'b'</span>)] = <span class="number">2</span>;tf[(<span class="number">3</span>, <span class="string">'c'</span>)] = <span class="number">3</span>;tf[(<span class="number">3</span>, <span class="string">'d'</span>)] = <span class="number">0</span></div><div class="line">start_state = <span class="number">0</span></div><div class="line">accept_states = &#123;<span class="number">2</span>, <span class="number">3</span>&#125;</div><div class="line">d = DFA(states, alphabet, tf, start_state, accept_states)</div><div class="line">inp_program = list(<span class="string">'bcda'</span>)</div><div class="line">print(d.run_with_input_list(inp_program))   <span class="comment">#False</span></div></pre></td></tr></table></figure></p>
-<p><strong>DFA的神奇魔力</strong><br>运用DFA解决 <em>Valid Number</em> 问题(<a href="https://leetcode.com/problems/valid-number/#/description" target="_blank" rel="external">LeetCode</a>)：<br><strong>Description:</strong> Validate if a given string is numeric.<br><strong>Some examples:</strong><br>“0” =&gt; true<br>“ 0.1 “ =&gt; true<br>“abc” =&gt; false<br>“1 a” =&gt; false<br>“2e10” =&gt; true<br><strong>思考</strong> <img src="/images/dfastate.png" width="150%" height="70%" align="center/"><br><strong>简单实现</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isNumber</span><span class="params">(self, s)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        :type s: str</div><div class="line">        :rtype: bool</div><div class="line">        """</div><div class="line">        <span class="comment">#define DFA</span></div><div class="line">        state = [&#123;&#125;,</div><div class="line">              &#123;<span class="string">'blank'</span>: <span class="number">1</span>, <span class="string">'sign'</span>: <span class="number">2</span>, <span class="string">'digit'</span>:<span class="number">3</span>, <span class="string">'.'</span>:<span class="number">4</span>&#125;,</div><div class="line">              &#123;<span class="string">'digit'</span>:<span class="number">3</span>, <span class="string">'.'</span>:<span class="number">4</span>&#125;,</div><div class="line">              &#123;<span class="string">'digit'</span>:<span class="number">3</span>, <span class="string">'.'</span>:<span class="number">5</span>, <span class="string">'e'</span>:<span class="number">6</span>, <span class="string">'blank'</span>:<span class="number">9</span>&#125;,</div><div class="line">              &#123;<span class="string">'digit'</span>:<span class="number">5</span>&#125;,</div><div class="line">              &#123;<span class="string">'digit'</span>:<span class="number">5</span>, <span class="string">'e'</span>:<span class="number">6</span>, <span class="string">'blank'</span>:<span class="number">9</span>&#125;,</div><div class="line">              &#123;<span class="string">'sign'</span>:<span class="number">7</span>, <span class="string">'digit'</span>:<span class="number">8</span>&#125;,</div><div class="line">              &#123;<span class="string">'digit'</span>:<span class="number">8</span>&#125;,</div><div class="line">              &#123;<span class="string">'digit'</span>:<span class="number">8</span>, <span class="string">'blank'</span>:<span class="number">9</span>&#125;,</div><div class="line">              &#123;<span class="string">'blank'</span>:<span class="number">9</span>&#125;]</div><div class="line">        currentState = <span class="number">1</span></div><div class="line"></div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> s:</div><div class="line">            <span class="keyword">if</span> i &gt;=<span class="string">'0'</span> <span class="keyword">and</span> i&lt;=<span class="string">'9'</span>:</div><div class="line">                i = <span class="string">'digit'</span></div><div class="line">            <span class="keyword">if</span> i <span class="keyword">in</span> [<span class="string">'+'</span>,<span class="string">'-'</span>]:</div><div class="line">                i = <span class="string">'sign'</span></div><div class="line">            <span class="keyword">if</span> i ==<span class="string">' '</span> :</div><div class="line">                i = <span class="string">'blank'</span></div><div class="line">            <span class="keyword">if</span> i <span class="keyword">not</span> <span class="keyword">in</span> state[currentState].keys():</div><div class="line">                <span class="keyword">return</span> <span class="keyword">False</span></div><div class="line">            currentState = state[currentState][i]</div><div class="line">            <span class="keyword">if</span> currentState <span class="keyword">not</span> <span class="keyword">in</span> [<span class="number">3</span>,<span class="number">5</span>,<span class="number">8</span>,<span class="number">9</span>]:</div><div class="line">                <span class="keyword">return</span> <span class="keyword">False</span></div><div class="line">            <span class="keyword">return</span> <span class="keyword">True</span></div><div class="line"></div><div class="line"><span class="comment">#test</span></div><div class="line">a = Solution()</div><div class="line">print(a.isNumber(<span class="string">'.e-1'</span>))   <span class="comment">#False</span></div><div class="line">print(a.isNumber(<span class="string">'e2'</span>))     <span class="comment">#False</span></div><div class="line">print(a.isNumber(<span class="string">'2e10'</span>))   <span class="comment">#True</span></div></pre></td></tr></table></figure></p>
-<p>　　So easy 吧！是不是比正则高级多了：)</p>
-<center><strong>Do things don’t scale !</strong></center>
+<h3 id="定向广告"><a href="#定向广告" class="headerlink" title="定向广告"></a>定向广告</h3><p><img src="/images/dingxiangad.png" alt="dingxiangad"></p>
+<p><strong>痛点：</strong>定向广告下，广告主的广告无法找到与其最相匹配的流量进行投放，大量媒体流量也无法找到最能实现其真实价值的广告和广告主，互联网的流量资源得不到合理和有效的配置。</p>
+<h3 id="实时广告竞价-RTB"><a href="#实时广告竞价-RTB" class="headerlink" title="实时广告竞价(RTB)"></a>实时广告竞价(RTB)</h3><p>核心：建立一种流量交换的协议，使得媒体和广告联盟可以向全网范围的广告主提供其尚未售出的流量，为自己带来更高收益的同时，也为广告主提供了更多的选择，提高了他们的广告投放效果与投资回报率。<br>实时广告竞价从根本上解决了展示广告需求和供给方之间的矛盾，用市场化的规则使得资源达到了最优化的配置。</p>
+<p><img src="/images/rtb.png" alt="rtb"></p>
+<p>参考书目：《互联网广告算法和系统实践》</p>
+
       
     </div>
 <div align="center">
   
     <div class="copyright">
     <p><span>
-    <b>本文地址：</b><a href="/2017/03/15/DFA/" title="关键词匹配经典算法——DFA">http://www.phoebepan.cn/2017/03/15/DFA/</a><br /><b>转载请注明出处，谢谢！</b>
+    <b>本文地址：</b><a href="/2017/08/03/rtb/" title="定向广告到实时竞价广告">http://www.phoebepan.cn/2017/08/03/rtb/</a><br /><b>转载请注明出处，谢谢！</b>
     </span></p>
     </div>
   
@@ -529,9 +524,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/LeetCode/" rel="tag"># LeetCode</a>
-          
-            <a href="/tags/Algorithms/" rel="tag"># Algorithms</a>
+            <a href="/tags/计算广告/" rel="tag"># 计算广告</a>
           
         </div>
       
@@ -544,8 +537,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/15/read_block_data/" rel="next" title="读《块数据》">
-                <i class="fa fa-chevron-left"></i> 读《块数据》
+              <a href="/2017/08/02/searchad/" rel="next" title="搜索广告">
+                <i class="fa fa-chevron-left"></i> 搜索广告
               </a>
             
           </div>
@@ -553,10 +546,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/03/17/python_yield/" rel="prev" title="魔力Python——yield & yield from">
-                魔力Python——yield & yield from <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -628,8 +617,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -788,6 +786,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定向广告"><span class="nav-number">2.</span> <span class="nav-text">定向广告</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实时广告竞价-RTB"><span class="nav-number">3.</span> <span class="nav-text">实时广告竞价(RTB)</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -945,9 +959,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'phoebepanx';
-      var disqus_identifier = '2017/03/15/DFA/';
+      var disqus_identifier = '2017/08/03/rtb/';
 
-      var disqus_title = "关键词匹配经典算法——DFA";
+      var disqus_title = "定向广告到实时竞价广告";
 
 
       function run_disqus_script(disqus_script) {
