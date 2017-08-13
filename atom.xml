@@ -187,6 +187,48 @@
   </entry>
   
   <entry>
+    <title>ROC &amp; AUC</title>
+    <link href="http://www.phoebepan.cn/2017/06/17/ROC/"/>
+    <id>http://www.phoebepan.cn/2017/06/17/ROC/</id>
+    <published>2017-06-17T07:30:16.000Z</published>
+    <updated>2017-08-13T09:22:45.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote class="blockquote-center"><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>ROC曲线和AUC常常被用来评价二分类模型的优劣，本篇笔记介绍ROC和AUC的特点，以及如何作出ROC曲线图并计算AUC。</p>
+</blockquote>
+<a id="more"></a>
+<h3 id="ROC曲线"><a href="#ROC曲线" class="headerlink" title="ROC曲线"></a>ROC曲线</h3><p>针对二分类问题，ROC曲线的横坐标为<code>false positive rate(FPR)</code>，纵坐标为<code>true positive rate(TPR)</code>。</p>
+<h4 id="FPR和TPR定义"><a href="#FPR和TPR定义" class="headerlink" title="FPR和TPR定义"></a>FPR和TPR定义</h4><p>下图这一混淆矩阵详细说明了FPR和TPR是如何定义的。<br><img src="/images/fpr-and-tpr.png" alt="fpr-and-tpr"><br>对于一个特定的分类器和测试集，只能得到一个分类结果，即只有一组FPR和TPR结果，要得到一曲线，需要一系列的FPR和TPR的值对，<a href="https://en.wikipedia.org/wiki/Receiver_operating_characteristic" target="_blank" rel="external">wikipedia</a>上对ROC曲线的定义：<br><blockquote class="blockquote-center"><p>In statistics, a receiver operating characteristic curve, i.e. ROC curve, is a graphical plot that illustrates the diagnostic ability of a binary classifier system as its discrimination threshold is varied.</p>
+</blockquote><br>“discrimination threshold”如何理解呢？，对于一个二分类器的“概率输出”，即表示分类器认为样本属于正样本的概率多大，我们从高到低依次将这一概率输出作为阈值threshold，得到测试集的正负样本划分，这样每次选取一个不同的threshold，就得到一组FPR和TPR，即ROC曲线上一点，将这些(FPR,TPR)对连接起来，就得到了ROC曲线，当threshold取值越多，ROC曲线越平滑。</p>
+<h3 id="AUC的计算"><a href="#AUC的计算" class="headerlink" title="AUC的计算"></a>AUC的计算</h3><p>AUC的含义是？ROC曲线下面积，作为一个数值，AUC越大分类器效果越好。</p>
+<blockquote>
+<p>可以理解为，所有正负样本对中，正样本score大于负样本score的概率值。</p>
+</blockquote>
+<h3 id="使用ROC曲线好处"><a href="#使用ROC曲线好处" class="headerlink" title="使用ROC曲线好处"></a>使用ROC曲线好处</h3><p>当测试集中正负样本的分布变化或者类别不平衡的时候，相比于Precision-Recall曲线，ROC曲线能够保持不变。</p>
+<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><ul>
+<li><a href="http://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_curve.html" target="_blank" rel="external">sklearn.metrics.roc_curve</a></li>
+<li><a href="http://scikit-learn.org/stable/modules/generated/sklearn.metrics.auc.html" target="_blank" rel="external">sklearn.metrics.auc</a></li>
+</ul>
+<p>参考文献：</p>
+<ol>
+<li><a href="http://alexkong.net/2013/06/introduction-to-auc-and-roc/" target="_blank" rel="external">ROC和AUC介绍以及如何计算AUC</a></li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote class=&quot;blockquote-center&quot;&gt;&lt;h3 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h3&gt;&lt;p&gt;ROC曲线和AUC常常被用来评价二分类模型的优劣，本篇笔记介绍ROC和AUC的特点，以及如何作出ROC曲线图并计算AUC。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="Machine Learning" scheme="http://www.phoebepan.cn/categories/Machine-Learning/"/>
+    
+    
+      <category term="ML" scheme="http://www.phoebepan.cn/tags/ML/"/>
+    
+  </entry>
+  
+  <entry>
     <title>调超参神器——GridSearchCV</title>
     <link href="http://www.phoebepan.cn/2017/06/16/GridSearchCV/"/>
     <id>http://www.phoebepan.cn/2017/06/16/GridSearchCV/</id>
@@ -287,11 +329,71 @@
   </entry>
   
   <entry>
+    <title>基于分布式计算的大数据系统</title>
+    <link href="http://www.phoebepan.cn/2017/06/10/distributed_sys/"/>
+    <id>http://www.phoebepan.cn/2017/06/10/distributed_sys/</id>
+    <published>2017-06-10T07:30:16.000Z</published>
+    <updated>2017-08-13T15:49:56.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote class="blockquote-center"><p>工欲善其事，必先利其器。</p>
+</blockquote>
+<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>单机计算机的能力是有限的，而需要处理的问题规模不断增加，为此，人们开始探索使用多台计算机组成一个系统进行协调处理。多机系统复杂程度远高于单机系统，多机系统统称分布式系统，为解决分布式系统的可扩展性，可靠性，易用性等问题，方便处理互联网海量数据，控制成本，出现了很多解决方案。本篇笔记简单介绍几种解决方案。<br><a id="more"></a></p>
+<h3 id="Hadoop生态系统"><a href="#Hadoop生态系统" class="headerlink" title="Hadoop生态系统"></a>Hadoop生态系统</h3><p>Hadoop，主要Java编写，较好平台移植性。在Hadoop系统中，每种服务一般都有若干种角色，分布式环境下负责不同功能，每种角色的实例都是一个进程，不同进程可以在同一台机器上运行，也可以根据配置运行在不同机器上。</p>
+<h4 id="HDFS"><a href="#HDFS" class="headerlink" title="HDFS"></a>HDFS</h4><p>Hadoop的分布式文件系统。设计目标，存储那些一次写入多次读取的大量数据，如，搜索引擎会用爬虫抓取大量web页面。</p>
+<p><code>名字节点(Name Node)</code>，全局只有一台。</p>
+<h4 id="YARN和MapReduce"><a href="#YARN和MapReduce" class="headerlink" title="YARN和MapReduce"></a>YARN和MapReduce</h4><p>YARN，Hadoop的计算资源管理和调度系统，接受任务请求，根据请求分配资源，调度任务执行。可执行，MapReduce和MPI等传统并行程序。<br><code>资源管理器(Resource Manager)</code>，全局资源分配。</p>
+<p>MapReduce，Google提出的并行程序编程模型，把任务的处理流程分为map和reduce两个阶段。详情参考我的这篇<a href="http://phoebepan.cn/2017/04/21/MapReduce/" target="_blank" rel="external">博文</a>。适合对数据进行统计、分类等处理，最大的好处在于当用户实现MapReduce任务后，该框架能自动把任务在成千上万台机器上调度运行，并处理机器故障，非常适合大规模数据处理。</p>
+<h4 id="HBase"><a href="#HBase" class="headerlink" title="HBase"></a>HBase</h4><p>基于列的分布式存储。数据以表(Table)的形式组织，每个表可以有很多行，每行可以有若干个列族(需要事先定义)，每个列族可以包含多个列(使用时随时添加，无需事先定义)。每行每列对应一个单元(Cell)，每个单元值可以有多个版本，用时间戳区分。每个值是一个任意长度的字符串。每行有一自定义主键。</p>
+<ul>
+<li><code>HBase不能基于非id列的随机访问</code>；</li>
+<li><code>compact操作</code>；</li>
+<li>可作为数据仓库存储有一定结构的海量数据，数据可修改，但最好不频繁；</li>
+<li>HBase的实现以HDFS为基础，每个表的每一列族都会对应HDFS上的一个或多个文件；</li>
+</ul>
+<h4 id="Hadoop其他组件"><a href="#Hadoop其他组件" class="headerlink" title="Hadoop其他组件"></a>Hadoop其他组件</h4><p><code>Hive</code>，<code>Pig</code>，让用户更简便方式查询保存在HDFS和HBase中的数据。查询最终都会转换成MapReduce任务来执行。<br><code>ZooKeeper</code>，编写分布式软件所需的常用工具，包括，消息队列，配置管理等。<br><code>Tez</code>，比MapReduce更一般化的数据流编程框架，推广为任意的有向无环图(DAG)。<br><code>Storm</code>，<code>S4</code>，建立在Hadoop上的流式处理引擎。流式处理(streaming)指待处理数据会源源不断从数据源过来，处理引擎需要不断对新的数据进行处理，并随时输出具体时效性的结果。<br><code>Mahout</code>，Hadoop实现的机器学习算法库，包括聚类，分类，推荐，以及线性代数中的常用算法。直接调用Mahout提供的算法，不必自己再用MapReduce实现。<br><code>Giraph</code>，图计算引擎。处理社交网络等类型的数据。<br><code>Sqoop</code>，命令行工具，用于Hadoop和传统的关系型数据库之间传输数据。MySQL与HDFS或HBase之间交换数据。<br><code>Chukwa</code>，<code>Flume</code>，<code>Kafka</code>，<code>Scribe</code>，进行日志收集，结果导出到HDFS。</p>
+<h3 id="Spark"><a href="#Spark" class="headerlink" title="Spark"></a>Spark</h3><p>MapReduce程序运行过程中，中间结果会写入磁盘，而且很多应用需要多个MapReduce任务来完成，任务之间的数据也要通过磁盘来交换，没有充分利用机器内存。Spark充分利用机器内存资源，使得大数据计算性能得到了进一步提升。</p>
+<h4 id="核心"><a href="#核心" class="headerlink" title="核心"></a>核心</h4><p>可靠分布式数据集(RDD)的数据结构。一个RDD是一组数据项的集合，可以是普通的列表，也可以是由键值对构成的字典。RDD操作分为动作和交换。<br>Spark的操作都是对RDD整体进行的。变换操作执行时懒惰的，操作会被记录下来，直到遇到下一个动作时产生一个完整的执行计划。动作操作直接生效，产生新的RDD。</p>
+<h4 id="Spark特点："><a href="#Spark特点：" class="headerlink" title="Spark特点："></a>Spark特点：</h4><ul>
+<li>Spark中的RDD可以由框架自动或人为指定缓存在<strong>内存</strong>中；</li>
+<li>Spark可以独立运行，也可以在Hadoop系统上运行；</li>
+<li>支持HDFS的读/写；</li>
+<li>核心功能涵盖了Hadoop的大部分内容，并且可以在Hadoop生态系统内使用，具有性能上的优势。</li>
+</ul>
+<h3 id="NoSQL-Not-only-SQL"><a href="#NoSQL-Not-only-SQL" class="headerlink" title="NoSQL(Not only SQL)"></a>NoSQL(Not only SQL)</h3><p>常用的NoSQL数据库分为：</p>
+<ul>
+<li>基于列的存储，可扩展性较好，如HBase，Cassandra；</li>
+<li>基于文档的存储，数据形式比较灵活，适用于需求变化快速的Web应用程序等场景，如MongoDB、CouchDB；</li>
+<li>键值对存储，细分成：单机磁盘型、单机内存型、分布式；</li>
+<li>图数据库，如Neo4j；</li>
+<li>多模型。</li>
+</ul>
+<p>参考文献：</p>
+<ol>
+<li>刘知远.《大数据智能》</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote class=&quot;blockquote-center&quot;&gt;&lt;p&gt;工欲善其事，必先利其器。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h3&gt;&lt;p&gt;单机计算机的能力是有限的，而需要处理的问题规模不断增加，为此，人们开始探索使用多台计算机组成一个系统进行协调处理。多机系统复杂程度远高于单机系统，多机系统统称分布式系统，为解决分布式系统的可扩展性，可靠性，易用性等问题，方便处理互联网海量数据，控制成本，出现了很多解决方案。本篇笔记简单介绍几种解决方案。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Distributed Systems" scheme="http://www.phoebepan.cn/categories/Distributed-Systems/"/>
+    
+    
+      <category term="Distributed Systems" scheme="http://www.phoebepan.cn/tags/Distributed-Systems/"/>
+    
+  </entry>
+  
+  <entry>
     <title>单机安装Spark开发环境</title>
     <link href="http://www.phoebepan.cn/2017/06/07/spark_1/"/>
     <id>http://www.phoebepan.cn/2017/06/07/spark_1/</id>
     <published>2017-06-07T07:30:16.000Z</published>
-    <updated>2017-08-08T15:43:26.000Z</updated>
+    <updated>2017-08-13T15:51:32.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote class="blockquote-center"><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>MapReduce在迭代计算和交互计算的任务上表现得效率低下，Spark从一开始就是为交互式查询和迭代算法设计的，同时还支持内存式存储和高效的容错机制，Spark的核心是一个对由很多计算任务组成的、运行在多个工作机器或者是一个计算集群上的应用进行调度、分发以及监控的计算引擎。<br>因Spark支持java、python等语言，尝试安装了python语言环境下的spark开发环境。本篇笔记是win10下配置过程记录。</p>
 </blockquote>
@@ -313,10 +415,10 @@
     
     </summary>
     
-      <category term="Spark" scheme="http://www.phoebepan.cn/categories/Spark/"/>
+      <category term="Distributed Systems" scheme="http://www.phoebepan.cn/categories/Distributed-Systems/"/>
     
     
-      <category term="Spark" scheme="http://www.phoebepan.cn/tags/Spark/"/>
+      <category term="Distributed Systems" scheme="http://www.phoebepan.cn/tags/Distributed-Systems/"/>
     
   </entry>
   
@@ -949,104 +1051,6 @@
     <summary type="html">
     
       &lt;blockquote class=&quot;blockquote-center&quot;&gt;&lt;h3 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h3&gt;&lt;p&gt;推荐系统的目的是联系用户的兴趣和物品，倘若通过一些特征(feature)联系用户和物品，给用户推荐那些具有用户喜欢的特征的物品，标签作为一种无层次化结构的、用来描述信息的关键词。本文主要介绍有关&lt;strong&gt;标签&lt;/strong&gt;在推荐系统中的应用。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="Recommendation" scheme="http://www.phoebepan.cn/categories/Recommendation/"/>
-    
-    
-      <category term="Recommendation" scheme="http://www.phoebepan.cn/tags/Recommendation/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>推荐系统实战——冷启动</title>
-    <link href="http://www.phoebepan.cn/2017/05/18/cold_start/"/>
-    <id>http://www.phoebepan.cn/2017/05/18/cold_start/</id>
-    <published>2017-05-18T07:30:16.000Z</published>
-    <updated>2017-07-19T08:24:24.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote class="blockquote-center"><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>前一篇博文的介绍，可见大量用户行为数据是推荐系统的先决条件。那么，如何在没有大量用户数据的情况下设计个性化推荐系统并让用户对推荐结果满意而增加用户粘性，这就是本文所介绍的冷启动问题。</p>
-</blockquote>
-<a id="more"></a>
-<h3 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h3><p><img src="/images/coldstart.png" alt="coldstart"></p>
-<h3 id="用户注册信息"><a href="#用户注册信息" class="headerlink" title="用户注册信息"></a>用户注册信息</h3><p>基于用户注册信息的推荐算法其核心问题是计算每种特征的用户喜<br>欢的物品，将 p(f,i)定义为喜欢物品i的用户中具有特征f的比例，$$ p(f,i)=\frac{\left | N(i)\bigcap U(f) \right |}{\left | N(i) \right | + \alpha} $$，参数$\alpha$（较大的数）的目的是解决数据稀疏问题。</p>
-<h4 id="如何选择合适的物品启动用户的兴趣"><a href="#如何选择合适的物品启动用户的兴趣" class="headerlink" title="如何选择合适的物品启动用户的兴趣"></a>如何选择合适的物品启动用户的兴趣</h4><p>Nadav Golbandi的算法通过建立物品区分度的决策树，来启动用户的兴趣，下图是Nadav Golbandi算法的举例，<br><img src="/images/Nadav_Golbandi.png" alt="Nadav Golbandi"></p>
-<h3 id="物品内容信息"><a href="#物品内容信息" class="headerlink" title="物品内容信息"></a>物品内容信息</h3><p>内容相似度计算简单，能频繁更新，而且能够解决物品冷启动问题，那么为什么还需要协同过滤的算法?</p>
-<ul>
-<li>内容过滤算法忽视了用户行为，从而也忽视了物品的流行度以及用户行为中所包含的规律，所以它的精度比较低，但结果的新颖度却比较高。</li>
-<li>如果用户的行为强烈受某一内容属性的影响，那么内容过滤的算法还是可以在精度上超过协同过滤算法的。</li>
-</ul>
-<p>所以，通常将这两种算法融合，可获得比单独使用这两种算法更好的效果。</p>
-<h4 id="话题模型（topic-model）"><a href="#话题模型（topic-model）" class="headerlink" title="话题模型（topic model）"></a>话题模型（topic model）</h4><p>“推荐系统的动态特性”和“基于时间的协同过滤算法研究”，这两篇文章title关键词不同，但关键词所属话题相同。这种情况下，先知道文章的话题分布，然后才能准确地计算文章的相似度。</p>
-<h4 id="KL散度"><a href="#KL散度" class="headerlink" title="KL散度"></a>KL散度</h4><p><strong>定义：</strong><br>对于<code>离散空间</code>两个概率分布P和Q，从Q到P的KL散度为<img src="/images/lisan_KL.gif" alt="lisan_KL"><br>对于<code>连续空间</code>的两个概率分布P和Q，从Q到P的KL散度为：<img src="/images/lianxu_KL.gif" alt="lianxu_KL">，p和q是概率分布P和Q的概率密度。<br><strong>简单例子计算：</strong><br>比如有四个类别，一个方法P得到四个类别的概率分别是0.1，0.2，0.3，0.4。另一种方法Q（或者说是事实情况）是得到四个类别的概率分别是0.4，0.3，0.2，0.1,那么这两个分布的 KL 散度就是：<br><img src="/images/KL_eg.gif" alt="KL_eg"><br><strong>实际案例</strong><br>参考附录2<br> [1]项亮，推荐系统实战.<br> <a href="http://chuansong.me/n/2759305" target="_blank" rel="external">[2] KL散度（从动力系统到推荐系统）</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote class=&quot;blockquote-center&quot;&gt;&lt;h3 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h3&gt;&lt;p&gt;前一篇博文的介绍，可见大量用户行为数据是推荐系统的先决条件。那么，如何在没有大量用户数据的情况下设计个性化推荐系统并让用户对推荐结果满意而增加用户粘性，这就是本文所介绍的冷启动问题。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="Recommendation" scheme="http://www.phoebepan.cn/categories/Recommendation/"/>
-    
-    
-      <category term="Recommendation" scheme="http://www.phoebepan.cn/tags/Recommendation/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>推荐系统实战——用户行为分析</title>
-    <link href="http://www.phoebepan.cn/2017/05/17/user_action_analysis/"/>
-    <id>http://www.phoebepan.cn/2017/05/17/user_action_analysis/</id>
-    <published>2017-05-17T07:30:16.000Z</published>
-    <updated>2017-07-19T08:24:59.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote class="blockquote-center"><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>古语，听其言，观其行，用户的行为不是随机的，而是蕴含着很多模式，通过算法自动挖掘用户行为数据，从而推测出用户的兴趣和需求，做出个性化推荐。本文是自己对用户行为分析的学习笔记。</p>
-</blockquote>
-<a id="more"></a>
-<h3 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h3><p><img src="/images/user_action_analysis.png" alt="user_action_analysis"></p>
-<h3 id="基于邻域算法"><a href="#基于邻域算法" class="headerlink" title="基于邻域算法"></a>基于邻域算法</h3><h4 id="基于用户的协同过滤-UserCF"><a href="#基于用户的协同过滤-UserCF" class="headerlink" title="基于用户的协同过滤(UserCF)"></a>基于用户的协同过滤(UserCF)</h4><p>推荐原理：给用户推荐那些和他有共同兴趣爱好的用户喜欢的物品，着重于和用户兴趣相似的小群体的热点，更社会化。<br>主要包括两步：</p>
-<ul>
-<li>找到和目标用户兴趣相似的用户集合</li>
-<li>找到集合中用户喜欢且目标用户没有行为的物品做出推荐</li>
-</ul>
-<p><img src="/images/user_item_reversort.png" alt="reserve_sort"><br>上面这张图是，用户行为数据导出用户间共现矩阵的过程，基于该共现矩阵，利用余弦相似度（或Jaccard）得到用户间兴趣相似度后，UserCF算法会给用户推荐和他兴趣最相似的K个用户喜欢的物品。用户u对物品i的感兴趣程度：<br><img src="/images/pui.png" alt="pui"><br>,S(u,K)包含和用户u兴趣最接近的K个用户，N(i)是对物品i有过行为的用户集合，w<sub>uv</sub>是用户u,v的兴趣相似度，r<sub>vi</sub>用户v对物品i的兴趣。<br><strong>改进</strong><br>计算用户间兴趣相似度时，增加用户u,v共同兴趣列表中热门物品的惩罚。原理类似TF-IDF。</p>
-<h4 id="基于物品的协同过滤-ItemCF"><a href="#基于物品的协同过滤-ItemCF" class="headerlink" title="基于物品的协同过滤(ItemCF)"></a>基于物品的协同过滤(ItemCF)</h4><p>推荐原理：给用户推荐那些和他之前喜欢的物品类似的物品，着重于维系用户历史兴趣，更个性化。<br>主要包括两步：</p>
-<ul>
-<li>计算物品间相似度</li>
-<li>根据物品相似度和用户历史行为做出推荐</li>
-</ul>
-<p>ItemCF结果可解释性更好。<br><strong>改进</strong></p>
-<ul>
-<li>计算物品相似度时，增加活跃用户贡献的惩罚；</li>
-<li>物品相似度的归一化，可提高推荐的多样性。</li>
-</ul>
-<h4 id="UserCF和ItemCF比较："><a href="#UserCF和ItemCF比较：" class="headerlink" title="UserCF和ItemCF比较："></a>UserCF和ItemCF比较：</h4><p><img src="/images/UserCF_ItemCF.png" alt="UserCF_ItemCF"></p>
-<h3 id="隐语义模型-LFM"><a href="#隐语义模型-LFM" class="headerlink" title="隐语义模型(LFM)"></a>隐语义模型(LFM)</h3><p>LFM和基于邻域的方法的比较：</p>
-<ul>
-<li>理论基础：LFM较好的理论依据，邻域主要是基于统计方法；</li>
-<li>离线计算的空间复杂度：LFM更节省空间；</li>
-<li>离线计算的时间复杂度：一般情况，LFM高于CF；</li>
-<li>在线实时推荐：传统LFM难以实现实时；</li>
-<li>推荐解释：ItemCF好于LFM。</li>
-</ul>
-<p>注：当数据集非常稀疏时，LFM的性能会明显下降，甚至不如UserCF和ItemCF的性能。</p>
-<h3 id="基于图的模型"><a href="#基于图的模型" class="headerlink" title="基于图的模型"></a>基于图的模型</h3><p>图中顶点的相关性高的一对顶点一般具有如下特征：</p>
-<ul>
-<li>两个顶点之间有很多路径相连；</li>
-<li>连接两个顶点之间的路径长度都比较短；</li>
-<li>连接两个顶点之间的路径不会经过出度比较大的顶点。</li>
-</ul>
-<p><strong>随机游走</strong>算法思路：<br>假如要给用户A进行个性化推荐，可以从用户A对应的节点开始在用户物品<strong>二分图</strong>（如下图）上随机游走，游走到任何一个节点时，首先按照概率a决定是否继续游走，若继续，就从当前节点指向的节点中按照均匀分布随机选择一个节点作为下一次游走经过的节点；否则，停止该次游走，从用户A对应节点重新开始游走。多次迭代，直到每个物品节点被访问到的概率收敛到一个数。<br><img src="/images/part2graph.png" alt="part2graph"></p>
-<p> [1]项亮，推荐系统实战.</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote class=&quot;blockquote-center&quot;&gt;&lt;h3 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h3&gt;&lt;p&gt;古语，听其言，观其行，用户的行为不是随机的，而是蕴含着很多模式，通过算法自动挖掘用户行为数据，从而推测出用户的兴趣和需求，做出个性化推荐。本文是自己对用户行为分析的学习笔记。&lt;/p&gt;
 &lt;/blockquote&gt;
     
     </summary>

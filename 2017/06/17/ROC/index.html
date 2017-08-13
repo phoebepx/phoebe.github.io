@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="ML," />
 
 
 
@@ -89,15 +89,18 @@
 
 
 
-<meta name="description" content="Do things don&apos;t scale, just do it!">
-<meta property="og:type" content="website">
-<meta property="og:title" content="技忆">
-<meta property="og:url" content="http://www.phoebepan.cn/categories/Architecture/index.html">
+<meta name="description" content="简介ROC曲线和AUC常常被用来评价二分类模型的优劣，本篇笔记介绍ROC和AUC的特点，以及如何作出ROC曲线图并计算AUC。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ROC & AUC">
+<meta property="og:url" content="http://www.phoebepan.cn/2017/06/17/ROC/index.html">
 <meta property="og:site_name" content="技忆">
-<meta property="og:description" content="Do things don&apos;t scale, just do it!">
+<meta property="og:description" content="简介ROC曲线和AUC常常被用来评价二分类模型的优劣，本篇笔记介绍ROC和AUC的特点，以及如何作出ROC曲线图并计算AUC。">
+<meta property="og:image" content="http://www.phoebepan.cn/images/fpr-and-tpr.png">
+<meta property="og:updated_time" content="2017-08-13T09:22:45.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="技忆">
-<meta name="twitter:description" content="Do things don&apos;t scale, just do it!">
+<meta name="twitter:title" content="ROC & AUC">
+<meta name="twitter:description" content="简介ROC曲线和AUC常常被用来评价二分类模型的优劣，本篇笔记介绍ROC和AUC的特点，以及如何作出ROC曲线图并计算AUC。">
+<meta name="twitter:image" content="http://www.phoebepan.cn/images/fpr-and-tpr.png">
 
 
 
@@ -125,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="http://www.phoebepan.cn/categories/Architecture/"/>
+  <link rel="canonical" href="http://www.phoebepan.cn/2017/06/17/ROC/"/>
 
 
 
 
 
-  <title> 分类: Architecture | 技忆 </title>
+  <title> ROC & AUC | 技忆 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -166,7 +169,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -320,47 +323,277 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        Architecture
-        <small>分类</small>
-      </h2>
-    </div>
-
+  <div id="posts" class="posts-expand">
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/04/21/MapReduce/" itemprop="url">
-              
-                <span itemprop="name">初涉MapReduce</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-04-21T15:30:16+08:00"
-              content="2017-04-21" >
-          04-21
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-  </section>
 
   
 
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://www.phoebepan.cn/2017/06/17/ROC/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Phoebe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="技忆">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                ROC & AUC
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-17T15:30:16+08:00">
+                2017-06-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Machine Learning</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/06/17/ROC/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/06/17/ROC/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/06/17/ROC/" class="leancloud_visitors" data-flag-title="ROC & AUC">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  442
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长" }}">
+                  2
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote class="blockquote-center"><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>ROC曲线和AUC常常被用来评价二分类模型的优劣，本篇笔记介绍ROC和AUC的特点，以及如何作出ROC曲线图并计算AUC。</p>
+</blockquote>
+<a id="more"></a>
+<h3 id="ROC曲线"><a href="#ROC曲线" class="headerlink" title="ROC曲线"></a>ROC曲线</h3><p>针对二分类问题，ROC曲线的横坐标为<code>false positive rate(FPR)</code>，纵坐标为<code>true positive rate(TPR)</code>。</p>
+<h4 id="FPR和TPR定义"><a href="#FPR和TPR定义" class="headerlink" title="FPR和TPR定义"></a>FPR和TPR定义</h4><p>下图这一混淆矩阵详细说明了FPR和TPR是如何定义的。<br><img src="/images/fpr-and-tpr.png" alt="fpr-and-tpr"><br>对于一个特定的分类器和测试集，只能得到一个分类结果，即只有一组FPR和TPR结果，要得到一曲线，需要一系列的FPR和TPR的值对，<a href="https://en.wikipedia.org/wiki/Receiver_operating_characteristic" target="_blank" rel="external">wikipedia</a>上对ROC曲线的定义：<br><blockquote class="blockquote-center"><p>In statistics, a receiver operating characteristic curve, i.e. ROC curve, is a graphical plot that illustrates the diagnostic ability of a binary classifier system as its discrimination threshold is varied.</p>
+</blockquote><br>“discrimination threshold”如何理解呢？，对于一个二分类器的“概率输出”，即表示分类器认为样本属于正样本的概率多大，我们从高到低依次将这一概率输出作为阈值threshold，得到测试集的正负样本划分，这样每次选取一个不同的threshold，就得到一组FPR和TPR，即ROC曲线上一点，将这些(FPR,TPR)对连接起来，就得到了ROC曲线，当threshold取值越多，ROC曲线越平滑。</p>
+<h3 id="AUC的计算"><a href="#AUC的计算" class="headerlink" title="AUC的计算"></a>AUC的计算</h3><p>AUC的含义是？ROC曲线下面积，作为一个数值，AUC越大分类器效果越好。</p>
+<blockquote>
+<p>可以理解为，所有正负样本对中，正样本score大于负样本score的概率值。</p>
+</blockquote>
+<h3 id="使用ROC曲线好处"><a href="#使用ROC曲线好处" class="headerlink" title="使用ROC曲线好处"></a>使用ROC曲线好处</h3><p>当测试集中正负样本的分布变化或者类别不平衡的时候，相比于Precision-Recall曲线，ROC曲线能够保持不变。</p>
+<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><ul>
+<li><a href="http://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_curve.html" target="_blank" rel="external">sklearn.metrics.roc_curve</a></li>
+<li><a href="http://scikit-learn.org/stable/modules/generated/sklearn.metrics.auc.html" target="_blank" rel="external">sklearn.metrics.auc</a></li>
+</ul>
+<p>参考文献：</p>
+<ol>
+<li><a href="http://alexkong.net/2013/06/introduction-to-auc-and-roc/" target="_blank" rel="external">ROC和AUC介绍以及如何计算AUC</a></li>
+</ol>
+
+      
+    </div>
+<div align="center">
+  
+    <div class="copyright">
+    <p><span>
+    <b>本文地址：</b><a href="/2017/06/17/ROC/" title="ROC & AUC">http://www.phoebepan.cn/2017/06/17/ROC/</a><br /><b>转载请注明出处，谢谢！</b>
+    </span></p>
+    </div>
+  
+</div>
+	
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ML/" rel="tag"># ML</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/06/16/GridSearchCV/" rel="next" title="调超参神器——GridSearchCV">
+                <i class="fa fa-chevron-left"></i> 调超参神器——GridSearchCV
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/07/16/time/" rel="prev" title="python中time模块">
+                python中time模块 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!--MOB SHARE BEGIN-->
+<div class="-mob-share-ui-button -mob-share-open">分享</div>
+<div class="-mob-share-ui" style="display: none">
+    <ul class="-mob-share-list">
+        <li class="-mob-share-weixin"><p>微信</p></li>
+        <li class="-mob-share-weibo"><p>新浪微博</p></li>
+        <li class="-mob-share-qq"><p>QQ好友</p></li>
+        <li class="-mob-share-douban"><p>豆瓣</p></li>
+        <li class="-mob-share-youdao"><p>有道云笔记</p></li>
+        <li class="-mob-share-linkedin"><p>领英</p></li>
+        <li class="-mob-share-google"><p>Google+</p></li>
+    </ul>
+    <div class="-mob-share-close">取消</div>
+</div>
+<div class="-mob-share-ui-bg"></div>
+<script id="-mob-share" src="http://f1.webshare.mob.com/code/mob-share.js?appkey=Infinity"></script>
+<!--MOB SHARE END-->          
+      
+    </div>
+  </div>
 
           
           </div>
@@ -368,6 +601,17 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -387,8 +631,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -403,7 +656,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">52</span>
+                <span class="site-state-item-count">54</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -414,7 +667,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -425,7 +678,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">24</span>
+                <span class="site-state-item-count">23</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -546,6 +799,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ROC曲线"><span class="nav-number">2.</span> <span class="nav-text">ROC曲线</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#FPR和TPR定义"><span class="nav-number">2.1.</span> <span class="nav-text">FPR和TPR定义</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AUC的计算"><span class="nav-number">3.</span> <span class="nav-text">AUC的计算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用ROC曲线好处"><span class="nav-number">4.</span> <span class="nav-text">使用ROC曲线好处</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现"><span class="nav-number">5.</span> <span class="nav-text">实现</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -684,6 +953,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
 
   
 
@@ -700,9 +973,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'phoebepanx';
-      var disqus_identifier = 'categories/Architecture/index.html';
+      var disqus_identifier = '2017/06/17/ROC/';
 
-      var disqus_title = "";
+      var disqus_title = "ROC & AUC";
 
 
       function run_disqus_script(disqus_script) {
@@ -715,6 +988,13 @@
 
       run_disqus_script('count.js');
 
+      
+        var disqus_config = function () {
+            this.page.url = disqus_url;
+            this.page.identifier = disqus_identifier;
+            this.page.title = disqus_title;
+        };
+        run_disqus_script('embed.js');
       
 
     </script>
