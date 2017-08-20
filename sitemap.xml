@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://www.phoebepan.cn/2017/06/15/kth/</loc>
+    <loc>http://www.phoebepan.cn/2017/08/04/itertools/</loc>
     
-    <lastmod>2017-08-19T14:46:11.000Z</lastmod>
+    <lastmod>2017-08-20T03:49:46.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://www.phoebepan.cn/2017/07/05/CombinationSum/</loc>
     
-    <lastmod>2017-08-19T14:28:45.000Z</lastmod>
+    <lastmod>2017-08-19T14:49:42.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.phoebepan.cn/2017/06/15/kth/</loc>
+    
+    <lastmod>2017-08-19T14:46:11.000Z</lastmod>
     
   </url>
   

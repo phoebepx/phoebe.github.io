@@ -4,12 +4,32 @@
 
     
   <url>
-    <loc>http://www.phoebepan.cn/2017/06/15/kth/</loc>
-    <lastmod>2017-08-19T14:46:11.000Z</lastmod>
+    <loc>http://www.phoebepan.cn/2017/08/04/itertools/</loc>
+    <lastmod>2017-08-20T03:49:46.000Z</lastmod>
     <data>
         <display>
-        <title>两个数列的第K大数</title>
-        <pubTime>2017-06-15T07:30:16.000Z</pubTime>
+        <title>Python——itertools模块</title>
+        <pubTime>2017-08-04T07:30:16.000Z</pubTime>
+        
+        <tag>Python</tag>
+         
+         
+           
+             
+              <breadCrumb title="Python" url="http://www.phoebepan.cn/categories/Python/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.phoebepan.cn/2017/07/05/CombinationSum/</loc>
+    <lastmod>2017-08-19T14:49:42.000Z</lastmod>
+    <data>
+        <display>
+        <title>Combination Sum</title>
+        <pubTime>2017-07-05T07:30:16.000Z</pubTime>
         
         <tag>LeetCode</tag>
          
@@ -26,12 +46,12 @@
 
     
   <url>
-    <loc>http://www.phoebepan.cn/2017/07/05/CombinationSum/</loc>
-    <lastmod>2017-08-19T14:28:45.000Z</lastmod>
+    <loc>http://www.phoebepan.cn/2017/06/15/kth/</loc>
+    <lastmod>2017-08-19T14:46:11.000Z</lastmod>
     <data>
         <display>
-        <title>Combination Sum</title>
-        <pubTime>2017-07-05T07:30:16.000Z</pubTime>
+        <title>两个数列的第K大数</title>
+        <pubTime>2017-06-15T07:30:16.000Z</pubTime>
         
         <tag>LeetCode</tag>
          
