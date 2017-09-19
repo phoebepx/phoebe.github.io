@@ -4,6 +4,46 @@
 
     
   <url>
+    <loc>http://www.phoebepan.cn/2017/09/02/build%20a%20nn/</loc>
+    <lastmod>2017-09-19T14:49:24.000Z</lastmod>
+    <data>
+        <display>
+        <title>搭建神经网络</title>
+        <pubTime>2017-09-02T07:30:16.000Z</pubTime>
+        
+        <tag>DeepLearning</tag>
+         
+         
+           
+             
+              <breadCrumb title="DeepLearning" url="http://www.phoebepan.cn/categories/DeepLearning/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.phoebepan.cn/2017/09/01/activation%20function/</loc>
+    <lastmod>2017-09-19T01:45:18.000Z</lastmod>
+    <data>
+        <display>
+        <title>激活函数(Activation Function)</title>
+        <pubTime>2017-09-01T07:30:16.000Z</pubTime>
+        
+        <tag>DeepLearning</tag>
+         
+         
+           
+             
+              <breadCrumb title="DeepLearning" url="http://www.phoebepan.cn/categories/DeepLearning/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.phoebepan.cn/2017/08/04/itertools/</loc>
     <lastmod>2017-08-20T03:49:46.000Z</lastmod>
     <data>

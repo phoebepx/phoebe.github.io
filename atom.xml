@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.phoebepan.cn/"/>
-  <updated>2017-08-20T03:49:46.000Z</updated>
+  <updated>2017-09-19T14:49:24.000Z</updated>
   <id>http://www.phoebepan.cn/</id>
   
   <author>
@@ -14,6 +14,112 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>搭建神经网络</title>
+    <link href="http://www.phoebepan.cn/2017/09/02/build%20a%20nn/"/>
+    <id>http://www.phoebepan.cn/2017/09/02/build a nn/</id>
+    <published>2017-09-02T07:30:16.000Z</published>
+    <updated>2017-09-19T14:49:24.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote class="blockquote-center"><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>Andrew Ng老师在Coursera的deeplearning.ai课程，真心很赞，一口气学完了目前仅有的三门课程，讲解及其细致，醍醐灌顶。Ng老师说，<code>Data</code>、<code>Algorithms</code>、<code>Computation</code>这三方面催生了DL的飞速发展，很是赞同，如果你的数据量不到一定程度，计算能力不够，算法优化不够，那么深度学习就等于纸上谈兵，不会落地，而解决实际问题。Deeop learning 犹如<strong>新电力</strong>，将改变各行各业，带来新的发展机遇。本文是该课程第一门课的学习笔记，主要记录下搭建一个神经网络(NN)的过程及需要注意的问题，欢迎指正！</p>
+</blockquote>
+<a id="more"></a>
+<h3 id="build-a-NN-算法："><a href="#build-a-NN-算法：" class="headerlink" title="build a NN 算法："></a>build a NN 算法：</h3><ol>
+<li>定义NN的结构（隐藏层神经元个数，层数，激活函数）</li>
+<li>初始化模型的参数</li>
+<li>LOOP：<blockquote>
+<p>执行Forward propagation；<br>计算损失(Loss)；<br>执行Backward propagation，得到梯度(gradients)；<br>更新参数(gradient descent)；</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="示意图"><a href="#示意图" class="headerlink" title="示意图"></a>示意图</h3><p><img src="/images/final outline.png" alt="final outline"></p>
+<h3 id="初始化模型参数"><a href="#初始化模型参数" class="headerlink" title="初始化模型参数"></a>初始化模型参数</h3><p><img src="/images/shallow.png" alt="shallow"><br>根据Ng老师的讲解，如上图这样有一个隐藏层的2层NN，初始化$ w^{[1]} $时，需要注意打破symmetric，隐藏层的参数可以这样初始化<code>W1=np.random.randn((2,2))*0.01，b1=np.zeros((2,1))</code>，之所以乘0.01是为了使得初始的参数尽量小，使得梯度变化明显，学习更加快速。</p>
+<h3 id="2层网络的BP过程"><a href="#2层网络的BP过程" class="headerlink" title="2层网络的BP过程"></a>2层网络的BP过程</h3><p><img src="/images/grad_summary.png" alt="grad_summary"></p>
+<h3 id="不断实验更新过程"><a href="#不断实验更新过程" class="headerlink" title="不断实验更新过程"></a>不断实验更新过程</h3><p><img src="/images/itertive.png" alt="itertive"><br>课程提到，运用ML解决问题的过程是个不断实验，更新迭代的过程，<strong>多试才是王道</strong>。</p>
+<h3 id="FP-amp-BP-参数更新过程"><a href="#FP-amp-BP-参数更新过程" class="headerlink" title="FP &amp; BP 参数更新过程"></a>FP &amp; BP 参数更新过程</h3><p><img src="/images/backprop_kiank.png" alt="backprop_kiank"></p>
+<h3 id="Basic-‘recipe’-for-NN"><a href="#Basic-‘recipe’-for-NN" class="headerlink" title="Basic ‘recipe’ for NN"></a>Basic ‘recipe’ for NN</h3><p><img src="/images/bias_variance.png" alt="bias_variance"></p>
+<p><strong>Node:</strong></p>
+<blockquote>
+<p>参考deeplearning.ai课程，链接<a href="https://www.coursera.org/specializations/deep-learning" target="_blank" rel="external">Here</a></p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote class=&quot;blockquote-center&quot;&gt;&lt;h3 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h3&gt;&lt;p&gt;Andrew Ng老师在Coursera的deeplearning.ai课程，真心很赞，一口气学完了目前仅有的三门课程，讲解及其细致，醍醐灌顶。Ng老师说，&lt;code&gt;Data&lt;/code&gt;、&lt;code&gt;Algorithms&lt;/code&gt;、&lt;code&gt;Computation&lt;/code&gt;这三方面催生了DL的飞速发展，很是赞同，如果你的数据量不到一定程度，计算能力不够，算法优化不够，那么深度学习就等于纸上谈兵，不会落地，而解决实际问题。Deeop learning 犹如&lt;strong&gt;新电力&lt;/strong&gt;，将改变各行各业，带来新的发展机遇。本文是该课程第一门课的学习笔记，主要记录下搭建一个神经网络(NN)的过程及需要注意的问题，欢迎指正！&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="DeepLearning" scheme="http://www.phoebepan.cn/categories/DeepLearning/"/>
+    
+    
+      <category term="DeepLearning" scheme="http://www.phoebepan.cn/tags/DeepLearning/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>激活函数(Activation Function)</title>
+    <link href="http://www.phoebepan.cn/2017/09/01/activation%20function/"/>
+    <id>http://www.phoebepan.cn/2017/09/01/activation function/</id>
+    <published>2017-09-01T07:30:16.000Z</published>
+    <updated>2017-09-19T01:45:18.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote class="blockquote-center"><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>提到神经网络，就必然会聊到激活函数这一话题，常用的激活函数有：sigmoid、ReLU、tanh等，那么问题来了：</p>
+<p> <strong>为什么需要激活函数？</strong><br> <strong>激活函数有哪些？有哪些特点？</strong><br> <strong>如何选用激活函数？</strong></p>
+<p>本文基于这3个问题展开，欢迎指正！</p>
+</blockquote>
+<a id="more"></a>
+<p><img src="/images/blog-nn.png" alt="activation function"></p>
+<h3 id="激活函数的作用"><a href="#激活函数的作用" class="headerlink" title="激活函数的作用"></a>激活函数的作用</h3><p>激活函数的作用是能够在神经网络中加入一些非线性元素，使得NN能够更好地解决较复杂的问题。<br>基于此，激活函数通常有如下一些性质，<code>非线性</code>、<code>可微性</code>、<code>单调性</code>(单调，单层网络能保证是凸函数)、<code>f(x)≈x</code>。</p>
+<h3 id="常用激活函数"><a href="#常用激活函数" class="headerlink" title="常用激活函数"></a>常用激活函数</h3><h4 id="Sigmoid函数"><a href="#Sigmoid函数" class="headerlink" title="Sigmoid函数"></a>Sigmoid函数</h4><p>曾被广泛使用，但由于自身缺陷，现很少使用，其定义为：<br>$$ f(x)= \frac{1}{1+e^{-x}} $$<br>函数对应图像如左图：<br><img src="/images/blog-sigmoid_relu.png" alt="sigmoid"></p>
+<h5 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h5><ul>
+<li>Sigmoid函数的输出映射在(0,1)之间，单调连续，输出范围有限，基于梯度优化会更稳定，可作为输出层；</li>
+<li>求导容易。</li>
+</ul>
+<h5 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h5><ul>
+<li>容易产生梯度消失，导致网络变得很难学习；</li>
+<li>输出不是以0为均值，导致后一层神经元输入是非0均值的信号。</li>
+</ul>
+<h4 id="tanh"><a href="#tanh" class="headerlink" title="tanh"></a>tanh</h4><p>与sigmoid很像，函数位于[-1,1]区间上，数学形式是sigmoid的变形：$$ tanh(x)=2sigmoid(2x)-1 = \frac{1-e^{-2x}}{1+e^{-2x}} $$ 函数对应上图右图，tanh是0均值的，实际应用中，tanh比sigmoid更好。</p>
+<h5 id="优点-1"><a href="#优点-1" class="headerlink" title="优点"></a>优点</h5><ul>
+<li>比sigmoid函数收敛速度更快；</li>
+<li>输出以0为均值（相比于sigmoid）。</li>
+</ul>
+<h5 id="缺点-1"><a href="#缺点-1" class="headerlink" title="缺点"></a>缺点</h5><p>并没有改变sigmoid的最大问题——梯度消失。</p>
+<h4 id="ReLU"><a href="#ReLU" class="headerlink" title="ReLU"></a>ReLU</h4><p>近几年受宠爱的激活函数，定义为：$$ y=  \begin{matrix}<br>0 &amp; (x\leq 0) \<br>, y= x &amp; (x&gt;0)<br>\end{matrix} $$<br>函数对应图像如下：<br><img src="/images/blog-relu.png" alt="relu"></p>
+<h5 id="优点-2"><a href="#优点-2" class="headerlink" title="优点"></a>优点</h5><ul>
+<li>相比sigmoid和tanh，ReLU在SGD中能够<strong>快速收敛</strong>，如上图右图所示，在一个四层的卷积神经网络中，实线代表ReLU，虚线代表tanh，ReLU比tanh更快到达错误率0.25处。这一点可归因与ReLU是线性，且输出范围是无限的；</li>
+<li>sigmoid和tanh涉及很多指数操作，ReLU实现更加简单；</li>
+<li>有效缓解梯度消失；</li>
+</ul>
+<h5 id="缺点-2"><a href="#缺点-2" class="headerlink" title="缺点"></a>缺点</h5><p>ReLU神经元在训练中不可逆地死亡，e.g. 随着训练的进行，可能神经元死亡，权重无法更新，那么流经神经元的梯度从这一刻开始永远是0。<br><code>learning rate设为合适的较小值，可以减少发生该问题的频次。</code></p>
+<h4 id="LReLU、PReLU与RReLU"><a href="#LReLU、PReLU与RReLU" class="headerlink" title="LReLU、PReLU与RReLU"></a>LReLU、PReLU与RReLU</h4><p>LReLU、PReLU中，定义为这样的激活函数：$$ y= \begin{matrix}<br>ax &amp; (x\leq 0) \<br>, y=x &amp; (x&gt;0)<br>\end{matrix} $$<br>，这里的a是一个很小的值，对应图像如下，<br><img src="/images/r_p_lReLU.png" alt="r_p_lReLU"></p>
+<h4 id="其他激活函数"><a href="#其他激活函数" class="headerlink" title="其他激活函数"></a>其他激活函数</h4><p><img src="/images/blog-ac1.png" alt="blog-ac1"></p>
+<h3 id="如何选择？"><a href="#如何选择？" class="headerlink" title="如何选择？"></a>如何选择？</h3><p>关于激活函数的选取，目前没有定论，实践过程中更多需要结合实际问题，综合考虑不同激活函数优缺点。<br>根据Andrew Ng的deeplearning.ai课程讲解，他建议最好不要在隐藏层使用sigmoid，可试试tanh；如果使用ReLU，一定要小心设置learning rate，也可以试试Leaky ReLU、PReLU等。<br><strong>Tips:</strong><br>TensorFlow里有现成的方法可供使用。<a href="https://www.tensorflow.org/versions/r0.12/api_docs/python/nn/activation_functions_" target="_blank" rel="external">激活函数相关TensorFlow的官方文档</a></p>
+<p>参考文献</p>
+<ol>
+<li><a href="http://blog.csdn.net/cyh_24/article/details/50593400" target="_blank" rel="external">http://blog.csdn.net/cyh_24/article/details/50593400</a></li>
+<li><a href="http://www.cnblogs.com/rgvb178/p/6055213.html" target="_blank" rel="external">http://www.cnblogs.com/rgvb178/p/6055213.html</a></li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote class=&quot;blockquote-center&quot;&gt;&lt;h3 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h3&gt;&lt;p&gt;提到神经网络，就必然会聊到激活函数这一话题，常用的激活函数有：sigmoid、ReLU、tanh等，那么问题来了：&lt;/p&gt;
+&lt;p&gt; &lt;strong&gt;为什么需要激活函数？&lt;/strong&gt;&lt;br&gt; &lt;strong&gt;激活函数有哪些？有哪些特点？&lt;/strong&gt;&lt;br&gt; &lt;strong&gt;如何选用激活函数？&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;本文基于这3个问题展开，欢迎指正！&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="DeepLearning" scheme="http://www.phoebepan.cn/categories/DeepLearning/"/>
+    
+    
+      <category term="DeepLearning" scheme="http://www.phoebepan.cn/tags/DeepLearning/"/>
+    
+  </entry>
   
   <entry>
     <title>Python——itertools模块</title>
@@ -790,306 +896,6 @@
     <summary type="html">
     
       &lt;h3 id=&quot;稀疏表示&quot;&gt;&lt;a href=&quot;#稀疏表示&quot; class=&quot;headerlink&quot; title=&quot;稀疏表示&quot;&gt;&lt;/a&gt;稀疏表示&lt;/h3&gt;&lt;p&gt;文档分类时，每个文档当作一个样本，文档中的每个词作为一个特征，这往往会得到很高维的矩阵，而且矩阵中每一行都有大量的零元素，且每行零元素出现的列分布不同，具有这样的&lt;strong&gt;稀疏表达&lt;/strong&gt;形式的矩阵，对学习任务来说是有好处的(可以当做线性可分问题处理)。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Machine Learning" scheme="http://www.phoebepan.cn/categories/Machine-Learning/"/>
-    
-    
-      <category term="ML" scheme="http://www.phoebepan.cn/tags/ML/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>神经网络</title>
-    <link href="http://www.phoebepan.cn/2017/05/25/neural%20network/"/>
-    <id>http://www.phoebepan.cn/2017/05/25/neural network/</id>
-    <published>2017-05-25T07:30:16.000Z</published>
-    <updated>2017-08-08T15:38:08.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote class="blockquote-center"><p>神经网络是由具有适应性的简单单元组成的广泛并行互连的网络，它的组织能够模拟生物神经系统对真实世界物体所作出的交互反应。<br>——Kohonen</p>
-</blockquote>
-<a id="more"></a>
-<h3 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h3><h4 id="神经元模型"><a href="#神经元模型" class="headerlink" title="神经元模型"></a>神经元模型</h4><blockquote>
-<p>如下图，<strong>M-P神经元模型</strong></p>
-<ul>
-<li>连接权重</li>
-<li>阈值</li>
-<li>激活函数</li>
-</ul>
-</blockquote>
-<p><img src="/images/MP_model.jpg" alt="MP_model"></p>
-<h4 id="学习过程"><a href="#学习过程" class="headerlink" title="学习过程"></a>学习过程</h4><p>根据训练集来调整神经元之间的”连接权”以及每个功能神经元的阈值。</p>
-<h4 id="感知机与多层网络"><a href="#感知机与多层网络" class="headerlink" title="感知机与多层网络"></a>感知机与多层网络</h4><p><strong>感知机</strong>由两层神经元组成，输入层接收输入信号后传递给输出层，输出层是M-P神经元，可处理<strong>线性可分数据集</strong>。</p>
-<p><strong>多层网络</strong>，在输入层与输出层增加隐含层(一个或多个)，隐含层和输出层神经元都是拥有激活函数的功能神经元。</p>
-<h4 id="误差逆传播-BP-算法"><a href="#误差逆传播-BP-算法" class="headerlink" title="误差逆传播(BP)算法"></a>误差逆传播(BP)算法</h4><p>迭代学习算法，基于梯度下降策略，以目标的负梯度方向对参数进行调整。</p>
-<blockquote>
-<p><strong>标准BP和累积BP</strong><br>标准BP，每次更新只针对单个样例，参数更新频繁；<br>累积BP，读取整个数据集后才对参数进行一次更新。</p>
-</blockquote>
-<p><strong>缓解BP过拟合的策略</strong></p>
-<ul>
-<li>早停，训练误差降低，验证误差升高，停止训练；</li>
-<li>正则化，增加描述网络复杂度项(连接权与阈值的平方和)，交叉验证来估计。</li>
-</ul>
-<h3 id="全局最小和局部极小"><a href="#全局最小和局部极小" class="headerlink" title="全局最小和局部极小"></a>全局最小和局部极小</h3><p><code>参数寻优</code></p>
-<h4 id="跳出局部最小策略"><a href="#跳出局部最小策略" class="headerlink" title="跳出局部最小策略"></a>跳出局部最小策略</h4><ul>
-<li>多组不同参数值初始化多个神经网路，训练，选择更接近全局最小的结果；</li>
-<li>模拟退火，每一步以一定概率接受比当前解更差的结果；</li>
-<li>随机梯度下降，计算梯度时加入随机因素。</li>
-</ul>
-<h3 id="常见的神经网路"><a href="#常见的神经网路" class="headerlink" title="常见的神经网路"></a>常见的神经网路</h3><h4 id="RBF"><a href="#RBF" class="headerlink" title="RBF"></a>RBF</h4><ul>
-<li>单隐层前馈神经网路</li>
-<li>径向基函数作为隐层神经元激活函数</li>
-<li>输出层对隐层神经元输出进行线性组合</li>
-</ul>
-<h4 id="ART"><a href="#ART" class="headerlink" title="ART"></a>ART</h4><p><code>胜者通吃</code>、<code>竞争型学习</code>、<code>无监督学习</code>、<code>增量学习</code></p>
-<blockquote>
-<p>比较层(输入)、识别层(模式)、<strong>识别阈值</strong>、重置模块；</p>
-<blockquote>
-<p> 当识别阈值较高，学习更细；较低，产生粗略的模式类。</p>
-</blockquote>
-</blockquote>
-<h4 id="SOM"><a href="#SOM" class="headerlink" title="SOM"></a>SOM</h4><p>高维空间相似的样本点映射到网络输出层中的邻近神经元。<br>在聚类、高维数据可视化、图像分割中广泛应用。</p>
-<h4 id="级联相关网络"><a href="#级联相关网络" class="headerlink" title="级联相关网络"></a>级联相关网络</h4><p><code>结构自适应网络</code><br>数据较少时易过拟合。</p>
-<h4 id="Elman网络"><a href="#Elman网络" class="headerlink" title="Elman网络"></a>Elman网络</h4><p><code>递归神经网络</code>、<code>环型结构</code></p>
-<h4 id="Boltzmann机"><a href="#Boltzmann机" class="headerlink" title="Boltzmann机"></a>Boltzmann机</h4><p><code>完全图</code></p>
-<h4 id="RBM"><a href="#RBM" class="headerlink" title="RBM"></a>RBM</h4><p>受限Boltzmann机，<code>二部图</code></p>
-<h3 id="深度学习"><a href="#深度学习" class="headerlink" title="深度学习"></a>深度学习</h3><p><code>多隐层神经网络</code>(通常有八九层隐层)<br>训练手段，有以下两种：</p>
-<h4 id="无监督逐层训练"><a href="#无监督逐层训练" class="headerlink" title="无监督逐层训练"></a>无监督逐层训练</h4><p>预训练+微调</p>
-<blockquote>
-<p>大量参数分组，对每组先找到局部较好设置，在基于局部较优结果联合起来进行全局寻优。</p>
-</blockquote>
-<h4 id="权共享"><a href="#权共享" class="headerlink" title="权共享"></a>权共享</h4><p>每一组神经元使用相同的连接权。</p>
-<blockquote>
-<p>卷积神经网络CNN</p>
-</blockquote>
-<p>参考文献</p>
-<ol>
-<li>周志华，《机器学习》</li>
-</ol>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote class=&quot;blockquote-center&quot;&gt;&lt;p&gt;神经网络是由具有适应性的简单单元组成的广泛并行互连的网络，它的组织能够模拟生物神经系统对真实世界物体所作出的交互反应。&lt;br&gt;——Kohonen&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="Machine Learning" scheme="http://www.phoebepan.cn/categories/Machine-Learning/"/>
-    
-    
-      <category term="ML" scheme="http://www.phoebepan.cn/tags/ML/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>机器学习经典算法优缺点总结</title>
-    <link href="http://www.phoebepan.cn/2017/05/23/ML_good_bad/"/>
-    <id>http://www.phoebepan.cn/2017/05/23/ML_good_bad/</id>
-    <published>2017-05-23T07:30:16.000Z</published>
-    <updated>2017-08-03T22:56:04.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote class="blockquote-center"><p>简介<br>机器学习大多数场景是搜索、广告、垃圾过滤、安全、推荐系统等等。本文是经典机器学习算法的优劣势比较，欢迎纠正。</p>
-</blockquote>
-<a id="more"></a>
-<h3 id="朴素贝叶斯"><a href="#朴素贝叶斯" class="headerlink" title="朴素贝叶斯"></a>朴素贝叶斯</h3><p><code>生成模型</code>、<code>贝叶斯定理</code>、<code>特征条件独立</code>、<code>后验概率最大化</code></p>
-<h4 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h4><blockquote>
-<p>基于贝叶斯定理与特征条件独立假设的分类方法。对于给定的训练集首先基于特征条件独立假设学习输入/输出的联合概率分布，然后利用贝叶斯定理求出后验概率最大。</p>
-</blockquote>
-<h4 id="解决问题-适用场景"><a href="#解决问题-适用场景" class="headerlink" title="解决问题(适用场景)"></a>解决问题(适用场景)</h4><blockquote>
-<p>分类问题<br>场景举例：文本主题分类、垃圾文本过滤</p>
-</blockquote>
-<h4 id="技术细节"><a href="#技术细节" class="headerlink" title="技术细节"></a>技术细节</h4><blockquote>
-<p>概率估计方法：极大似然估计和贝叶斯估计(拉普拉斯平滑)</p>
-</blockquote>
-<h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><blockquote>
-<p>实现简单；对小规模数据表现很好，适合多分类任务；适合增量式训练</p>
-</blockquote>
-<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4><blockquote>
-<p>对输入数据表达形式敏感(离散、连续、值极大极小等)；需要条件独立假设，会牺牲准确率，分类性能不一定高</p>
-</blockquote>
-<h3 id="逻辑回归"><a href="#逻辑回归" class="headerlink" title="逻辑回归"></a>逻辑回归</h3><p><code>对数线性模型</code>、<code>似然函数为目标函数</code>、<code>最优化问题</code></p>
-<h4 id="原理-1"><a href="#原理-1" class="headerlink" title="原理"></a>原理</h4><blockquote>
-<p>主要计算在某个样本特征下事件发生的概率。用sigmoid函数将线性回归进行了归一化，输出值压缩到0-1之间，这个值代表的是发生的概率。</p>
-</blockquote>
-<h4 id="解决问题-适用场景-1"><a href="#解决问题-适用场景-1" class="headerlink" title="解决问题(适用场景)"></a>解决问题(适用场景)</h4><blockquote>
-<p>分类问题(二分类推广到多分类)<br>场景举例：根据用户浏览情况预测是否购买商品</p>
-</blockquote>
-<h4 id="技术细节-1"><a href="#技术细节-1" class="headerlink" title="技术细节"></a>技术细节</h4><blockquote>
-<ul>
-<li>LogReg中，输出Y=1的对数几率是输入x的线性函数；</li>
-<li>极大似然估计法估计模型参数；</li>
-<li>softmax和k个LR的选择，<strong>类别之间互斥，softmax</strong>、类别之前有联系，K个LR</li>
-<li>优化：梯度下降、拟牛顿法、BFGS、改进的迭代尺度法<br>梯度下降会陷入局部最优，改用随机梯度下降，收敛速度更快，且易并行。</li>
-</ul>
-</blockquote>
-<h4 id="优点-1"><a href="#优点-1" class="headerlink" title="优点"></a>优点</h4><blockquote>
-<p>简单高效；概率值输出；多重共线性可以通过L2正则化应对</p>
-</blockquote>
-<h4 id="缺点-1"><a href="#缺点-1" class="headerlink" title="缺点"></a>缺点</h4><blockquote>
-<p>欠拟合，精度不高；<br>必须线性可分；<br>特征空间太大时表现不太好；<br>大量分类变量性能较差；</p>
-</blockquote>
-<h3 id="k-近邻"><a href="#k-近邻" class="headerlink" title="k-近邻"></a>k-近邻</h3><p><code>判别模型</code>、<code>多分类与回归</code>、<code>不具有显式学习过程</code></p>
-<h4 id="原理-2"><a href="#原理-2" class="headerlink" title="原理"></a>原理</h4><blockquote>
-<p>利用训练数据集对特征向量空间进行划分，根据k个最近邻的训练样本的类别，通过多数表决进行预测。</p>
-</blockquote>
-<h4 id="解决问题-适用场景-2"><a href="#解决问题-适用场景-2" class="headerlink" title="解决问题(适用场景)"></a>解决问题(适用场景)</h4><blockquote>
-<p>分类与回归</p>
-</blockquote>
-<h4 id="技术细节-2"><a href="#技术细节-2" class="headerlink" title="技术细节"></a>技术细节</h4><blockquote>
-<p>三要素：K的选择、距离度量、决策规则</p>
-<blockquote>
-<p><strong>交叉验证，取最优k值</strong><br>K小，模型变得复杂，过拟合；估计误差增大；<br>K大，模型变得简单，近似误差增大</p>
-</blockquote>
-<p><strong>kd 树</strong></p>
-<blockquote>
-<p>X的K个特征，一一个切分，使得每个数据最终都在切分点上(中位数)，对输入的数据搜索kd树，找到K近邻。</p>
-</blockquote>
-</blockquote>
-<h4 id="优点-2"><a href="#优点-2" class="headerlink" title="优点"></a>优点</h4><blockquote>
-<p>简单，分类与回归，可用于非线性，复杂度为O(n)，对噪声不敏感</p>
-</blockquote>
-<h4 id="缺点-2"><a href="#缺点-2" class="headerlink" title="缺点"></a>缺点</h4><blockquote>
-<p>K需要人为设定，对大小不平衡数据易偏向大容量数据；计算量大，大量内存</p>
-</blockquote>
-<h3 id="决策树"><a href="#决策树" class="headerlink" title="决策树"></a>决策树</h3><p><code>判别模型</code>、<code>多分类与回归</code>、<code>正则化的极大似然估计</code></p>
-<h4 id="原理-3"><a href="#原理-3" class="headerlink" title="原理"></a>原理</h4><blockquote>
-<p>决策树实际上是将空间用超平面进行划分的一种方法，每次分割的时候，都将当前的空间一分为二，这样使得每一个叶子节点都是在空间中的一个不相交的区域，在进行决策的时候，会根据输入样本每一维feature的值，一步一步往下，最后使得样本落入N个区域中的一个。</p>
-</blockquote>
-<h4 id="解决问题-适用场景-3"><a href="#解决问题-适用场景-3" class="headerlink" title="解决问题(适用场景)"></a>解决问题(适用场景)</h4><blockquote>
-<p>适用于小数据集<br>场景举例：基于规则的信用评估</p>
-</blockquote>
-<h4 id="技术细节-3"><a href="#技术细节-3" class="headerlink" title="技术细节"></a>技术细节</h4><blockquote>
-<p><strong>特征选择</strong>准则：信息增益或信息增益比<br><strong>决策树生成</strong>，ID3、C4.5、CART(Gini index，平方误差)<br><strong>剪枝</strong>，减小模型复杂度，设定$ \alpha $ ，相当于正则化的极大似然估计；动态规划实现</p>
-<blockquote>
-<p><strong>CART</strong><br>通过递归方式建立决策二叉树，基尼指数最小化的特征(分类)，平方误差最小化(回归)作为划分特征</p>
-</blockquote>
-</blockquote>
-<h4 id="优点-3"><a href="#优点-3" class="headerlink" title="优点"></a>优点</h4><blockquote>
-<p>训练时间复杂度低，预测过程快速；可读性好；适合处理有缺失属性值得样本，能够处理不相关特征</p>
-</blockquote>
-<h4 id="缺点-3"><a href="#缺点-3" class="headerlink" title="缺点"></a>缺点</h4><blockquote>
-<p>容易过拟合</p>
-<blockquote>
-<p>解决过拟合：剪枝、交叉验证、随机森林</p>
-</blockquote>
-<p>单棵树分类能力弱，对连续变量难以处理</p>
-</blockquote>
-<h3 id="随机森林"><a href="#随机森林" class="headerlink" title="随机森林"></a>随机森林</h3><p><code>判别模型</code>、<code>多分类与回归</code>、<code>正则化的极大似然估计</code>、<code>Random Future</code>、<code>Bagging</code></p>
-<h4 id="原理-4"><a href="#原理-4" class="headerlink" title="原理"></a>原理</h4><blockquote>
-<p>很多随机生成的决策树组成，预测时，每颗决策树进行判断，最后通过Bagging思想进行结果的输出。<br>RF被证明对大规模数据集和存在大量且有时不相关特征的项来说很有用。</p>
-</blockquote>
-<h4 id="解决问题-适用场景-4"><a href="#解决问题-适用场景-4" class="headerlink" title="解决问题(适用场景)"></a>解决问题(适用场景)</h4><blockquote>
-<p>场景举例：用户流失分析、风险评估、检测离群点</p>
-</blockquote>
-<h4 id="技术细节-4"><a href="#技术细节-4" class="headerlink" title="技术细节"></a>技术细节</h4><blockquote>
-<p>行(有放回)列(节点分裂时)采样，每个决策树使用相同参数<br>完全分裂，叶节点特征(样本特征相同、样本类别相同、样本数=1)<br>超参：树的数量、列采样特征数(通常取总特征的平方根)<br>泛化误差估计，oob(out-of-bag)</p>
-</blockquote>
-<h4 id="优点-4"><a href="#优点-4" class="headerlink" title="优点"></a>优点</h4><blockquote>
-<ol>
-<li>适合多分类问题，训练和预测速度快</li>
-<li>对训练数据容错能力强，有效的估计缺失数据的方法</li>
-<li>可以处理高维数据且不用特征选择</li>
-<li>训练过程中检测到特征间相互影响及特征重要性</li>
-<li>数据集上表现良好，避免过拟合</li>
-<li>实现简单且容易并行化</li>
-<li>在创建随机森林的时候，对generlization error使用的是无偏估计，所以在随机森林算法中不需要再进行交叉验证或者单独的测试集来获取测试集误差的无偏估计</li>
-</ol>
-</blockquote>
-<h4 id="缺点-4"><a href="#缺点-4" class="headerlink" title="缺点"></a>缺点</h4><blockquote>
-<p>噪声较大的分类和回归问题上会过拟合。对于类别特征的属性值较多时，RF产生的属性权重不可信。</p>
-</blockquote>
-<h3 id="支持向量机"><a href="#支持向量机" class="headerlink" title="支持向量机"></a>支持向量机</h3><p><code>间隔最大</code>、<code>凸二次规划</code>、<code>核函数</code></p>
-<h4 id="原理-5"><a href="#原理-5" class="headerlink" title="原理"></a>原理</h4><blockquote>
-<p>低维空间映射到高维空间，实现线性可分，求解正确划分训练集并(几何)间隔最大化的分离超平面。</p>
-</blockquote>
-<h4 id="技术细节-5"><a href="#技术细节-5" class="headerlink" title="技术细节"></a>技术细节</h4><blockquote>
-<p>函数间隔，几何间隔<br>应用拉格朗日对偶性，求解对偶问题(更易求解、自然引用核函数)<br>正则化的合页损失函数最优化问题<br>核函数</p>
-<blockquote>
-<p>表示将输入从输入空间映射到特征空间得到的特征向量之间的内积。</p>
-</blockquote>
-<p>序列最小最优化算法(不断分解，对子问题求解，每个子问题中选择两个变量优化，其中一个变量是违反KKT条件的，直到所有变量都满足KKT条件为止)</p>
-</blockquote>
-<h4 id="优点-5"><a href="#优点-5" class="headerlink" title="优点"></a>优点</h4><blockquote>
-<p>可以处理高维特征；使用核函数可以向高维空间进行映射，可以解决非线性分类；分类思想简单(间隔最大化)；分类效果好</p>
-</blockquote>
-<h4 id="缺点-5"><a href="#缺点-5" class="headerlink" title="缺点"></a>缺点</h4><blockquote>
-<p>核函数及参数敏感；无法直接支持多分类；大量观测样本，效率低</p>
-</blockquote>
-<h3 id="集成学习"><a href="#集成学习" class="headerlink" title="集成学习"></a>集成学习</h3><h4 id="关键点"><a href="#关键点" class="headerlink" title="关键点"></a>关键点</h4><ol>
-<li><code>差异性基分类器</code>:数据集(bagging、boosting)、数据特征、改变基分类器参数</li>
-<li><code>基分类器整合</code>，回归(简单平均、加权平均)、分类(简单/加权投票、概率投票)</li>
-</ol>
-<p><code>Notes</code>：分类问题，每个分类器的分类精度大于0.5</p>
-<h3 id="Boosting"><a href="#Boosting" class="headerlink" title="Boosting"></a>Boosting</h3><p><code>三个臭皮匠顶个诸葛亮</code>、<code>改变样本权重</code>、<code>分而治之</code>、<code>加法模型</code>、<code>前向分布算法</code>、<code>Shrinkage</code></p>
-<h4 id="原理-6"><a href="#原理-6" class="headerlink" title="原理"></a>原理</h4><blockquote>
-<p>在分类问题中，通过改变训练样本的权重，学习多个基分类器，最终进行线性组合。</p>
-</blockquote>
-<h4 id="技术细节-6"><a href="#技术细节-6" class="headerlink" title="技术细节"></a>技术细节</h4><blockquote>
-<p>概念强可学习充要条件概念弱可学习</p>
-<blockquote>
-<ul>
-<li>AdaBoost，提高前一轮弱分类器错分的<strong>样本权重</strong>，降低分对的样本权重；<strong>组合</strong>时，加大分类错误率低的基分类器权值，减小分类错误率大的权重。</li>
-<li>AdaBoost二分类学习时是加法模型、损失函数为指数函数、学习算法为前向分布算法</li>
-</ul>
-</blockquote>
-<p>boosting tree<br>基分类器，分类树或回归树，不同的问题的提升树主要区别在于<strong>损失函数</strong>不同。</p>
-<blockquote>
-<ul>
-<li>梯度提升(gradient boosting)，每一轮计算为了减少上一次的残差，加入新的model是在之前model损失函数梯度下降方向。</li>
-<li>GBDT精髓，在于训练都以上一棵树的残差为目标去提升。</li>
-</ul>
-</blockquote>
-<p>调参：树的个数、树深度、学习速率、叶子上最大节点树、训练采样比例、训练特征采样比例……</p>
-</blockquote>
-<h4 id="优点-6"><a href="#优点-6" class="headerlink" title="优点"></a>优点</h4><blockquote>
-<p>精度高；能处理非线性数据；能处理多特征类型；适合低维稠密数据</p>
-</blockquote>
-<h4 id="缺点-6"><a href="#缺点-6" class="headerlink" title="缺点"></a>缺点</h4><blockquote>
-<p>并行麻烦；多分类时，复杂度大</p>
-</blockquote>
-<h3 id="EM"><a href="#EM" class="headerlink" title="EM"></a>EM</h3><p><code>含隐变量的概率模型</code>、<code>极大似然估计</code></p>
-<h4 id="原理-7"><a href="#原理-7" class="headerlink" title="原理"></a>原理</h4><blockquote>
-<p>从不完全数据或有数据丢失的数据集（存在隐含变量）中求解概率模型参数的最大似然估计方法。</p>
-</blockquote>
-<h4 id="解决问题-适用场景-5"><a href="#解决问题-适用场景-5" class="headerlink" title="解决问题(适用场景)"></a>解决问题(适用场景)</h4><blockquote>
-<p>含有隐变量、非监督学习<br>高斯混合模型学习中的应用</p>
-</blockquote>
-<h4 id="技术细节-7"><a href="#技术细节-7" class="headerlink" title="技术细节"></a>技术细节</h4><blockquote>
-<p>E步，求期望，根据上一步迭代的模型参数计算隐变量的后验概率；M步，求极大，似然函数最大化获得新的参数值</p>
-</blockquote>
-<h4 id="优点-7"><a href="#优点-7" class="headerlink" title="优点"></a>优点</h4><blockquote>
-<p>思想简单，普适</p>
-</blockquote>
-<h4 id="缺点-7"><a href="#缺点-7" class="headerlink" title="缺点"></a>缺点</h4><blockquote>
-<p>EM算法与初值的选择有关，不同初值，得到不同参数估计；</p>
-</blockquote>
-<h3 id="归一化使梯度下降收敛更好？"><a href="#归一化使梯度下降收敛更好？" class="headerlink" title="归一化使梯度下降收敛更好？"></a>归一化使梯度下降收敛更好？</h3><blockquote>
-<p>如果不归一化，各维特征的跨度差距很大，梯度下降时，目标函数梯度方向就会偏离最小值的方向，走很多弯路，如下方左图。<br>如果归一化了，每一步梯度的方向都指向最小值，收敛更快，如下方右图。</p>
-</blockquote>
-<p><img src="/images/descend.png" alt="descend"></p>
-<h3 id="算法横向比较"><a href="#算法横向比较" class="headerlink" title="算法横向比较"></a>算法横向比较</h3><h4 id="LR与Linear-SVM"><a href="#LR与Linear-SVM" class="headerlink" title="LR与Linear SVM"></a>LR与Linear SVM</h4><ul>
-<li>都是线性分类器；</li>
-<li>都会受到异常点影响；</li>
-<li>本质不同——损失函数，一个hinge loss，一个logistical loss</li>
-<li>Linear SVM只受支持向量影响(部分样本)，LR则受所有数据点影响；</li>
-<li>Linear SVM需要归一化数据，LR不受影响；</li>
-<li>Linear SVM自带正则，而LR需另加；</li>
-<li>海量数据LR使用更广泛，Linear SVM内存消耗大</li>
-</ul>
-<h4 id="LR与朴素贝叶斯"><a href="#LR与朴素贝叶斯" class="headerlink" title="LR与朴素贝叶斯"></a>LR与朴素贝叶斯</h4><ul>
-<li>判别/生成model；</li>
-<li>朴素贝叶斯条件独立假设；</li>
-<li>当数据集小时，首选朴素贝叶斯，数据集大时，考虑LR</li>
-</ul>
-<h3 id="附两份cheat-sheet"><a href="#附两份cheat-sheet" class="headerlink" title="附两份cheat sheet"></a>附两份cheat sheet</h3><p><img src="/images/sk-learn.png" alt="sk-learn"><br><img src="/images/cheat sheet.png" alt="cheat sheet"></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote class=&quot;blockquote-center&quot;&gt;&lt;p&gt;简介&lt;br&gt;机器学习大多数场景是搜索、广告、垃圾过滤、安全、推荐系统等等。本文是经典机器学习算法的优劣势比较，欢迎纠正。&lt;/p&gt;
-&lt;/blockquote&gt;
     
     </summary>
     

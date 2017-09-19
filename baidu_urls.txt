@@ -1,3 +1,3 @@
+http://www.phoebepan.cn/2017/09/02/build a nn/
+http://www.phoebepan.cn/2017/09/01/activation function/
 http://www.phoebepan.cn/2017/08/04/itertools/
-http://www.phoebepan.cn/2017/08/03/rtb/
-http://www.phoebepan.cn/2017/08/02/searchad/
