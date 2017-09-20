@@ -4,6 +4,46 @@
 
     
   <url>
+    <loc>http://www.phoebepan.cn/2017/09/03/dropout/</loc>
+    <lastmod>2017-09-20T14:35:19.000Z</lastmod>
+    <data>
+        <display>
+        <title>深度学习——Dropout</title>
+        <pubTime>2017-09-03T07:30:16.000Z</pubTime>
+        
+        <tag>DeepLearning</tag>
+         
+         
+           
+             
+              <breadCrumb title="DeepLearning" url="http://www.phoebepan.cn/categories/DeepLearning/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.phoebepan.cn/2017/09/04/Initialization/</loc>
+    <lastmod>2017-09-20T09:35:07.000Z</lastmod>
+    <data>
+        <display>
+        <title>深度学习——权值初始化</title>
+        <pubTime>2017-09-04T07:30:16.000Z</pubTime>
+        
+        <tag>DeepLearning</tag>
+         
+         
+           
+             
+              <breadCrumb title="DeepLearning" url="http://www.phoebepan.cn/categories/DeepLearning/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.phoebepan.cn/2017/09/02/build%20a%20nn/</loc>
     <lastmod>2017-09-19T14:49:24.000Z</lastmod>
     <data>
@@ -71,9 +111,9 @@
         <title>Combination Sum</title>
         <pubTime>2017-07-05T07:30:16.000Z</pubTime>
         
-        <tag>LeetCode</tag>
-         
         <tag>Algorithms</tag>
+         
+        <tag>LeetCode</tag>
          
          
            
@@ -93,9 +133,9 @@
         <title>两个数列的第K大数</title>
         <pubTime>2017-06-15T07:30:16.000Z</pubTime>
         
-        <tag>LeetCode</tag>
-         
         <tag>Algorithms</tag>
+         
+        <tag>LeetCode</tag>
          
          
            
@@ -301,11 +341,11 @@
         <title>python——DFS+BFS</title>
         <pubTime>2017-06-03T07:30:16.000Z</pubTime>
         
-        <tag>LeetCode</tag>
+        <tag>Python</tag>
          
         <tag>Algorithms</tag>
          
-        <tag>Python</tag>
+        <tag>LeetCode</tag>
          
          
            
@@ -425,9 +465,9 @@
         <title>支持向量机</title>
         <pubTime>2017-05-04T07:30:16.000Z</pubTime>
         
-        <tag>Model</tag>
-         
         <tag>Mathematics in ML</tag>
+         
+        <tag>Model</tag>
          
          
            
@@ -556,9 +596,9 @@
         
         <tag>ML</tag>
          
-        <tag>Tune</tag>
-         
         <tag>Python</tag>
+         
+        <tag>Tune</tag>
          
         <tag>XGBoost</tag>
          
@@ -762,9 +802,9 @@
         <title>关键词匹配经典算法——DFA</title>
         <pubTime>2017-03-15T07:30:16.000Z</pubTime>
         
-        <tag>LeetCode</tag>
-         
         <tag>Algorithms</tag>
+         
+        <tag>LeetCode</tag>
          
          
            
@@ -1204,9 +1244,9 @@
         <title>Dynamic programming</title>
         <pubTime>2017-04-13T07:30:16.000Z</pubTime>
         
-        <tag>LeetCode</tag>
-         
         <tag>Algorithms</tag>
+         
+        <tag>LeetCode</tag>
          
          
            
@@ -1226,9 +1266,9 @@
         <title>Binary indexed tree (Fenwick tree)</title>
         <pubTime>2017-03-21T07:30:16.000Z</pubTime>
         
-        <tag>Algorithms</tag>
-         
         <tag>Python</tag>
+         
+        <tag>Algorithms</tag>
          
          
            

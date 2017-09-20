@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.phoebepan.cn/"/>
-  <updated>2017-09-19T14:49:24.000Z</updated>
+  <updated>2017-09-20T09:35:07.000Z</updated>
   <id>http://www.phoebepan.cn/</id>
   
   <author>
@@ -14,6 +14,80 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>深度学习——权值初始化</title>
+    <link href="http://www.phoebepan.cn/2017/09/04/Initialization/"/>
+    <id>http://www.phoebepan.cn/2017/09/04/Initialization/</id>
+    <published>2017-09-04T07:30:16.000Z</published>
+    <updated>2017-09-20T09:35:07.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote class="blockquote-center"><p>本博文属于<a href="https://www.coursera.org/specializations/deep-learning" target="_blank" rel="external">deeplearning.ai</a>学习笔记总结系列，DL中<code>权值初始化</code>也有很多trick，不同的初始化方法可能会得到不同的结果，随机初始化需要打破symmetry，确保每个隐藏层的units可以学习不同的东西，同时初始化的权值不能过大，通常在ReLU激活函数下，He初始化方法能起到不错的效果。</p>
+</blockquote>
+<a id="more"></a>
+<p>NN权值初始化最常用的方法是随机数进行初始化，代码表示就是<code>W=np.random.randn(shape)</code>，其中<code>randn</code>从均值0，标准差为1的标准正太分布中采样，这种初始化有一个问题就是，<strong>每一个units输出值的方差会随着units输入样本数量而增加。</strong></p>
+<p>为了解决该问题，提出了<code>He initialization</code>、<code>Xavier initialization</code>等，根据Ng老师的讲解，他推荐在使用ReLU激活函数时，考虑He initialization方法进行初始化，代码表示，即为，<code>WL=np.random.randn(shape)*np.sqrt(2/n)</code>；使用tanh激活函数时，考虑Xavier initialization方法进行初始化，代码表示，即为，<code>WL=np.random.randn(shape)*np.sqrt(1/n)</code>，这里的<code>n</code>指进入某一units的输入个数。如果你比较困惑为什么要乘上$ \sqrt{\frac{1}{n}} $，可以阅读<a href="http://www.cnblogs.com/liujshi/p/5616171.html" target="_blank" rel="external">这篇博文</a>。</p>
+<p>想要直观的感受初始化的效果，可以通过这个栗子体会下，链接<a href="https://github.com/phoebepx/DeepLearningStudyNodes/blob/master/Initialization.ipynb" target="_blank" rel="external">Here</a>。</p>
+<p>总之，较差的初始化可能会引发梯度爆炸/消失，训练变慢等问题，掌握这些trick，避免入坑。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote class=&quot;blockquote-center&quot;&gt;&lt;p&gt;本博文属于&lt;a href=&quot;https://www.coursera.org/specializations/deep-learning&quot;&gt;deeplearning.ai&lt;/a&gt;学习笔记总结系列，DL中&lt;code&gt;权值初始化&lt;/code&gt;也有很多trick，不同的初始化方法可能会得到不同的结果，随机初始化需要打破symmetry，确保每个隐藏层的units可以学习不同的东西，同时初始化的权值不能过大，通常在ReLU激活函数下，He初始化方法能起到不错的效果。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="DeepLearning" scheme="http://www.phoebepan.cn/categories/DeepLearning/"/>
+    
+    
+      <category term="DeepLearning" scheme="http://www.phoebepan.cn/tags/DeepLearning/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>深度学习——Dropout</title>
+    <link href="http://www.phoebepan.cn/2017/09/03/dropout/"/>
+    <id>http://www.phoebepan.cn/2017/09/03/dropout/</id>
+    <published>2017-09-03T07:30:16.000Z</published>
+    <updated>2017-09-20T14:35:19.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote class="blockquote-center"><p>本博文属于<a href="https://www.coursera.org/specializations/deep-learning" target="_blank" rel="external">deeplearning.ai</a>学习笔记总结系列，主要是自己对<code>Dropout</code>的简单理解。将围绕下面三个问题展开：<br><strong>是什么？主要过程是怎样？</strong><br><strong>为什么能起到正则化作用？</strong><br><strong>效果怎样？</strong></p>
+</blockquote>
+<a id="more"></a>
+<h3 id="是什么？"><a href="#是什么？" class="headerlink" title="是什么？"></a>是什么？</h3><p>假设需训练下图左图这样一个NN，通常的流程是，首先将输入层通过网络经过Forward Propagation然后将误差Backward Propagation更新参数，训练网络，进行学习。使用Dropout后过程变成：</p>
+<ol>
+<li>随机（临时）删掉网络中隐藏层的一部分units，如下图有图所示（虚线为部分临时删除的units）；</li>
+<li>Forward Propagation，然后把损失通过修改的网络Backward Propagation，临时保留下来的units参数得到了更新；</li>
+<li>重复上面过程：<blockquote>
+<p>恢复被删除的units（被删除的units保持原样，保留的units参数得到了更新）；<br>从隐藏层随机选择一部分的units临时删掉，重复第2步。</p>
+</blockquote>
+</li>
+</ol>
+<p>不断重复这一过程。<br><img src="/images/dropout.png" alt="dropout"></p>
+<h3 id="为什么？"><a href="#为什么？" class="headerlink" title="为什么？"></a>为什么？</h3><p>为什么dropout可以解决过拟合，达到正则化的效果呢？</p>
+<ul>
+<li>每一次迭代，相当于一个更小的NN上训练学习，整个的dropout过程就相当于对很多的不同的小的NN取平均，这样综合取平均可以有效防止过拟合问题；</li>
+<li><strong>随机</strong>knock out units，减少网络对任意feature的依赖，这样权值更新不在依赖于某一隐含节点，增强鲁棒性，减少权重，从而达到类似L2的正则化效果。</li>
+</ul>
+<h3 id="效果怎样？"><a href="#效果怎样？" class="headerlink" title="效果怎样？"></a>效果怎样？</h3><p>具体效果，可以参考我的课程作业，<a href="https://github.com/phoebepx/DeepLearningStudyNodes/blob/master/Regularization.ipynb" target="_blank" rel="external">链接</a></p>
+<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4><p>缺点就是会明显增加训练时间，因为引入dropout之后相当于每次只是训练的原先网络的一个子网络，为了达到同样的精度需要的训练次数会增多。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>大型网络但是数据集缺少的时候可以使用dropout防止过拟合，对于小型网络或者说不缺数据集的网络不推荐使用。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote class=&quot;blockquote-center&quot;&gt;&lt;p&gt;本博文属于&lt;a href=&quot;https://www.coursera.org/specializations/deep-learning&quot;&gt;deeplearning.ai&lt;/a&gt;学习笔记总结系列，主要是自己对&lt;code&gt;Dropout&lt;/code&gt;的简单理解。将围绕下面三个问题展开：&lt;br&gt;&lt;strong&gt;是什么？主要过程是怎样？&lt;/strong&gt;&lt;br&gt;&lt;strong&gt;为什么能起到正则化作用？&lt;/strong&gt;&lt;br&gt;&lt;strong&gt;效果怎样？&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="DeepLearning" scheme="http://www.phoebepan.cn/categories/DeepLearning/"/>
+    
+    
+      <category term="DeepLearning" scheme="http://www.phoebepan.cn/tags/DeepLearning/"/>
+    
+  </entry>
   
   <entry>
     <title>搭建神经网络</title>
@@ -383,9 +457,9 @@
       <category term="Algorithms" scheme="http://www.phoebepan.cn/categories/Algorithms/"/>
     
     
-      <category term="LeetCode" scheme="http://www.phoebepan.cn/tags/LeetCode/"/>
-    
       <category term="Algorithms" scheme="http://www.phoebepan.cn/tags/Algorithms/"/>
+    
+      <category term="LeetCode" scheme="http://www.phoebepan.cn/tags/LeetCode/"/>
     
   </entry>
   
@@ -525,9 +599,9 @@
       <category term="Algorithms" scheme="http://www.phoebepan.cn/categories/Algorithms/"/>
     
     
-      <category term="LeetCode" scheme="http://www.phoebepan.cn/tags/LeetCode/"/>
-    
       <category term="Algorithms" scheme="http://www.phoebepan.cn/tags/Algorithms/"/>
+    
+      <category term="LeetCode" scheme="http://www.phoebepan.cn/tags/LeetCode/"/>
     
   </entry>
   
@@ -591,9 +665,9 @@
     
       <category term="ML" scheme="http://www.phoebepan.cn/tags/ML/"/>
     
-      <category term="Tune" scheme="http://www.phoebepan.cn/tags/Tune/"/>
-    
       <category term="Python" scheme="http://www.phoebepan.cn/tags/Python/"/>
+    
+      <category term="Tune" scheme="http://www.phoebepan.cn/tags/Tune/"/>
     
       <category term="XGBoost" scheme="http://www.phoebepan.cn/tags/XGBoost/"/>
     
@@ -815,94 +889,11 @@
       <category term="Algorithms" scheme="http://www.phoebepan.cn/categories/Algorithms/"/>
     
     
-      <category term="LeetCode" scheme="http://www.phoebepan.cn/tags/LeetCode/"/>
+      <category term="Python" scheme="http://www.phoebepan.cn/tags/Python/"/>
     
       <category term="Algorithms" scheme="http://www.phoebepan.cn/tags/Algorithms/"/>
     
-      <category term="Python" scheme="http://www.phoebepan.cn/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>降维——PCA和LDA</title>
-    <link href="http://www.phoebepan.cn/2017/06/02/pca_lda/"/>
-    <id>http://www.phoebepan.cn/2017/06/02/pca_lda/</id>
-    <published>2017-06-02T07:30:16.000Z</published>
-    <updated>2017-08-08T15:08:30.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote class="blockquote-center"><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>所有机器学习方法共同面临的，在高维情况下出现的数据样本稀疏、距离计算困难等问题，被称为“维度灾难”，李航老师在他的博客《机器学习新动向：从人机交互中》中提到，学习精度越高，学习确信度越高，学习模型越复杂，所需要的样本也就越多。特征太多会造成模型复杂，缓解这一问题的一个重要途径是<strong>降维</strong>，将原高维空间中的数据点映射到低维的空间。</p>
-</blockquote>
-<a id="more"></a>
-<h3 id="降维"><a href="#降维" class="headerlink" title="降维"></a>降维</h3><p>原始高维空间数据表示中包含冗余以及噪音信息，而降低准确率，通过降维减少冗余信息，提高精度。基于线性变换来进行降维的方法称为线性降维方法，通过对变换矩阵施加不同的约束，对低维子空间的性质的不同要求，可以得到多种线性降维方法。<br>对降维效果的<strong>评估</strong>，通常是比较降维前后学习器的性能，若性能有所提高，则认为降维起作用了。若维度降至二或三维，则可以通过可视化技术直观地判断降维效果。</p>
-<h3 id="PCA"><a href="#PCA" class="headerlink" title="PCA"></a>PCA</h3><p>目标：逐个寻找超平面，将样本投射到这个超平面后使得各样本点间方差最大。</p>
-<blockquote>
-<p>若存在这样的超平面，那么它大概要具有的性质：<br><strong>最近重构性</strong>，样本点到这个超平面的距离都足够近；<br><strong>最大可分性</strong>，样本点在这个超平面上的投影能尽可能分开。</p>
-</blockquote>
-<p>PCA追求的是在降维后能够最大化保持数据内在信息，并通过衡量在投影方向上的数据方差的大小来衡量该方向的重要性。</p>
-<p>算法：</p>
-<hr>
-<p>输入：样本数据集D={x<sub>1</sub>,x<sub>2</sub>,…,x<sub>m</sub>};<br>: 低维空间维度d’ </p>
-<p>输出：变换矩阵W=(w<sub>1</sub>,w<sub>2</sub>,…,w<sub>d’</sub>)<br>过程：</p>
-<ol>
-<li>对所有样本进行中心化；</li>
-<li>计算样本的协方差矩阵XX<sup>T</sup>；</li>
-<li>对协方差矩阵XX<sup>T</sup>做特征值分解；</li>
-<li>取最大的d’个特征值所对应的特征向量w<sub>1</sub>,w<sub>2</sub>,…,w<sub>d’</sub>.</li>
-</ol>
-<hr>
-<blockquote>
-<p><strong>决定降维维度/主成分个数</strong><br>用户指定；<br>重构角度设定阈值；<br>不同d’维空间+学习器(开销较小)进行交叉验证选取；</p>
-</blockquote>
-<p><code>不要盲目PCA，当在原数据有了一个比较好的结果，想进一步提升速度时可考虑PCA。</code></p>
-<h3 id="LDA"><a href="#LDA" class="headerlink" title="LDA"></a>LDA</h3><p>目标：找到一个超平面，样本点映射在超平面使得相同类别点尽可能靠近，不同类别数据尽可能远。</p>
-<p>PCA是无监督线性降维方法，LDA是有监督的线性降维方法。</p>
-<p>区别：如下图中两堆点是两类的话，LDA会选择轴1，PCA会是轴2<br><img src="/images/pca.jpg" alt="pca"></p>
-<h3 id="核化线性降维"><a href="#核化线性降维" class="headerlink" title="核化线性降维"></a>核化线性降维</h3><p>非线性降维常用的方法，是基于核技巧对线性降维方法进行“核化”，将原数据映射到高维特征空间，再在特征空间实施降维。</p>
-<p>参考文献：</p>
-<ol>
-<li>李航，<a href="http://blog.sina.com.cn/s/blog_7ad48fee01016d25.html" target="_blank" rel="external">《机器学习新动向：从人机交互中》</a></li>
-<li>周志华，《机器学习》</li>
-</ol>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote class=&quot;blockquote-center&quot;&gt;&lt;h3 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h3&gt;&lt;p&gt;所有机器学习方法共同面临的，在高维情况下出现的数据样本稀疏、距离计算困难等问题，被称为“维度灾难”，李航老师在他的博客《机器学习新动向：从人机交互中》中提到，学习精度越高，学习确信度越高，学习模型越复杂，所需要的样本也就越多。特征太多会造成模型复杂，缓解这一问题的一个重要途径是&lt;strong&gt;降维&lt;/strong&gt;，将原高维空间中的数据点映射到低维的空间。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="Machine Learning" scheme="http://www.phoebepan.cn/categories/Machine-Learning/"/>
-    
-    
-      <category term="ML" scheme="http://www.phoebepan.cn/tags/ML/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>稀疏表示与字典学习</title>
-    <link href="http://www.phoebepan.cn/2017/06/01/SpaseL/"/>
-    <id>http://www.phoebepan.cn/2017/06/01/SpaseL/</id>
-    <published>2017-06-01T07:30:16.000Z</published>
-    <updated>2017-08-03T23:07:13.000Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="稀疏表示"><a href="#稀疏表示" class="headerlink" title="稀疏表示"></a>稀疏表示</h3><p>文档分类时，每个文档当作一个样本，文档中的每个词作为一个特征，这往往会得到很高维的矩阵，而且矩阵中每一行都有大量的零元素，且每行零元素出现的列分布不同，具有这样的<strong>稀疏表达</strong>形式的矩阵，对学习任务来说是有好处的(可以当做线性可分问题处理)。<br><a id="more"></a></p>
-<h3 id="字典学习"><a href="#字典学习" class="headerlink" title="字典学习"></a>字典学习</h3><p>如果将稠密的数据集转化成<strong>稀疏表示</strong>形式，使得数据集<strong>“恰当稀疏”</strong>，从而享受稀疏性的好处。那么问题来了，如何实现这种转化呢？<br>在上面的文本分类中提到的矩阵，常常是高维的，过度稀疏的，如果我们借鉴下“字典”的结构，将字的特征维度根据字典转化成合适的稀疏特征表示形式，就可以简化学习任务，模型复杂度大大降低，这样的过程称为<strong>“字典学习”</strong>。字典学习形式如下，<img src="/images/spase.png" alt="spase"><br>，样本x<sub>i</sub>通过字典矩阵B得到的稀疏表示$ \alpha $<sub>i</sub>。我们可以通过设置字典的维度，从而控制稀疏程度。<br>求解过程有很多，常用的有KSVD等</p>
-<h3 id="压缩感知"><a href="#压缩感知" class="headerlink" title="压缩感知"></a>压缩感知</h3><p>我们常常希望根据部分信息来恢复全部信息，如，数据通信中要将数字信号还原成模拟信号，部分用户对电影的评价数据等，如何精确的重构出这样的信息呢？<br>针对这类问题，压缩感知提供了新的思路。<br>压缩感知关注的是如何利用数据本身的所具有的稀疏性，从部分观测样本中恢复原来缺失的信息。主要涉及两个过程，<strong>稀疏表示</strong>、<strong>矩阵补全</strong>。能够通过压缩感知技术恢复补全信息的前提条件之一是原始数据(部分信息)有稀疏表示。</p>
-<h4 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h4><p>人脸识别的鲁棒主成分分析、基于矩阵补全的协同过滤……</p>
-<p>[1]. 周志华.《机器学习》</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;稀疏表示&quot;&gt;&lt;a href=&quot;#稀疏表示&quot; class=&quot;headerlink&quot; title=&quot;稀疏表示&quot;&gt;&lt;/a&gt;稀疏表示&lt;/h3&gt;&lt;p&gt;文档分类时，每个文档当作一个样本，文档中的每个词作为一个特征，这往往会得到很高维的矩阵，而且矩阵中每一行都有大量的零元素，且每行零元素出现的列分布不同，具有这样的&lt;strong&gt;稀疏表达&lt;/strong&gt;形式的矩阵，对学习任务来说是有好处的(可以当做线性可分问题处理)。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Machine Learning" scheme="http://www.phoebepan.cn/categories/Machine-Learning/"/>
-    
-    
-      <category term="ML" scheme="http://www.phoebepan.cn/tags/ML/"/>
+      <category term="LeetCode" scheme="http://www.phoebepan.cn/tags/LeetCode/"/>
     
   </entry>
   
