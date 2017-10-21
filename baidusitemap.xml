@@ -4,6 +4,95 @@
 
     
   <url>
+    <loc>http://www.phoebepan.cn/2017/07/02/essentialer/</loc>
+    <lastmod>2017-10-03T08:18:57.000Z</lastmod>
+    <data>
+        <display>
+        <title>读《精要主义》</title>
+        <pubTime>2017-07-02T07:30:16.000Z</pubTime>
+        
+        <tag>Reading</tag>
+         
+        <tag>Thinking</tag>
+         
+         
+           
+             
+              <breadCrumb title="Thinking" url="http://www.phoebepan.cn/categories/Thinking/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.phoebepan.cn/2017/06/30/exercise/</loc>
+    <lastmod>2017-10-03T08:18:27.000Z</lastmod>
+    <data>
+        <display>
+        <title>读《刻意练习》</title>
+        <pubTime>2017-06-30T07:30:16.000Z</pubTime>
+        
+        <tag>Reading</tag>
+         
+        <tag>Thinking</tag>
+         
+         
+           
+             
+              <breadCrumb title="Thinking" url="http://www.phoebepan.cn/categories/Thinking/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.phoebepan.cn/2017/06/25/procrastination/</loc>
+    <lastmod>2017-10-03T08:17:53.000Z</lastmod>
+    <data>
+        <display>
+        <title>读《拖延心理学》</title>
+        <pubTime>2017-06-25T07:30:16.000Z</pubTime>
+        
+        <tag>Reading</tag>
+         
+        <tag>Thinking</tag>
+         
+         
+           
+             
+              <breadCrumb title="Thinking" url="http://www.phoebepan.cn/categories/Thinking/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.phoebepan.cn/2017/06/18/higheffect/</loc>
+    <lastmod>2017-10-03T08:17:14.000Z</lastmod>
+    <data>
+        <display>
+        <title>读《高效能人士的七个习惯》</title>
+        <pubTime>2017-06-18T07:30:16.000Z</pubTime>
+        
+        <tag>Reading</tag>
+         
+        <tag>Thinking</tag>
+         
+         
+           
+             
+              <breadCrumb title="Thinking" url="http://www.phoebepan.cn/categories/Thinking/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+    
+  <url>
     <loc>http://www.phoebepan.cn/2017/09/03/dropout/</loc>
     <lastmod>2017-09-20T14:35:19.000Z</lastmod>
     <data>
@@ -111,9 +200,9 @@
         <title>Combination Sum</title>
         <pubTime>2017-07-05T07:30:16.000Z</pubTime>
         
-        <tag>Algorithms</tag>
-         
         <tag>LeetCode</tag>
+         
+        <tag>Algorithms</tag>
          
          
            
@@ -133,9 +222,9 @@
         <title>两个数列的第K大数</title>
         <pubTime>2017-06-15T07:30:16.000Z</pubTime>
         
-        <tag>Algorithms</tag>
-         
         <tag>LeetCode</tag>
+         
+        <tag>Algorithms</tag>
          
          
            
@@ -291,7 +380,6 @@
     </url>
 
     
-    
   <url>
     <loc>http://www.phoebepan.cn/2017/08/02/searchad/</loc>
     <lastmod>2017-08-12T03:11:02.000Z</lastmod>
@@ -343,9 +431,9 @@
         
         <tag>Python</tag>
          
-        <tag>Algorithms</tag>
-         
         <tag>LeetCode</tag>
+         
+        <tag>Algorithms</tag>
          
          
            
@@ -465,9 +553,9 @@
         <title>支持向量机</title>
         <pubTime>2017-05-04T07:30:16.000Z</pubTime>
         
-        <tag>Mathematics in ML</tag>
-         
         <tag>Model</tag>
+         
+        <tag>Mathematics in ML</tag>
          
          
            
@@ -594,9 +682,9 @@
         <title>XGBoost调参指南</title>
         <pubTime>2017-06-14T07:30:16.000Z</pubTime>
         
-        <tag>ML</tag>
-         
         <tag>Python</tag>
+         
+        <tag>ML</tag>
          
         <tag>Tune</tag>
          
@@ -802,9 +890,9 @@
         <title>关键词匹配经典算法——DFA</title>
         <pubTime>2017-03-15T07:30:16.000Z</pubTime>
         
-        <tag>Algorithms</tag>
-         
         <tag>LeetCode</tag>
+         
+        <tag>Algorithms</tag>
          
          
            
@@ -824,9 +912,9 @@
         <title>阅读笔记——7 Techniques to Handle Imbalanced Data</title>
         <pubTime>2017-06-05T07:30:16.000Z</pubTime>
         
-        <tag>ML</tag>
-         
         <tag>Reading</tag>
+         
+        <tag>ML</tag>
          
          
            
@@ -1010,9 +1098,9 @@
         <title>Modern Machine Learning Algorithms:Strengths and Weaknesses(阅读笔记)</title>
         <pubTime>2017-05-13T07:30:16.000Z</pubTime>
         
-        <tag>ML</tag>
-         
         <tag>Reading</tag>
+         
+        <tag>ML</tag>
          
          
            
@@ -1244,9 +1332,9 @@
         <title>Dynamic programming</title>
         <pubTime>2017-04-13T07:30:16.000Z</pubTime>
         
-        <tag>Algorithms</tag>
-         
         <tag>LeetCode</tag>
+         
+        <tag>Algorithms</tag>
          
          
            
