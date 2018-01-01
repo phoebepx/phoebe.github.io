@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>http://www.phoebepan.cn/2018/01/01/summary2017/</loc>
+    <lastmod>2018-01-01T22:45:34.000Z</lastmod>
+    <data>
+        <display>
+        <title>我的2017记</title>
+        <pubTime>2018-01-01T07:30:16.000Z</pubTime>
+        
+        <tag>Thinking</tag>
+         
+         
+           
+             
+              <breadCrumb title="Thinking" url="http://www.phoebepan.cn/categories/Thinking/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.phoebepan.cn/2017/07/02/essentialer/</loc>
     <lastmod>2017-10-03T08:18:57.000Z</lastmod>
     <data>
@@ -429,11 +449,11 @@
         <title>python——DFS+BFS</title>
         <pubTime>2017-06-03T07:30:16.000Z</pubTime>
         
-        <tag>Python</tag>
-         
         <tag>LeetCode</tag>
          
         <tag>Algorithms</tag>
+         
+        <tag>Python</tag>
          
          
            
@@ -682,9 +702,9 @@
         <title>XGBoost调参指南</title>
         <pubTime>2017-06-14T07:30:16.000Z</pubTime>
         
-        <tag>Python</tag>
-         
         <tag>ML</tag>
+         
+        <tag>Python</tag>
          
         <tag>Tune</tag>
          
@@ -1354,9 +1374,9 @@
         <title>Binary indexed tree (Fenwick tree)</title>
         <pubTime>2017-03-21T07:30:16.000Z</pubTime>
         
-        <tag>Python</tag>
-         
         <tag>Algorithms</tag>
+         
+        <tag>Python</tag>
          
          
            
