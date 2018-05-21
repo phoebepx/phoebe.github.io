@@ -4,6 +4,28 @@
 
     
   <url>
+    <loc>http://www.phoebepan.cn/2018/05/14/manage/</loc>
+    <lastmod>2018-05-21T03:05:48.000Z</lastmod>
+    <data>
+        <display>
+        <title>《格鲁夫给经理人的第一课》摘录</title>
+        <pubTime>2018-05-14T07:30:16.000Z</pubTime>
+        
+        <tag>Reading</tag>
+         
+        <tag>Thinking</tag>
+         
+         
+           
+             
+              <breadCrumb title="Thinking" url="http://www.phoebepan.cn/categories/Thinking/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.phoebepan.cn/2018/05/21/slash/</loc>
     <lastmod>2018-05-21T02:36:35.000Z</lastmod>
     <data>
@@ -489,11 +511,11 @@
         <title>python——DFS+BFS</title>
         <pubTime>2017-06-03T07:30:16.000Z</pubTime>
         
-        <tag>Python</tag>
-         
         <tag>LeetCode</tag>
          
         <tag>Algorithms</tag>
+         
+        <tag>Python</tag>
          
          
            
@@ -613,9 +635,9 @@
         <title>支持向量机</title>
         <pubTime>2017-05-04T07:30:16.000Z</pubTime>
         
-        <tag>Mathematics in ML</tag>
-         
         <tag>Model</tag>
+         
+        <tag>Mathematics in ML</tag>
          
          
            
@@ -742,11 +764,11 @@
         <title>XGBoost调参指南</title>
         <pubTime>2017-06-14T07:30:16.000Z</pubTime>
         
-        <tag>Python</tag>
-         
         <tag>ML</tag>
          
         <tag>Tune</tag>
+         
+        <tag>Python</tag>
          
         <tag>XGBoost</tag>
          
@@ -972,9 +994,9 @@
         <title>阅读笔记——7 Techniques to Handle Imbalanced Data</title>
         <pubTime>2017-06-05T07:30:16.000Z</pubTime>
         
-        <tag>Reading</tag>
-         
         <tag>ML</tag>
+         
+        <tag>Reading</tag>
          
          
            
@@ -1158,9 +1180,9 @@
         <title>Modern Machine Learning Algorithms:Strengths and Weaknesses(阅读笔记)</title>
         <pubTime>2017-05-13T07:30:16.000Z</pubTime>
         
-        <tag>Reading</tag>
-         
         <tag>ML</tag>
+         
+        <tag>Reading</tag>
          
          
            
@@ -1414,9 +1436,9 @@
         <title>Binary indexed tree (Fenwick tree)</title>
         <pubTime>2017-03-21T07:30:16.000Z</pubTime>
         
-        <tag>Python</tag>
-         
         <tag>Algorithms</tag>
+         
+        <tag>Python</tag>
          
          
            

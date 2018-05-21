@@ -109,6 +109,54 @@
   </entry>
   
   <entry>
+    <title>《格鲁夫给经理人的第一课》摘录</title>
+    <link href="http://www.phoebepan.cn/2018/05/14/manage/"/>
+    <id>http://www.phoebepan.cn/2018/05/14/manage/</id>
+    <published>2018-05-14T07:30:16.000Z</published>
+    <updated>2018-05-21T03:05:48.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote class="blockquote-center"><p><strong>“管理杠杆率”（managerial leverage）</strong><br>经理人要善于运用杠杆，用自己的技能和知识，撬动激发团队其他人的产出，推动业务发展！<br>安迪用如下经典公式阐述了管理这一概念：<strong>经理人的产出=他直接管辖部门的产出+他间接影响所及部门的产出</strong></p>
+</blockquote>
+<a id="more"></a>
+<ul>
+<li>如果一个人工作上毫无作为，只有两个原因：他要么不会做，要么不想做；不是没能力，就是没动力。相应的提高员工的产出，激励和培训两手抓！</li>
+<li>想要成就卓越，你必须是一个乐观主义者，因为卓越的定义就是，你在尝试做一件大多数人都不认为会成功的事。而绝大部分乐观主义者都不会关注坏消息的先行指标。</li>
+<li>经理人得好好管理你的活动组合与杠杆率！<br>经理人的产出＝组织产出加总＝a×A＋b×B＋c×C＋……”（a、b、c……代表管理杠杆率，A、B、C……代表各种管理活动。）</li>
+<li>“生产”包含什么？<br>你必须按预定的时间、可接受的品质以及可能的最低成本，依据顾客的需求制造及运送产品。</li>
+<li>“五何”——何人、何事、何时、何处以及为何</li>
+<li>你的时间有限，在接下一项任务时，你同时也拒绝了另外一件事。</li>
+<li>我必须重申：会议是从事管理工作必需的媒介。你绝对无法避免开会，但你能让会议更有效率。</li>
+<li>经理人每天都在“折旧”。必须要结合具有“知识力”及“权力”的人一起做决策。</li>
+<li>当你承诺一件事情的时候，你便失去了做另外一件事情的机会。我们的资源有限，这种取舍难以避免。因此，我们必须培养出何时说“是”或说“不”的判断力和胆识。</li>
+<li><strong>混合组织：</strong>我们因此可将功能性部门视作内部的分包商。以业务部门为例，虽然很多公司也雇用非正式的外部销售人员，但一个内部的业务部门应该能以较低的成本提供更好的服务。同样，我们可以将制造部门、财务部门或者数据管理部门等，都视为功能性部门。它们都是公司内部的分包商，提供其他事业部所需要的服务。</li>
+<li><blockquote>
+<p>我们在工作上的行为，主要也受着如下三项无形但极具效力的因素控制：<br>（1）自由市场因素。<br>（2）契约义务。<br>（3）文化价值观。</p>
+</blockquote>
+</li>
+<li>在马斯洛的理论中，激励和需求的关系十分紧密。人因需求而产生动力，而一旦某项需求得到满足，这项需求便不再是激励的来源。</li>
+<li>有两种内在动力可以促使个体将能力发挥到极致：精益求精型和成就导向型。</li>
+<li>“靶定得远，箭就射得远”</li>
+<li>每个人都要好好想想，到底什么是专业风范，自己是否做得到？最好的测试方法是假设你必须对你朋友的绩效做很严苛的评估，这时如果你觉得胃不舒服甚至想吐，就说明你最好不要在办公室里交朋友。</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote class=&quot;blockquote-center&quot;&gt;&lt;p&gt;&lt;strong&gt;“管理杠杆率”（managerial leverage）&lt;/strong&gt;&lt;br&gt;经理人要善于运用杠杆，用自己的技能和知识，撬动激发团队其他人的产出，推动业务发展！&lt;br&gt;安迪用如下经典公式阐述了管理这一概念：&lt;strong&gt;经理人的产出=他直接管辖部门的产出+他间接影响所及部门的产出&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="Thinking" scheme="http://www.phoebepan.cn/categories/Thinking/"/>
+    
+    
+      <category term="Reading" scheme="http://www.phoebepan.cn/tags/Reading/"/>
+    
+      <category term="Thinking" scheme="http://www.phoebepan.cn/tags/Thinking/"/>
+    
+  </entry>
+  
+  <entry>
     <title>学习笔记——《梁宁·产品思维》</title>
     <link href="http://www.phoebepan.cn/2018/02/18/ln_product/"/>
     <id>http://www.phoebepan.cn/2018/02/18/ln_product/</id>
@@ -892,38 +940,6 @@
     
     
       <category term="ML" scheme="http://www.phoebepan.cn/tags/ML/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>调超参神器——GridSearchCV</title>
-    <link href="http://www.phoebepan.cn/2017/06/16/GridSearchCV/"/>
-    <id>http://www.phoebepan.cn/2017/06/16/GridSearchCV/</id>
-    <published>2017-06-16T07:30:16.000Z</published>
-    <updated>2017-07-19T02:41:47.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote class="blockquote-center"><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>所谓超参，就是机器学习算法中，不能通过自身学习设定的参数，如SVM的惩罚因子C，核函数kernel，gamma参数等，参数间的组合很是繁琐，人工调节这些超参数时间成本太高，易出错。本文主要介绍sklearn模块的调参神器<code>GridSearchCV</code>模块，它能够在指定范围内自动搜索具有不同超参数的不同模型组合，寻找最佳参数，大大提高调参效率。</p>
-</blockquote>
-<a id="more"></a>
-<h3 id="缘起"><a href="#缘起" class="headerlink" title="缘起"></a>缘起</h3><p>这两天，闲来参加下Ctrip的一个数据竞赛，model选择的是XGboost，好用是自然，但是参数有很多，最迫切需要一个自动调节参数工具，于是接触到GridSearchCV模块。</p>
-<h3 id="官方手册"><a href="#官方手册" class="headerlink" title="官方手册"></a>官方手册</h3><p><a href="http://scikit-learn.org/stable/modules/generated/sklearn.grid_search.GridSearchCV.html#sklearn.grid_search.GridSearchCV" target="_blank" rel="external">手册链接</a></p>
-<h3 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h3><p>自己训练的代码如下(XGboost+5-fold Cross Validation)，清晰易懂，无须解释。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> xgboost <span class="keyword">as</span> xgb</div><div class="line"><span class="keyword">from</span> sklearn.grid_search <span class="keyword">import</span> GridSearchCV</div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">xgbmodel_train</span><span class="params">(train)</span>:</span></div><div class="line">    xgb_model = xgb.XGBClassifier()</div><div class="line">    train_feature, train_label = train.drop(<span class="string">'orderlabel'</span>, axis=<span class="number">1</span>), train[<span class="string">'orderlabel'</span>]</div><div class="line"></div><div class="line">    parameters = &#123;<span class="string">'nthread'</span>: [<span class="number">4</span>],</div><div class="line">                  <span class="string">'objective'</span>: [<span class="string">'binary:logistic'</span>],</div><div class="line">                  <span class="string">'learning_rate'</span>: [<span class="number">0.05</span>,<span class="number">0.06</span>,<span class="number">0.1</span>],</div><div class="line">                  <span class="string">'max_depth'</span>: [<span class="number">5</span>, <span class="number">6</span>],</div><div class="line">                  <span class="string">'min_child_weight'</span>: [<span class="number">1</span>, <span class="number">3</span>],</div><div class="line">                  <span class="string">'silent'</span>: [<span class="number">1</span>],</div><div class="line">                  <span class="string">'gamma'</span>: [<span class="number">0</span>, <span class="number">0.1</span>],</div><div class="line">                  <span class="string">'subsample'</span>: [<span class="number">0.6</span>, <span class="number">0.7</span>, <span class="number">0.8</span>],</div><div class="line">                  <span class="string">'colsample_bytree'</span>: [<span class="number">0.7</span>, <span class="number">0.5</span>, <span class="number">0.6</span>],</div><div class="line">                  <span class="string">'n_estimators'</span>: [<span class="number">5</span>],</div><div class="line">                  <span class="string">'missing'</span>: [<span class="number">-999</span>],</div><div class="line">                  <span class="string">'seed'</span>: [<span class="number">12455</span>]&#125;</div><div class="line"></div><div class="line">    clf = GridSearchCV(xgb_model, parameters, n_jobs=<span class="number">1</span>,</div><div class="line">                       cv=StratifiedKFold(train[<span class="string">'orderlabel'</span>], n_folds=<span class="number">5</span>, shuffle=<span class="keyword">True</span>),</div><div class="line">                       scoring=<span class="string">'roc_auc'</span>,</div><div class="line">                       verbose=<span class="number">2</span>, refit=<span class="keyword">True</span>)</div><div class="line"></div><div class="line"></div><div class="line">    clf.fit(train_feature, train_label)</div><div class="line">   </div><div class="line">    best_parameters, score, _ = max(clf.grid_scores_, key=<span class="keyword">lambda</span> x: x[<span class="number">1</span>])</div><div class="line">    print(<span class="string">'AUC score:'</span>, score)</div><div class="line">    <span class="keyword">for</span> param_name <span class="keyword">in</span> sorted(best_parameters.keys()):</div><div class="line">        print(<span class="string">'%s: %r'</span> % (param_name, best_parameters[param_name]))</div></pre></td></tr></table></figure></p>
-<h3 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h3><p><img src="/images/process.png" alt="process"><br><img src="/images/best_score.png" alt="best para"></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote class=&quot;blockquote-center&quot;&gt;&lt;h3 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h3&gt;&lt;p&gt;所谓超参，就是机器学习算法中，不能通过自身学习设定的参数，如SVM的惩罚因子C，核函数kernel，gamma参数等，参数间的组合很是繁琐，人工调节这些超参数时间成本太高，易出错。本文主要介绍sklearn模块的调参神器&lt;code&gt;GridSearchCV&lt;/code&gt;模块，它能够在指定范围内自动搜索具有不同超参数的不同模型组合，寻找最佳参数，大大提高调参效率。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="Machine Learning" scheme="http://www.phoebepan.cn/categories/Machine-Learning/"/>
-    
-    
-      <category term="ML" scheme="http://www.phoebepan.cn/tags/ML/"/>
-    
-      <category term="Tune" scheme="http://www.phoebepan.cn/tags/Tune/"/>
     
   </entry>
   

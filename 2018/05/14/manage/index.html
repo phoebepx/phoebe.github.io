@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="ML,Tune,Python,XGBoost," />
+  <meta name="keywords" content="Reading,Thinking," />
 
 
 
@@ -89,16 +89,16 @@
 
 
 
-<meta name="description" content="简介在预测分析建模时，如果结果不理想，那么不妨试试XGBoost，可以说，XGBoost已经成为许多数据科学家的秘密武器，，本文翻译自Complete Guide to Parameter Tuning in XGBoost (with codes in Python)，它详细介绍了XGBoost中参数的含义以及通过实例说明调参的技艺。在此，记下自己的学习笔记。">
+<meta name="description" content="“管理杠杆率”（managerial leverage）经理人要善于运用杠杆，用自己的技能和知识，撬动激发团队其他人的产出，推动业务发展！安迪用如下经典公式阐述了管理这一概念：经理人的产出=他直接管辖部门的产出+他间接影响所及部门的产出">
 <meta property="og:type" content="article">
-<meta property="og:title" content="XGBoost调参指南">
-<meta property="og:url" content="http://www.phoebepan.cn/2017/06/14/xgb_paras/index.html">
+<meta property="og:title" content="《格鲁夫给经理人的第一课》摘录">
+<meta property="og:url" content="http://www.phoebepan.cn/2018/05/14/manage/index.html">
 <meta property="og:site_name" content="技忆">
-<meta property="og:description" content="简介在预测分析建模时，如果结果不理想，那么不妨试试XGBoost，可以说，XGBoost已经成为许多数据科学家的秘密武器，，本文翻译自Complete Guide to Parameter Tuning in XGBoost (with codes in Python)，它详细介绍了XGBoost中参数的含义以及通过实例说明调参的技艺。在此，记下自己的学习笔记。">
-<meta property="og:updated_time" content="2017-07-21T05:17:53.000Z">
+<meta property="og:description" content="“管理杠杆率”（managerial leverage）经理人要善于运用杠杆，用自己的技能和知识，撬动激发团队其他人的产出，推动业务发展！安迪用如下经典公式阐述了管理这一概念：经理人的产出=他直接管辖部门的产出+他间接影响所及部门的产出">
+<meta property="og:updated_time" content="2018-05-21T03:05:48.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="XGBoost调参指南">
-<meta name="twitter:description" content="简介在预测分析建模时，如果结果不理想，那么不妨试试XGBoost，可以说，XGBoost已经成为许多数据科学家的秘密武器，，本文翻译自Complete Guide to Parameter Tuning in XGBoost (with codes in Python)，它详细介绍了XGBoost中参数的含义以及通过实例说明调参的技艺。在此，记下自己的学习笔记。">
+<meta name="twitter:title" content="《格鲁夫给经理人的第一课》摘录">
+<meta name="twitter:description" content="“管理杠杆率”（managerial leverage）经理人要善于运用杠杆，用自己的技能和知识，撬动激发团队其他人的产出，推动业务发展！安迪用如下经典公式阐述了管理这一概念：经理人的产出=他直接管辖部门的产出+他间接影响所及部门的产出">
 
 
 
@@ -126,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://www.phoebepan.cn/2017/06/14/xgb_paras/"/>
+  <link rel="canonical" href="http://www.phoebepan.cn/2018/05/14/manage/"/>
 
 
 
 
 
-  <title> XGBoost调参指南 | 技忆 </title>
+  <title> 《格鲁夫给经理人的第一课》摘录 | 技忆 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -331,7 +331,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://www.phoebepan.cn/2017/06/14/xgb_paras/">
+    <link itemprop="mainEntityOfPage" href="http://www.phoebepan.cn/2018/05/14/manage/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Phoebe">
@@ -352,7 +352,7 @@
             
             
               
-                XGBoost调参指南
+                《格鲁夫给经理人的第一课》摘录
               
             
           </h1>
@@ -367,8 +367,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-14T15:30:16+08:00">
-                2017-06-14
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-14T15:30:16+08:00">
+                2018-05-14
               </time>
             
 
@@ -390,8 +390,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index">
-                    <span itemprop="name">Machine Learning</span>
+                  <a href="/categories/Thinking/" itemprop="url" rel="index">
+                    <span itemprop="name">Thinking</span>
                   </a>
                 </span>
 
@@ -408,8 +408,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/06/14/xgb_paras/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/06/14/xgb_paras/" itemprop="commentCount"></span>
+                <a href="/2018/05/14/manage/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/05/14/manage/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -417,7 +417,7 @@
 
           
           
-             <span id="/2017/06/14/xgb_paras/" class="leancloud_visitors" data-flag-title="XGBoost调参指南">
+             <span id="/2018/05/14/manage/" class="leancloud_visitors" data-flag-title="《格鲁夫给经理人的第一课》摘录">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -446,7 +446,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  890
+                  845
                 </span>
               
 
@@ -481,45 +481,29 @@
       
 
       
-        <blockquote class="blockquote-center"><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>在预测分析建模时，如果结果不理想，那么不妨试试XGBoost，可以说，XGBoost已经成为许多数据科学家的秘密武器，，本文翻译自<a href="https://www.analyticsvidhya.com/blog/2016/03/complete-guide-parameter-tuning-xgboost-with-codes-python/" target="_blank" rel="external">Complete Guide to Parameter Tuning in XGBoost (with codes in Python)</a>，它详细介绍了XGBoost中参数的含义以及通过实例说明调参的技艺。在此，记下自己的学习笔记。</p>
+        <blockquote class="blockquote-center"><p><strong>“管理杠杆率”（managerial leverage）</strong><br>经理人要善于运用杠杆，用自己的技能和知识，撬动激发团队其他人的产出，推动业务发展！<br>安迪用如下经典公式阐述了管理这一概念：<strong>经理人的产出=他直接管辖部门的产出+他间接影响所及部门的产出</strong></p>
 </blockquote>
 <a id="more"></a>
-<h3 id="XGBoost"><a href="#XGBoost" class="headerlink" title="XGBoost"></a>XGBoost</h3><p>XGBoost是Gradient Boosting算法的一个优化版本，由于XGBoost算法的内部复杂性，涉及很多超参数，相比于建立一个XGBoost model，提高该model的性能需要花费很大的精力，但这又是必须做的。</p>
-<h4 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h4><ul>
-<li><strong>正则化</strong>，在GBM基础之上，增加了正则化，有效降低过拟合风险；</li>
-<li><strong>并行处理</strong>，Boosting算法是顺序处理的，比起GBM，它快的惊人，另外，XGBoost也支持Hadoop实现；</li>
-<li><strong>高度灵活性</strong>，允许自定义优化目标和评价标准；</li>
-<li><strong>缺失值处理</strong>，内置处理缺失值的规则，提供一个特殊值作为参数传进去；</li>
-<li><strong>剪枝</strong>，GBM实则是一贪心算法，遇到负损失，就停止分裂，XGBoost根据指定最大深度(max_depth)，回过头来剪枝。如果某节点之后没有正值，它会去除这一分裂；</li>
-<li><strong>内置交叉验证</strong>，允许在每一轮boosting迭代中使用交叉验证，方便获得最优迭代次数；</li>
-<li><strong>上一轮结果基础上继续训练</strong></li>
-</ul>
-<h3 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h3><p>XGBoost的作者把所有参数分成3类：通用参数、Booster参数、学习目标参数。</p>
-<h4 id="通用参数"><a href="#通用参数" class="headerlink" title="通用参数"></a>通用参数</h4><p>控制XGBoost的宏观功能。有：</p>
 <ul>
-<li><code>booster</code>，选择每次迭代的模型，默认gbtree；</li>
-<li><code>silent</code>，默认为0，设为1，则不会输出任何信息；</li>
-<li><code>nthread</code>，最大可能的线程数，用来进行多线程控制。</li>
+<li>如果一个人工作上毫无作为，只有两个原因：他要么不会做，要么不想做；不是没能力，就是没动力。相应的提高员工的产出，激励和培训两手抓！</li>
+<li>想要成就卓越，你必须是一个乐观主义者，因为卓越的定义就是，你在尝试做一件大多数人都不认为会成功的事。而绝大部分乐观主义者都不会关注坏消息的先行指标。</li>
+<li>经理人得好好管理你的活动组合与杠杆率！<br>经理人的产出＝组织产出加总＝a×A＋b×B＋c×C＋……”（a、b、c……代表管理杠杆率，A、B、C……代表各种管理活动。）</li>
+<li>“生产”包含什么？<br>你必须按预定的时间、可接受的品质以及可能的最低成本，依据顾客的需求制造及运送产品。</li>
+<li>“五何”——何人、何事、何时、何处以及为何</li>
+<li>你的时间有限，在接下一项任务时，你同时也拒绝了另外一件事。</li>
+<li>我必须重申：会议是从事管理工作必需的媒介。你绝对无法避免开会，但你能让会议更有效率。</li>
+<li>经理人每天都在“折旧”。必须要结合具有“知识力”及“权力”的人一起做决策。</li>
+<li>当你承诺一件事情的时候，你便失去了做另外一件事情的机会。我们的资源有限，这种取舍难以避免。因此，我们必须培养出何时说“是”或说“不”的判断力和胆识。</li>
+<li><strong>混合组织：</strong>我们因此可将功能性部门视作内部的分包商。以业务部门为例，虽然很多公司也雇用非正式的外部销售人员，但一个内部的业务部门应该能以较低的成本提供更好的服务。同样，我们可以将制造部门、财务部门或者数据管理部门等，都视为功能性部门。它们都是公司内部的分包商，提供其他事业部所需要的服务。</li>
+<li><blockquote>
+<p>我们在工作上的行为，主要也受着如下三项无形但极具效力的因素控制：<br>（1）自由市场因素。<br>（2）契约义务。<br>（3）文化价值观。</p>
+</blockquote>
+</li>
+<li>在马斯洛的理论中，激励和需求的关系十分紧密。人因需求而产生动力，而一旦某项需求得到满足，这项需求便不再是激励的来源。</li>
+<li>有两种内在动力可以促使个体将能力发挥到极致：精益求精型和成就导向型。</li>
+<li>“靶定得远，箭就射得远”</li>
+<li>每个人都要好好想想，到底什么是专业风范，自己是否做得到？最好的测试方法是假设你必须对你朋友的绩效做很严苛的评估，这时如果你觉得胃不舒服甚至想吐，就说明你最好不要在办公室里交朋友。</li>
 </ul>
-<h4 id="Booster参数"><a href="#Booster参数" class="headerlink" title="Booster参数"></a>Booster参数</h4><p>这里只介绍tree booster参数，有：</p>
-<ul>
-<li><code>eta</code>，学习率，每一步减少权重，提高模型鲁棒性。通常设置在0.01-0.2范围内；</li>
-<li><code>min_child_weight</code>，最小叶子节点样本权重和，避免过拟合，值过高会导致欠拟合，可以通过CV调节该参数；</li>
-<li><code>max_depth</code>，树最大深度，避免过拟合，值越大，模型可学到更具体更局部样本，CV调节该参数，通常设在3-10区间内；</li>
-<li><code>max_leaf_nodes</code>，树上叶子节点最大数量；</li>
-<li><code>gamma</code>，默认为0，节点分裂时，只有分裂后损失函数值下降了，才会分裂该节点，该参数指定节点分裂损失函数最小下降值，值越大，越保守；</li>
-<li><code>subsample</code>，控制每棵树随机采样比例，值越小越保守，避免过拟合，值过小，可能欠拟合，通常取值范围，0.5-1；</li>
-<li><code>colsample_bytree</code>，默认1，对列数采样比例；</li>
-<li><code>lambda</code>，默认1，L2正则化的权重，控制正则化部分，减少过拟合；</li>
-<li><code>scale_pos_weight</code>，默认1，在类别十分不均衡时，该参数设置成正值，可以是model更快收敛。</li>
-</ul>
-<h4 id="学习目标参数"><a href="#学习目标参数" class="headerlink" title="学习目标参数"></a>学习目标参数</h4><p>控制理想的优化目标，和每一步结果的度量，有：</p>
-<ul>
-<li><code>objective</code>，最小化的损失函数，常用值有binary:logistic（二分类的逻辑回归） 、multi:softmax （softmax多分类器，返回预测的类别）、multi:softprob（softmax多分类器，返回属于各个类别的概率）</li>
-<li><code>eval_metric</code>，对于回归默认rmse，分类默认error，常用值，rmse，mae，logloss，error，merror，mlogloss，auc</li>
-<li><code>seed</code>，随机数种子，复现随机数据结果。</li>
-</ul>
-<p>最后，还有两个重要参数<code>num_boosting_rounds</code>，<code>early_stopping_rounds</code>，可以控制迭代次数。<br>更多参数参考：<br><a href="http://xgboost.readthedocs.io/en/latest/model.html" target="_blank" rel="external">XGBoost Guide – Introduction to Boosted Trees</a></p>
 
       
     </div>
@@ -527,7 +511,7 @@
   
     <div class="copyright">
     <p><span>
-    <b>本文地址：</b><a href="/2017/06/14/xgb_paras/" title="XGBoost调参指南">http://www.phoebepan.cn/2017/06/14/xgb_paras/</a><br /><b>转载请注明出处，谢谢！</b>
+    <b>本文地址：</b><a href="/2018/05/14/manage/" title="《格鲁夫给经理人的第一课》摘录">http://www.phoebepan.cn/2018/05/14/manage/</a><br /><b>转载请注明出处，谢谢！</b>
     </span></p>
     </div>
   
@@ -552,13 +536,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/ML/" rel="tag"># ML</a>
+            <a href="/tags/Reading/" rel="tag"># Reading</a>
           
-            <a href="/tags/Tune/" rel="tag"># Tune</a>
-          
-            <a href="/tags/Python/" rel="tag"># Python</a>
-          
-            <a href="/tags/XGBoost/" rel="tag"># XGBoost</a>
+            <a href="/tags/Thinking/" rel="tag"># Thinking</a>
           
         </div>
       
@@ -571,8 +551,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/06/10/distributed_sys/" rel="next" title="基于分布式计算的大数据系统">
-                <i class="fa fa-chevron-left"></i> 基于分布式计算的大数据系统
+              <a href="/2018/02/18/ln_product/" rel="next" title="学习笔记——《梁宁·产品思维》">
+                <i class="fa fa-chevron-left"></i> 学习笔记——《梁宁·产品思维》
               </a>
             
           </div>
@@ -581,8 +561,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/06/15/kth/" rel="prev" title="两个数列的第K大数">
-                两个数列的第K大数 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/05/21/slash/" rel="prev" title="读《斜杠青年》">
+                读《斜杠青年》 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -655,17 +635,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -824,22 +795,6 @@
       </section>
 
       
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XGBoost"><span class="nav-number">2.</span> <span class="nav-text">XGBoost</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#优势"><span class="nav-number">2.1.</span> <span class="nav-text">优势</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参数"><span class="nav-number">3.</span> <span class="nav-text">参数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#通用参数"><span class="nav-number">3.1.</span> <span class="nav-text">通用参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Booster参数"><span class="nav-number">3.2.</span> <span class="nav-text">Booster参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#学习目标参数"><span class="nav-number">3.3.</span> <span class="nav-text">学习目标参数</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
-      
 
       
 
@@ -997,9 +952,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'phoebepanx';
-      var disqus_identifier = '2017/06/14/xgb_paras/';
+      var disqus_identifier = '2018/05/14/manage/';
 
-      var disqus_title = "XGBoost调参指南";
+      var disqus_title = "《格鲁夫给经理人的第一课》摘录";
 
 
       function run_disqus_script(disqus_script) {
