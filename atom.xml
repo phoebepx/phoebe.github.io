@@ -113,9 +113,9 @@
     <link href="http://www.phoebepan.cn/2018/05/14/manage/"/>
     <id>http://www.phoebepan.cn/2018/05/14/manage/</id>
     <published>2018-05-14T07:30:16.000Z</published>
-    <updated>2018-05-21T03:05:48.000Z</updated>
+    <updated>2018-05-21T03:10:29.000Z</updated>
     
-    <content type="html"><![CDATA[<blockquote class="blockquote-center"><p><strong>“管理杠杆率”（managerial leverage）</strong><br>经理人要善于运用杠杆，用自己的技能和知识，撬动激发团队其他人的产出，推动业务发展！<br>安迪用如下经典公式阐述了管理这一概念：<strong>经理人的产出=他直接管辖部门的产出+他间接影响所及部门的产出</strong></p>
+    <content type="html"><![CDATA[<blockquote class="blockquote-center"><p><strong><code>管理杠杆率（managerial leverage）</code></strong><br>经理人要善于运用杠杆，用自己的技能和知识，撬动激发团队其他人的产出，推动业务发展！<br>安迪用如下经典公式阐述了管理这一概念：<strong>经理人的产出=他直接管辖部门的产出+他间接影响所及部门的产出</strong></p>
 </blockquote>
 <a id="more"></a>
 <ul>
@@ -142,12 +142,74 @@
     
     <summary type="html">
     
-      &lt;blockquote class=&quot;blockquote-center&quot;&gt;&lt;p&gt;&lt;strong&gt;“管理杠杆率”（managerial leverage）&lt;/strong&gt;&lt;br&gt;经理人要善于运用杠杆，用自己的技能和知识，撬动激发团队其他人的产出，推动业务发展！&lt;br&gt;安迪用如下经典公式阐述了管理这一概念：&lt;strong&gt;经理人的产出=他直接管辖部门的产出+他间接影响所及部门的产出&lt;/strong&gt;&lt;/p&gt;
+      &lt;blockquote class=&quot;blockquote-center&quot;&gt;&lt;p&gt;&lt;strong&gt;&lt;code&gt;管理杠杆率（managerial leverage）&lt;/code&gt;&lt;/strong&gt;&lt;br&gt;经理人要善于运用杠杆，用自己的技能和知识，撬动激发团队其他人的产出，推动业务发展！&lt;br&gt;安迪用如下经典公式阐述了管理这一概念：&lt;strong&gt;经理人的产出=他直接管辖部门的产出+他间接影响所及部门的产出&lt;/strong&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
     
     </summary>
     
-      <category term="Thinking" scheme="http://www.phoebepan.cn/categories/Thinking/"/>
+      <category term="Reading Nodes" scheme="http://www.phoebepan.cn/categories/Reading-Nodes/"/>
+    
+    
+      <category term="Reading" scheme="http://www.phoebepan.cn/tags/Reading/"/>
+    
+      <category term="Thinking" scheme="http://www.phoebepan.cn/tags/Thinking/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>《打开量化投资的黑箱》摘录</title>
+    <link href="http://www.phoebepan.cn/2018/05/07/liangh/"/>
+    <id>http://www.phoebepan.cn/2018/05/07/liangh/</id>
+    <published>2018-05-07T07:30:16.000Z</published>
+    <updated>2018-05-21T03:28:33.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote class="blockquote-center"><p><code>量化3步走：产生想法，研究策略，回测部署</code>，宽客可能并不像想象中那么神秘。他们也是首先观察市场，产生一些普通人也会想到的想法，然后采用市场的客观数据进行研究来确定其想法是否正确，而不是基于传闻或经验甚至直接假设他们的想法是正确的。一旦宽客得到了一个满意的策略，他们会将其布置于一个量化系统中。这类系统在进行投资时，排除了情绪的影响，严格地执行经过测试的策略。</p>
+</blockquote>
+<a id="more"></a>
+<h3 id="摘录"><a href="#摘录" class="headerlink" title="摘录"></a>摘录</h3><ul>
+<li>交易成本模型可以帮助确定交易的换手率，风险模型可以帮助我们避开错误的头寸敞口，投资组合模型可以在交易成本、风险管理、盈利等相互冲突的目标之间进行平衡，并将目标投资组合传输至执行模型，对投资组合模型执行策略。</li>
+<li>无论造成供需间的短期不均衡的原因何在，由于均值回复交易者都是在逆势交易，他们都给市场带来了流动性。</li>
+<li>采用均值回复策略的交易者，必须识别出目前的价格中心或均衡点，并判断偏离均衡点多少时值得进行交易。如同趋势跟随策略一样，由很多方法可以用来确定价格的均衡点和反转点。</li>
+<li>在某些情况下，均值回复策略可作为长期指标，而动量（momentum）可以作为速度指标。</li>
+<li>第一个例子是观察期权市场判断市场基本情绪。有两种方式可以“直接”做到这一点。第一种是观察认购量和认沽量，将此作为市场情绪的指标。如果认沽多于认购的程度已经超过正常水平，这可能意味着投资者担心未来的价格会下跌。如果相对于认购期权，认沽期权的数量比正常水平要少，说明市场上主要是看涨情绪。第二个基于期权市场情绪的例子是利用认购和认沽的隐含波动性。认购和认沽期权的隐含波动率具有一定差别，是很常见的现象。股票价格慢涨快跌的特点可以作为一部分原因对此进行解释。对于虚值期权或平值期权，慢涨快跌会造成认沽期权的波动率高于认购期权的波动率，反过来会造成认沽期权的卖方要价高于认购期权卖方的要价，同样对应的隐含波动率也要高一些。</li>
+<li>实际上，价值型投资策略认为，市场倾向于高估高风险资产的风险，而低估低风险资产的风险。因此，在适当时间买入高风险资产和（或）卖出低风险资产，可以获得收益。</li>
+<li>追求阿尔法回报的交易也是通过寻求市场错配而获利。</li>
+<li>基于规则的模型采用启发式的方法，而投资组合优化工具则采用了现代投资组合理论的逻辑脉络。</li>
+<li>当短期均线位于长期均线之下时，认为市场处于下跌趋势；反之则认为市场处于上涨趋势。</li>
+</ul>
+<p>◆ 实施策略</p>
+<ul>
+<li>第一，宽客倾向于流动性好的产品，因为其交易成本是可以预计的。第二，宽客一般需要大量的优质数据。通常这种数据在具有高流动性的比较成熟的市场上更易获取。第三，宽客更喜欢那些易于使用体系化的模型进行预测的金融产品。</li>
+<li>风险管理通常被误认为是降低风险的操作流程，实际上是在给定的风险水平下通过选择敞口并控制其规模而最大化收益。</li>
+</ul>
+<p>◆ 定义交易成本</p>
+<blockquote>
+<p>交易成本主要由三部分构成：佣金和费用（commissions and fees）、滑点（slippage）以及市场冲击成本（market impact）。</p>
+</blockquote>
+<ul>
+<li>更为糟糕的是，预测尤其是短期预测越准确，滑点带来的破坏性就越大。</li>
+<li>市场冲击是给定订单通过流动性需求对市场造成的价格变动的度量。</li>
+<li>当交易者进入市场执行具有一定头寸的交易时，必须得有人愿意接盘，或者提供相应的头寸。交易者需求的规模越大，交易价格就会越高，因为交易者必须得到更多的供给。</li>
+</ul>
+<p>◆ 交易成本模型</p>
+<blockquote>
+<p>在量化交易界，进行交易只有两个原因：第一，可以增加盈利的概率或量（比如阿尔法模型）；第二，可以降低亏损的概率或量（例如风险模型）。但这两个原因都会收到一条警告：投资组合收益或风险的一点改进，可能并不足以支付交易成本。】</p>
+</blockquote>
+<p>◆ 思想的产生</p>
+<blockquote>
+<p>思想的4个共有来源是：对市场的观察结果、学术文献、研究员或者投资组合经理在量化公司之间的迁移以及来自主观判断型交易者活动的教训。</p>
+</blockquote>
+<p>◆ 评估量化交易策略<br>投资过程包括6个主要的内容。<br>（1）研究和发展策略；<br>（2）数据搜寻、收集、清洗以及管理；<br>（3）投资选择和构造；<br>（4）投资组合构建；<br>（5）执行；<br>（6）风险管理和监测。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote class=&quot;blockquote-center&quot;&gt;&lt;p&gt;&lt;code&gt;量化3步走：产生想法，研究策略，回测部署&lt;/code&gt;，宽客可能并不像想象中那么神秘。他们也是首先观察市场，产生一些普通人也会想到的想法，然后采用市场的客观数据进行研究来确定其想法是否正确，而不是基于传闻或经验甚至直接假设他们的想法是正确的。一旦宽客得到了一个满意的策略，他们会将其布置于一个量化系统中。这类系统在进行投资时，排除了情绪的影响，严格地执行经过测试的策略。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="Reading Nodes" scheme="http://www.phoebepan.cn/categories/Reading-Nodes/"/>
     
     
       <category term="Reading" scheme="http://www.phoebepan.cn/tags/Reading/"/>
@@ -898,48 +960,6 @@
       <category term="Reading" scheme="http://www.phoebepan.cn/tags/Reading/"/>
     
       <category term="Thinking" scheme="http://www.phoebepan.cn/tags/Thinking/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ROC &amp; AUC</title>
-    <link href="http://www.phoebepan.cn/2017/06/17/ROC/"/>
-    <id>http://www.phoebepan.cn/2017/06/17/ROC/</id>
-    <published>2017-06-17T07:30:16.000Z</published>
-    <updated>2017-08-13T09:22:45.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote class="blockquote-center"><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>ROC曲线和AUC常常被用来评价二分类模型的优劣，本篇笔记介绍ROC和AUC的特点，以及如何作出ROC曲线图并计算AUC。</p>
-</blockquote>
-<a id="more"></a>
-<h3 id="ROC曲线"><a href="#ROC曲线" class="headerlink" title="ROC曲线"></a>ROC曲线</h3><p>针对二分类问题，ROC曲线的横坐标为<code>false positive rate(FPR)</code>，纵坐标为<code>true positive rate(TPR)</code>。</p>
-<h4 id="FPR和TPR定义"><a href="#FPR和TPR定义" class="headerlink" title="FPR和TPR定义"></a>FPR和TPR定义</h4><p>下图这一混淆矩阵详细说明了FPR和TPR是如何定义的。<br><img src="/images/fpr-and-tpr.png" alt="fpr-and-tpr"><br>对于一个特定的分类器和测试集，只能得到一个分类结果，即只有一组FPR和TPR结果，要得到一曲线，需要一系列的FPR和TPR的值对，<a href="https://en.wikipedia.org/wiki/Receiver_operating_characteristic" target="_blank" rel="external">wikipedia</a>上对ROC曲线的定义：<br><blockquote class="blockquote-center"><p>In statistics, a receiver operating characteristic curve, i.e. ROC curve, is a graphical plot that illustrates the diagnostic ability of a binary classifier system as its discrimination threshold is varied.</p>
-</blockquote><br>“discrimination threshold”如何理解呢？，对于一个二分类器的“概率输出”，即表示分类器认为样本属于正样本的概率多大，我们从高到低依次将这一概率输出作为阈值threshold，得到测试集的正负样本划分，这样每次选取一个不同的threshold，就得到一组FPR和TPR，即ROC曲线上一点，将这些(FPR,TPR)对连接起来，就得到了ROC曲线，当threshold取值越多，ROC曲线越平滑。</p>
-<h3 id="AUC的计算"><a href="#AUC的计算" class="headerlink" title="AUC的计算"></a>AUC的计算</h3><p>AUC的含义是？ROC曲线下面积，作为一个数值，AUC越大分类器效果越好。</p>
-<blockquote>
-<p>可以理解为，所有正负样本对中，正样本score大于负样本score的概率值。</p>
-</blockquote>
-<h3 id="使用ROC曲线好处"><a href="#使用ROC曲线好处" class="headerlink" title="使用ROC曲线好处"></a>使用ROC曲线好处</h3><p>当测试集中正负样本的分布变化或者类别不平衡的时候，相比于Precision-Recall曲线，ROC曲线能够保持不变。</p>
-<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><ul>
-<li><a href="http://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_curve.html" target="_blank" rel="external">sklearn.metrics.roc_curve</a></li>
-<li><a href="http://scikit-learn.org/stable/modules/generated/sklearn.metrics.auc.html" target="_blank" rel="external">sklearn.metrics.auc</a></li>
-</ul>
-<p>参考文献：</p>
-<ol>
-<li><a href="http://alexkong.net/2013/06/introduction-to-auc-and-roc/" target="_blank" rel="external">ROC和AUC介绍以及如何计算AUC</a></li>
-</ol>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote class=&quot;blockquote-center&quot;&gt;&lt;h3 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h3&gt;&lt;p&gt;ROC曲线和AUC常常被用来评价二分类模型的优劣，本篇笔记介绍ROC和AUC的特点，以及如何作出ROC曲线图并计算AUC。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="Machine Learning" scheme="http://www.phoebepan.cn/categories/Machine-Learning/"/>
-    
-    
-      <category term="ML" scheme="http://www.phoebepan.cn/tags/ML/"/>
     
   </entry>
   
